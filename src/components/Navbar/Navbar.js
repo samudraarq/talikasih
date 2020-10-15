@@ -5,15 +5,17 @@ import search from "../../assets/general/search-icon.svg";
 
 const Navbar = () => {
   return (
-    <div className={styles.container}>
-      <img src={logo} alt="logo" />
-      <div className={styles.navLink}>
-        <div className={styles.searchContainer}>
-          <img src={search} alt="search icon" className={styles.searchIcon} />
-          <span className={styles.searchText}>Search</span>
+    <div className={styles.navContainer}>
+      <div className={styles.container}>
+        <img src={logo} alt="logo" className={styles.logo} />
+        <div className={styles.navLink}>
+          <div className={styles.searchContainer}>
+            <img src={search} alt="search icon" className={styles.searchIcon} />
+            <span className={styles.searchText}>Search</span>
+          </div>
+          <span className={styles.loginBtn}>Login</span>
+          <span className={styles.registerBtn}>Register</span>
         </div>
-        <span className={styles.loginBtn}>Login</span>
-        <span className={styles.registerBtn}>Register</span>
       </div>
     </div>
   );

@@ -1,4 +1,55 @@
+.navContainer {
+  height: 8.6rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  z-index: 10;
+}
+
 .container {
   max-width: 120rem;
   margin: auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 2.4rem;
+}
+
+.searchIcon {
+  margin-right: 1rem;
+}
+
+.searchText {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #1d94a8;
+}
+
+.loginBtn,
+.registerBtn {
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 0 2.4rem;
+  border-left: 1px solid #1d94a8;
+  color: #1d94a8;
+  cursor: pointer;
 }
