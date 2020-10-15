@@ -1,6 +1,6 @@
 .container {
   max-width: 120rem;
-  margin: auto;
+  margin: 0 auto 7.2rem;
 }
 
 .topicTitle {
@@ -8,4 +8,41 @@
   font-size: 3.2rem;
   color: #2f243a;
   margin-top: 7.2rem;
+}
+
+.downloadContainer {
+  margin-top: 2.4rem;
+  display: flex;
+}
+
+.bigImage {
+  height: 41rem;
+  width: 66rem;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px 0px #000000 10%;
+  margin-right: 8.6rem;
+}
+
+.available {
+  margin-top: 9rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #2f243a;
+}
+
+.btnContainer {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.appBadge {
+  width: 15rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.playBadge {
+  width: 19rem;
+  cursor: pointer;
 }
