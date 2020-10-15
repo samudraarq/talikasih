@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Footer.module.css";
 
-import logo from "../../assets/general/Logo.svg";
+import logo from "../../assets/general/logo.svg";
 
 const Footer = () => {
   return (
