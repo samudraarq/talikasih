@@ -11,6 +11,18 @@ const Navbar = () => {
       <div className={styles.container}>
         <img src={logo} alt="logo" className={styles.logo} />
         <div className={styles.navLink}>
+          <span
+            className={`${styles.createCampaignBtn} ${
+              !openSearch && styles.openBtn
+            }`}
+          >
+            Create Campaign
+          </span>
+          <span
+            className={`${styles.donateBtn} ${!openSearch && styles.openBtn}`}
+          >
+            Donate
+          </span>
           <div className={styles.searchContainer}>
             <img src={search} alt="search icon" className={styles.searchIcon} />
             <input

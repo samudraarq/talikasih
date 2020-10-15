@@ -27,6 +27,32 @@
   align-items: center;
 }
 
+.createCampaignBtn,
+.donateBtn {
+  padding: 0.5rem 3.4rem;
+  border: 2px solid #a43f3c;
+  border-radius: 20px;
+  color: #a43f3c;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-right: 3rem;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease 0.2s;
+}
+
+.donateBtn {
+  background-color: #a43f3c;
+  color: #ffffff;
+}
+
+.openBtn {
+  visibility: visible;
+  opacity: 1;
+}
+
 .searchContainer {
   display: flex;
   align-items: center;
@@ -38,7 +64,6 @@
 .searchIcon {
   position: absolute;
   left: 1rem;
-  transition: all 0.5s ease;
 }
 
 .searchInput {
