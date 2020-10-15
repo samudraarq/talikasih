@@ -1,0 +1,11 @@
+.container {
+  max-width: 120rem;
+  margin: auto;
+}
+
+.topicTitle {
+  font-weight: 700;
+  font-size: 3.2rem;
+  color: #2f243a;
+  margin-top: 7.2rem;
+}
