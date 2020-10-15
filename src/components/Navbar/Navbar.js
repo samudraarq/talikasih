@@ -42,13 +42,12 @@ const Navbar = () => {
               </span>
             </>
           )}
-          <div className={styles.searchContainer}>
+          <div className={styles.searchContainer} onClick={handleOpenSearch}>
             <img src={search} alt="search icon" className={styles.searchIcon} />
             <input
               className={`${styles.searchInput} ${openSearch && styles.open}`}
               type="text"
               placeholder="Search"
-              onClick={handleOpenSearch}
               onBlur={handleCloseSearch}
             />
           </div>
