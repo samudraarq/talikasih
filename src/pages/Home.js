@@ -1,7 +1,8 @@
 import React from "react";
+import Trending from "../components/Home/Trending/Trending";
 
 const Home = () => {
-  return <div>This is home page</div>;
+  return <Trending />;
 };
 
 export default Home;
