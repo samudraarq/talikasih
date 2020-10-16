@@ -9,12 +9,9 @@ const DiscoverCategory = () => {
   return (
     <div className={styles.container}>
       <HeaderCategory />
-
-      <div className={styles.campaignContainer}>
-        <SortButton />
-        <DiscoverCards />
-        <ChangePage />
-      </div>
+      <SortButton />
+      <DiscoverCards />
+      <ChangePage />
     </div>
   );
 };
