@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/general/logo.svg";
 import search from "../../assets/general/search-icon.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Navbar = () => {
   const [openSearch, setOpenSearch] = useState(false);
   const [createBtn, setCreateBtn] = useState(true);
+
+  const [searchText, setSearchText] = useState("");
+
+  const history = useHistory();
 
   const handleOpenSearch = () => {
     setOpenSearch(true);
@@ -18,6 +22,16 @@ const Navbar = () => {
     setTimeout(() => {
       setCreateBtn(true);
     }, 500);
+  };
+
+  const handleChange = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    if (e.key === "Enter") {
+      history.push(`/discover/search?search=${searchText}`);
+    }
   };
 
   return (
@@ -53,6 +67,8 @@ const Navbar = () => {
               type="text"
               placeholder="Search"
               onBlur={handleCloseSearch}
+              onChange={handleChange}
+              onKeyUp={handleSubmit}
             />
           </div>
           <span className={styles.loginBtn}>Login</span>

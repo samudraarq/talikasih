@@ -8,6 +8,10 @@
   font-size: 3.2rem;
 }
 
+.backlinkContainer {
+  display: inline-block;
+}
+
 .backlinkText {
   margin-top: 2.7rem;
   display: flex;

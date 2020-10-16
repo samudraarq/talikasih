@@ -15,10 +15,12 @@ const HeaderCategory = () => {
           <p className={styles.categoryText}>
             Help them to get speedy recovery
           </p>
-          <Link to="/discover" className={styles.backlinkText}>
-            <img src={leftArrow} alt="left arrow" />
-            <p>See all categories</p>
-          </Link>
+          <div className={styles.backlinkContainer}>
+            <Link to="/discover" className={styles.backlinkText}>
+              <img src={leftArrow} alt="left arrow" />
+              <p>See all categories</p>
+            </Link>
+          </div>
         </div>
         <img src={medicalImg} alt="category" className={styles.categoryImg} />
       </div>
