@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/general/logo.svg";
 import search from "../../assets/general/search-icon.svg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [openSearch, setOpenSearch] = useState(false);
@@ -22,7 +23,9 @@ const Navbar = () => {
   return (
     <div className={styles.navContainer}>
       <div className={styles.container}>
-        <img src={logo} alt="logo" className={styles.logo} />
+        <Link to="/">
+          <img src={logo} alt="logo" className={styles.logo} />
+        </Link>
         <div className={styles.navLink}>
           {createBtn && (
             <>
@@ -33,13 +36,14 @@ const Navbar = () => {
               >
                 Create Campaign
               </span>
-              <span
+              <Link
+                to="/discover"
                 className={`${styles.donateBtn} ${
                   !openSearch && styles.openBtn
                 }`}
               >
                 Donate
-              </span>
+              </Link>
             </>
           )}
           <div className={styles.searchContainer} onClick={handleOpenSearch}>
