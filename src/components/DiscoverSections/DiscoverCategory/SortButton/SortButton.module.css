@@ -1,0 +1,11 @@
+.sortContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sortText {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-right: 1.8rem;
+}
