@@ -1,6 +1,7 @@
 .container {
   max-width: 120rem;
-  margin: 0 auto 7.2rem;
+  margin: auto;
+  padding-bottom: 7.2rem;
 }
 
 .topicTitle {
@@ -20,7 +21,7 @@
   width: 66rem;
   object-fit: cover;
   border-radius: 4px;
-  box-shadow: 0px 4px 4px 0px #000000 10%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   margin-right: 8.6rem;
 }
 

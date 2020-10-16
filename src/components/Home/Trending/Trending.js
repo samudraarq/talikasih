@@ -18,6 +18,7 @@ const Trending = () => {
           alt="Trending"
           className={styles.trendingImage}
         />
+
         <div className={styles.quote}>
           <div>
             <img src={openQuote} alt="openQuote" className={styles.openQuote} />
