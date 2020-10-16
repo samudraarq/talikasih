@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./CategorySelect.module.css";
 
 import disabilityIcon from "../../assets/discover/disability.svg";
@@ -15,14 +16,14 @@ const CategorySelect = () => {
     <div className={styles.container}>
       <h2 className={styles.headerText}>Find causes you truly care about</h2>
       <div className={styles.categoriesContainer}>
-        <div className={styles.categoryBtn}>
+        <Link to="/discover/disability" className={styles.categoryBtn}>
           <img
             src={disabilityIcon}
             alt="disability"
             className={styles.categoryIcon}
           />
           <p className={styles.categoryText}>Disability</p>
-        </div>
+        </Link>
         <div className={styles.categoryBtn}>
           <img
             src={medicalIcon}
