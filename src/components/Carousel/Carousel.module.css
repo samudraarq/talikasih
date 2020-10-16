@@ -1,0 +1,105 @@
+.carousel {
+    background: #F1EDE4;
+    width: 144rem;
+    height: 63rem;
+}
+
+.imgSlide1 {
+    position: absolute;
+    image-resolution: 100%;
+    width: 78rem;
+    /* height: 63rem; */
+    margin: 0px 0px 0px 570px;
+   z-index: 10;
+}
+
+.imgSlide2 {
+    position: absolute;
+    image-resolution: 100%;
+    width: 78rem;
+    /* height: 66rem; */
+    margin: 0px 0px 0px 570px;
+   z-index: 10;
+}
+
+
+.ellipse {
+    position: relative;
+    display: flexbox;
+    image-resolution: 100%;
+    width: 80rem;
+   height: 66rem;
+    margin: 240px 0px 0px -20px;
+   z-index: 1;
+}
+
+.textSlide{
+    position: absolute;
+    margin: 160px 300px 0px 90px;
+
+}
+.h1{
+font-size: 36px;
+font-style: normal;
+font-weight: 700;
+line-height: 49px;
+letter-spacing: 0em;
+text-align: left;
+color: #1D94A8;
+
+}
+
+.h3 {
+ 
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 33px;
+letter-spacing: 0em;
+text-align: left;
+color: #1D94A8;
+}
+
+.span{
+/* flex-direction: row;
+align-items: flex-start; */
+margin: 26px 0px 0px 0px;
+padding: 5px 0px 0px 34px;
+}
+
+.donate{
+padding: 0.4rem 1.8rem;
+border: 1px solid #a43f3c;
+border-radius: 20px;
+font-weight: 700;
+font-size: 1.8rem;
+color: white;
+background-color: #A43F3C;
+order: 0;
+align-self: center;
+flex-grow: 0;
+margin: 16px 20px 0px 0px ;
+width: 14rem;
+height: 3.5rem;
+}
+
+.createCamp {
+padding: 0.4rem 1.8rem;
+border: 2px solid #a43f3c;
+border-radius: 4px;
+font-weight: 700;
+font-size: 1.8rem;
+color: #a43f3c;
+height: 35px;
+width: 24rem;
+left: 16rem;
+border-radius: 20px;
+background-color: white;
+font-style: normal;
+
+
+}
+
+.pagination {
+    color: black;
+}
