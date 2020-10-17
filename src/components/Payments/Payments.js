@@ -3,7 +3,15 @@ import styles from "./Payments.module.css";
 import bank from "../../assets/Donate/bank.png";
 import credit from "../../assets/Donate/credit.png";
 
-function Payments({ formik, handleChange, onSubmit, validate }) {
+function Payments({
+  formik,
+  handleChange,
+  submitForm,
+  validationSchema,
+  onBlur,
+  onTouched,
+  setSubmitting,
+}) {
   const [creditInfo, setCreditInfo] = useState(false);
   const [bankInfo, setBankInfo] = useState(false);
 
@@ -15,6 +23,26 @@ function Payments({ formik, handleChange, onSubmit, validate }) {
   const BankOption = () => {
     setCreditInfo(false);
     setBankInfo(true);
+  };
+
+  const account = (e) => {
+    e.preventDefault();
+    const detailnum = document.getElementById("account");
+    detailnum.select();
+    detailnum.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    // alert("Account number copied!");
+    console.log(detailnum.value);
+  };
+
+  const total = (e) => {
+    e.preventDefault();
+    const detailnum = document.getElementById("total");
+    detailnum.select();
+    detailnum.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    // alert("Total amount copied!");
+    console.log(detailnum.value);
   };
 
   return (
@@ -53,7 +81,7 @@ function Payments({ formik, handleChange, onSubmit, validate }) {
           </div>
         </div>
         {creditInfo ? (
-          <form action="" className={styles.form} onSubmit={onSubmit}>
+          <form action="" className={styles.form} onSubmit={submitForm}>
             <div className={styles.number}>
               <label className={styles.desc} htmlFor="number">
                 Card Number<span className={styles.mandatory}>*</span>
@@ -66,7 +94,11 @@ function Payments({ formik, handleChange, onSubmit, validate }) {
                 placeholder="e.g. 1234 5678 9012 3456"
                 onChange={handleChange}
                 value={formik.number}
+                onBlur={onBlur}
               />
+              {validationSchema.number && onTouched.number ? (
+                <div className={styles.alert}>{validationSchema.number}</div>
+              ) : null}
             </div>
             <div className={styles.date}>
               <label className={styles.desc} htmlFor="date">
@@ -80,7 +112,11 @@ function Payments({ formik, handleChange, onSubmit, validate }) {
                 placeholder="MM/YY"
                 onChange={handleChange}
                 value={formik.date}
+                onBlur={onBlur}
               />
+              {validationSchema.date && onTouched.date ? (
+                <div className={styles.alert}>{validationSchema.date}</div>
+              ) : null}
             </div>
             <div className={styles.cvv}>
               <label className={styles.desc} htmlFor="cvv">
@@ -94,7 +130,11 @@ function Payments({ formik, handleChange, onSubmit, validate }) {
                 placeholder="123"
                 onChange={handleChange}
                 value={formik.cvv}
+                onBlur={onBlur}
               />
+              {validationSchema.cvv && onTouched.cvv ? (
+                <div className={styles.alert}>{validationSchema.cvv}</div>
+              ) : null}
             </div>
           </form>
         ) : (
@@ -103,29 +143,48 @@ function Payments({ formik, handleChange, onSubmit, validate }) {
         {bankInfo ? (
           <div className={styles.transferbox}>
             <div className={styles.transfer}>Transfer to</div>
-            <div className={styles.row}>
-              <div>
-                <div className={styles.detailname}>Account Number</div>
-                <div className={styles.detail}>1234 5678 90</div>
-              </div>
-              <div className={styles.detail}>COPY</div>
+            <div className={styles.info}>
+              <div className={styles.detailname}>Account Number</div>
+              <form action="" className={styles.form}>
+                <input
+                  type="text"
+                  value="1234 5678 90"
+                  id="account"
+                  className={styles.detailnum}
+                />
+                <button className={styles.copy} onClick={(e) => account(e)}>
+                  copy
+                </button>
+              </form>
             </div>
-            <div>
+            <div className={styles.info}>
               <div className={styles.detailname}>Account Holder Name</div>
               <div className={styles.detail}>TaliKasih</div>
             </div>
-            <div className={styles.row}>
-              <div>
-                <div className={styles.detailname}>Total Amount</div>
-                <div className={styles.detail}>Rp.20,000,000</div>
-              </div>
-              <div className={styles.detail}>COPY</div>
+            <div className={styles.info}>
+              <div className={styles.detailname}>Total Amount</div>
+              <form action="" className={styles.form}>
+                <input
+                  type="text"
+                  value="Rp. 20,000,000"
+                  id="total"
+                  className={styles.detailnum}
+                />
+                <button className={styles.copy} onClick={(e) => total(e)}>
+                  copy
+                </button>
+              </form>
             </div>
           </div>
         ) : (
           ""
         )}
-        <button className={styles.donate} type="submit">
+        <button
+          className={styles.donate}
+          type="submit"
+          onClick={submitForm}
+          disabled={setSubmitting}
+        >
           donate
         </button>
       </div>

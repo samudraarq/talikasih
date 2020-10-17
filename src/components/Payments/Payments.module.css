@@ -24,6 +24,11 @@
   color: red;
 }
 
+.alert {
+  color: red;
+  font-weight: 500;
+}
+
 .select {
   /* border: 1px solid black; */
   display: flex;
@@ -133,6 +138,32 @@
   font-weight: 700;
   font-size: 1.6rem;
   color: #2d2d2d;
+}
+
+.detailnum {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #2d2d2d;
+  border: none;
+  background-color: #f4f4f4;
+}
+
+.copy {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #2d2d2d;
+  border: none;
+  background-color: #f4f4f4;
+  text-transform: uppercase;
+}
+
+.copy:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.info {
+  margin: 1.5rem 0;
 }
 
 .row {

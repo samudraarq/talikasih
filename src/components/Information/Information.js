@@ -1,7 +1,13 @@
 import React from "react";
 import styles from "./Information.module.css";
 
-function Information({ formik, handleChange, validate }) {
+function Information({
+  formik,
+  handleChange,
+  validationSchema,
+  onBlur,
+  onTouched,
+}) {
   return (
     <>
       <div className={styles.container}>
@@ -20,8 +26,11 @@ function Information({ formik, handleChange, validate }) {
               className={styles.input1}
               onChange={handleChange}
               value={formik.amount}
+              onBlur={onBlur}
             />
-            <span className={styles.alert}></span>
+            {validationSchema.amount && onTouched.amount ? (
+              <div className={styles.alert}>{validationSchema.amount}</div>
+            ) : null}
             <label className={styles.desc} htmlFor="name">
               Name
               <span className={styles.mandatory}>*</span>
@@ -34,8 +43,11 @@ function Information({ formik, handleChange, validate }) {
               placeholder="Your Name Here"
               onChange={handleChange}
               value={formik.name}
+              onBlur={onBlur}
             />
-            {validate.name ? <div className={styles.alert}></div> : null}
+            {validationSchema.name && onTouched.name ? (
+              <div className={styles.alert}>{validationSchema.name}</div>
+            ) : null}
             <div className={styles.check}>
               <input
                 type="checkbox"
@@ -55,6 +67,7 @@ function Information({ formik, handleChange, validate }) {
               className={styles.input3}
               onChange={handleChange}
               value={formik.message}
+              onBlur={onBlur}
             />
           </form>
           <div>{/* Card */}</div>
