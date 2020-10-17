@@ -3,25 +3,18 @@ import styles from "./Payments.module.css";
 import bank from "../../assets/Donate/bank.png";
 import credit from "../../assets/Donate/credit.png";
 
-function Payments({ donation, setDonation, handleDonate }) {
+function Payments({ formik, handleChange, onSubmit, validate }) {
   const [creditInfo, setCreditInfo] = useState(false);
   const [bankInfo, setBankInfo] = useState(false);
 
-  const creditOption = (e) => {
+  const creditOption = () => {
     setBankInfo(false);
     setCreditInfo(true);
-    e.preventDefault();
-    setDonation({ ...donation, [e.target.name]: e.target.value });
   };
 
   const BankOption = () => {
     setCreditInfo(false);
     setBankInfo(true);
-  };
-
-  const handleDonation = (e) => {
-    setDonation({ ...donation, [e.target.name]: e.target.value });
-    console.log(donation);
   };
 
   return (
@@ -38,7 +31,7 @@ function Payments({ donation, setDonation, handleDonate }) {
                 type="radio"
                 name="payment"
                 id="credit"
-                onChange={(e) => creditOption(e)}
+                onClick={creditOption}
               />
               <label className={styles.label} htmlFor="credit">
                 <img src={bank} alt="Credit/Debit Card" />
@@ -50,7 +43,7 @@ function Payments({ donation, setDonation, handleDonate }) {
                 type="radio"
                 name="payment"
                 id="bank"
-                onChange={(e) => BankOption(e)}
+                onClick={BankOption}
               />
               <label className={styles.label} htmlFor="bank">
                 <img src={credit} alt="Bank Transfer" />
@@ -60,41 +53,47 @@ function Payments({ donation, setDonation, handleDonate }) {
           </div>
         </div>
         {creditInfo ? (
-          <form action="" className={styles.form}>
+          <form action="" className={styles.form} onSubmit={onSubmit}>
             <div className={styles.number}>
-              <label className={styles.desc}>
+              <label className={styles.desc} htmlFor="number">
                 Card Number<span className={styles.mandatory}>*</span>
               </label>
               <input
                 type="text"
-                name="card-number"
+                id="number"
+                name="number"
                 className={styles.input1}
                 placeholder="e.g. 1234 5678 9012 3456"
-                onBlur={(e) => handleDonation(e)}
+                onChange={handleChange}
+                value={formik.number}
               />
             </div>
             <div className={styles.date}>
-              <label className={styles.desc}>
+              <label className={styles.desc} htmlFor="date">
                 Expiry Date<span className={styles.mandatory}>*</span>
               </label>
               <input
                 type="text"
-                name="expiry-date"
+                id="date"
+                name="date"
                 className={styles.input2}
                 placeholder="MM/YY"
-                onBlur={(e) => handleDonation(e)}
+                onChange={handleChange}
+                value={formik.date}
               />
             </div>
             <div className={styles.cvv}>
-              <label className={styles.desc}>
+              <label className={styles.desc} htmlFor="cvv">
                 CVV<span className={styles.mandatory}>*</span>
               </label>
               <input
                 type="text"
+                id="cvv"
                 name="cvv"
                 className={styles.input3}
                 placeholder="123"
-                onBlur={(e) => handleDonation(e)}
+                onChange={handleChange}
+                value={formik.cvv}
               />
             </div>
           </form>
@@ -126,7 +125,7 @@ function Payments({ donation, setDonation, handleDonate }) {
         ) : (
           ""
         )}
-        <button className={styles.donate} onClick={handleDonate}>
+        <button className={styles.donate} type="submit">
           donate
         </button>
       </div>

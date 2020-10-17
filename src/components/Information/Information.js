@@ -1,90 +1,60 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Information.module.css";
 
-function Information({ donation, setDonation }) {
-  const [state, setState] = useState("");
-  const [alertAmount, setAlertAmount] = useState("");
-  const [alertName, setAlertName] = useState("");
-
-  const handleAmount = (e) => {
-    e.preventDefault();
-    setState(e.target.value);
-    // console.log(e.target.value);
-    if (state !== "") {
-      setAlertAmount("Amount can't be empty");
-    } else {
-      setAlertAmount("");
-    }
-    setDonation({ ...donation, [e.target.name]: e.target.value });
-  };
-  const handleName = (e) => {
-    e.preventDefault();
-    setState(e.target.value);
-    setDonation({ ...donation, [e.target.name]: e.target.value });
-    if (state !== "") {
-      setAlertName("Name can't be empty");
-    } else {
-      setAlertName("");
-    }
-  };
-
-  const handleMessage = (e) => {
-    setDonation({ ...donation, [e.target.name]: e.target.value });
-    console.log(donation);
-  };
-
-  const handleAnonym = (e) => {
-    setDonation({ ...donation, [e.target.name]: true });
-  };
-
+function Information({ formik, handleChange, validate }) {
   return (
     <>
       <div className={styles.container}>
         <div className={styles.title}>Donation</div>
         <div className={styles.row}>
           <form action="" className={styles.form}>
-            <label className={styles.desc}>
+            <label className={styles.desc} htmlFor="amount">
               Amount
               <span className={styles.mandatory}>*</span>
             </label>
             <input
               type="text"
+              id="amount"
               name="amount"
-              onBlur={(e) => handleAmount(e)}
               placeholder="20.000.000"
               className={styles.input1}
+              onChange={handleChange}
+              value={formik.amount}
             />
-            <span className={styles.alert}>{alertAmount}</span>
-            <label className={styles.desc}>
+            <span className={styles.alert}></span>
+            <label className={styles.desc} htmlFor="name">
               Name
               <span className={styles.mandatory}>*</span>
             </label>
             <input
               type="text"
+              id="name"
               name="name"
-              onBlur={(e) => handleName(e)}
               className={styles.input2}
               placeholder="Your Name Here"
+              onChange={handleChange}
+              value={formik.name}
             />
-            <span className={styles.alert}>{alertName}</span>
+            {validate.name ? <div className={styles.alert}></div> : null}
             <div className={styles.check}>
               <input
                 type="checkbox"
                 name="anonym"
-                onClick={(e) => handleAnonym(e)}
                 className={styles.checkbox}
               />
-              <span className={styles.anonym}>Set as anonymus</span>
+              <div className={styles.anonym}> Set as anonymus</div>
             </div>
-            <label className={styles.desc}>
+            <label className={styles.desc} htmlFor="message">
               Message <span className={styles.optional}>(Optional)</span>
             </label>
             <input
               type="text"
+              id="message"
               name="message"
               placeholder="Give them support!"
               className={styles.input3}
-              onBlur={(e) => handleMessage(e)}
+              onChange={handleChange}
+              value={formik.message}
             />
           </form>
           <div>{/* Card */}</div>
