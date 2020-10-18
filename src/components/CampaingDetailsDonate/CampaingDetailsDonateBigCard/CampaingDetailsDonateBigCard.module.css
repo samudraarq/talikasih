@@ -1,0 +1,165 @@
+.container {
+  max-width: 120rem;
+  margin: 10rem auto;
+  height: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  flex-direction: row;
+}
+
+.cardKiri {
+  width: 62%;
+  /* background-color: brown; */
+}
+.cardKiri h1 {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 49px;
+
+  color: #000000;
+}
+
+.cardKiri img {
+  width: 100%;
+  padding: 2rem 2rem 2rem 0;
+  border-radius: 2rem;
+}
+.cardKanan {
+  width: 37%;
+  /* background-color: chartreuse; */
+  border: 1px solid #f1ede4;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  padding: 5rem;
+  margin-top: 5rem;
+}
+
+.cardKanan h1 {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+
+  /* Rose */
+  color: #a43f3c;
+}
+
+.progress {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  position: relative;
+  margin-top: 1rem;
+  height: 8px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.progressDone {
+  background: #1d94a8;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 0;
+  opacity: 0;
+  transition: 1s ease 0.3s;
+}
+
+.profilContainer {
+  display: flex;
+  justify-content: right;
+  flex-direction: row;
+}
+
+.profilContainer img {
+  max-width: 4.6rem;
+  max-height: 4.5rem;
+  border-radius: 0.2rem;
+  margin-right: 1rem;
+}
+
+.profilName h4 {
+  color: #9f9f9f;
+}
+
+.dataCount {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.dataCount div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  background: #ffffff;
+
+  min-height: 8.4rem;
+  min-width: 8.4rem;
+
+  /* Platinum */
+  border: 1px solid #f4f4f4;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.dataCount h1 {
+  color: #1d94a8;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.dataCount p {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+
+  /* Grey */
+  color: #9f9f9f;
+}
+
+.btnShare {
+  height: 4rem;
+  width: 37rem;
+  background: #ffffff;
+  margin-top: 8rem;
+
+  /* Tosca */
+  border: 1px solid #1d94a8;
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin-bottom: 0.4rem;
+  color: #1d94a8;
+
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 1px;
+
+  text-align: center;
+}
+
+.btnDonate {
+  height: 4rem;
+  width: 37rem;
+  background: #a43f3c;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+}

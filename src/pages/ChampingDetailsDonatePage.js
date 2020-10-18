@@ -1,18 +1,18 @@
 import React from "react";
-import CampaignCreate from "../components/CampaignCreate/CampaignCreate";
+import CampaingDetailsDonate from "../components/CampaingDetailsDonate/CampaingDetailsDonate";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 
-const CampaingCreatePage = () => {
+const ChampingDetailsDonatePage = () => {
   return (
     <>
       <Navbar />
       <div> 
-        <CampaignCreate/>
+        <CampaingDetailsDonate/>
       </div>
       <Footer />
     </>
   );
 };
 
-export default CampaingCreatePage;
+export default ChampingDetailsDonatePage;

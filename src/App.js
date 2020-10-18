@@ -7,12 +7,12 @@ import DiscoverCategoryPage from "./pages/DiscoverCategory/DiscoverCategoryPage"
 import DiscoverSearchPage from "./pages/DiscoverSearchPage";
 import Home from "./pages/Home";
 import Donate from "./pages/Donate/Donate";
+import ChampingDetailsDonatePage from "./pages/ChampingDetailsDonatePage";
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-<<<<<<< HEAD
         <Route path="/discover/search">
           <DiscoverSearchPage />
         </Route>
@@ -25,10 +25,10 @@ function App() {
         <Route path="/campaign/create">
           <CampingCreatePage/>
         </Route>
-        <Route path="/">
-=======
+        <Route path="/campaign/details/donate">
+          <ChampingDetailsDonatePage/>
+        </Route>
         <Route exact path="/">
->>>>>>> 604c12f177c2bc1233fce26bc75febdcae76ad25
           <Home />
         </Route>
         <Route path="/donate">
