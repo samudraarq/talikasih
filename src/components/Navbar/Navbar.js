@@ -43,13 +43,15 @@ const Navbar = () => {
         <div className={styles.navLink}>
           {createBtn && (
             <>
-              <span
+            <Link
+                to="/Campaing/Create"
                 className={`${styles.createCampaignBtn} ${
                   !openSearch && styles.openBtn
                 }`}
               >
                 Create Campaign
-              </span>
+                </Link>
+
               <Link
                 to="/discover"
                 className={`${styles.donateBtn} ${
@@ -57,7 +59,7 @@ const Navbar = () => {
                 }`}
               >
                 Donate
-              </Link>
+                </Link>
             </>
           )}
           <div className={styles.searchContainer} onClick={handleOpenSearch}>

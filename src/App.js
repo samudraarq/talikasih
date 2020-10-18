@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Discover from "./pages/Discover";
+import CampingCreatePage from "./pages/CampingCreatePage";
 import DiscoverCategoryPage from "./pages/DiscoverCategory/DiscoverCategoryPage";
 import DiscoverSearchPage from "./pages/DiscoverSearchPage";
 import Home from "./pages/Home";
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/discover">
           <Discover />
+        </Route>
+        <Route path="/Campaing/Create">
+          <CampingCreatePage />
         </Route>
         <Route path="/">
           <Home />

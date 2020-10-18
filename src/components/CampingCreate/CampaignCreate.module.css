@@ -1,0 +1,35 @@
+.container {
+    max-width: 120rem;
+    margin: 10rem auto;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+   flex-direction: column;
+  }
+  
+  .cardAtas{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-width: 964px;
+    min-height: 494px;
+      background-color: #E1E0E0;
+  }
+
+  .title{
+    display: flex;
+    max-width: 120rem;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+   flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .input{
+
+    display: none;
+  }
