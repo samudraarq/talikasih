@@ -71,6 +71,9 @@ const Navbar = () => {
               onKeyUp={handleSubmit}
             />
           </div>
+          <Link to="/user/profile" className={styles.profileBtn}>
+            My Profile
+          </Link>
           <span className={styles.loginBtn}>Login</span>
           <span className={styles.registerBtn}>Register</span>
         </div>

@@ -5,7 +5,7 @@ import logo from "../../assets/general/logo.svg";
 
 const Footer = () => {
   return (
-    <>
+    <footer className={styles.footer}>
       <div className={styles.borderBottom}>
         <div className={styles.container}>
           <div className={styles.footerContainer}>
@@ -46,7 +46,7 @@ const Footer = () => {
           TaliKasih &#169; 2020. All rights reserved
         </p>
       </div>
-    </>
+    </footer>
   );
 };
 

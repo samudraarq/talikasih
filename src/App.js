@@ -5,6 +5,7 @@ import Discover from "./pages/Discover";
 import DiscoverCategoryPage from "./pages/DiscoverCategory/DiscoverCategoryPage";
 import DiscoverSearchPage from "./pages/DiscoverSearchPage";
 import Home from "./pages/Home";
+import UserProfilePage from "./pages/UserProfilePage";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/discover">
           <Discover />
+        </Route>
+        <Route path="/user/profile">
+          <UserProfilePage />
         </Route>
         <Route path="/">
           <Home />
