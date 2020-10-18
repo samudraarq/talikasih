@@ -6,11 +6,13 @@ import CampingCreatePage from "./pages/CampaingCreatePage";
 import DiscoverCategoryPage from "./pages/DiscoverCategory/DiscoverCategoryPage";
 import DiscoverSearchPage from "./pages/DiscoverSearchPage";
 import Home from "./pages/Home";
+import Donate from "./pages/Donate/Donate";
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
+<<<<<<< HEAD
         <Route path="/discover/search">
           <DiscoverSearchPage />
         </Route>
@@ -24,7 +26,13 @@ function App() {
           <CampingCreatePage/>
         </Route>
         <Route path="/">
+=======
+        <Route exact path="/">
+>>>>>>> 604c12f177c2bc1233fce26bc75febdcae76ad25
           <Home />
+        </Route>
+        <Route path="/donate">
+          <Donate />
         </Route>
       </Switch>
     </BrowserRouter>
