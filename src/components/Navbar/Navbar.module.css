@@ -1,0 +1,101 @@
+.navContainer {
+  height: 8.6rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  z-index: 10;
+}
+
+.container {
+  max-width: 120rem;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+}
+
+.createCampaignBtn,
+.donateBtn {
+  padding: 0.5rem 3.4rem;
+  border: 2px solid #a43f3c;
+  border-radius: 20px;
+  color: #a43f3c;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-right: 3rem;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease 0.2s;
+  text-decoration: none;
+}
+
+.donateBtn {
+  background-color: #a43f3c;
+  color: #ffffff;
+}
+
+.openBtn {
+  visibility: visible;
+  opacity: 1;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 2.4rem;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+}
+
+.searchInput {
+  width: 9.3rem;
+  height: 3.6rem;
+  border: none;
+  border-radius: 2.5rem;
+  size: 1.8rem;
+  padding-left: 4rem;
+  padding-right: 0rem;
+  transition: all 0.5s ease;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  font-size: 1.6rem;
+  color: #1d94a8;
+}
+
+.open {
+  width: 52rem;
+  padding-right: 2rem;
+  background-color: #f4f4f4;
+}
+
+.loginBtn,
+.registerBtn {
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 0 2.4rem;
+  border-left: 1px solid #1d94a8;
+  color: #1d94a8;
+  cursor: pointer;
+}

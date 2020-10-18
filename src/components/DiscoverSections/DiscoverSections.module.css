@@ -1,0 +1,22 @@
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding-bottom: 16rem;
+}
+
+.sectionsContainer {
+  margin-bottom: 6rem;
+}
+
+.sectionsTitle {
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.4rem;
+}

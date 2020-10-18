@@ -1,11 +1,10 @@
 import React from "react";
+import CategorySelect from "../components/CategorySelect/CategorySelect";
+import DiscoverSections from "../components/DiscoverSections/DiscoverSections";
 import Footer from "../components/Footer/Footer";
-import DownloadApps from "../components/Home/DownloadApps/DownloadApps";
-import NewCampaign from "../components/Home/NewCampaign/NewCampaign";
-import Trending from "../components/Home/Trending/Trending";
 import Navbar from "../components/Navbar/Navbar";
 
-const Home = () => {
+const Discover = () => {
   return (
     <>
       <Navbar />
@@ -14,13 +13,12 @@ const Home = () => {
           background: "linear-gradient(#ffffff 0%, #ffffff 50%, #f2f9fa 100%)",
         }}
       >
-        <Trending />
-        <NewCampaign />
-        <DownloadApps />
+        <CategorySelect />
+        <DiscoverSections />
       </div>
       <Footer />
     </>
   );
 };
 
-export default Home;
+export default Discover;
