@@ -34,3 +34,11 @@
   object-position: center;
   border-radius: 4px;
 }
+
+.editBtn {
+  display: block;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #1d94a8;
+  margin-top: 1.3rem;
+}

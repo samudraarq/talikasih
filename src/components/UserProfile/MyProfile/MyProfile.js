@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./MyProfile.module.css";
 
 import profilePic from "../../../assets/profile/foto-profile.png";
+import { Link } from "react-router-dom";
 
 const MyProfile = () => {
   const handleLogout = () => {
@@ -17,6 +18,9 @@ const MyProfile = () => {
         </button>
       </div>
       <img src={profilePic} alt="User" className={styles.userPic} />
+      <Link to="user/profile/edit" className={styles.editBtn}>
+        Edit Profile
+      </Link>
     </div>
   );
 };
