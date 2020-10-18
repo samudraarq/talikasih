@@ -45,6 +45,7 @@ header {
     bottom: -1em;
     z-index: 100;
     text-align: center;
+    
 }
 
 .hide {
@@ -53,6 +54,7 @@ header {
 
 .show:target {
     display: none;
+    
 }
 
 .show:target~.hide {
@@ -61,17 +63,21 @@ header {
 
 .show:target~.panel {
     max-height: 200rem;
+    background: -webkit-linear-gradient( #333, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .show:target~.fade {
     margin-top: 0;
+   
 }
 
 .panel {
     position: relative;
     margin: 1em auto;
     width: 80%;
-    max-height: 30rem;
+    max-height: 40rem;
     overflow: hidden;
     transition: max-height .5s ease;
     font-family: Nunito;
@@ -79,6 +85,16 @@ header {
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
+    background: -webkit-linear-gradient( #333, #eee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+.insideGradient{
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .fade {
@@ -86,6 +102,7 @@ header {
     height: 10rem;
     margin-top: -10rem;
     position: relative;
+    
 }
 
 

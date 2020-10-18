@@ -64,6 +64,7 @@ const CampaingDetailsDonateTheStory = () => {
           Gentiles, Protestants and Catholics, will be able to join hands and
           sing in the words of the old Negro spiritual: Free at last! Free at
           last! Thank God Almighty, we are free at last!
+          
         </div>
         <div className={styles.fade}></div>
       </div>
