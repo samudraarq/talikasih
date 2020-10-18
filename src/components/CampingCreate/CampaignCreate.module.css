@@ -4,7 +4,7 @@
     height: 100%;
     display: flex;
     justify-content: right;
-    align-items: center;
+    align-items: right;
    flex-direction: column;
   }
   
@@ -18,12 +18,12 @@
       background-color: #E1E0E0;
   }
 
-  .title{
+  .titel{
     display: flex;
     max-width: 120rem;
     height: 100%;
     display: flex;
-    justify-content: right;
+    justify-content: left;
     align-items: right;
    flex-direction: column;
     margin-bottom: 2rem;

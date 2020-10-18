@@ -1,6 +1,6 @@
 import styles from "./AddHeaderCamping.module.css";
 import React, { useState,  } from "react";
-
+import iconplus from "../../../assets/CampingCreate/Vector.png";
 const AddHeaderCamping = () => {
   const [image, setImage] = useState({ preview: "", raw: "" });
 
@@ -35,7 +35,7 @@ const AddHeaderCamping = () => {
         ) : (
           <>
             <span className={styles.cardAtas}>
-              <span>icon +</span>
+              <img className={styles.imageplus} src={iconplus}></img>
               <h1 className="text-center">Add Header Photo</h1>
             </span>
           </>

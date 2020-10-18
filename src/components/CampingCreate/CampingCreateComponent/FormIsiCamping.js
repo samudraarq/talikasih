@@ -4,24 +4,24 @@ import React from "react";
 
 const FormIsiCamping = () => {
     return(
-        <div>
+        <div className={styles.container}>
         <div className={styles.cardkiri}>
           <label>
-              titel:
+              Titel:<br></br>
               <input type="text"></input>
               </label>  
               <label>
-              Category:
+              Goal:<br></br>
               <input type="text"></input>
               </label>  
         </div>
         <div className={styles.cardkanan}>
         <label>
-              Goal:
-              <input type="text"></input>
+        Category:<br></br>
+              <input type="select"></input>
               </label>  
               <label>
-              Due date:
+              Due date:<br></br>
               <input type="date"></input>
               </label>  
         </div>

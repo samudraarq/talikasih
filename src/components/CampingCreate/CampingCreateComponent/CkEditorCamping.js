@@ -5,11 +5,14 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const CkEditorCamping = () => {
     return(
-        <div className="App">
-                <h2>Using CKEditor 5 build in React</h2>
+        <div  className="App">
+                <h2>Story</h2>
+                <br></br>
                 <CKEditor
+                    className={styles.CKEditor}
                     editor={ ClassicEditor }
-                    data="<p>Hello from CKEditor 5!</p>"
+                    data="<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br>"
                     onInit={ editor => {
                         // You can store the "editor" and use when it is needed.
                         console.log( 'Editor is ready to use!', editor );
@@ -26,7 +29,7 @@ const CkEditorCamping = () => {
                     } }
                 />
                 
-                <button> Create Campaign</button>
+                
             </div>
     )
   

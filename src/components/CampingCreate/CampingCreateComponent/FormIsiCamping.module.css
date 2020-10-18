@@ -1,0 +1,36 @@
+.container{
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+font-size: 18px;
+}
+
+.cardkiri {
+display: flex;
+/* background-color: aqua; */
+justify-content: space-between;
+flex-direction: column;
+padding: 7rem;
+width: 50%;
+}
+.cardkanan{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: brown; */
+    flex-direction: column;
+    padding: 7rem;
+    width: 50%;
+    }
+
+    input{
+    width: 100%;
+        padding: 1rem;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        margin-bottom: ;
+    }
+
+    label {
+        margin-bottom: 1rem;
+    }
