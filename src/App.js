@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Discover from "./pages/Discover";
-import CampingCreatePage from "./pages/CampingCreatePage";
+import CampingCreatePage from "./pages/CampaingCreatePage";
 import DiscoverCategoryPage from "./pages/DiscoverCategory/DiscoverCategoryPage";
 import DiscoverSearchPage from "./pages/DiscoverSearchPage";
 import Home from "./pages/Home";
@@ -20,8 +20,8 @@ function App() {
         <Route path="/discover">
           <Discover />
         </Route>
-        <Route path="/Campaing/Create">
-          <CampingCreatePage />
+        <Route path="/campaign/create">
+          <CampingCreatePage/>
         </Route>
         <Route path="/">
           <Home />

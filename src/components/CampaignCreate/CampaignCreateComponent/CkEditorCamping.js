@@ -11,8 +11,7 @@ const CkEditorCamping = () => {
                 <CKEditor
                     className={styles.CKEditor}
                     editor={ ClassicEditor }
-                    data="<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br><br><br>"
+                    data="<span style={{color: 'red'}}  >.sdfsdfsdf..</span>"
                     onInit={ editor => {
                         // You can store the "editor" and use when it is needed.
                         console.log( 'Editor is ready to use!', editor );

@@ -4,15 +4,15 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      min-width: 964px;
-    min-height: 494px;
+      min-width: 60.25rem;
+    min-height: 35.875rem;
       background-color: #E1E0E0;
       margin-bottom: 3rem;
   }
 
   .imageplus{
     /* background-color: brown; */
-    height: 60px;
-    width: 60px;
+    height: 5rem;
+    width: 5rem;
     margin-bottom: 2rem;
   }

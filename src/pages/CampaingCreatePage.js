@@ -1,5 +1,5 @@
 import React from "react";
-import CampaignCreate from "../components/CampingCreate/CampingCreate";
+import CampaignCreate from "../components/CampaignCreate/CampaignCreate";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 

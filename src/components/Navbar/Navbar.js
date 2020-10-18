@@ -44,7 +44,7 @@ const Navbar = () => {
           {createBtn && (
             <>
             <Link
-                to="/Campaing/Create"
+                to="/campaign/create"
                 className={`${styles.createCampaignBtn} ${
                   !openSearch && styles.openBtn
                 }`}
