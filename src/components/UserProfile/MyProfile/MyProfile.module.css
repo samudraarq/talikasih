@@ -1,0 +1,36 @@
+.profileContainer {
+  border: 1px solid #e1e0e0;
+  border-radius: 4px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.logoutBtn {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #a43f3c;
+  text-decoration: underline;
+  outline: none;
+  cursor: pointer;
+}
+
+.userPic {
+  height: 20rem;
+  width: 20rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
