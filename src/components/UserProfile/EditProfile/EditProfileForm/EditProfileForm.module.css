@@ -8,10 +8,13 @@
 .inputContainer label {
   display: block;
   text-align: start;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 1.4rem;
-  color: #9f9f9f;
   margin-bottom: 0.8rem;
+}
+
+.star {
+  color: #a43f3c;
 }
 
 .inputContainer input {

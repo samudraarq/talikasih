@@ -22,7 +22,9 @@ const EditProfileForm = () => {
       <div
         className={`${styles.inputContainer} ${errors.name && styles.error}`}
       >
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">
+          Name<span className={styles.star}>*</span>
+        </label>
         <input
           type="text"
           name="name"
@@ -36,7 +38,9 @@ const EditProfileForm = () => {
       <div
         className={`${styles.inputContainer} ${errors.email && styles.error}`}
       >
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">
+          Email<span className={styles.star}>*</span>
+        </label>
         <input
           type="email"
           name="email"
@@ -59,14 +63,19 @@ const EditProfileForm = () => {
               errors.pass && styles.error
             }`}
           >
-            <label htmlFor="pass">New Password</label>
+            <label htmlFor="pass">
+              New Password<span className={styles.star}>*</span>
+            </label>
             <input
               type="password"
               name="pass"
               defaultValue="*******"
-              ref={register({ minLength: 6 })}
+              ref={register({ required: true, minLength: 6 })}
             />
-            {errors.pass && (
+            {errors.pass?.type === "required" && (
+              <span className={styles.errorText}>This field is required</span>
+            )}
+            {errors.pass?.type === "minLength" && (
               <span className={styles.errorText}>
                 Minimal length is 6 chacters
               </span>
@@ -77,18 +86,24 @@ const EditProfileForm = () => {
               errors.passConf && styles.error
             }`}
           >
-            <label htmlFor="passConf">Confirm New Password</label>
+            <label htmlFor="passConf">
+              Confirm New Password<span className={styles.star}>*</span>
+            </label>
             <input
               type="password"
               name="passConf"
               defaultValue="*******"
               ref={register({
+                required: true,
                 validate: (value) => {
                   return value === watch("pass");
                 },
               })}
             />
-            {errors.passConf && (
+            {errors.passConf?.type === "required" && (
+              <span className={styles.errorText}>This field is required</span>
+            )}
+            {errors.passConf?.type === "validate" && (
               <span className={styles.errorText}>Password doesn't match</span>
             )}
           </div>
@@ -103,7 +118,9 @@ const EditProfileForm = () => {
           errors.bankName && styles.error
         }`}
       >
-        <label htmlFor="bankName">Bank Name</label>
+        <label htmlFor="bankName">
+          Bank Name<span className={styles.star}>*</span>
+        </label>
         <input
           type="text"
           name="bankName"
@@ -119,7 +136,9 @@ const EditProfileForm = () => {
           errors.bankAccountNumber && styles.error
         }`}
       >
-        <label htmlFor="bankAccountNumber">Bank Account Number</label>
+        <label htmlFor="bankAccountNumber">
+          Bank Account Number<span className={styles.star}>*</span>
+        </label>
         <input
           type="number"
           name="bankAccountNumber"
