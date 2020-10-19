@@ -4,6 +4,7 @@ import "./App.css";
 import Discover from "./pages/Discover";
 import DiscoverCategoryPage from "./pages/DiscoverCategory/DiscoverCategoryPage";
 import DiscoverSearchPage from "./pages/DiscoverSearchPage";
+import EditProfilePage from "./pages/EditProfilePage";
 import Home from "./pages/Home";
 import UserProfilePage from "./pages/UserProfilePage";
 
@@ -19,6 +20,9 @@ function App() {
         </Route>
         <Route path="/discover">
           <Discover />
+        </Route>
+        <Route path="/user/profile/edit">
+          <EditProfilePage />
         </Route>
         <Route path="/user/profile">
           <UserProfilePage />

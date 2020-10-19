@@ -27,7 +27,7 @@ const MyProfile = () => {
         </button>
       </div>
       <img src={profilePic} alt="User" className={styles.userPic} />
-      <Link to="user/profile/edit" className={styles.editBtn}>
+      <Link to="/user/profile/edit" className={styles.editBtn}>
         Edit Profile
       </Link>
       <div className={styles.inputsContainer}>
