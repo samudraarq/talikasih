@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./CampaingDetailsDonateTheStory.module.css";
-const CampaingDetailsDonateTheStory = () => {
+import styles from "./CampaignDetailsDonateTheStory.module.css";
+const CampaignDetailsDonateTheStory = () => {
   return (
     <div className={styles.container}>
       <div className={styles.panelWrapper}>
@@ -72,4 +72,4 @@ const CampaingDetailsDonateTheStory = () => {
   );
 };
 
-export default CampaingDetailsDonateTheStory;
+export default CampaignDetailsDonateTheStory;

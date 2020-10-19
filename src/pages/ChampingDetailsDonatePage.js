@@ -1,5 +1,5 @@
 import React from "react";
-import CampaingDetailsDonate from "../components/CampaingDetailsDonate/CampaingDetailsDonate";
+import CampaingDetailsDonate from "../components/CampaignDetailsDonate/CampaignDetailsDonate";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 

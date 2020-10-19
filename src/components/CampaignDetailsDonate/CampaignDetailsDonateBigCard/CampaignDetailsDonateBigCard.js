@@ -1,9 +1,9 @@
 // import { Form } from 'formik'
 import React from 'react'
-import styles from "./CampaingDetailsDonateBigCard.module.css";
+import styles from "./CampaignDetailsDonateBigCard.module.css";
 import cardImg1 from "../../../assets/CampingDetails/Rectangle 25.png";
 
-export const CampaingDetailsDonateBigCard = () => {
+export const CampaignDetailsDonateBigCard = () => {
 
     const progress = 70;
     return (

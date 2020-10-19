@@ -1,0 +1,47 @@
+.container {
+    max-width: 120rem;
+    margin: 10rem auto 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+form {
+
+    margin-top: 2rem;
+}
+
+textarea {
+    width: 100%;
+    min-height: 13rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: rgba(241, 237, 228, 0.2);
+    border-radius: 1rem;
+}
+
+.btnwraper{
+
+    display: flex;
+    justify-content: flex-end;
+}
+.btnpost{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 1px;
+    
+    /* White */
+    color: #FFFFFF;
+    background: #A43F3C;
+    border-radius: 3px;
+    border: none;
+    padding: 1rem 4rem;
+}
