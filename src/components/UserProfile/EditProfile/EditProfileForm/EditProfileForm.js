@@ -17,6 +17,10 @@ const EditProfileForm = () => {
         <label htmlFor="email">Email</label>
         <input type="email" name="email" value={userEmail} readOnly />
       </div>
+      <p className={styles.resetPass}>Reset password</p>
+      <p className={styles.bankPurpose}>
+        We need your bank account for campaign purpose
+      </p>
       <div className={styles.inputContainer}>
         <label htmlFor="bankName">Bank Name</label>
         <input type="text" name="bankName" value={userBankName} readOnly />
