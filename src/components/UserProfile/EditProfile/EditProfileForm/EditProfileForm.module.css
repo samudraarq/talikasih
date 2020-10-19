@@ -30,6 +30,19 @@
   outline: none;
 }
 
+/* remove arrow on input number */
+/* Chrome, Safari, Edge, Opera */
+.inputContainer input::-webkit-outer-spin-button,
+.inputContainer input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.inputContainer input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .inputContainer input:focus {
   border-bottom: 1px solid #1d94a8;
 }
