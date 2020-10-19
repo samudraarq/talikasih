@@ -1,0 +1,15 @@
+.ReactModalPortal{
+  z-index: 9999;
+    position: relative;
+
+}
+
+.modal_wrapper{
+    background-color:#F1EDE4;
+    margin: 6% 0 0 35%;
+    width: 40rem;
+    height: 55rem;
+    border-style: none;
+}
+
+

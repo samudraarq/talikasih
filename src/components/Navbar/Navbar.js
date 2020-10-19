@@ -3,7 +3,8 @@ import styles from "./Navbar.module.css";
 import logo from "../../assets/general/logo.svg";
 import search from "../../assets/general/search-icon.svg";
 
-const Navbar = () => {
+
+const Navbar = (props) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [createBtn, setCreateBtn] = useState(true);
 
@@ -51,7 +52,8 @@ const Navbar = () => {
               onBlur={handleCloseSearch}
             />
           </div>
-          <span className={styles.loginBtn}>Login</span>
+          <span className={styles.loginBtn} onClick={() => props.openModal(true) }>
+            Login</span>
           <span className={styles.registerBtn}>Register</span>
         </div>
       </div>

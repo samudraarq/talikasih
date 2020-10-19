@@ -1,13 +1,13 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, EffectFade, Autoplay, A11y } from 'swiper';
+import SwiperCore, { Pagination, EffectFade, Autoplay, A11y } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import styles from './Carousel.module.css';
 import imgSlide1 from '../../assets/homepage/Home/Carousel/slide1.svg';
 import ellipse from '../../assets/homepage/Home/Carousel/Ellipse.svg';
 import imgSlide2 from '../../assets/homepage/Home/Carousel/slide2.svg';
 
-SwiperCore.use([Navigation, Pagination,EffectFade, Autoplay, A11y]);
+SwiperCore.use([ Pagination,EffectFade, Autoplay, A11y]);
  
 function Carousel() {
     return (
@@ -16,7 +16,6 @@ function Carousel() {
             effect="fade"
             spaceBetween={20}
             slidesPerView={1}
-            navigation
             pagination={{ clickable: true }}
             autoplay= {{delay:3000, disableOnInteraction: false}}
             onSlideChange={() => console.log('slide change')}
