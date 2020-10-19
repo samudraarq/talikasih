@@ -130,7 +130,7 @@ const EditProfileForm = () => {
           <span className={styles.errorText}>This field is required</span>
         )}
       </div>
-      <button>Submit</button>
+      <button className={styles.submitBtn}>Save changes</button>
     </form>
   );
 };
