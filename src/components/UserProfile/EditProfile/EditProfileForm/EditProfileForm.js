@@ -6,7 +6,9 @@ import styles from "./EditProfileForm.module.css";
 const EditProfileForm = () => {
   const [resetPass, setResetPass] = useState(false);
 
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch, errors } = useForm({
+    mode: "onTouched",
+  });
 
   const userName = "Luna";
   const userEmail = "luna@mail.com";
