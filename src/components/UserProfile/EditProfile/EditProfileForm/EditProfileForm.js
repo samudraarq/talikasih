@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import styles from "./EditProfileForm.module.css";
 
 const EditProfileForm = () => {
+  const [resetPass, setResetPass] = useState(false);
+
   const { register, handleSubmit, watch, errors } = useForm();
 
   const userName = "Luna";
@@ -45,7 +47,54 @@ const EditProfileForm = () => {
           <span className={styles.errorText}>This field is required</span>
         )}
       </div>
-      <p className={styles.resetPass}>Reset password</p>
+      {!resetPass && (
+        <p className={styles.resetPass} onClick={() => setResetPass(true)}>
+          Reset password
+        </p>
+      )}
+      {resetPass && (
+        <>
+          <div
+            className={`${styles.inputContainer} ${
+              errors.pass && styles.error
+            }`}
+          >
+            <label htmlFor="pass">New Password</label>
+            <input
+              type="password"
+              name="pass"
+              defaultValue="*******"
+              ref={register({ minLength: 6 })}
+            />
+            {errors.pass && (
+              <span className={styles.errorText}>
+                Minimal length is 6 chacters
+              </span>
+            )}
+          </div>
+          <div
+            className={`${styles.inputContainer} ${
+              errors.passConf && styles.error
+            }`}
+          >
+            <label htmlFor="passConf">Confirm New Password</label>
+            <input
+              type="password"
+              name="passConf"
+              defaultValue="*******"
+              ref={register({
+                validate: (value) => {
+                  return value === watch("pass");
+                },
+              })}
+            />
+            {errors.passConf && (
+              <span className={styles.errorText}>Password doesn't match</span>
+            )}
+          </div>
+        </>
+      )}
+
       <p className={styles.bankPurpose}>
         We need your bank account for campaign purpose
       </p>
