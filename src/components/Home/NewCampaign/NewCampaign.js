@@ -10,9 +10,9 @@ const NewCampaign = ({ campaign, getNewCampaigns }) => {
     getNewCampaigns(1);
   }, [getNewCampaigns]);
 
-  const renderCards = campaign?.documents.map((campaign) => (
-    <CampaignCard campaign={campaign} key={campaign.id} />
-  ));
+  const renderCards = campaign?.documents
+    .slice(0, 3)
+    .map((campaign) => <CampaignCard campaign={campaign} key={campaign.id} />);
 
   return (
     <div className={styles.container}>
