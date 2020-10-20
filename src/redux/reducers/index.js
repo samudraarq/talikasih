@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-// import postReducer from "./postReducers";
+import campaignReducer from "./campaignReducers";
 
 export default combineReducers({
-  //   post: postReducer,
+  campaign: campaignReducer,
 });

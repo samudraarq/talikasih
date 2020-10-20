@@ -1,2 +1,2 @@
-// export const FETCH_POSTS = "FETCH_POSTS";
-// export const SET_LOADING = "SET_LOADING";
+export const SET_LOADING = "SET_LOADING";
+export const GET_NEW_CAMPAIGNS = "GET_NEW_CAMPAIGNS";
