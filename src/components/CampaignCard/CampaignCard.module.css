@@ -15,6 +15,10 @@
 
 .contentContainer {
   padding: 1.3rem 2.4rem;
+  height: calc(100% - 22rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .category {
@@ -41,7 +45,8 @@
   background-color: #f4f4f4;
   border-radius: 4px;
   position: relative;
-  margin-top: 3rem;
+  margin-top: 2.8rem;
+  margin-bottom: 2.8rem;
   height: 8px;
   width: 100%;
 }
@@ -61,7 +66,6 @@
 .amountContainer {
   display: flex;
   justify-content: space-between;
-  margin-top: 2.8rem;
 }
 
 .raised,

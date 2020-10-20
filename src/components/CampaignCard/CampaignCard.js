@@ -3,34 +3,47 @@ import styles from "./CampaignCard.module.css";
 
 import cardImg1 from "../../assets/homepage/Home/Card/Rectangle 25.png";
 
-const CampaignCard = () => {
-  const category = "Medical";
-  const title = "Aid for necessary items to help our country";
-  const progress = 70;
-  const amountRaised = new Intl.NumberFormat("id-ID").format(30000000);
-  const amountGoal = new Intl.NumberFormat("id-ID").format(50000000);
+const CampaignCard = ({ campaign }) => {
+  const category = campaign.Category.name;
+  const title = campaign.title;
+  const raised = campaign.raised;
+  const goal = campaign.goal;
+  const countProgress = () => {
+    if (raised / goal <= 1) {
+      return (raised / goal) * 100;
+    } else {
+      return 100;
+    }
+  };
+  const progress = countProgress();
+  const amountRaised = new Intl.NumberFormat("id-ID").format(raised);
+  const amountGoal = new Intl.NumberFormat("id-ID").format(goal);
 
   return (
     <div className={styles.cardContainer}>
-      <img src={cardImg1} alt="card" className={styles.cardImg} />
+      <img src={campaign.header_img} alt="card" className={styles.cardImg} />
       <div className={styles.contentContainer}>
-        <span className={styles.category}>{category}</span>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.subtitle}>Aksi Cepat Tanggap</p>
-        <div className={styles.progress}>
-          <div
-            className={styles.progressDone}
-            style={{ width: `${progress}%`, opacity: "1" }}
-          ></div>
+        <div>
+          <span className={styles.category}>{category}</span>
+          <p className={styles.title}>{title}</p>
+          <p className={styles.subtitle}>Aksi Cepat Tanggap</p>
         </div>
-        <div className={styles.amountContainer}>
-          <div>
-            <p className={styles.raised}>Raised</p>
-            <p className={styles.amountRaised}>IDR {amountRaised}</p>
+        <div>
+          <div className={styles.progress}>
+            <div
+              className={styles.progressDone}
+              style={{ width: `${progress}%`, opacity: "1" }}
+            ></div>
           </div>
-          <div>
-            <p className={styles.goal}>Goal</p>
-            <p className={styles.amountGoal}>IDR {amountGoal}</p>
+          <div className={styles.amountContainer}>
+            <div>
+              <p className={styles.raised}>Raised</p>
+              <p className={styles.amountRaised}>IDR {amountRaised}</p>
+            </div>
+            <div>
+              <p className={styles.goal}>Goal</p>
+              <p className={styles.amountGoal}>IDR {amountGoal}</p>
+            </div>
           </div>
         </div>
       </div>

@@ -8,8 +8,11 @@ import styles from "./NewCampaign.module.css";
 const NewCampaign = ({ campaign, getNewCampaigns }) => {
   useEffect(() => {
     getNewCampaigns(1);
-    console.log(campaign);
   }, [getNewCampaigns]);
+
+  const renderCards = campaign?.documents.map((campaign) => (
+    <CampaignCard campaign={campaign} key={campaign.id} />
+  ));
 
   return (
     <div className={styles.container}>
@@ -17,11 +20,7 @@ const NewCampaign = ({ campaign, getNewCampaigns }) => {
       <h2 className={styles.topicTitle}>
         The latest people who need your help
       </h2>
-      <div className={styles.cardsContainer}>
-        <CampaignCard />
-        <CampaignCard />
-        <CampaignCard />
-      </div>
+      <div className={styles.cardsContainer}>{renderCards}</div>
     </div>
   );
 };
