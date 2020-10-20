@@ -20,7 +20,9 @@ const NewCampaign = ({ campaign, getNewCampaigns }) => {
       <h2 className={styles.topicTitle}>
         The latest people who need your help
       </h2>
-      <div className={styles.cardsContainer}>{renderCards}</div>
+      <div className={styles.cardsContainer}>
+        {campaign.loading ? <p>Loading...</p> : renderCards}
+      </div>
     </div>
   );
 };

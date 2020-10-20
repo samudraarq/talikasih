@@ -1,8 +1,6 @@
 import React from "react";
 import styles from "./CampaignCard.module.css";
 
-import cardImg1 from "../../assets/homepage/Home/Card/Rectangle 25.png";
-
 const CampaignCard = ({ campaign }) => {
   const category = campaign.Category.name;
   const title = campaign.title;
