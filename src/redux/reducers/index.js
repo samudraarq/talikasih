@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
-import campaignReducer from "./campaignReducers";
+import newCampaignReducer from "./newCampaignReducers";
+import popularCampaignReducer from "./popularCampaignReducers";
 
 export default combineReducers({
-  campaign: campaignReducer,
+  newCampaign: newCampaignReducer,
+  popularCampaign: popularCampaignReducer,
 });

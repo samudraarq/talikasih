@@ -9,24 +9,24 @@ import closeQuote from "../../../assets/homepage/Home/closeQuote.svg";
 // import trendingImage from "../../../assets/homepage/Home/Rectangle 33.png";
 import fundraiser from "../../../assets/homepage/Home/Rectangle 37.png";
 
-const Trending = ({ campaign, getPopularCampaigns }) => {
+const Trending = ({ popularCampaign, getPopularCampaigns }) => {
   useEffect(() => {
     getPopularCampaigns(1);
   }, [getPopularCampaigns]);
 
-  const trending = campaign.trendingCampaigns;
+  const trending = popularCampaign?.documents[0];
 
   return (
     <>
-      {campaign.loadingTrending ? (
+      {popularCampaign.loading ? (
         <p>Loading...</p>
       ) : (
         <div className={styles.container}>
           <h3 className={styles.segmentTitle}>Trending Topic</h3>
-          <h2 className={styles.topicTitle}>{trending.title}</h2>
+          <h2 className={styles.topicTitle}>{trending?.title}</h2>
           <div className={styles.content}>
             <img
-              src={trending.header_img}
+              src={trending?.header_img}
               alt="Trending"
               className={styles.trendingImage}
             />
@@ -38,7 +38,7 @@ const Trending = ({ campaign, getPopularCampaigns }) => {
                   alt="openQuote"
                   className={styles.openQuote}
                 />
-                <p className={styles.quoteText}>{trending.story}</p>
+                <p className={styles.quoteText}>{trending?.story}</p>
                 <img
                   src={closeQuote}
                   alt="closeQuote"
@@ -66,7 +66,7 @@ const Trending = ({ campaign, getPopularCampaigns }) => {
 
 const mapStateToProps = (state) => {
   return {
-    campaign: state.campaign,
+    popularCampaign: state.popularCampaign,
   };
 };
 

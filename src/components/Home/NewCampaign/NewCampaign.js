@@ -5,12 +5,12 @@ import { getNewCampaigns } from "../../../redux/actions/campaignActions";
 import CampaignCard from "../../CampaignCard/CampaignCard";
 import styles from "./NewCampaign.module.css";
 
-const NewCampaign = ({ campaign, getNewCampaigns }) => {
+const NewCampaign = ({ newCampaign, getNewCampaigns }) => {
   useEffect(() => {
     getNewCampaigns(1);
   }, [getNewCampaigns]);
 
-  const renderCards = campaign?.documents
+  const renderCards = newCampaign?.documents
     .slice(0, 3)
     .map((campaign) => <CampaignCard campaign={campaign} key={campaign.id} />);
 
@@ -21,7 +21,7 @@ const NewCampaign = ({ campaign, getNewCampaigns }) => {
         The latest people who need your help
       </h2>
       <div className={styles.cardsContainer}>
-        {campaign.loading ? <p>Loading...</p> : renderCards}
+        {newCampaign.loading ? <p>Loading...</p> : renderCards}
       </div>
     </div>
   );
@@ -29,7 +29,7 @@ const NewCampaign = ({ campaign, getNewCampaigns }) => {
 
 const mapStateToProps = (state) => {
   return {
-    campaign: state.campaign,
+    newCampaign: state.newCampaign,
   };
 };
 
