@@ -30,7 +30,7 @@ const DiscoverSearch = ({ searchCampaign, getSearchCampaign }) => {
   return (
     <div className={styles.container}>
       <HeaderSearch searchText={searchText} />
-      <SortButton />
+      <SortButton urlLink={`search?search=${searchText}&`} />
       <DiscoverCards campaigns={searchCampaign} />
       <ChangePage maxPage={searchCampaign.totalPages} pageChange={pageChange} />
     </div>

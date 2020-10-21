@@ -3,12 +3,11 @@ import queryString from "query-string";
 import styles from "./SortButton.module.css";
 
 import sort from "../../../../assets/discover/sort.svg";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const SortButton = () => {
+const SortButton = ({ urlLink }) => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  const { category } = useParams();
   const location = useLocation();
 
   useEffect(() => {
@@ -39,28 +38,28 @@ const SortButton = () => {
         {openMenu && (
           <div className={styles.menuContainer}>
             <Link
-              to={`/discover/${category}?sort=newest`}
+              to={`/discover/${urlLink}sort=newest`}
               className={styles.menuItem}
               onClick={handleClose}
             >
               Newest
             </Link>
             <Link
-              to={`/discover/${category}?sort=mosturgent`}
+              to={`/discover/${urlLink}sort=mosturgent`}
               className={styles.menuItem}
               onClick={handleClose}
             >
               Most Urgent
             </Link>
             <Link
-              to={`/discover/${category}?sort=popular`}
+              to={`/discover/${urlLink}sort=popular`}
               className={styles.menuItem}
               onClick={handleClose}
             >
               Popular
             </Link>
             <Link
-              to={`/discover/${category}?sort=lessdonation`}
+              to={`/discover/${urlLink}sort=lessdonation`}
               className={styles.menuItem}
               onClick={handleClose}
             >
