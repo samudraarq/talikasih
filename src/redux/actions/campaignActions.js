@@ -10,6 +10,8 @@ import {
   GET_URGENT_CAMPAIGNS,
   SET_LOADING_CATEGORY,
   GET_CATEGORY_CAMPAIGNS,
+  SET_LOADING_SEARCH,
+  GET_SEARCH_CAMPAIGNS,
 } from "./actionTypes";
 
 export const getNewCampaigns = (page) => {
@@ -109,6 +111,28 @@ export const getCategoryCampaigns = (page, categoryId) => {
         });
         dispatch({
           type: SET_LOADING_CATEGORY,
+        });
+      });
+  };
+};
+
+export const getSearchCampaign = (page, searchTerms) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_LOADING_SEARCH,
+    });
+    axios
+      .get(
+        `https://warm-tundra-23736.herokuapp.com/discover/search/${searchTerms}/${page}`
+      )
+      .then((response) => {
+        dispatch({
+          type: GET_SEARCH_CAMPAIGNS,
+          posts: response.data,
+          status: "Done",
+        });
+        dispatch({
+          type: SET_LOADING_SEARCH,
         });
       });
   };
