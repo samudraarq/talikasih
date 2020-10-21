@@ -5,7 +5,7 @@ import styles from "./SortButton.module.css";
 import sort from "../../../../assets/discover/sort.svg";
 import { Link, useLocation } from "react-router-dom";
 
-const SortButton = ({ urlLink }) => {
+const SortButton = ({ urlLink, setPage }) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const location = useLocation();
@@ -27,6 +27,11 @@ const SortButton = ({ urlLink }) => {
     document.removeEventListener("click", handleClose);
   };
 
+  const handleChoose = () => {
+    handleClose();
+    setPage(1);
+  };
+
   return (
     <>
       <div className={styles.sortContainer}>
@@ -40,28 +45,28 @@ const SortButton = ({ urlLink }) => {
             <Link
               to={`/discover/${urlLink}sort=newest`}
               className={styles.menuItem}
-              onClick={handleClose}
+              onClick={handleChoose}
             >
               Newest
             </Link>
             <Link
               to={`/discover/${urlLink}sort=mosturgent`}
               className={styles.menuItem}
-              onClick={handleClose}
+              onClick={handleChoose}
             >
               Most Urgent
             </Link>
             <Link
               to={`/discover/${urlLink}sort=popular`}
               className={styles.menuItem}
-              onClick={handleClose}
+              onClick={handleChoose}
             >
               Popular
             </Link>
             <Link
               to={`/discover/${urlLink}sort=lessdonation`}
               className={styles.menuItem}
-              onClick={handleClose}
+              onClick={handleChoose}
             >
               Less Donation
             </Link>

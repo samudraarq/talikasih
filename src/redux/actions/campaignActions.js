@@ -12,6 +12,7 @@ import {
   GET_CATEGORY_CAMPAIGNS,
   SET_LOADING_SEARCH,
   GET_SEARCH_CAMPAIGNS,
+  GET_SEARCH_POPULAR,
 } from "./actionTypes";
 
 export const getNewCampaigns = (page) => {
@@ -128,6 +129,28 @@ export const getSearchCampaign = (page, searchTerms) => {
       .then((response) => {
         dispatch({
           type: GET_SEARCH_CAMPAIGNS,
+          posts: response.data,
+          status: "Done",
+        });
+        dispatch({
+          type: SET_LOADING_SEARCH,
+        });
+      });
+  };
+};
+
+export const getSearchPopular = (page, searchTerms) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_LOADING_SEARCH,
+    });
+    axios
+      .get(
+        `https://warm-tundra-23736.herokuapp.com/campaign/search/popular/${searchTerms}/${page}`
+      )
+      .then((response) => {
+        dispatch({
+          type: GET_SEARCH_POPULAR,
           posts: response.data,
           status: "Done",
         });

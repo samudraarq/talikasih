@@ -26,7 +26,7 @@ const DiscoverCategory = ({ categoryCampaign, getCategoryCampaigns }) => {
   return (
     <div className={styles.container}>
       <HeaderCategory />
-      <SortButton urlLink={`category/${categoryId}?`} />
+      <SortButton urlLink={`category/${categoryId}?`} setPage={setPage} />
       <DiscoverCards campaigns={categoryCampaign} />
       <ChangePage
         maxPage={categoryCampaign.totalPages}
