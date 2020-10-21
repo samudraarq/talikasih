@@ -16,7 +16,7 @@ const CategorySelect = () => {
     <div className={styles.container}>
       <h2 className={styles.headerText}>Find causes you truly care about</h2>
       <div className={styles.categoriesContainer}>
-        <Link to="/discover/disability" className={styles.categoryBtn}>
+        <Link to="/discover/category/1" className={styles.categoryBtn}>
           <img
             src={disabilityIcon}
             alt="disability"

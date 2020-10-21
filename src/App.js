@@ -15,7 +15,7 @@ function App() {
         <Route path="/discover/search">
           <DiscoverSearchPage />
         </Route>
-        <Route path="/discover/:category">
+        <Route path="/discover/category/:categoryId">
           <DiscoverCategoryPage />
         </Route>
         <Route path="/discover">

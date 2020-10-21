@@ -8,6 +8,8 @@ import {
   GET_POPULAR_CAMPAIGNS,
   SET_LOADING_URGENT,
   GET_URGENT_CAMPAIGNS,
+  SET_LOADING_CATEGORY,
+  GET_CATEGORY_CAMPAIGNS,
 } from "./actionTypes";
 
 export const getNewCampaigns = (page) => {
@@ -70,7 +72,7 @@ export const getPopularCampaigns = (page) => {
   };
 };
 
-export const getUrgentCampaigns = (page) => {
+export const getUrgentCampaigns = () => {
   return (dispatch) => {
     dispatch({
       type: SET_LOADING_URGENT,
@@ -85,6 +87,28 @@ export const getUrgentCampaigns = (page) => {
         });
         dispatch({
           type: SET_LOADING_URGENT,
+        });
+      });
+  };
+};
+
+export const getCategoryCampaigns = (page, categoryId) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_LOADING_CATEGORY,
+    });
+    axios
+      .get(
+        `https://warm-tundra-23736.herokuapp.com/discover/category/${categoryId}/${page}`
+      )
+      .then((response) => {
+        dispatch({
+          type: GET_CATEGORY_CAMPAIGNS,
+          posts: response.data,
+          status: "Done",
+        });
+        dispatch({
+          type: SET_LOADING_CATEGORY,
         });
       });
   };
