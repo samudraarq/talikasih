@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ChangePage from "./ChangePage/ChangePage";
 import DiscoverCards from "./DiscoverCards/DiscoverCards";
 import styles from "./DiscoverCategory.module.css";
@@ -9,18 +9,29 @@ import HeaderCategory from "./HeaderCategory/HeaderCategory";
 import SortButton from "./SortButton/SortButton";
 
 const DiscoverCategory = ({ categoryCampaign, getCategoryCampaigns }) => {
+  const [page, setPage] = useState(1);
+
   const { categoryId } = useParams();
 
   useEffect(() => {
-    getCategoryCampaigns(1, categoryId);
-  }, [getCategoryCampaigns, categoryId]);
+    getCategoryCampaigns(page, categoryId);
+  }, [getCategoryCampaigns, categoryId, page]);
+
+  const pageChange = (e) => {
+    const selectedPage = e.selected + 1;
+    console.log(selectedPage);
+    setPage(selectedPage);
+  };
 
   return (
     <div className={styles.container}>
       <HeaderCategory />
       <SortButton />
       <DiscoverCards campaigns={categoryCampaign} />
-      <ChangePage />
+      <ChangePage
+        maxPage={categoryCampaign.totalPages}
+        pageChange={pageChange}
+      />
     </div>
   );
 };

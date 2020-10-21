@@ -11,21 +11,28 @@ import HeaderSearch from "./HeaderSearch/HeaderSearch";
 
 const DiscoverSearch = ({ searchCampaign, getSearchCampaign }) => {
   const [searchText, setSearchText] = useState("");
+  const [page, setPage] = useState(1);
 
   const location = useLocation();
 
   useEffect(() => {
     const parsed = queryString.parse(location.search);
     setSearchText(parsed.search);
-    getSearchCampaign(1, parsed.search);
-  }, [location, getSearchCampaign]);
+    getSearchCampaign(page, parsed.search);
+  }, [location, getSearchCampaign, page]);
+
+  const pageChange = (e) => {
+    const selectedPage = e.selected + 1;
+    console.log(selectedPage);
+    setPage(selectedPage);
+  };
 
   return (
     <div className={styles.container}>
       <HeaderSearch searchText={searchText} />
       <SortButton />
       <DiscoverCards campaigns={searchCampaign} />
-      <ChangePage />
+      <ChangePage maxPage={searchCampaign.totalPages} pageChange={pageChange} />
     </div>
   );
 };
