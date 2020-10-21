@@ -1,24 +1,24 @@
 import React, { useEffect } from "react";
 import styles from "./Trending.module.css";
 import { connect } from "react-redux";
-import { getPopularCampaigns } from "../../../redux/actions/campaignActions";
+import { getTrendingCampaign } from "../../../redux/actions/campaignActions";
 
 import openQuote from "../../../assets/homepage/Home/openQuote.svg";
 import closeQuote from "../../../assets/homepage/Home/closeQuote.svg";
 
 // import trendingImage from "../../../assets/homepage/Home/Rectangle 33.png";
-import fundraiser from "../../../assets/homepage/Home/Rectangle 37.png";
+// import fundraiser from "../../../assets/homepage/Home/Rectangle 37.png";
 
-const Trending = ({ popularCampaign, getPopularCampaigns }) => {
+const Trending = ({ trendingCampaign, getTrendingCampaign }) => {
   useEffect(() => {
-    getPopularCampaigns(1);
-  }, [getPopularCampaigns]);
+    getTrendingCampaign();
+  }, [getTrendingCampaign]);
 
-  const trending = popularCampaign?.documents[0];
+  const trending = trendingCampaign?.documents;
 
   return (
     <>
-      {popularCampaign.loading ? (
+      {trendingCampaign.loading ? (
         <p>Loading...</p>
       ) : (
         <div className={styles.container}>
@@ -47,12 +47,14 @@ const Trending = ({ popularCampaign, getPopularCampaigns }) => {
               </div>
               <div className={styles.fundraiser}>
                 <img
-                  src={fundraiser}
+                  src={trending?.User?.photo}
                   alt="fundraise"
                   className={styles.fundraiserImg}
                 />
                 <div>
-                  <p className={styles.fundraiserName}>Dian Endang</p>
+                  <p className={styles.fundraiserName}>
+                    {trending?.User?.name}
+                  </p>
                   <p className={styles.fundraiserTitle}>Fundraiser</p>
                 </div>
               </div>
@@ -66,13 +68,13 @@ const Trending = ({ popularCampaign, getPopularCampaigns }) => {
 
 const mapStateToProps = (state) => {
   return {
-    popularCampaign: state.popularCampaign,
+    trendingCampaign: state.trendingCampaign,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPopularCampaigns: (page) => dispatch(getPopularCampaigns(page)),
+    getTrendingCampaign: () => dispatch(getTrendingCampaign()),
   };
 };
 

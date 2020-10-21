@@ -1,5 +1,5 @@
 import {
-  SET_LOADING_TRENDING,
+  SET_LOADING_POPULAR,
   GET_POPULAR_CAMPAIGNS,
 } from "../actions/actionTypes";
 
@@ -13,7 +13,7 @@ const initialState = {
 
 export default function popularCampaignReducer(state = initialState, action) {
   switch (action.type) {
-    case SET_LOADING_TRENDING:
+    case SET_LOADING_POPULAR:
       return { ...state, loading: !state.loading };
     case GET_POPULAR_CAMPAIGNS:
       return {

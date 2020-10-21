@@ -1,4 +1,4 @@
-import { SET_LOADING, GET_NEW_CAMPAIGNS } from "../actions/actionTypes";
+import { SET_LOADING_NEW, GET_NEW_CAMPAIGNS } from "../actions/actionTypes";
 
 const initialState = {
   documents: [],
@@ -10,7 +10,7 @@ const initialState = {
 
 export default function newCampaignReducer(state = initialState, action) {
   switch (action.type) {
-    case SET_LOADING:
+    case SET_LOADING_NEW:
       return { ...state, loading: !state.loading };
     case GET_NEW_CAMPAIGNS:
       return {
