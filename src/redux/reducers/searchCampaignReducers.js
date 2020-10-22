@@ -2,6 +2,8 @@ import {
   SET_LOADING_SEARCH,
   GET_SEARCH_CAMPAIGNS,
   GET_SEARCH_POPULAR,
+  GET_SEARCH_URGENT,
+  GET_SEARCH_LESSDONATE,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -23,6 +25,20 @@ export default function newCampaignReducer(state = initialState, action) {
         onPage: action.posts.on_page,
       };
     case GET_SEARCH_POPULAR:
+      return {
+        ...state,
+        documents: action.posts.document,
+        totalPages: action.posts.total_pages,
+        onPage: action.posts.on_page,
+      };
+    case GET_SEARCH_URGENT:
+      return {
+        ...state,
+        documents: action.posts.document,
+        totalPages: action.posts.total_pages,
+        onPage: action.posts.on_page,
+      };
+    case GET_SEARCH_LESSDONATE:
       return {
         ...state,
         documents: action.posts.document,

@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import {
   getSearchCampaign,
   getSearchPopular,
+  getSearchUrgent,
+  getSearchLessdonate,
 } from "../../../redux/actions/campaignActions";
 import ChangePage from "../DiscoverCategory/ChangePage/ChangePage";
 import DiscoverCards from "../DiscoverCategory/DiscoverCards/DiscoverCards";
@@ -16,6 +18,8 @@ const DiscoverSearch = ({
   searchCampaign,
   getSearchCampaign,
   getSearchPopular,
+  getSearchUrgent,
+  getSearchLessdonate,
 }) => {
   const [searchText, setSearchText] = useState("");
   const [page, setPage] = useState(1);
@@ -27,10 +31,21 @@ const DiscoverSearch = ({
     setSearchText(parsed.search);
     if (parsed.sort === "popular") {
       getSearchPopular(page, parsed.search);
+    } else if (parsed.sort === "mosturgent") {
+      getSearchUrgent(page, parsed.search);
+    } else if (parsed.sort === "lessdonation") {
+      getSearchLessdonate(page, parsed.search);
     } else {
       getSearchCampaign(page, parsed.search);
     }
-  }, [location, page, getSearchCampaign, getSearchPopular]);
+  }, [
+    location,
+    page,
+    getSearchCampaign,
+    getSearchPopular,
+    getSearchUrgent,
+    getSearchLessdonate,
+  ]);
 
   const pageChange = (e) => {
     const selectedPage = e.selected + 1;
@@ -60,6 +75,10 @@ const masDispatchToProps = (dispatch) => {
       dispatch(getSearchCampaign(page, searchTerms)),
     getSearchPopular: (page, searchTerms) =>
       dispatch(getSearchPopular(page, searchTerms)),
+    getSearchUrgent: (page, searchTerms) =>
+      dispatch(getSearchUrgent(page, searchTerms)),
+    getSearchLessdonate: (page, searchTerms) =>
+      dispatch(getSearchLessdonate(page, searchTerms)),
   };
 };
 

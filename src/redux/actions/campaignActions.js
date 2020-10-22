@@ -13,6 +13,8 @@ import {
   SET_LOADING_SEARCH,
   GET_SEARCH_CAMPAIGNS,
   GET_SEARCH_POPULAR,
+  GET_SEARCH_URGENT,
+  GET_SEARCH_LESSDONATE,
 } from "./actionTypes";
 
 export const getNewCampaigns = (page) => {
@@ -151,6 +153,50 @@ export const getSearchPopular = (page, searchTerms) => {
       .then((response) => {
         dispatch({
           type: GET_SEARCH_POPULAR,
+          posts: response.data,
+          status: "Done",
+        });
+        dispatch({
+          type: SET_LOADING_SEARCH,
+        });
+      });
+  };
+};
+
+export const getSearchUrgent = (page, searchTerms) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_LOADING_SEARCH,
+    });
+    axios
+      .get(
+        `https://warm-tundra-23736.herokuapp.com/campaign/search/urgent/${searchTerms}/${page}`
+      )
+      .then((response) => {
+        dispatch({
+          type: GET_SEARCH_URGENT,
+          posts: response.data,
+          status: "Done",
+        });
+        dispatch({
+          type: SET_LOADING_SEARCH,
+        });
+      });
+  };
+};
+
+export const getSearchLessdonate = (page, searchTerms) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_LOADING_SEARCH,
+    });
+    axios
+      .get(
+        `https://warm-tundra-23736.herokuapp.com/campaign/search/lessdonate/${searchTerms}/${page}`
+      )
+      .then((response) => {
+        dispatch({
+          type: GET_SEARCH_LESSDONATE,
           posts: response.data,
           status: "Done",
         });
