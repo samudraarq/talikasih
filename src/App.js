@@ -8,6 +8,7 @@ import DiscoverSearchPage from "./pages/DiscoverSearchPage";
 import Home from "./pages/Home";
 import Donate from "./pages/Donate/Donate";
 import ChampingDetailsDonatePage from "./pages/ChampingDetailsDonatePage";
+// import {getDonorData} from "./redux/actions/donorActions";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         <Route path="/campaign/create">
           <CampingCreatePage/>
         </Route>
-        <Route path="/campaign/details/donate">
+        <Route path="/campaign/details/donate/:idDonate">
           <ChampingDetailsDonatePage/>
         </Route>
         <Route exact path="/">
