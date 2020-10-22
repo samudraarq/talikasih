@@ -10,6 +10,9 @@ import {
   GET_URGENT_CAMPAIGNS,
   SET_LOADING_CATEGORY,
   GET_CATEGORY_CAMPAIGNS,
+  GET_CATEGORY_POPULAR,
+  GET_CATEGORY_URGENT,
+  GET_CATEGORY_LESSDONATE,
   SET_LOADING_SEARCH,
   GET_SEARCH_CAMPAIGNS,
   GET_SEARCH_POPULAR,
@@ -127,6 +130,90 @@ export const getCategoryCampaigns = (page, categoryId) => {
       .then((response) => {
         dispatch({
           type: GET_CATEGORY_CAMPAIGNS,
+          posts: response.data,
+          status: "Done",
+        });
+        dispatch({
+          type: SET_LOADING_CATEGORY,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch({
+          type: SET_LOADING_CATEGORY,
+        });
+      });
+  };
+};
+
+export const getCategoryPopular = (page, categoryId) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_LOADING_CATEGORY,
+    });
+    axios
+      .get(
+        `https://warm-tundra-23736.herokuapp.com/campaign/categoryPopular/${categoryId}/${page}`
+      )
+      .then((response) => {
+        dispatch({
+          type: GET_CATEGORY_POPULAR,
+          posts: response.data,
+          status: "Done",
+        });
+        dispatch({
+          type: SET_LOADING_CATEGORY,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch({
+          type: SET_LOADING_CATEGORY,
+        });
+      });
+  };
+};
+
+export const getCategoryUrgent = (page, categoryId) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_LOADING_CATEGORY,
+    });
+    axios
+      .get(
+        `https://warm-tundra-23736.herokuapp.com/campaign/categoryUrgent/${categoryId}/${page}`
+      )
+      .then((response) => {
+        dispatch({
+          type: GET_CATEGORY_URGENT,
+          posts: response.data,
+          status: "Done",
+        });
+        dispatch({
+          type: SET_LOADING_CATEGORY,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch({
+          type: SET_LOADING_CATEGORY,
+        });
+      });
+  };
+};
+
+export const getCategoryLessdonate = (page, categoryId) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_LOADING_CATEGORY,
+    });
+    axios
+      .get(
+        `https://warm-tundra-23736.herokuapp.com/campaign/categoryLess/${categoryId}/${page}`
+      )
+      .then((response) => {
+        dispatch({
+          type: GET_CATEGORY_LESSDONATE,
           posts: response.data,
           status: "Done",
         });
