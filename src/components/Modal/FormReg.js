@@ -12,7 +12,7 @@ export default function FormReg(props) {
     <>
       <h1 className={styles.headerForm}>REGISTER</h1>
       <h3 className={styles.alreadyHave}>
-        Already have an account{" "}
+        Already have an account
         <a href="#" onClick={() => props.setIsLogin(true)}>
           Sign in
         </a>
@@ -66,17 +66,22 @@ export default function FormReg(props) {
           className={styles.inputForm2}
           type="password"
           placeholder="Confirm Password"
-          name="confirm password"
+          name="confirmpassword"
           ref={register({
             required: "Confirm password is required",
-            minLength: { value: 8, message: "Password doesn't match " },
+            // minLength: { value: 8, message: "Password doesn't match" },
             validate: (value) => {
               return value === watch("password");
             },
           })}
         />
-        {errors.password && (
-          <span className={styles.errorMessage}>{errors.password.message}</span>
+        {errors.confirmpassword && (
+          <span className={styles.errorMessage}>
+            {errors.confirmpassword.message}
+          </span>
+        )}
+        {errors.confirmpassword?.type === "validate" && (
+          <span className={styles.errorMessage}>Password doesn't match</span>
         )}
 
         <button className={styles.btnLogin} type="submit">

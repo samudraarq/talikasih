@@ -1,35 +1,35 @@
-.ReactModalPortal{
+.ReactModalPortal {
   z-index: 9999;
-    position: relative;
-
+  position: relative;
 }
 
-.modal_wrapper{
-    background-color:#F1EDE4;
-    margin: 9.5% 0 0 35%;
-    width: 57rem;
-    height: 78rem;
-    border-style: none;
-    position: relative;
+.modal_wrapper {
+  background-color: #f1ede4;
+  margin: 10% 0 0 35%;
+  width: 57rem;
+  height: 70rem;
+  border-style: none;
+  position: relative;
+  outline: none;
 }
 
-.img1{
+.img1 {
   position: absolute;
-  bottom:0;
+  bottom: 0;
   right: 0;
-  z-index: 5;
+  z-index: 1;
 }
 
-.img2{
+.img2 {
   position: absolute;
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   z-index: 3;
 }
 
-.img3{
+.img3 {
   position: absolute;
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   z-index: 2;
 }

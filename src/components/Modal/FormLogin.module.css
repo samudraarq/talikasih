@@ -1,125 +1,99 @@
-.headerForm{
-    padding-top: 13.9rem;
-    margin-left: 7.9rem;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 48px;
-    line-height: 65px;
-    letter-spacing: -0.05em;
-    color: #1D94A8;
-    z-index: 10;
-    position: absolute;
+.container {
+  margin: 8rem 7.9rem;
+  position: absolute;
+  z-index: 10;
 }
 
-.createAccount{
-        margin-left: 7.9rem;
-        margin-top: 20rem;
-        z-index: 10;
-        position: absolute;
-        font-family: Nunito;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 19px;
-        
-    }
-
-.formContainer{
-    position: absolute;
-    max-height: 78rem;
-    top: 27rem;
-    left: 7.8rem;
-    right: 7.8rem;
-    z-index: 9999;
+.headerForm {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 65px;
+  letter-spacing: -0.05em;
+  color: #1d94a8;
 }
 
-.inputForm{
-height: 5.5rem;
-width: 41.5rem;
-top: 3.5rem;
-border-radius: 0px;
-border-style: none;
-box-shadow: 5rem;
-margin:0;
+.createAccount {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
 }
 
-.inputForm2{
-    height: 5.5rem;
-    width: 41.5rem;
-    border-radius: 0px;
-    border-style: none;
-    box-shadow: 5rem;
-    margin-top: 3.5rem;
-    margin-bottom: 1rem;
-
-    }
-
-.forgotPass{
-    font-family: Nunito;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-
-
+.createAccount a {
+  color: #1d94a8;
 }
 
-.btnLogin{
-height: 4.6rem;
-width: 41.5rem;
-border-radius: 3px;
-border-style: none;
-background-color: #A43F3C;
-color: white;
-margin-top: 2.8rem;
- 
+.formContainer {
+  margin-top: 4rem;
 }
 
-.google{
-    width: 18px;
-    height: 20px;
-    margin-right: 10px;
-    align-items: center;
-
+.inputForm {
+  height: 5.5rem;
+  width: 41.5rem;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 1px solid #9f9f9f;
+  padding: 0 1.9rem;
+  color: #9f9f9f;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 1.6rem;
+  outline: none;
 }
 
-.btnGoogle{
-    max-width: 57rem;
-    height: 5.6rem;
-    border-style:none;
-    background-color: transparent;
-    font-family: Montserrat;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 1px;
-    text-align: center;
-   z-index: 9999;
-    position: absolute;
-    bottom: 13rem;
-    left: 18.8rem;
-
+.inputForm:focus {
+  border-bottom: 1px solid #1d94a8;
 }
 
-.line1{
-    width:41.5rem;
-    z-index: 9999;
-    position: absolute;
-    left: 7.8rem;
-    bottom:18rem;
-} 
+.inputForm:not(:first-of-type) {
+  margin-top: 3rem;
+}
 
-.line2{
-width:41.5rem;
-z-index: 9999;
-position: absolute;
-left: 7.8rem;
-bottom:12.5rem;
+.forgotPass {
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #000000;
+  margin-top: 0.6rem;
+}
 
-} 
+.btnLogin {
+  height: 4.6rem;
+  width: 41.5rem;
+  border-radius: 3px;
+  border-style: none;
+  background-color: #a43f3c;
+  color: white;
+  margin-top: 2.4rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
 
-.errorMessage{
-    color:red;
+.google {
+  width: 18px;
+  height: 20px;
+  margin-right: 10px;
+  align-items: center;
+}
 
-    
- }
+.btnGoogle {
+  margin-top: 6rem;
+  width: 100%;
+  height: 5.6rem;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  border-top: 1px solid #e1e0e0;
+  border-bottom: 1px solid #e1e0e0;
+}
+
+.errorMessage {
+  display: block;
+  color: red;
+}

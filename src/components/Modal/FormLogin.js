@@ -9,12 +9,11 @@ export default function FormLogin(props) {
   console.log(watch("example"));
 
   return (
-    <>
+    <div className={styles.container}>
       <h1 className={styles.headerForm}>LOGIN</h1>
       <h3 className={styles.createAccount}>
-        {"New user?"}
+        New user?{" "}
         <a href="#" onClick={() => props.setIsLogin(false)}>
-          {" "}
           Create account
         </a>
       </h3>
@@ -32,7 +31,7 @@ export default function FormLogin(props) {
         )}
 
         <input
-          className={styles.inputForm2}
+          className={styles.inputForm}
           type="password"
           placeholder="Password"
           name="password"
@@ -48,26 +47,22 @@ export default function FormLogin(props) {
             },
           })}
         />
-        <br />
         {errors.password && (
           <span className={styles.errorMessage}>{errors.password.message}</span>
         )}
 
-        <br />
         <a href="#" className={styles.forgotPass}>
-          Forgot password?
+          forgot password?
         </a>
 
         <button className={styles.btnLogin} type="submit">
           LOGIN
         </button>
       </form>
-      <hr className={styles.line1} />
       <button className={styles.btnGoogle}>
         <img src={google} alt="google" className={styles.google} />
         Continue with Google
       </button>
-      <hr className={styles.line2} />
-    </>
+    </div>
   );
 }
