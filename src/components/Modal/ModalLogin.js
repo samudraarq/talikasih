@@ -1,9 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 import styles from './ModalLogin.module.css';
+import FormLogin from './FormLogin';
+import FormReg from './FormReg';
+import img1 from '../../assets/homepage/Home/Modal/Ellipse 2.svg';
+import img2 from '../../assets/homepage/Home/Modal/Ellipse 3.svg';
+import img3 from '../../assets/homepage/Home/Modal/Ellipse1.svg';
+
 
 Modal.setAppElement('#root')
 export default function ModalLogin(props) {
+  
+   
     return (
         <div>
             <Modal 
@@ -11,24 +19,12 @@ export default function ModalLogin(props) {
             onRequestClose={() => props.openModal(false)}
             portalClassName={styles.ReactModalPortal}
             className={styles.modal_wrapper} >
-                <div>
-                    <h1>
-                    LOGIN
-                    </h1>
-                    <h3>
-                    New user? Create an account
-                    </h3>
-                </div>
-                <div>
-                <input type="text" placeholder="E-mail"></input>
-                <input type="password" placeholder="Password"></input>
-                <h3>Forgot password?</h3>
-                </div>
-                <div>
-                <button>LOGIN</button>
-                <span>Continue with Google</span>
-    
-                </div>
+             {props.isLogin ?
+             <FormLogin setIsLogin={props.setIsLogin}/> :  
+             <FormReg setIsLogin={props.setIsLogin}/> }
+             <img src={img1} alt="styleModal" className={styles.img1}/>
+             <img src={img2} alt="styleModal" className={styles.img2}/>
+             <img src={img3} alt="styleModal" className={styles.img3}/>
             </Modal>
             
         </div>

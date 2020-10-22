@@ -6,10 +6,30 @@
 
 .modal_wrapper{
     background-color:#F1EDE4;
-    margin: 6% 0 0 35%;
-    width: 40rem;
-    height: 55rem;
+    margin: 9.5% 0 0 35%;
+    width: 57rem;
+    height: 78rem;
     border-style: none;
+    position: relative;
 }
 
+.img1{
+  position: absolute;
+  bottom:0;
+  right: 0;
+  z-index: 5;
+}
 
+.img2{
+  position: absolute;
+  top:0;
+  right:0;
+  z-index: 3;
+}
+
+.img3{
+  position: absolute;
+  top:0;
+  right:0;
+  z-index: 2;
+}

@@ -20,6 +20,16 @@ const Navbar = (props) => {
     }, 500);
   };
 
+  const handleLogin = () =>  {
+    props.openModal(true)
+    props.setIsLogin(true)
+  };
+
+  const handleReg = ()=> {
+    props.openModal(true)
+    props.setIsLogin(false)
+  }
+
   return (
     <div className={styles.navContainer}>
       <div className={styles.container}>
@@ -52,9 +62,10 @@ const Navbar = (props) => {
               onBlur={handleCloseSearch}
             />
           </div>
-          <span className={styles.loginBtn} onClick={() => props.openModal(true) }>
+
+          <span className={styles.loginBtn} onClick={handleLogin }>
             Login</span>
-          <span className={styles.registerBtn}>Register</span>
+          <span className={styles.registerBtn} onClick={handleReg }>Register</span>
         </div>
       </div>
     </div>

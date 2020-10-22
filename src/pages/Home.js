@@ -9,12 +9,13 @@ import ModalLogin from "../components/Modal/ModalLogin";
 
 
 const Home = () => {
-  const [modalIsOpen, setmodalIsOpen ] = useState(false)
+  const [modalIsOpen, setmodalIsOpen ] = useState(false);
+  const [isLogin, setIsLogin] = useState(false)
   return (
     <>
-      <Navbar openModal={setmodalIsOpen}/>
+      <Navbar openModal={setmodalIsOpen} setIsLogin={setIsLogin} />
       <Carousel/>
-      <ModalLogin openModal={setmodalIsOpen} modalIsOpen={modalIsOpen}/>
+      <ModalLogin setIsLogin={setIsLogin} isLogin={isLogin} openModal={setmodalIsOpen} modalIsOpen={modalIsOpen}/>
       
       <div
         style={{
