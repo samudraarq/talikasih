@@ -53,6 +53,12 @@ export const getTrendingCampaign = () => {
         dispatch({
           type: SET_LOADING_TRENDING,
         });
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch({
+          type: SET_LOADING_TRENDING,
+        });
       });
   };
 };
@@ -73,6 +79,12 @@ export const getPopularCampaigns = (page) => {
         dispatch({
           type: SET_LOADING_POPULAR,
         });
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch({
+          type: SET_LOADING_POPULAR,
+        });
       });
   };
 };
@@ -90,6 +102,12 @@ export const getUrgentCampaigns = () => {
           posts: response.data,
           status: "Done",
         });
+        dispatch({
+          type: SET_LOADING_URGENT,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
         dispatch({
           type: SET_LOADING_URGENT,
         });
@@ -115,6 +133,12 @@ export const getCategoryCampaigns = (page, categoryId) => {
         dispatch({
           type: SET_LOADING_CATEGORY,
         });
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch({
+          type: SET_LOADING_CATEGORY,
+        });
       });
   };
 };
@@ -134,6 +158,12 @@ export const getSearchCampaign = (page, searchTerms) => {
           posts: response.data,
           status: "Done",
         });
+        dispatch({
+          type: SET_LOADING_SEARCH,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
         dispatch({
           type: SET_LOADING_SEARCH,
         });
@@ -159,6 +189,12 @@ export const getSearchPopular = (page, searchTerms) => {
         dispatch({
           type: SET_LOADING_SEARCH,
         });
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch({
+          type: SET_LOADING_SEARCH,
+        });
       });
   };
 };
@@ -181,6 +217,12 @@ export const getSearchUrgent = (page, searchTerms) => {
         dispatch({
           type: SET_LOADING_SEARCH,
         });
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch({
+          type: SET_LOADING_SEARCH,
+        });
       });
   };
 };
@@ -200,6 +242,12 @@ export const getSearchLessdonate = (page, searchTerms) => {
           posts: response.data,
           status: "Done",
         });
+        dispatch({
+          type: SET_LOADING_SEARCH,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
         dispatch({
           type: SET_LOADING_SEARCH,
         });
