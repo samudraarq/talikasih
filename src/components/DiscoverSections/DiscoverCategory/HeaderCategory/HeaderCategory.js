@@ -4,7 +4,14 @@ import styles from "./HeaderCategory.module.css";
 
 import leftArrow from "../../../../assets/discover/left-arrow.svg";
 
-import medicalImg from "../../../../assets/discover/medical-img.png";
+import disabilityImg from "../../../../assets/discover/header-img/disabilty-img.jpg";
+import medicalImg from "../../../../assets/discover/header-img/medicall-img.jpg";
+import educationImg from "../../../../assets/discover/header-img/education-img.jpg";
+import religiousImg from "../../../../assets/discover/header-img/religion-img.jpg";
+import humanityImg from "../../../../assets/discover/header-img/humanity-img.jpg";
+import environmentImg from "../../../../assets/discover/header-img/environment-img.jpg";
+import disasterImg from "../../../../assets/discover/header-img/disaster-img.jpg";
+import sociopreneurImg from "../../../../assets/discover/header-img/sociopreneur-img.jpg";
 
 const HeaderCategory = () => {
   const [badge, setBadge] = useState("");
@@ -17,43 +24,43 @@ const HeaderCategory = () => {
     switch (categoryId) {
       case "1":
         setBadge("Disabilty");
-        setText("Help them to get speedy recovery");
-        setImage(medicalImg);
+        setText("Your little kindness is precious");
+        setImage(disabilityImg);
         break;
       case "2":
         setBadge("Medical");
-        setText("Help them to get speedy recovery");
+        setText("Your little kindness is precious");
         setImage(medicalImg);
         break;
       case "3":
         setBadge("Education");
-        setText("Help them to get speedy recovery");
-        setImage(medicalImg);
+        setText("Your little kindness is precious");
+        setImage(educationImg);
         break;
       case "4":
         setBadge("Religious");
-        setText("Help them to get speedy recovery");
-        setImage(medicalImg);
+        setText("Your little kindness is precious");
+        setImage(religiousImg);
         break;
       case "5":
         setBadge("Humanity");
-        setText("Help them to get speedy recovery");
-        setImage(medicalImg);
+        setText("Your little kindness is precious");
+        setImage(humanityImg);
         break;
       case "6":
         setBadge("Environment");
-        setText("Help them to get speedy recovery");
-        setImage(medicalImg);
+        setText("Your little kindness is precious");
+        setImage(environmentImg);
         break;
       case "7":
         setBadge("Disaster");
-        setText("Help them to get speedy recovery");
-        setImage(medicalImg);
+        setText("Your little kindness is precious");
+        setImage(disasterImg);
         break;
       case "8":
         setBadge("Sociopreneur");
-        setText("Help them to get speedy recovery");
-        setImage(medicalImg);
+        setText("Your little kindness is precious");
+        setImage(sociopreneurImg);
         break;
       default:
         return;
