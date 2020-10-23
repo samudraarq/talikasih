@@ -1,12 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
+import axios from "axios";
+import qs from "qs";
 import { useForm } from "react-hook-form";
 import styles from "../Modal/FormLogin.module.css";
+import { setUsertokenFromLogin } from "../../redux/actions/authActions";
 import google from "../../assets/homepage/Home/google.png";
 
-export default function FormLogin(props) {
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(watch("example"));
+function FormLogin(props) {
+  const { register, handleSubmit, errors } = useForm();
+
+  const onSubmit = (data) => {
+    const dataQs = qs.stringify(data);
+    axios
+      .post("https://warm-tundra-23736.herokuapp.com/login", dataQs)
+      .then(function (response) {
+        console.log(response.data);
+        props.setUsertokenFromLogin(response.data);
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      });
+  };
 
   return (
     <div className={styles.container}>
@@ -37,14 +52,14 @@ export default function FormLogin(props) {
           name="password"
           ref={register({
             required: "Required password",
-            minLength: { value: 8, message: "Password must be 8 characters" },
-            validate: (value) => {
-              return (
-                [/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/].every((pattern) =>
-                  pattern.test(value)
-                ) || "must include lower, upper, number and special character"
-              );
-            },
+            // minLength: { value: 8, message: "Password must be 8 characters" },
+            // validate: (value) => {
+            //   return (
+            //     [/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/].every((pattern) =>
+            //       pattern.test(value)
+            //     ) || "must include lower, upper, number and special character"
+            //   );
+            // },
           })}
         />
         {errors.password && (
@@ -66,3 +81,11 @@ export default function FormLogin(props) {
     </div>
   );
 }
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    setUsertokenFromLogin: (token) => dispatch(setUsertokenFromLogin(token)),
+  };
+};
+
+export default connect(null, mapDispathToProps)(FormLogin);

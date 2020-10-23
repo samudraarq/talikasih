@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import styles from "./FormReg.module.css";
 import google from "../../assets/homepage/Home/google.png";
 
-export default function FormReg(props) {
+function FormReg(props) {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => console.log(data);
   console.log(watch("example"));
@@ -97,3 +97,5 @@ export default function FormReg(props) {
     </>
   );
 }
+
+export default FormReg;
