@@ -5,7 +5,7 @@
 
 .modal_wrapper {
   background-color: #f1ede4;
-  margin: 10% 0 0 35%;
+  margin: 7% 0 0 35%;
   width: 57rem;
   height: 70rem;
   border-style: none;
@@ -17,7 +17,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  z-index: 1;
+  z-index: 4;
 }
 
 .img2 {

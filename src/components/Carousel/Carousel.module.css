@@ -1,13 +1,13 @@
 .carouselContainer{
     padding-top: 8.6rem;
-    max-width: 145rem; 
+    /* max-width: 145rem;  */
     margin: auto;
     background: #F1EDE4;
 }
 
 .carousel {
     background: #F1EDE4;
-    max-width: 145rem;
+    /* max-width: 145rem; */
     margin: auto;
     height: 66rem;
     position: relative;

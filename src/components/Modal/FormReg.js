@@ -1,18 +1,35 @@
 import React from "react";
+import { connect } from "react-redux";
+import axios from "axios";
+import qs from "qs";
 import { useForm } from "react-hook-form";
 import styles from "./FormReg.module.css";
+import { setUsertokenFromRegister } from "../../redux/actions/authActions";
 import google from "../../assets/homepage/Home/google.png";
 
 function FormReg(props) {
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data) => {
+    const dataQs = qs.stringify(data);
+    axios
+      .post("https://warm-tundra-23736.herokuapp.com/", dataQs)
+      .then(function (response) {
+        console.log(response.data);
+        props.setUsertokenFromRegister(response.data);
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      });
+  };
+
   console.log(watch("example"));
 
   return (
-    <>
+    <div className={styles.container}>
       <h1 className={styles.headerForm}>REGISTER</h1>
       <h3 className={styles.alreadyHave}>
-        Already have an account
+        Already have an account{" "}
         <a href="#" onClick={() => props.setIsLogin(true)}>
           Sign in
         </a>
@@ -31,7 +48,7 @@ function FormReg(props) {
         )}
 
         <input
-          className={styles.inputForm2}
+          className={styles.inputForm}
           type="text"
           placeholder="Email"
           name="email"
@@ -42,20 +59,20 @@ function FormReg(props) {
         )}
 
         <input
-          className={styles.inputForm2}
+          className={styles.inputForm}
           type="password"
           placeholder="Password"
           name="password"
           ref={register({
             required: "required password",
-            minLength: { value: 8, message: "Password must be 8 characters" },
-            validate: (value) => {
-              return (
-                [/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/].every((pattern) =>
-                  pattern.test(value)
-                ) || "must include lower, upper, number and special character"
-              );
-            },
+            // minLength: { value: 8, message: "Password must be 8 characters" },
+            // validate: (value) => {
+            //   return (
+            //     [/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/].every((pattern) =>
+            //       pattern.test(value)
+            //     ) || "must include lower, upper, number and special character"
+            //   );
+            // },
           })}
         />
         {errors.password && (
@@ -63,7 +80,7 @@ function FormReg(props) {
         )}
 
         <input
-          className={styles.inputForm2}
+          className={styles.inputForm}
           type="password"
           placeholder="Confirm Password"
           name="confirmpassword"
@@ -88,14 +105,19 @@ function FormReg(props) {
           LOGIN
         </button>
       </form>
-      <hr className={styles.line1} />
       <button className={styles.btnGoogle}>
         <img src={google} alt="google" className={styles.google} />
         Continue with Google
       </button>
-      <hr className={styles.line2} />
-    </>
+    </div>
   );
 }
 
-export default FormReg;
+const mapDispathToProps = (dispatch) => {
+  return {
+    setUsertokenFromRegister: (token) => dispatch(setUsertokenFromRegister(token)),
+  };
+};
+
+export default connect(null, mapDispathToProps)(FormReg);
+

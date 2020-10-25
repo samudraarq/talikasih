@@ -65,7 +65,8 @@ const Navbar = (props) => {
 
           <span className={styles.loginBtn} onClick={handleLogin }>
             Login</span>
-          <span className={styles.registerBtn} onClick={handleReg }>Register</span>
+          <span className={styles.registerBtn} onClick={handleReg }>
+            Register</span>
         </div>
       </div>
     </div>
