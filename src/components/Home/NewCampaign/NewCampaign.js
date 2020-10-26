@@ -17,6 +17,7 @@ const NewCampaign = ({ newCampaign, getNewCampaigns }) => {
     .map((campaign) => <CampaignCard campaign={campaign} key={campaign.id} />);
 
   const renderSkeleton = [1, 2, 3].map((n) => <SkeletonCard key={n} />);
+
   return (
     <div className={styles.container}>
       <h3 className={styles.segmentTitle}>New</h3>

@@ -5,6 +5,7 @@ import { getTrendingCampaign } from "../../../redux/actions/campaignActions";
 
 import openQuote from "../../../assets/homepage/Home/openQuote.svg";
 import closeQuote from "../../../assets/homepage/Home/closeQuote.svg";
+import SkeletonTrending from "../../Skeleton/SkeletonTrending";
 
 // import trendingImage from "../../../assets/homepage/Home/Rectangle 33.png";
 // import fundraiser from "../../../assets/homepage/Home/Rectangle 37.png";
@@ -19,7 +20,7 @@ const Trending = ({ trendingCampaign, getTrendingCampaign }) => {
   return (
     <>
       {trendingCampaign.loading ? (
-        <p>Loading...</p>
+        <SkeletonTrending />
       ) : (
         <div className={styles.container}>
           <h3 className={styles.segmentTitle}>Trending Topic</h3>

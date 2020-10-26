@@ -10,6 +10,10 @@ const SkeletonElements = ({ type }) => {
         return styles.title;
       case "thumbnail":
         return styles.thumbnail;
+      case "trendingThumbnail":
+        return styles.trendingThumbnail;
+      case "avatar":
+        return styles.avatar;
       default:
         return;
     }
