@@ -5,6 +5,8 @@ import { getNewCampaigns } from "../../../redux/actions/campaignActions";
 import CampaignCard from "../../CampaignCard/CampaignCard";
 import styles from "./NewCampaign.module.css";
 
+import SkeletonCard from "../../Skeleton/SkeletonCard";
+
 const NewCampaign = ({ newCampaign, getNewCampaigns }) => {
   useEffect(() => {
     getNewCampaigns(1);
@@ -14,6 +16,7 @@ const NewCampaign = ({ newCampaign, getNewCampaigns }) => {
     .slice(0, 3)
     .map((campaign) => <CampaignCard campaign={campaign} key={campaign.id} />);
 
+  const renderSkeleton = [1, 2, 3].map((n) => <SkeletonCard key={n} />);
   return (
     <div className={styles.container}>
       <h3 className={styles.segmentTitle}>New</h3>
@@ -21,7 +24,7 @@ const NewCampaign = ({ newCampaign, getNewCampaigns }) => {
         The latest people who need your help
       </h2>
       <div className={styles.cardsContainer}>
-        {newCampaign.loading ? <p>Loading...</p> : renderCards}
+        {newCampaign.loading ? renderSkeleton : renderCards}
       </div>
     </div>
   );

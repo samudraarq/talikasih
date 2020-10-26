@@ -1,0 +1,83 @@
+.skeleton {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.skeleton.text {
+  width: 100%;
+  margin: 1rem 0;
+  height: 1.4rem;
+}
+
+.skeleton.title {
+  width: 50%;
+  height: 1.8rem;
+  margin: 2rem;
+}
+
+.skeleton.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.skeleton.thumbnail {
+  width: 100%;
+  height: 22rem;
+}
+
+.skeletonWrapper {
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardContainer {
+  width: 36rem;
+  border: 1px solid #f1ede4;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.contentContainer {
+  padding: 1.3rem 2.4rem;
+  height: calc(100% - 22rem);
+}
+
+.amountContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+}
+
+.shimmerWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: loading 1s infinite;
+}
+
+.shimmer {
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-150%);
+  }
+  50% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
