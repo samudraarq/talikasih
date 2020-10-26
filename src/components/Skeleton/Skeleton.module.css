@@ -97,13 +97,13 @@
 
 /* animation */
 
-.shimmerWrapper {
+/* .shimmerWrapper {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  animation: loading 1s infinite;
+  animation: loading 2s infinite;
 }
 
 .shimmer {
@@ -123,5 +123,26 @@
   }
   100% {
     transform: translateX(150%);
+  }
+} */
+
+.shimmerWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    background: rgba(255, 255, 255, 0.05);
   }
 }

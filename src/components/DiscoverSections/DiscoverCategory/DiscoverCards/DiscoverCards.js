@@ -6,16 +6,10 @@ import SkeletonCard from "../../../Skeleton/SkeletonCard";
 
 const DiscoverCards = ({ campaigns }) => {
   const renderCard = campaigns?.documents.map((campaign) => (
-    <div className={styles.card} key={campaign.id}>
-      <CampaignCard campaign={campaign} />
-    </div>
+    <CampaignCard campaign={campaign} key={campaign.id} />
   ));
 
-  const renderSkeletonCards = [1, 2, 3].map((n) => (
-    <div className={styles.card} key={n}>
-      <SkeletonCard />
-    </div>
-  ));
+  const renderSkeletonCards = [1, 2, 3].map((n) => <SkeletonCard key={n} />);
 
   return (
     <div className={styles.cardsContainer}>
