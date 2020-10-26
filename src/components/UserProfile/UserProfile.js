@@ -13,9 +13,7 @@ const UserProfile = () => {
       <div className={styles.segment}>
         <MyDonations />
       </div>
-      <div className={styles.segment}>
-        <MyCampaign />
-      </div>
+      <div className={styles.segment}>{/* <MyCampaign /> */}</div>
     </div>
   );
 };
