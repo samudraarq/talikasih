@@ -56,9 +56,21 @@ const DiscoverSearch = ({
   return (
     <div className={styles.container}>
       <HeaderSearch searchText={searchText} />
-      <SortButton urlLink={`search?search=${searchText}&`} setPage={setPage} />
-      <DiscoverCards campaigns={searchCampaign} />
-      <ChangePage maxPage={searchCampaign.totalPages} pageChange={pageChange} />
+      {searchCampaign.isError ? (
+        <p className={styles.errorMsg}>{searchCampaign.errorMsg}</p>
+      ) : (
+        <>
+          <SortButton
+            urlLink={`search?search=${searchText}&`}
+            setPage={setPage}
+          />
+          <DiscoverCards campaigns={searchCampaign} />
+          <ChangePage
+            maxPage={searchCampaign.totalPages}
+            pageChange={pageChange}
+          />
+        </>
+      )}
     </div>
   );
 };

@@ -56,12 +56,18 @@ const DiscoverCategory = ({
   return (
     <div className={styles.container}>
       <HeaderCategory />
-      <SortButton urlLink={`category/${categoryId}?`} setPage={setPage} />
-      <DiscoverCards campaigns={categoryCampaign} />
-      <ChangePage
-        maxPage={categoryCampaign.totalPages}
-        pageChange={pageChange}
-      />
+      {categoryCampaign.isError ? (
+        <p className={styles.errorMsg}>{categoryCampaign.errorMsg}</p>
+      ) : (
+        <>
+          <SortButton urlLink={`category/${categoryId}?`} setPage={setPage} />
+          <DiscoverCards campaigns={categoryCampaign} />
+          <ChangePage
+            maxPage={categoryCampaign.totalPages}
+            pageChange={pageChange}
+          />
+        </>
+      )}
     </div>
   );
 };

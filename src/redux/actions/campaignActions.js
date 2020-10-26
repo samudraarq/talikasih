@@ -13,11 +13,15 @@ import {
   GET_CATEGORY_POPULAR,
   GET_CATEGORY_URGENT,
   GET_CATEGORY_LESSDONATE,
+  SET_ERROR_CATEGORY,
+  SET_ERROR_CATEGORY_FALSE,
   SET_LOADING_SEARCH,
   GET_SEARCH_CAMPAIGNS,
   GET_SEARCH_POPULAR,
   GET_SEARCH_URGENT,
   GET_SEARCH_LESSDONATE,
+  SET_ERROR_SEARCH,
+  SET_ERROR_SEARCH_FALSE,
 } from "./actionTypes";
 
 export const getNewCampaigns = (page) => {
@@ -123,16 +127,26 @@ export const getCategoryCampaigns = (page, categoryId) => {
     dispatch({
       type: SET_LOADING_CATEGORY,
     });
+    dispatch({
+      type: SET_ERROR_CATEGORY_FALSE,
+    });
     axios
       .get(
         `https://warm-tundra-23736.herokuapp.com/discover/category/${categoryId}/${page}`
       )
       .then((response) => {
-        dispatch({
-          type: GET_CATEGORY_CAMPAIGNS,
-          posts: response.data,
-          status: "Done",
-        });
+        if (response.data.success === false) {
+          dispatch({
+            type: SET_ERROR_CATEGORY,
+            errorMsg: response.data.message,
+          });
+        } else {
+          dispatch({
+            type: GET_CATEGORY_CAMPAIGNS,
+            posts: response.data,
+            status: "Done",
+          });
+        }
         dispatch({
           type: SET_LOADING_CATEGORY,
         });
@@ -235,16 +249,27 @@ export const getSearchCampaign = (page, searchTerms) => {
     dispatch({
       type: SET_LOADING_SEARCH,
     });
+    dispatch({
+      type: SET_ERROR_SEARCH_FALSE,
+    });
     axios
       .get(
         `https://warm-tundra-23736.herokuapp.com/discover/search/${searchTerms}/${page}`
       )
       .then((response) => {
-        dispatch({
-          type: GET_SEARCH_CAMPAIGNS,
-          posts: response.data,
-          status: "Done",
-        });
+        if (response.data.success === false) {
+          dispatch({
+            type: SET_ERROR_SEARCH,
+            errorMsg: response.data.message,
+          });
+        } else {
+          dispatch({
+            type: GET_SEARCH_CAMPAIGNS,
+            posts: response.data,
+            status: "Done",
+          });
+        }
+
         dispatch({
           type: SET_LOADING_SEARCH,
         });

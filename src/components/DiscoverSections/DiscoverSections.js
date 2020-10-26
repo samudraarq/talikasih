@@ -7,6 +7,7 @@ import {
 } from "../../redux/actions/campaignActions";
 import styles from "./DiscoverSections.module.css";
 import CampaignCard from "../CampaignCard/CampaignCard";
+import SkeletonCard from "../Skeleton/SkeletonCard";
 
 const DiscoverSections = ({
   newCampaign,
@@ -34,24 +35,28 @@ const DiscoverSections = ({
     .slice(0, 3)
     .map((campaign) => <CampaignCard campaign={campaign} key={campaign.id} />);
 
+  const renderSkeletonCards = [1, 2, 3].map((n) => <SkeletonCard key={n} />);
+
   return (
     <div className={styles.container}>
       <div className={styles.sectionsContainer}>
         <span className={styles.sectionsTitle}>Newest</span>
         <div className={styles.cardsContainer}>
-          {newCampaign.loading ? <p>Loading...</p> : renderNewCampaigns}
+          {newCampaign.loading ? renderSkeletonCards : renderNewCampaigns}
         </div>
       </div>
       <div className={styles.sectionsContainer}>
         <span className={styles.sectionsTitle}>Most Urgent</span>
         <div className={styles.cardsContainer}>
-          {urgentCampaign.loading ? <p>Loading...</p> : renderUrgentCampaigns}
+          {urgentCampaign.loading ? renderSkeletonCards : renderUrgentCampaigns}
         </div>
       </div>
       <div className={styles.sectionsContainer}>
         <span className={styles.sectionsTitle}>Gained Momentum</span>
         <div className={styles.cardsContainer}>
-          {popularCampaign.loading ? <p>Loading...</p> : renderPopularCampaigns}
+          {popularCampaign.loading
+            ? renderSkeletonCards
+            : renderPopularCampaigns}
         </div>
       </div>
     </div>
