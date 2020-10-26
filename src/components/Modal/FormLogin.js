@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import axios from "axios";
+
 import qs from "qs";
 import { useForm } from "react-hook-form";
 import styles from "../Modal/FormLogin.module.css";
-import { setUsertokenFromLogin } from "../../redux/actions/authActions";
+import { setLogin } from "../../redux/actions/authActions";
 import google from "../../assets/homepage/Home/google.png";
 
 function FormLogin(props) {
@@ -12,15 +12,7 @@ function FormLogin(props) {
 
   const onSubmit = (data) => {
     const dataQs = qs.stringify(data);
-    axios
-      .post("https://warm-tundra-23736.herokuapp.com/login", dataQs)
-      .then(function (response) {
-        console.log(response.data);
-        props.setUsertokenFromLogin(response.data);
-      })
-      .catch(function (error) {
-        console.log(error.message);
-      });
+    props.setLogin(dataQs);
   };
 
   return (
@@ -73,6 +65,7 @@ function FormLogin(props) {
         <button className={styles.btnLogin} type="submit">
           LOGIN
         </button>
+        {props.auth.isError && <p>{props.auth.errorMsg}</p>}
       </form>
       <button className={styles.btnGoogle}>
         <img src={google} alt="google" className={styles.google} />
@@ -82,10 +75,16 @@ function FormLogin(props) {
   );
 }
 
-const mapDispathToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    setUsertokenFromLogin: (token) => dispatch(setUsertokenFromLogin(token)),
+    auth: state.auth,
   };
 };
 
-export default connect(null, mapDispathToProps)(FormLogin);
+const mapDispathToProps = (dispatch) => {
+  return {
+    setLogin: (dataQs) => dispatch(setLogin(dataQs)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispathToProps)(FormLogin);
