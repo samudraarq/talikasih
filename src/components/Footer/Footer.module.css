@@ -2,6 +2,10 @@
   border-bottom: 1px solid #e1e0e0;
 }
 
+.footer {
+  background-color: #f9f7f3;
+}
+
 .container {
   max-width: 120rem;
   margin: auto;
@@ -11,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 4.8rem;
+  padding-top: 4.8rem;
   margin-bottom: 4.6rem;
 }
 

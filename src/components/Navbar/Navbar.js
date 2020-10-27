@@ -9,10 +9,26 @@ import styles from "./Navbar.module.css";
 import logo from "../../assets/general/logo.svg";
 import search from "../../assets/general/search-icon.svg";
 import ModalLogin from "../Modal/ModalLogin";
+import { Link, useHistory } from "react-router-dom";
+
 
 const Navbar = (props) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [createBtn, setCreateBtn] = useState(true);
+
+  const [searchText, setSearchText] = useState("");
+
+  const history = useHistory();
+  
+  const handleChange = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    if (e.key === "Enter") {
+      history.push(`/discover/search?search=${searchText}`);
+    }
+  };
 
   const handleOpenSearch = () => {
     setOpenSearch(true);
@@ -41,7 +57,9 @@ const Navbar = (props) => {
       <ModalLogin />
       <div className={styles.navContainer}>
         <div className={styles.container}>
-          <img src={logo} alt="logo" className={styles.logo} />
+          <Link to="/">
+            <img src={logo} alt="logo" className={styles.logo} />
+          </Link>
           <div className={styles.navLink}>
             {createBtn && (
               <>
@@ -52,13 +70,14 @@ const Navbar = (props) => {
                 >
                   Create Campaign
                 </span>
-                <span
-                  className={`${styles.donateBtn} ${
-                    !openSearch && styles.openBtn
-                  }`}
-                >
-                  Donate
-                </span>
+               <Link
+                to="/discover"
+                className={`${styles.donateBtn} ${
+                  !openSearch && styles.openBtn
+                }`}
+              >
+                Donate
+              </Link>
               </>
             )}
             <div className={styles.searchContainer} onClick={handleOpenSearch}>
@@ -67,14 +86,18 @@ const Navbar = (props) => {
                 alt="search icon"
                 className={styles.searchIcon}
               />
-              <input
-                className={`${styles.searchInput} ${openSearch && styles.open}`}
-                type="text"
-                placeholder="Search"
-                onBlur={handleCloseSearch}
-              />
+               <input
+              className={`${styles.searchInput} ${openSearch && styles.open}`}
+              type="text"
+              placeholder="Search"
+              onBlur={handleCloseSearch}
+              onChange={handleChange}
+              onKeyUp={handleSubmit}
+            />
             </div>
-
+<Link to="/user/profile" className={styles.profileBtn}>
+            My Profile
+          </Link>
             <span className={styles.loginBtn} onClick={handleLogin}>
               Login
             </span>
@@ -82,6 +105,7 @@ const Navbar = (props) => {
               Register
             </span>
           </div>
+
         </div>
       </div>
     </>

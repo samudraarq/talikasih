@@ -1,0 +1,73 @@
+.profileContainer {
+  border: 1px solid #e1e0e0;
+  border-radius: 4px;
+  padding: 3rem;
+  text-align: center;
+  max-width: 97rem;
+  margin: 0 auto;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.logoutBtn {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #a43f3c;
+  text-decoration: underline;
+  outline: none;
+  cursor: pointer;
+}
+
+.userPic {
+  height: 20rem;
+  width: 20rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+.editBtn {
+  display: block;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #1d94a8;
+  margin-top: 1.3rem;
+}
+
+.inputsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  margin: 3.5rem 6.1rem 2rem;
+}
+
+.inputContainer label {
+  display: block;
+  text-align: start;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #9f9f9f;
+  margin-bottom: 0.8rem;
+}
+
+.inputContainer input {
+  width: 100%;
+  height: 4.2rem;
+  padding: 0 1.6rem;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.4rem;
+  border: none;
+  background: #fcfcfc;
+}

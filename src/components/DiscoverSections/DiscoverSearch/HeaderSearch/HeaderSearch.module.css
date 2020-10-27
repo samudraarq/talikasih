@@ -1,0 +1,31 @@
+.headerContainer {
+  padding: 7.2rem 0;
+}
+
+.categoryText {
+  margin-top: 1.2rem;
+  font-weight: 700;
+  font-size: 3.2rem;
+}
+
+.backlinkContainer {
+  display: inline-block;
+}
+
+.backlinkText {
+  margin-top: 2.7rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+}
+
+.backlinkText img {
+  margin-right: 1rem;
+}
+
+.backlinkText p {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
