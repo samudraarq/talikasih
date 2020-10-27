@@ -6,7 +6,6 @@ import {
   SET_REGISTER,
   SET_AUTH_LOADING,
 } from "../actions/actionTypes";
-// import { SET_USERTOKEN_FROM_REGISTER } from "../actions/actionTypes";
 
 const initialState = {
   token: "",

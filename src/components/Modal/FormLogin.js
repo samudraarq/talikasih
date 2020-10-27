@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import qs from "qs";
 import { useForm } from "react-hook-form";
 import styles from "../Modal/FormLogin.module.css";
@@ -82,7 +81,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispathToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     setLogin: (dataQs) => dispatch(setLogin(dataQs)),
     setFormRegister: () => {
@@ -91,4 +90,4 @@ const mapDispathToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispathToProps)(FormLogin);
+export default connect(mapStateToProps, mapDispatchToProps)(FormLogin);

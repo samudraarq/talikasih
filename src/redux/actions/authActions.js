@@ -8,7 +8,6 @@ import {
   SET_MODAL_CLOSE,
   SET_AUTH_LOADING,
 } from "./actionTypes";
-// import { SET_USERTOKEN_FROM_REGISTER } from "./actionTypes";
 
 export const setLogin = (dataQs) => {
   return (dispatch) => {
@@ -80,6 +79,10 @@ export const setRegister = (dataQs) => {
       type: SET_NOT_ERROR,
     });
 
+    dispatch({
+      type: SET_AUTH_LOADING,
+    });
+
     axios
       .post("https://warm-tundra-23736.herokuapp.com/", dataQs)
       .then(function (response) {
@@ -87,9 +90,14 @@ export const setRegister = (dataQs) => {
 
         if (response.data.success === false) {
           dispatch({
+            type: SET_AUTH_LOADING,
+          });
+
+          dispatch({
             type: SET_ERROR,
             errorMsg: response.data.message,
           });
+
         } else {
           dispatch({
             type: SET_REGISTER,
@@ -114,8 +122,12 @@ export const setRegister = (dataQs) => {
                 user: response.data.user,
               });
               dispatch({
+                type: SET_AUTH_LOADING,
+              });
+              dispatch({
                 type: SET_MODAL_CLOSE,
               });
+    
             })
             .catch(function (error) {
               console.log(error);
@@ -128,12 +140,6 @@ export const setRegister = (dataQs) => {
   };
 };
 
-// export const setUsertokenFromRegister = (token) => {
-//   return {
-//     type: SET_USERTOKEN_FROM_REGISTER,
-//     payload: token,
-//   };
-// };
 
 export const setUserPersistanceRegister = () => {
   return async (dispatch) => {

@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-// import axios from "axios";
 import qs from "qs";
 import { useForm } from "react-hook-form";
 import styles from "../Modal/FormReg.module.css";
@@ -14,10 +13,7 @@ function FormReg(props) {
   const onSubmit = (data) => {
     const dataQs = qs.stringify(data);
     props.setRegister(dataQs);
-    // })
-    // .catch(function (error) {
-    //   console.log(error.message);
-    // });
+    
   };
 
   console.log(watch("example"));
@@ -99,7 +95,7 @@ function FormReg(props) {
         )}
 
         <button className={styles.btnLogin} type="submit">
-          LOGIN
+        {props.auth.isLoading ? "PLEASE WAIT..." : "REGISTER"}
         </button>
 
         {props.auth.isError && <p>{props.auth.errorMsg}</p>}
@@ -118,11 +114,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispathToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     setRegister: (dataQs) => dispatch(setRegister(dataQs)),
-    setFormLogin: () => dispatch(setFormLogin()),
+    setFormLogin: () => {
+      dispatch(setFormLogin());
+  },
   };
 };
 
-export default connect(mapStateToProps, mapDispathToProps)(FormReg);
+export default connect(mapStateToProps, mapDispatchToProps)(FormReg);

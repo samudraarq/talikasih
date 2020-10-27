@@ -1,5 +1,4 @@
 // For Auth Actions
-// export const SET_USERTOKEN_FROM_REGISTER = "SET_USERTOKEN_FROM_REGISTER";
 
 export const SET_LOGIN = "SET_LOGIN";
 export const SET_USER_FROM_TOKEN = "SET_USER_FROM_TOKEN";

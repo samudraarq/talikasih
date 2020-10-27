@@ -4,7 +4,6 @@ import {
   SET_FORM_LOGIN,
   SET_FORM_REGISTER,
 } from "../actions/actionTypes";
-// import { SET_USERTOKEN_FROM_REGISTER } from "../actions/actionTypes";
 
 const initialState = {
   modalIsOpen: false,
