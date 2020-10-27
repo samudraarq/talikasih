@@ -5,6 +5,7 @@ import qs from "qs";
 import { useForm } from "react-hook-form";
 import styles from "../Modal/FormLogin.module.css";
 import { setLogin } from "../../redux/actions/authActions";
+import { setFormRegister } from "../../redux/actions/layoutActions";
 import google from "../../assets/homepage/Home/google.png";
 
 function FormLogin(props) {
@@ -20,7 +21,7 @@ function FormLogin(props) {
       <h1 className={styles.headerForm}>LOGIN</h1>
       <h3 className={styles.createAccount}>
         New user?{" "}
-        <a href="#" onClick={() => props.setIsLogin(false)}>
+        <a href="#" onClick={() => props.setFormRegister()}>
           Create account
         </a>
       </h3>
@@ -84,6 +85,9 @@ const mapStateToProps = (state) => {
 const mapDispathToProps = (dispatch) => {
   return {
     setLogin: (dataQs) => dispatch(setLogin(dataQs)),
+    setFormRegister: () => {
+      dispatch(setFormRegister());
+    },
   };
 };
 

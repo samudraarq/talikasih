@@ -5,6 +5,7 @@ import qs from "qs";
 import { useForm } from "react-hook-form";
 import styles from "../Modal/FormReg.module.css";
 import { setRegister } from "../../redux/actions/authActions";
+import { setFormLogin } from "../../redux/actions/layoutActions";
 import google from "../../assets/homepage/Home/google.png";
 
 function FormReg(props) {
@@ -13,10 +14,10 @@ function FormReg(props) {
   const onSubmit = (data) => {
     const dataQs = qs.stringify(data);
     props.setRegister(dataQs);
-      // })
-      // .catch(function (error) {
-      //   console.log(error.message);
-      // });
+    // })
+    // .catch(function (error) {
+    //   console.log(error.message);
+    // });
   };
 
   console.log(watch("example"));
@@ -26,7 +27,7 @@ function FormReg(props) {
       <h1 className={styles.headerForm}>REGISTER</h1>
       <h3 className={styles.alreadyHave}>
         Already have an account{" "}
-        <a href="#" onClick={() => props.setIsLogin(true)}>
+        <a href="#" onClick={() => props.setFormLogin()}>
           Sign in
         </a>
       </h3>
@@ -120,8 +121,8 @@ const mapStateToProps = (state) => {
 const mapDispathToProps = (dispatch) => {
   return {
     setRegister: (dataQs) => dispatch(setRegister(dataQs)),
+    setFormLogin: () => dispatch(setFormLogin()),
   };
 };
 
 export default connect(mapStateToProps, mapDispathToProps)(FormReg);
-

@@ -5,6 +5,7 @@ import {
   SET_USER_FROM_TOKEN,
   SET_ERROR,
   SET_NOT_ERROR,
+  SET_MODAL_CLOSE,
 } from "./actionTypes";
 // import { SET_USERTOKEN_FROM_REGISTER } from "./actionTypes";
 
@@ -46,6 +47,9 @@ export const setLogin = (dataQs) => {
               dispatch({
                 type: SET_USER_FROM_TOKEN,
                 user: response.data.user,
+              });
+              dispatch({
+                type: SET_MODAL_CLOSE,
               });
             })
             .catch(function (error) {
@@ -98,6 +102,9 @@ export const setRegister = (dataQs) => {
                 type: SET_USER_FROM_TOKEN,
                 user: response.data.user,
               });
+              dispatch({
+                type: SET_MODAL_CLOSE,
+              });
             })
             .catch(function (error) {
               console.log(error);
@@ -148,7 +155,6 @@ export const setUserPersistanceRegister = () => {
     }
   };
 };
-
 
 export const setUserPersistanceLogin = () => {
   return async (dispatch) => {
