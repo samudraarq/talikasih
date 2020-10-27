@@ -1,13 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
 import styles from "./MyProfile.module.css";
 
 import profilePic from "../../../assets/profile/foto-profile.png";
 import { Link } from "react-router-dom";
 
-const MyProfile = () => {
-  const userName = "Luna";
-  const userEmail = "luna@mail.com";
-  const userBankName = "BCA";
+const MyProfile = ({ auth }) => {
+  const userName = auth.user.name;
+  const userEmail = auth.user.email;
+  const userBankName = auth.user.creditcard;
   const userBankAccount = 1234567;
   const newBankAccount =
     userBankName +
@@ -48,4 +49,10 @@ const MyProfile = () => {
   );
 };
 
-export default MyProfile;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps)(MyProfile);
