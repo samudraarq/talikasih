@@ -1,14 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { setUserPersistanceLogin } from "./redux/actions/authActions";
 import "./App.css";
 import Discover from "./pages/Discover";
 import DiscoverCategoryPage from "./pages/DiscoverCategory/DiscoverCategoryPage";
 import DiscoverSearchPage from "./pages/DiscoverSearchPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import Home from "./pages/Home";
+import { useEffect } from "react";
 import UserProfilePage from "./pages/UserProfilePage";
 
-function App() {
+function App({ setUserPersistanceLogin }) {
+  useEffect(() => {
+    setUserPersistanceLogin();
+  }, [setUserPersistanceLogin]);
+
   return (
     <BrowserRouter>
       <Switch>
@@ -35,4 +42,10 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUserPersistanceLogin: () => dispatch(setUserPersistanceLogin()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(App);
