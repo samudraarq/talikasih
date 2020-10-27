@@ -10,6 +10,7 @@ import {
 const initialState = {
   token: "",
   user: {},
+  isLogin: false,
   errorMsg: "",
   isError: false,
   isLoading: false,
@@ -18,7 +19,7 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER_FROM_TOKEN:
-      return { ...state, user: action.user };
+      return { ...state, user: action.user, isLogin: true };
 
     case SET_LOGIN:
       return { ...state, token: action.token };

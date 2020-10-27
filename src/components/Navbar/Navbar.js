@@ -11,7 +11,6 @@ import search from "../../assets/general/search-icon.svg";
 import ModalLogin from "../Modal/ModalLogin";
 import { Link, useHistory } from "react-router-dom";
 
-
 const Navbar = (props) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [createBtn, setCreateBtn] = useState(true);
@@ -19,7 +18,7 @@ const Navbar = (props) => {
   const [searchText, setSearchText] = useState("");
 
   const history = useHistory();
-  
+
   const handleChange = (e) => {
     setSearchText(e.target.value);
   };
@@ -61,7 +60,7 @@ const Navbar = (props) => {
             <img src={logo} alt="logo" className={styles.logo} />
           </Link>
           <div className={styles.navLink}>
-            {createBtn && (
+            {createBtn && props.auth.isLogin && (
               <>
                 <span
                   className={`${styles.createCampaignBtn} ${
@@ -70,14 +69,14 @@ const Navbar = (props) => {
                 >
                   Create Campaign
                 </span>
-               <Link
-                to="/discover"
-                className={`${styles.donateBtn} ${
-                  !openSearch && styles.openBtn
-                }`}
-              >
-                Donate
-              </Link>
+                <Link
+                  to="/discover"
+                  className={`${styles.donateBtn} ${
+                    !openSearch && styles.openBtn
+                  }`}
+                >
+                  Donate
+                </Link>
               </>
             )}
             <div className={styles.searchContainer} onClick={handleOpenSearch}>
@@ -86,30 +85,41 @@ const Navbar = (props) => {
                 alt="search icon"
                 className={styles.searchIcon}
               />
-               <input
-              className={`${styles.searchInput} ${openSearch && styles.open}`}
-              type="text"
-              placeholder="Search"
-              onBlur={handleCloseSearch}
-              onChange={handleChange}
-              onKeyUp={handleSubmit}
-            />
+              <input
+                className={`${styles.searchInput} ${openSearch && styles.open}`}
+                type="text"
+                placeholder="Search"
+                onBlur={handleCloseSearch}
+                onChange={handleChange}
+                onKeyUp={handleSubmit}
+              />
             </div>
-<Link to="/user/profile" className={styles.profileBtn}>
-            My Profile
-          </Link>
-            <span className={styles.loginBtn} onClick={handleLogin}>
-              Login
-            </span>
-            <span className={styles.registerBtn} onClick={handleReg}>
-              Register
-            </span>
+            {props.auth.isLogin && (
+              <Link to="/user/profile" className={styles.profileBtn}>
+                My Profile
+              </Link>
+            )}
+            {!props.auth.isLogin && (
+              <>
+                <span className={styles.loginBtn} onClick={handleLogin}>
+                  Login
+                </span>
+                <span className={styles.registerBtn} onClick={handleReg}>
+                  Register
+                </span>
+              </>
+            )}
           </div>
-
         </div>
       </div>
     </>
   );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -120,4 +130,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
