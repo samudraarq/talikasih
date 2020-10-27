@@ -5,7 +5,9 @@
 
 .modal_wrapper {
   background-color: #f1ede4;
-  margin: 7% 0 0 35%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 57rem;
   height: 70rem;
   border-style: none;

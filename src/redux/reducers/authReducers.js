@@ -4,6 +4,7 @@ import {
   SET_USER_FROM_TOKEN,
   SET_NOT_ERROR,
   SET_REGISTER,
+  SET_AUTH_LOADING,
 } from "../actions/actionTypes";
 // import { SET_USERTOKEN_FROM_REGISTER } from "../actions/actionTypes";
 
@@ -12,6 +13,7 @@ const initialState = {
   user: {},
   errorMsg: "",
   isError: false,
+  isLoading: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -30,6 +32,9 @@ const authReducer = (state = initialState, action) => {
 
     case SET_NOT_ERROR:
       return { ...state, isError: false, errorMsg: "" };
+
+    case SET_AUTH_LOADING:
+      return { ...state, isLoading: !state.isLoading };
 
     default:
       return state;

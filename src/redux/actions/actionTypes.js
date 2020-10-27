@@ -9,6 +9,8 @@ export const SET_NOT_ERROR = "SET_NOT_ERROR";
 
 export const SET_REGISTER = "SET_REGISTER";
 
+export const SET_AUTH_LOADING = "SET_AUTH_LOADING";
+
 // For Layout Actions
 export const SET_MODAL_OPEN = "SET_MODAL_OPEN";
 export const SET_MODAL_CLOSE = "SET_MODAL_CLOSE";

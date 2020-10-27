@@ -6,6 +6,7 @@ import {
   SET_ERROR,
   SET_NOT_ERROR,
   SET_MODAL_CLOSE,
+  SET_AUTH_LOADING,
 } from "./actionTypes";
 // import { SET_USERTOKEN_FROM_REGISTER } from "./actionTypes";
 
@@ -15,12 +16,19 @@ export const setLogin = (dataQs) => {
       type: SET_NOT_ERROR,
     });
 
+    dispatch({
+      type: SET_AUTH_LOADING,
+    });
+
     axios
       .post("https://warm-tundra-23736.herokuapp.com/login", dataQs)
       .then(function (response) {
         console.log(response.data);
 
         if (response.data.success === false) {
+          dispatch({
+            type: SET_AUTH_LOADING,
+          });
           dispatch({
             type: SET_ERROR,
             errorMsg: response.data.message,
@@ -47,6 +55,9 @@ export const setLogin = (dataQs) => {
               dispatch({
                 type: SET_USER_FROM_TOKEN,
                 user: response.data.user,
+              });
+              dispatch({
+                type: SET_AUTH_LOADING,
               });
               dispatch({
                 type: SET_MODAL_CLOSE,
