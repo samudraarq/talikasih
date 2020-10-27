@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import axios from "axios";
+// import axios from "axios";
 import qs from "qs";
 import { useForm } from "react-hook-form";
-import styles from "./FormReg.module.css";
-import { setUsertokenFromRegister } from "../../redux/actions/authActions";
+import styles from "../Modal/FormReg.module.css";
+import { setRegister } from "../../redux/actions/authActions";
 import google from "../../assets/homepage/Home/google.png";
 
 function FormReg(props) {
@@ -12,15 +12,11 @@ function FormReg(props) {
 
   const onSubmit = (data) => {
     const dataQs = qs.stringify(data);
-    axios
-      .post("https://warm-tundra-23736.herokuapp.com/", dataQs)
-      .then(function (response) {
-        console.log(response.data);
-        props.setUsertokenFromRegister(response.data);
-      })
-      .catch(function (error) {
-        console.log(error.message);
-      });
+    props.setRegister(dataQs);
+      // })
+      // .catch(function (error) {
+      //   console.log(error.message);
+      // });
   };
 
   console.log(watch("example"));
@@ -104,6 +100,8 @@ function FormReg(props) {
         <button className={styles.btnLogin} type="submit">
           LOGIN
         </button>
+
+        {props.auth.isError && <p>{props.auth.errorMsg}</p>}
       </form>
       <button className={styles.btnGoogle}>
         <img src={google} alt="google" className={styles.google} />
@@ -113,11 +111,17 @@ function FormReg(props) {
   );
 }
 
-const mapDispathToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    setUsertokenFromRegister: (token) => dispatch(setUsertokenFromRegister(token)),
+    auth: state.auth,
   };
 };
 
-export default connect(null, mapDispathToProps)(FormReg);
+const mapDispathToProps = (dispatch) => {
+  return {
+    setRegister: (dataQs) => dispatch(setRegister(dataQs)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispathToProps)(FormReg);
 
