@@ -14,6 +14,9 @@ export const SET_AUTH_LOADING = "SET_AUTH_LOADING";
 
 export const SET_LOGOUT = "SET_LOGOUT";
 
+export const GET_USER_DONATION = "GET_USER_DONATION";
+export const GET_USER_CAMPAIGN = "GET_USER_CAMPAIGN";
+
 // For Layout Actions
 export const SET_MODAL_OPEN = "SET_MODAL_OPEN";
 export const SET_MODAL_CLOSE = "SET_MODAL_CLOSE";

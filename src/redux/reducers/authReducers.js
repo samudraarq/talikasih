@@ -7,6 +7,8 @@ import {
   SET_AUTH_LOADING,
   EDIT_USER_PROFILE,
   SET_LOGOUT,
+  GET_USER_DONATION,
+  GET_USER_CAMPAIGN,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -16,6 +18,8 @@ const initialState = {
   errorMsg: "",
   isError: false,
   isLoading: false,
+  userDonation: [],
+  userCampaign: [],
 };
 
 const authReducer = (state = initialState, action) => {
@@ -48,6 +52,12 @@ const authReducer = (state = initialState, action) => {
         user: {},
         isLogin: false,
       };
+
+    case GET_USER_DONATION:
+      return { ...state, userDonation: action.data.Result };
+
+    case GET_USER_CAMPAIGN:
+      return { ...state, userCampaign: action.data };
 
     default:
       return state;

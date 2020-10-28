@@ -9,6 +9,8 @@ import {
   SET_AUTH_LOADING,
   EDIT_USER_PROFILE,
   SET_LOGOUT,
+  GET_USER_DONATION,
+  GET_USER_CAMPAIGN,
 } from "./actionTypes";
 
 export const setLogin = (dataQs) => {
@@ -232,7 +234,56 @@ export const editUserProfile = (dataQs) => {
 };
 
 export const setLogout = () => {
-  return {
-    type: SET_LOGOUT,
+  return (dispatch) => {
+    localStorage.removeItem("token");
+    dispatch({
+      type: SET_LOGOUT,
+    });
+  };
+};
+
+export const getUserDonation = (token) => {
+  return (dispatch) => {
+    const config = {
+      method: "get",
+      url: "https://warm-tundra-23736.herokuapp.com/donate/campaign",
+      headers: {
+        token: token,
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        dispatch({
+          type: GET_USER_DONATION,
+          data: response.data,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+};
+
+export const getUserCampaign = (token) => {
+  return (dispatch) => {
+    const config = {
+      method: "get",
+      url: "https://warm-tundra-23736.herokuapp.com/campaign/user",
+      headers: {
+        token: token,
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        dispatch({
+          type: GET_USER_CAMPAIGN,
+          data: response.data,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 };
