@@ -14,7 +14,7 @@ const MyDonations = ({ auth, getUserDonation }) => {
     getUserDonation(token);
   }, [getUserDonation, token]);
 
-  const donationNumber = auth.userDonation.length;
+  const donationNumber = auth.userDonation.campaign_donated;
   const donations = donationNumber;
 
   const loadMore = () => {
@@ -27,9 +27,10 @@ const MyDonations = ({ auth, getUserDonation }) => {
     setLoadButton(true);
   };
 
-  const renderDonationCard = auth.userDonation
-    .slice(0, donationLimit)
-    .map((donation) => <DonationCard donation={donation} key={donation.id} />);
+  const renderDonationCard = auth.userDonation.Result?.slice(
+    0,
+    donationLimit
+  ).map((donation) => <DonationCard donation={donation} key={donation.id} />);
 
   return (
     <div className={styles.donationContainer}>

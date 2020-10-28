@@ -54,7 +54,7 @@ const authReducer = (state = initialState, action) => {
       };
 
     case GET_USER_DONATION:
-      return { ...state, userDonation: action.data.Result };
+      return { ...state, userDonation: action.data };
 
     case GET_USER_CAMPAIGN:
       return { ...state, userCampaign: action.data };

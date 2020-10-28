@@ -15,11 +15,11 @@ const MyCampaign = ({ auth, getUserCampaign }) => {
     getUserCampaign(token);
   }, [getUserCampaign, token]);
 
-  const campaignNumber = auth.userCampaign.length;
+  const campaignNumber = auth.userCampaign.campaign_created;
   const campaigns = campaignNumber;
 
-  const renderCampaignCard = auth.userCampaign
-    .slice(0, campaignLimit)
+  const renderCampaignCard = auth.userCampaign.result
+    ?.slice(0, campaignLimit)
     .map((campaign) => <CampaignCard campaign={campaign} key={campaign.id} />);
 
   const loadMore = () => {
