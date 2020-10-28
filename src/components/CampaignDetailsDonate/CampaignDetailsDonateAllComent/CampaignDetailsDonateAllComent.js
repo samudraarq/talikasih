@@ -3,17 +3,33 @@ import styles from "./CampaignDetailsDonateAllComent.module.css";
 import cardImg1 from "../../../assets/general/default_image.jpeg";
 import { connect } from "react-redux";
 import moment from 'moment'
-const CampaignDetailsDonateAllComent = (dataDonorAll) => {
-    
+import {useState} from 'react'
 
-  const UserAllComent = dataDonorAll.dataDonorAll?.dataDonateComen?.slice(0, ).map(
+const CampaignDetailsDonateAllComent = (dataDonorAll) => {
+  const [limit, setLimit ] = useState(1);
+  const [loadMoreBol, setloadMoreBol ] = useState(true);
+
+
+  const loadLess = ()=>{
+    setLimit(1);
+    setloadMoreBol(true);
+  }
+  const loadMore = () =>{
+    setLimit();
+    setloadMoreBol(false) ;
+  }
+
+  
+
+
+  const UserAllComent = dataDonorAll.dataDonorAll?.dataDonateComen?.slice(0, limit).map(
     (item, index) => {
       return (
 
         <div className={styles.card} key={index}>
           <div className={styles.cardheader}>
             <div className={styles.foto}>
-              <img src={item?.User?.content?   item?.User?.content  : cardImg1 }></img>
+              <img src={item?.User?.photo?   item?.User?.photo  : cardImg1 }></img>
             </div>
             <div className={styles.info}>
               <h5>{item?.User?.name}</h5>
@@ -37,7 +53,9 @@ const CampaignDetailsDonateAllComent = (dataDonorAll) => {
       </div>
       <div className={styles.btnwrap}>
         {/* button di taruh fungsi untuk menganti max slice */}
-        <button  className={styles.btnLoadmore}>LOAD MORE</button>
+
+            {loadMoreBol  ? <button onClick={loadMore}  className={styles.btnLoadmore}>LOAD MORE</button>  : <button onClick={loadLess}  className={styles.btnLoadmore}>SHOW LESS</button> }
+
       </div>
     </div>
   );

@@ -18,7 +18,6 @@ const CampaignDetailsDonateTheStory = ({dataDonorAll}) => {
             <h3> The Story</h3>
         <br></br>
         {dataDonorAll.dataDonate.story}
-          
         </div>
         <div className={styles.fade}></div>
       </div>
