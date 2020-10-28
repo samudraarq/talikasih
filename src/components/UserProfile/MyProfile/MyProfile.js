@@ -42,15 +42,21 @@ const MyProfile = ({ auth, setLogout }) => {
       <div className={styles.inputsContainer}>
         <div className={styles.inputContainer}>
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" value={userName} readOnly />
+          <div>
+            <p name="name">{userName}</p>
+          </div>
         </div>
         <div className={styles.inputContainer}>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" value={userEmail} readOnly />
+          <div>
+            <p name="email">{userEmail}</p>
+          </div>
         </div>
         <div className={styles.inputContainer}>
           <label htmlFor="bank">Bank Info</label>
-          <input type="text" name="bank" value={newBankAccount} readOnly />
+          <div>
+            <p name="bank">{newBankAccount}</p>
+          </div>
         </div>
       </div>
     </div>
