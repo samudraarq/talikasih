@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { connect } from "react-redux";
+import { editUserProfile } from "../../../../redux/actions/authActions";
+import qs from "qs";
 
 import styles from "./EditProfileForm.module.css";
 
-const EditProfileForm = () => {
+const EditProfileForm = ({ auth, editUserProfile }) => {
   const [resetPass, setResetPass] = useState(false);
 
   const { register, handleSubmit, watch, errors } = useForm({
     mode: "onTouched",
   });
 
-  const userName = "Luna";
-  const userEmail = "luna@mail.com";
+  const userName = auth.user.name;
+  const userEmail = auth.user.email;
   const userBankName = "BCA";
   const userBankAccount = 1234567;
 
   const onSubmit = (data) => {
     console.log(data);
+    const dataQs = qs.stringify(data);
+    editUserProfile(dataQs);
   };
 
   return (
@@ -156,4 +161,16 @@ const EditProfileForm = () => {
   );
 };
 
-export default EditProfileForm;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    editUserProfile: (dataQs) => dispatch(editUserProfile(dataQs)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfileForm);

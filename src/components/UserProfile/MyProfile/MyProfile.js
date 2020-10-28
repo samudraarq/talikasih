@@ -27,7 +27,11 @@ const MyProfile = ({ auth }) => {
           Logout
         </button>
       </div>
-      <img src={profilePic} alt="User" className={styles.userPic} />
+      <img
+        src={auth.user.photo ? auth.user.photo : profilePic}
+        alt="User"
+        className={styles.userPic}
+      />
       <Link to="/user/profile/edit" className={styles.editBtn}>
         Edit Profile
       </Link>

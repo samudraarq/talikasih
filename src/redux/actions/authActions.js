@@ -7,6 +7,7 @@ import {
   SET_NOT_ERROR,
   SET_MODAL_CLOSE,
   SET_AUTH_LOADING,
+  EDIT_USER_PROFILE,
 } from "./actionTypes";
 
 export const setLogin = (dataQs) => {
@@ -97,7 +98,6 @@ export const setRegister = (dataQs) => {
             type: SET_ERROR,
             errorMsg: response.data.message,
           });
-
         } else {
           dispatch({
             type: SET_REGISTER,
@@ -127,7 +127,6 @@ export const setRegister = (dataQs) => {
               dispatch({
                 type: SET_MODAL_CLOSE,
               });
-    
             })
             .catch(function (error) {
               console.log(error);
@@ -139,7 +138,6 @@ export const setRegister = (dataQs) => {
       });
   };
 };
-
 
 export const setUserPersistanceRegister = () => {
   return async (dispatch) => {
@@ -202,5 +200,32 @@ export const setUserPersistanceLogin = () => {
     } else {
       return;
     }
+  };
+};
+
+export const editUserProfile = (dataQs) => {
+  return (dispatch, getState) => {
+    const { auth } = getState();
+
+    const config = {
+      method: "put",
+      url: "https://warm-tundra-23736.herokuapp.com/",
+      headers: {
+        token: auth.token,
+      },
+      data: dataQs,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        dispatch({
+          type: EDIT_USER_PROFILE,
+          token: response.data.token,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 };

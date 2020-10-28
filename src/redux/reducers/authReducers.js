@@ -5,6 +5,7 @@ import {
   SET_NOT_ERROR,
   SET_REGISTER,
   SET_AUTH_LOADING,
+  EDIT_USER_PROFILE,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -35,6 +36,9 @@ const authReducer = (state = initialState, action) => {
 
     case SET_AUTH_LOADING:
       return { ...state, isLoading: !state.isLoading };
+
+    case EDIT_USER_PROFILE:
+      return { ...state, token: action.token };
 
     default:
       return state;

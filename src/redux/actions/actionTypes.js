@@ -1,4 +1,3 @@
-
 // For Auth Actions
 
 export const SET_LOGIN = "SET_LOGIN";
@@ -9,6 +8,8 @@ export const SET_NOT_ERROR = "SET_NOT_ERROR";
 
 export const SET_REGISTER = "SET_REGISTER";
 
+export const EDIT_USER_PROFILE = "EDIT_USER_PROFILE";
+
 export const SET_AUTH_LOADING = "SET_AUTH_LOADING";
 
 // For Layout Actions
@@ -18,6 +19,7 @@ export const SET_MODAL_CLOSE = "SET_MODAL_CLOSE";
 export const SET_FORM_LOGIN = "SET_FORM_LOGIN";
 export const SET_FORM_REGISTER = "SET_FORM_REGISTER";
 
+// For Campaign Actions
 export const SET_LOADING_NEW = "SET_LOADING_NEW";
 export const GET_NEW_CAMPAIGNS = "GET_NEW_CAMPAIGNS";
 
@@ -45,4 +47,3 @@ export const GET_SEARCH_URGENT = "GET_SEARCH_URGENT";
 export const GET_SEARCH_LESSDONATE = "GET_SEARCH_LESSDONATE";
 export const SET_ERROR_SEARCH = "SET_ERROR_SEARCH";
 export const SET_ERROR_SEARCH_FALSE = "SET_ERROR_SEARCH_FALSE";
-
