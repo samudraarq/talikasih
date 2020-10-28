@@ -1,28 +1,20 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
-import { editUserProfile } from "../../../../redux/actions/authActions";
-import qs from "qs";
 
 import styles from "./EditProfileForm.module.css";
 
-const EditProfileForm = ({ auth, editUserProfile }) => {
+const EditProfileForm = ({ auth, onSubmit }) => {
   const [resetPass, setResetPass] = useState(false);
 
   const { register, handleSubmit, watch, errors } = useForm({
     mode: "onTouched",
   });
 
-  const userName = auth.user.name;
-  const userEmail = auth.user.email;
+  const userName = auth.user?.name;
+  const userEmail = auth.user?.email;
   const userBankName = "BCA";
   const userBankAccount = 1234567;
-
-  const onSubmit = (data) => {
-    console.log(data);
-    const dataQs = qs.stringify(data);
-    editUserProfile(dataQs);
-  };
 
   return (
     <form className={styles.inputsContainer} onSubmit={handleSubmit(onSubmit)}>
@@ -167,10 +159,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    editUserProfile: (dataQs) => dispatch(editUserProfile(dataQs)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(EditProfileForm);
+export default connect(mapStateToProps)(EditProfileForm);

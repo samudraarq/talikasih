@@ -9,6 +9,7 @@ export const SET_NOT_ERROR = "SET_NOT_ERROR";
 export const SET_REGISTER = "SET_REGISTER";
 
 export const EDIT_USER_PROFILE = "EDIT_USER_PROFILE";
+export const EDIT_USER_IMAGE = "EDIT_USER_IMAGE";
 
 export const SET_AUTH_LOADING = "SET_AUTH_LOADING";
 

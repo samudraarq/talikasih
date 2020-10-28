@@ -8,6 +8,7 @@ import {
   SET_MODAL_CLOSE,
   SET_AUTH_LOADING,
   EDIT_USER_PROFILE,
+  EDIT_USER_IMAGE,
   SET_LOGOUT,
   GET_USER_DONATION,
   GET_USER_CAMPAIGN,
@@ -221,11 +222,77 @@ export const editUserProfile = (dataQs) => {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        console.log(response.data);
         dispatch({
           type: EDIT_USER_PROFILE,
           token: response.data.token,
         });
+
+        const config = {
+          method: "get",
+          url: "https://warm-tundra-23736.herokuapp.com/formuser",
+          headers: {
+            token: response.data.token,
+          },
+        };
+        axios(config)
+          .then((response) => {
+            console.log(response.data);
+            dispatch({
+              type: SET_USER_FROM_TOKEN,
+              user: response.data.user,
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+};
+
+export const editUserImage = (dataQs) => {
+  return (dispatch, getState) => {
+    const { auth } = getState();
+
+    const config = {
+      method: "put",
+      url: "https://warm-tundra-23736.herokuapp.com/image",
+      headers: {
+        token: auth.token,
+      },
+      data: dataQs,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        dispatch({
+          type: EDIT_USER_IMAGE,
+          token: response.data.token,
+        });
+
+        const config = {
+          method: "get",
+          url: "https://warm-tundra-23736.herokuapp.com/formuser",
+          headers: {
+            token: response.data.token,
+          },
+        };
+
+        axios(config)
+          .then(function (response) {
+            console.log(response.data);
+            dispatch({
+              type: SET_USER_FROM_TOKEN,
+              user: response.data.user,
+            });
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       })
       .catch(function (error) {
         console.log(error);

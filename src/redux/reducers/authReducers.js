@@ -6,6 +6,7 @@ import {
   SET_REGISTER,
   SET_AUTH_LOADING,
   EDIT_USER_PROFILE,
+  EDIT_USER_IMAGE,
   SET_LOGOUT,
   GET_USER_DONATION,
   GET_USER_CAMPAIGN,
@@ -43,6 +44,9 @@ const authReducer = (state = initialState, action) => {
       return { ...state, isLoading: !state.isLoading };
 
     case EDIT_USER_PROFILE:
+      return { ...state, token: action.token };
+
+    case EDIT_USER_IMAGE:
       return { ...state, token: action.token };
 
     case SET_LOGOUT:

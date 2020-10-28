@@ -7,9 +7,9 @@ import profilePic from "../../../assets/profile/foto-profile.png";
 import { Link, useHistory } from "react-router-dom";
 
 const MyProfile = ({ auth, setLogout }) => {
-  const userName = auth.user.name;
-  const userEmail = auth.user.email;
-  const userBankName = auth.user.creditcard;
+  const userName = auth.user?.name;
+  const userEmail = auth.user?.email;
+  const userBankName = auth.user?.creditcard;
   const userBankAccount = 1234567;
   const newBankAccount =
     userBankName +
@@ -32,7 +32,7 @@ const MyProfile = ({ auth, setLogout }) => {
         </button>
       </div>
       <img
-        src={auth.user.photo ? auth.user.photo : profilePic}
+        src={auth.user?.photo ? auth.user?.photo : profilePic}
         alt="User"
         className={styles.userPic}
       />

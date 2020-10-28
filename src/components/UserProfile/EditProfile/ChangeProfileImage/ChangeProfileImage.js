@@ -1,20 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
+import { connect } from "react-redux";
 import styles from "./ChangeProfileImage.module.css";
 import profilePic from "../../../../assets/profile/foto-profile.png";
 
-const ChangeProfileImage = () => {
-  const [profPic, setProfPic] = useState(null);
-
+const ChangeProfileImage = ({ profPic, changeHandler, auth }) => {
   const fileInput = useRef(null);
 
-  const changeHandler = (e) => {
-    setProfPic(e.target.files[0]);
-  };
+  const prevPic = auth.user?.photo || profilePic;
 
   return (
     <>
       <img
-        src={profPic ? URL.createObjectURL(profPic) : profilePic}
+        src={profPic ? URL.createObjectURL(profPic) : prevPic}
         alt="User"
         className={styles.userPic}
       />
@@ -35,4 +32,10 @@ const ChangeProfileImage = () => {
   );
 };
 
-export default ChangeProfileImage;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps)(ChangeProfileImage);
