@@ -6,6 +6,7 @@ import {
   SET_REGISTER,
   SET_AUTH_LOADING,
   EDIT_USER_PROFILE,
+  SET_LOGOUT,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -39,6 +40,14 @@ const authReducer = (state = initialState, action) => {
 
     case EDIT_USER_PROFILE:
       return { ...state, token: action.token };
+
+    case SET_LOGOUT:
+      return {
+        ...state,
+        token: "",
+        user: {},
+        isLogin: false,
+      };
 
     default:
       return state;

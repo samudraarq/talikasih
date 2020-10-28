@@ -76,7 +76,7 @@ const EditProfileForm = ({ auth, editUserProfile }) => {
             <input
               type="password"
               name="pass"
-              defaultValue="*******"
+              // defaultValue="*******"
               ref={register({ required: true, minLength: 6 })}
             />
             {errors.pass?.type === "required" && (
@@ -99,7 +99,7 @@ const EditProfileForm = ({ auth, editUserProfile }) => {
             <input
               type="password"
               name="passConf"
-              defaultValue="*******"
+              // defaultValue="*******"
               ref={register({
                 required: true,
                 validate: (value) => {

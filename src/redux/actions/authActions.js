@@ -8,6 +8,7 @@ import {
   SET_MODAL_CLOSE,
   SET_AUTH_LOADING,
   EDIT_USER_PROFILE,
+  SET_LOGOUT,
 } from "./actionTypes";
 
 export const setLogin = (dataQs) => {
@@ -227,5 +228,11 @@ export const editUserProfile = (dataQs) => {
       .catch(function (error) {
         console.log(error);
       });
+  };
+};
+
+export const setLogout = () => {
+  return {
+    type: SET_LOGOUT,
   };
 };

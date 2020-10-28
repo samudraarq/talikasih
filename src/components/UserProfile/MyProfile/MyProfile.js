@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
+import { setLogout } from "../../../redux/actions/authActions";
 import styles from "./MyProfile.module.css";
 
 import profilePic from "../../../assets/profile/foto-profile.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-const MyProfile = ({ auth }) => {
+const MyProfile = ({ auth, setLogout }) => {
   const userName = auth.user.name;
   const userEmail = auth.user.email;
   const userBankName = auth.user.creditcard;
@@ -15,8 +16,11 @@ const MyProfile = ({ auth }) => {
     " - " +
     userBankAccount.toString().replace(/\d(?=\d{3})/gm, "*");
 
+  const history = useHistory();
+
   const handleLogout = () => {
-    console.log("logout");
+    setLogout();
+    history.push("/");
   };
 
   return (
@@ -59,4 +63,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(MyProfile);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setLogout: () => dispatch(setLogout()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyProfile);

@@ -12,6 +12,8 @@ export const EDIT_USER_PROFILE = "EDIT_USER_PROFILE";
 
 export const SET_AUTH_LOADING = "SET_AUTH_LOADING";
 
+export const SET_LOGOUT = "SET_LOGOUT";
+
 // For Layout Actions
 export const SET_MODAL_OPEN = "SET_MODAL_OPEN";
 export const SET_MODAL_CLOSE = "SET_MODAL_CLOSE";
