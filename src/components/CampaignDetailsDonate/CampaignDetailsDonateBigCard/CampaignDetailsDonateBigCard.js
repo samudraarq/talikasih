@@ -39,9 +39,8 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
   let idUserFromChamping = dataDonorAll.dataDonate.UserId;
   let progress =
     (dataDonorAll.dataDonate.raised / dataDonorAll.dataDonate.goal) * 100;
-    let progress2 =
-    (dataDonorAll.dataDonate.raised - dataDonorAll.dataDonate.goal);
-  let lebih = '';
+  let progress2 = dataDonorAll.dataDonate.raised - dataDonorAll.dataDonate.goal;
+  let lebih = "";
   let donationCountData = 0;
   let shareCountData = 0;
   // variabel show camping sendiri
@@ -55,7 +54,7 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
 
   // hendel progres bar
   if (progress >= 100) {
-    lebih = `${progress2} (${progress-100}%)`;
+    lebih = `${progress2} (${progress - 100}%)`;
     progress = 100;
   }
   // hendel progres bar end
@@ -80,114 +79,105 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
   // count day left end
   return (
     <>
+      <div className={styles.cardHead}>
+        <h1>{dataDonorAll.dataDonate.title}</h1>
+        {userSama ? (
+          <>
+            <div className={styles.dropwarp}>
+              <div className={styles.dropdown}>
+                <button className={styles.dropbtn}>
+                  <img className={styles.roda} src={setImage}></img>
+                  <img className={styles.arrow} src={setImage2}></img>
+                </button>
+                <div className={styles.dropdowncontent}>
+                  <Link>Edit</Link>
+                  <Link>Close Campaign</Link>
+                  <Link>Delete</Link>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div></div>
+        )}
+      </div>
 
-<div className={styles.cardHead}>
-<h1>{dataDonorAll.dataDonate.title}</h1>
-  {userSama ? 
-  <>
-    <div className={styles.dropwarp}>
-      <div className={styles.dropdown}>
-        <button className={styles.dropbtn}>
-          <img className={styles.roda} src={setImage}></img>
-          <img className={styles.arrow} src={setImage2}></img>
-        </button>
-        <div className={styles.dropdowncontent}>
-          <Link>Edit</Link>
-          <Link>Close Campaign</Link>
-          <Link>Delete</Link>
+      <div className={styles.container}>
+        <div className={styles.cardKiri}>
+          <img src={dataDonorAll.dataDonate.header_img}></img>
         </div>
-      </div>
-    </div>
-  </>
-  :
-  
-  
-  <div></div>
-  
-  }
-  </div>
-
-
-    <div className={styles.container}>
-      <div className={styles.cardKiri}>
-        <img src={dataDonorAll.dataDonate.header_img}></img>
-      </div>
-      {/* {  console.log({idUser}) }
+        {/* {  console.log({idUser}) }
             {console.log(idUserFromChamping)} */}
 
-      
-      <div className={styles.cardKanan}>
-
-        <h1>
-          <NumberFormat
-            value={dataDonorAll.dataDonate.raised}
-            displayType={"text"}
-            thousandSeparator={true}
-            prefix={"IDR."}
-          />
-        </h1>
-        <h4>
-          <NumberFormat
-            value={dataDonorAll.dataDonate.goal}
-            displayType={"text"}
-            thousandSeparator={true}
-            prefix={"IDR."}
-          />
-        </h4>
-        <div className={styles.progress}>
-          <div
-            className={styles.progressDone}
-            style={{ width: `${progress}%`, opacity: "1" }}
+        <div className={styles.cardKanan}>
+          <h1>
+            <NumberFormat
+              value={dataDonorAll.dataDonate.raised}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"IDR."}
+            />
+          </h1>
+          <h4>
+            <NumberFormat
+              value={dataDonorAll.dataDonate.goal}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"IDR."}
+            />
+          </h4>
+          <div className={styles.progress}>
+            <div
+              className={styles.progressDone}
+              style={{ width: `${progress}%`, opacity: "1" }}
+            ></div>
+            extra :
+            <NumberFormat
+              value={progress2}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"  IDR."}
+            />
+          </div>
+          <div className={styles.profilContainer}>
+            <img src={dataDonorAll.dataDonate?.User?.photo}></img>
+            <div className={styles.profilName}>
+              <h3>{dataDonorAll.dataDonate?.User?.name}</h3>
+              <h4>Fundraiser</h4>
+              {userSama ? (
+                <Link className={styles.cekStatus}>Check status</Link>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
+          <div className={styles.dataCount}>
+            <div>
+              <h1>{dayleft}</h1>
+              <p>Days left</p>
+            </div>
+            <div>
+              <h1>{donationCountData}</h1>
+              <p>Donations</p>
+            </div>
+            <div>
+              <h1>{shareCountData}</h1>
+              <p>Share</p>
+            </div>
+          </div>
+          <button
+            onClick={() => postShare(idDonate)}
+            className={styles.btnShare}
           >
-            
-          </div>
-
-           extra : 
-           <NumberFormat
-            value={progress2}
-            displayType={"text"}
-            thousandSeparator={true}
-            prefix={"  IDR."}
-          />
-          
+            Share
+          </button>
+          {userSama ? (
+            <button className={styles.btnDonate}>NEW PROGRESS</button>
+          ) : (
+            <button className={styles.btnDonate}>Donate</button>
+          )}
         </div>
-        <div className={styles.profilContainer}>
-          <img src={dataDonorAll.dataDonate?.User?.photo}></img>
-          <div className={styles.profilName}>
-            <h3>{dataDonorAll.dataDonate?.User?.name}</h3>
-            <h4>Fundraiser</h4>
-            {userSama ? <Link className={styles.cekStatus}>Check status</Link> : ''}
-           
-          </div>
-        </div>
-        <div className={styles.dataCount}>
-          <div>
-            <h1>{dayleft}</h1>
-            <p>Days left</p>
-          </div>
-          <div>
-            <h1>{donationCountData}</h1>
-            <p>Donations</p>
-          </div>
-          <div>
-            <h1>{shareCountData}</h1>
-            <p>Share</p>
-          </div>
-        </div>
-        <button onClick={() => postShare(idDonate)} className={styles.btnShare}>
-          Share
-        </button>
-              {userSama ? 
-  
-              <button className={styles.btnDonate}>NEW PROGRESS</button>
-                :
-            
-                <button className={styles.btnDonate}>Donate</button>
-            }
-            
-       
       </div>
-    </div>
     </>
   );
 };

@@ -4,43 +4,44 @@ import styles from "./Form.module.css";
 import HeaderImage from "./HeaderImage";
 import Editor from "./Editor";
 import axios from "axios";
+import ConnectForm from "./ConnectForm";
 
 function Form() {
   const { register, errors, handleSubmit } = useForm({ mode: "onBlur" });
   const onSubmit = (data) => {
     console.log(data);
-    try {
-      const {
-        title,
-        goal,
-        story,
-        due_date,
-        header_img,
-        CategoryId,
-        bankAccount,
-      } = data;
-      const formData = new FormData();
-      formData.append("title", title);
-      formData.append("goal", goal);
-      formData.append("story", story);
-      formData.append("due_date", due_date);
-      formData.append("header_img", header_img.raw);
-      formData.append("CategoryId", CategoryId);
-      formData.append("bankAccount", bankAccount);
+    // try {
+    //   const {
+    //     title,
+    //     goal,
+    //     story,
+    //     due_date,
+    //     header_img,
+    //     CategoryId,
+    //     bankAccount,
+    //   } = data;
+    //   const formData = new FormData();
+    //   formData.append("title", title);
+    //   formData.append("goal", goal);
+    //   formData.append("story", story);
+    //   formData.append("due_date", due_date);
+    //   formData.append("header_img", header_img.raw);
+    //   formData.append("CategoryId", CategoryId);
+    //   formData.append("bankAccount", bankAccount);
 
-      const submit = axios({
-        method: "post",
-        url: "https://warm-tundra-23736.herokuapp.com/campaign/add",
-        data: formData,
-        headers: {
-          token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
-          "Content-type": "multipart/form-data",
-        },
-      }).then(console.log("success", formData));
-    } catch (error) {
-      console.log("error");
-    }
+    //   const submit = axios({
+    //     method: "post",
+    //     url: "https://warm-tundra-23736.herokuapp.com/campaign/add",
+    //     data: formData,
+    //     headers: {
+    //       token:
+    //         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
+    //       "Content-type": "multipart/form-data",
+    //     },
+    //   }).then(console.log("success", formData));
+    // } catch (error) {
+    //   console.log("error");
+    // }
   };
 
   const handleImage = (e) => {
@@ -54,7 +55,7 @@ function Form() {
     <>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <HeaderImage />
+          <ConnectForm />
           <div className={styles.container}>
             <div className={styles.form}>
               <label htmlFor="title" className={styles.subtitle}>
