@@ -65,7 +65,7 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
   let progress =
     (dataDonorAll.dataDonate.raised / dataDonorAll.dataDonate.goal) * 100;
   let progress2 = dataDonorAll.dataDonate.raised - dataDonorAll.dataDonate.goal;
-  let lebih = "";
+  let lebih = 0;
   let donationCountData = 0;
   let shareCountData = 0;
   // variabel show camping sendiri
@@ -164,17 +164,27 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
               prefix={"  IDR."}
             />
           </div>
-          <div className={styles.profilContainer}>
-            <img src={dataDonorAll.dataDonate?.User?.photo}></img>
-            <div className={styles.profilName}>
-              <h3>{dataDonorAll.dataDonate?.User?.name}</h3>
-              <h4>Fundraiser</h4>
-              {userSama ? (
-                <Link className={styles.cekStatus}>Check status</Link>
-              ) : (
-                ""
-              )}
-            </div>
+          {lebih >= 0 ? (
+            ""
+          ) : (
+            <NumberFormat
+              value={lebih}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"  IDR."}
+            />
+          )}
+        </div>
+        <div className={styles.profilContainer}>
+          <img src={dataDonorAll.dataDonate?.User?.photo}></img>
+          <div className={styles.profilName}>
+            <h3>{dataDonorAll.dataDonate?.User?.name}</h3>
+            <h4>Fundraiser</h4>
+            {userSama ? (
+              <Link className={styles.cekStatus}>Check status</Link>
+            ) : (
+              ""
+            )}
           </div>
           <div className={styles.dataCount}>
             <div>
