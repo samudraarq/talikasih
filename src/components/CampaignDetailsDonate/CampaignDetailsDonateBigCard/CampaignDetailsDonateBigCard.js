@@ -62,7 +62,6 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
     getuserdata();
   }, []);
 
-  
   let idUserFromChamping = dataDonorAll.dataDonate.UserId;
   let progress =
     (dataDonorAll.dataDonate.raised / dataDonorAll.dataDonate.goal) * 100;
@@ -169,65 +168,65 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
               prefix={"  IDR."}
             />
           )}
-      
-        <div className={styles.profilContainer}>
-          <img src={dataDonorAll.dataDonate?.User?.photo}></img>
-          <div className={styles.profilName}>
-            <h3>{dataDonorAll.dataDonate?.User?.name}</h3>
-            <h4>Fundraiser</h4>
-            {userSama ? (
-              <Link className={styles.cekStatus}>Check status</Link>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className={styles.dataCount}>
-            <div>
-              <h1>{dayleft}</h1>
-              <p>Days left</p>
-            </div>
-            <div>
-              <h1>{donationCountData}</h1>
-              <p>Donations</p>
-            </div>
-            <div>
-              <h1>{shareCountData}</h1>
-              <p>Share</p>
-            </div>
-          </div>
 
-          <button
-            onClick={() => postShare(idDonate)}
-            className={styles.btnShare}
-          >
-            Share
-          </button>
-          {userSama ? (
-            <button className={styles.btnDonate} onClick={openModal}>NEW PROGRESS</button>
-          ) : (
-            <button className={styles.btnDonate} >
-              Donate
-            </button>
-          )}
-          <Modal
-            isOpen={open}
-            shouldCloseOnOverlayClick={false}
-            onRequestClose={requestClose}
-            style={customStyles}
-          >
-            <div className={styles.modal}>
-              <div>Campaign Update</div>
-              <img
-                src={close}
-                alt="close"
-                className={styles.close}
-                onClick={requestClose}
-              />
+          <div className={styles.profilContainer}>
+            <img src={dataDonorAll.dataDonate?.User?.photo}></img>
+            <div className={styles.profilName}>
+              <h3>{dataDonorAll.dataDonate?.User?.name}</h3>
+              <h4>Fundraiser</h4>
+              {userSama ? (
+                <Link className={styles.cekStatus}>Check status</Link>
+              ) : (
+                ""
+              )}
             </div>
-            <CampaignUpdate setOpen={setOpen} />
-          </Modal>
+            <div className={styles.dataCount}>
+              <div>
+                <h1>{dayleft}</h1>
+                <p>Days left</p>
+              </div>
+              <div>
+                <h1>{donationCountData}</h1>
+                <p>Donations</p>
+              </div>
+              <div>
+                <h1>{shareCountData}</h1>
+                <p>Share</p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => postShare(idDonate)}
+              className={styles.btnShare}
+            >
+              Share
+            </button>
+            {userSama ? (
+              <button className={styles.btnDonate} onClick={openModal}>
+                NEW PROGRESS
+              </button>
+            ) : (
+              <button className={styles.btnDonate}>Donate</button>
+            )}
+            <Modal
+              isOpen={open}
+              shouldCloseOnOverlayClick={false}
+              onRequestClose={requestClose}
+              style={customStyles}
+            >
+              <div className={styles.modal}>
+                <div>Campaign Update</div>
+                <img
+                  src={close}
+                  alt="close"
+                  className={styles.close}
+                  onClick={requestClose}
+                />
+              </div>
+              <CampaignUpdate setOpen={setOpen} />
+            </Modal>
+          </div>
         </div>
-       </div>
       </div>
     </>
   );

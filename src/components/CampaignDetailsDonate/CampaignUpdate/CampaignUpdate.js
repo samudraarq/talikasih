@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import styles from "./CampaignUpdate.module.css";
 import { useForm } from "react-hook-form";
 import { useQuill } from "react-quilljs";
+import { connect } from "react-redux";
 import qs from "qs";
 import "quill/dist/quill.snow.css";
 import axios from "axios";
 
-function CampaignUpdate() {
+function CampaignUpdate({ auth }) {
   // FORM //
   const [openAmount, setOpenAmount] = useState(false);
   const { register, handleSubmit, errors } = useForm();
@@ -21,16 +22,15 @@ function CampaignUpdate() {
         date: new Date(),
       });
       console.log(updateInfo);
-      const submit = await axios({
+      const response = await axios({
         method: "post",
         url: "https://warm-tundra-23736.herokuapp.com/campaignLog/1",
         data: updateInfo,
         headers: {
-          token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
-          "content-type": "application/x-www-form-urlencoded",
+          token: auth.token,
         },
-      }).then(() => console.log("success"));
+      });
+      console.log(response.data);
     } catch (error) {
       console.log(error, "error");
     }
@@ -120,4 +120,10 @@ function CampaignUpdate() {
   );
 }
 
-export default CampaignUpdate;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps)(CampaignUpdate);

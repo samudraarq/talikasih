@@ -62,13 +62,14 @@ const Navbar = (props) => {
           <div className={styles.navLink}>
             {createBtn && props.auth.isLogin && (
               <>
-                <span
+                <Link
+                  to="/campaign/create"
                   className={`${styles.createCampaignBtn} ${
                     !openSearch && styles.openBtn
                   }`}
                 >
                   Create Campaign
-                </span>
+                </Link>
                 <Link
                   to="/discover"
                   className={`${styles.donateBtn} ${
