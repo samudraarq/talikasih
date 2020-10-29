@@ -1,0 +1,21 @@
+.userPic {
+  height: 20rem;
+  width: 20rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+.changeImg {
+  display: block;
+  margin: 1.3rem auto 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #1d94a8;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
