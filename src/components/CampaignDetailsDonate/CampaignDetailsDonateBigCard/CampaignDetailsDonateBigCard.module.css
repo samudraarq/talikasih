@@ -1,6 +1,6 @@
 .container {
   max-width: 120rem;
-  margin: 10rem auto;
+  margin: 0rem auto 10rem auto;
   height: 100%;
   display: flex;
   justify-content: right;
@@ -12,13 +12,13 @@
   width: 62%;
   /* background-color: brown; */
 }
-.cardKiri h1 {
+
+.cardHead h1 {
   font-family: Nunito;
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
   line-height: 49px;
-
   color: #000000;
 }
 
@@ -27,6 +27,7 @@
   padding: 2rem 2rem 2rem 0;
   border-radius: 2rem;
 }
+
 .cardKanan {
   width: 37%;
   /* background-color: chartreuse; */
@@ -35,7 +36,7 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   padding: 5rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .cardKanan h1 {
@@ -163,3 +164,127 @@
   text-align: center;
   border: none;
 }
+
+.cardHead{
+  width: 100%;
+  max-width: 120rem;
+  margin: 15rem auto 0rem auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+  flex-direction: row;
+}
+
+.contentkumodal {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+img.roda {
+background-size: cover;
+height: 25px;
+width: 25px;
+margin-right: 5px;
+}
+
+.dropwarp {
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+  margin-right: 20px;
+  /* margin-bottom: ; */
+}
+.profilName{
+
+  width: 100%;
+}
+.cekStatus{
+justify-self: end;
+margin-left: 60%;
+width: 100%;
+color: #1D94A8;
+}
+.dropdown {
+  
+  display: flex;
+  justify-content: right;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdowncontent{
+  display: none;
+  position: absolute;
+  
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdowncontent {
+  display: block;
+}
+
+
+/* Style The Dropdown Button */
+.dropbtn {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: #fff;
+  color: black;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdowncontent {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+/* Links inside the dropdown */
+.dropdowncontent a {
+
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdowncontent a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdowncontent {
+  display: block;
+  right:  10px;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+ 
+}
+
+
