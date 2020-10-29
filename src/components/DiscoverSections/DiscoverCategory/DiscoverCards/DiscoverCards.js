@@ -1,46 +1,18 @@
 import React from "react";
 import styles from "./DiscoverCards.module.css";
 import CampaignCard from "../../../CampaignCard/CampaignCard";
+import SkeletonCard from "../../../Skeleton/SkeletonCard";
 
-const DiscoverCards = () => {
+const DiscoverCards = ({ campaigns }) => {
+  const renderCard = campaigns?.documents.map((campaign) => (
+    <CampaignCard campaign={campaign} key={campaign.id} />
+  ));
+
+  const renderSkeletonCards = [1, 2, 3].map((n) => <SkeletonCard key={n} />);
+
   return (
     <div className={styles.cardsContainer}>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
-      <div className={styles.card}>
-        <CampaignCard />
-      </div>
+      {campaigns.loading ? renderSkeletonCards : renderCard}
     </div>
   );
 };

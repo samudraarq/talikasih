@@ -3,3 +3,8 @@
   margin: 8.6rem auto 0;
   padding-bottom: 16rem;
 }
+
+.errorMsg {
+  font-size: 2rem;
+}
+

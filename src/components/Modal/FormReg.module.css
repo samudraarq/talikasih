@@ -1,0 +1,99 @@
+.container {
+  margin: 8rem 7.9rem;
+  position: absolute;
+  z-index: 10;
+}
+
+.headerForm {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 65px;
+  letter-spacing: -0.05em;
+  color: #1d94a8;
+}
+
+.alreadyHave {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.alreadyHave a {
+  color: #1d94a8;
+}
+
+.formContainer {
+  margin-top: 4rem;
+}
+
+.inputForm {
+  height: 5.5rem;
+  width: 41.5rem;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 1px solid #9f9f9f;
+  padding: 0 1.9rem;
+  color: #9f9f9f;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 1.6rem;
+  outline: none;
+}
+
+.inputForm:focus {
+  border-bottom: 1px solid #1d94a8;
+}
+
+.inputForm:not(:first-of-type) {
+  margin-top: 3rem;
+}
+
+
+.forgotPass {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.btnLogin {
+  height: 4.6rem;
+  width: 41.5rem;
+  border-radius: 3px;
+  border-style: none;
+  background-color: #a43f3c;
+  color: white;
+  margin-top: 2.4rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.google {
+  width: 18px;
+  height: 20px;
+  margin-right: 10px;
+  align-items: center;
+}
+
+.btnGoogle {
+  margin-top: 3rem;
+  width: 100%;
+  height: 5.6rem;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  border-top: 1px solid #e1e0e0;
+  border-bottom: 1px solid #e1e0e0;
+}
+
+.errorMessage {
+  display: block;
+  color: red;
+}

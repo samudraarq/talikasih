@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactPaginate from "react-paginate";
 import styles from "./ChangePage.module.css";
 
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
-const ChangePage = () => {
-  const [maxPage] = useState(10);
 
-  const pageChange = (e) => {
-    const selectedPage = e.selected + 1;
-    console.log(selectedPage);
-  };
-
+const ChangePage = ({ maxPage, pageChange }) => {
   return (
     <div className={styles.pageContainer}>
       <ReactPaginate

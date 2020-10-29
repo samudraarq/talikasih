@@ -1,0 +1,148 @@
+.skeleton {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.skeleton.text {
+  width: 100%;
+  margin: 1rem 0;
+  height: 1.4rem;
+}
+
+.skeleton.title {
+  width: 50%;
+  height: 1.8rem;
+  margin: 2rem 0;
+}
+
+.skeleton.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.skeleton.thumbnail {
+  width: 100%;
+  height: 22rem;
+}
+
+.skeleton.trendingThumbnail {
+  height: 40rem;
+  width: 64rem;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 5.5rem;
+}
+
+.skeletonWrapper {
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Skeleton card css */
+.cardContainer {
+  width: 36rem;
+  border: 1px solid #f1ede4;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.contentContainer {
+  padding: 1.3rem 2.4rem;
+  height: calc(100% - 22rem);
+}
+
+.amountContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+}
+
+/* skeleton trending css */
+
+.container {
+  max-width: 120rem;
+  margin: auto;
+}
+
+.segmentTitle {
+  margin-top: 7.2rem;
+  font-weight: 400;
+  font-size: 2.4rem;
+  color: #a43f3c;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin-top: 2.4rem;
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fundraiser {
+  display: grid;
+  grid-template-columns: auto 20rem;
+  justify-content: start;
+  gap: 2.6rem;
+}
+
+/* animation */
+
+/* .shimmerWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: loading 2s infinite;
+}
+
+.shimmer {
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-150%);
+  }
+  50% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+} */
+
+.shimmerWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
