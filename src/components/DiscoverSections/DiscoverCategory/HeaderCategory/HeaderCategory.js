@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import styles from "./HeaderCategory.module.css";
 
 import leftArrow from "../../../../assets/discover/left-arrow.svg";
-
 import disabilityImg from "../../../../assets/discover/header-img/disabilty-img.jpg";
 import medicalImg from "../../../../assets/discover/header-img/medicall-img.jpg";
 import educationImg from "../../../../assets/discover/header-img/education-img.jpg";

@@ -1,0 +1,14 @@
+.container {
+  max-width: 96rem;
+  margin: 10rem auto;
+  height: 100%;
+}
+
+.title {
+  padding: 2rem 0;
+  margin: 2rem 0;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 4rem;
+  border-bottom: 1px solid #9f9f9f;
+}

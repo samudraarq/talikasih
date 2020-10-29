@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: rgb(100, 100, 100);
+}
+
+.container {
+    max-width: 120rem;
+    margin: 10rem auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+header {
+    background-color: rgba(0, 0, 0, .5);
+    font-size: 1.5em;
+    text-align: center;
+    padding: 1em;
+}
+
+.panelWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    color: #fff;
+    background: #000;
+    border-radius: 1.5em;
+    left: 30%;
+    padding: 1em;
+    text-decoration: none;
+    width: 40%;
+}
+
+.show,
+.hide {
+    position: absolute;
+    bottom: -1em;
+    z-index: 100;
+    text-align: center;
+    
+}
+
+.hide {
+    display: none;
+}
+
+.show:target {
+    display: none;
+    
+}
+
+.show:target~.hide {
+    display: block;
+}
+
+.show:target~.panel {
+    max-height: 200rem;
+    background: -webkit-linear-gradient( #333, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.show:target~.fade {
+    margin-top: 0;
+   
+}
+
+.panel {
+    position: relative;
+    margin: 1em auto;
+    width: 80%;
+    max-height: 40rem;
+    overflow: hidden;
+    transition: max-height .5s ease;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    background: -webkit-linear-gradient( #333, #eee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+.insideGradient{
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fade {
+    background: linear-gradient(to bottom, rgba(rgb(100, 100, 100), 0) 0%, rgba(rgb(100, 100, 100), 1) 75%);
+    height: 10rem;
+    margin-top: -10rem;
+    position: relative;
+    
+}
+
+
+
+a {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+
+    /* identical to box height */
+    letter-spacing: 1px;
+    text-decoration-line: underline;
+
+    /* Copper */
+    color: #A87B14;
+
+}

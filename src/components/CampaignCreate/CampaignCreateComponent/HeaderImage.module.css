@@ -1,0 +1,22 @@
+.cardAtas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 49rem;
+  background-color: #e1e0e0;
+  margin-bottom: 3rem;
+}
+
+.imageplus {
+  height: 6rem;
+  width: 6rem;
+  margin-bottom: 2rem;
+}
+
+.textCenter {
+  color: #9f9f9f;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 5rem;
+}

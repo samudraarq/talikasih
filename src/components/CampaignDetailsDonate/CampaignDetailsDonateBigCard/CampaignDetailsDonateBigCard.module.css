@@ -1,0 +1,305 @@
+.container {
+  max-width: 120rem;
+  margin: 0rem auto 10rem auto;
+  height: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  flex-direction: row;
+}
+
+.cardKiri {
+  width: 62%;
+  /* background-color: brown; */
+}
+
+.cardHead h1 {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 49px;
+  color: #000000;
+}
+
+.cardKiri img {
+  width: 100%;
+  padding: 2rem 2rem 2rem 0;
+  border-radius: 2rem;
+}
+
+.cardKanan {
+  width: 37%;
+  /* background-color: chartreuse; */
+  border: 1px solid #f1ede4;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  padding: 5rem;
+  margin-top: 2rem;
+}
+
+.cardKanan h1 {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+
+  /* Rose */
+  color: #a43f3c;
+}
+
+.progress {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  position: relative;
+  margin-top: 1rem;
+  height: 8px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.progressDone {
+  background: #1d94a8;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 0;
+  opacity: 0;
+  transition: 1s ease 0.3s;
+}
+
+.profilContainer {
+  /* display: flex; */
+  justify-content: right;
+  flex-direction: row;
+}
+
+.profilContainer img {
+  max-width: 4.6rem;
+  max-height: 4.5rem;
+  border-radius: 0.2rem;
+  margin-right: 1rem;
+}
+
+.profilName h4 {
+  color: #9f9f9f;
+}
+
+.dataCount {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.dataCount div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  background: #ffffff;
+
+  min-height: 8.4rem;
+  min-width: 8.4rem;
+
+  /* Platinum */
+  border: 1px solid #f4f4f4;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.dataCount h1 {
+  color: #1d94a8;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.dataCount p {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+
+  /* Grey */
+  color: #9f9f9f;
+}
+
+.btnShare {
+  height: 4rem;
+  width: 37rem;
+  background: #ffffff;
+  margin-top: 8rem;
+
+  /* Tosca */
+  border: 1px solid #1d94a8;
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin-bottom: 0.4rem;
+  color: #1d94a8;
+
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 1px;
+
+  text-align: center;
+}
+
+.btnDonate {
+  height: 4rem;
+  width: 37rem;
+  background: #a43f3c;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+}
+
+.cardHead {
+  width: 100%;
+  max-width: 120rem;
+  margin: 15rem auto 0rem auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+  flex-direction: row;
+}
+
+.contentkumodal {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+img.roda {
+  background-size: cover;
+  height: 25px;
+  width: 25px;
+  margin-right: 5px;
+}
+
+.dropwarp {
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+  margin-right: 20px;
+  /* margin-bottom: ; */
+}
+.profilName {
+  width: 100%;
+}
+.cekStatus {
+  justify-self: end;
+  margin-left: 60%;
+  width: 100%;
+  color: #1d94a8;
+}
+.dropdown {
+  display: flex;
+  justify-content: right;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdowncontent {
+  display: none;
+  position: absolute;
+
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdowncontent {
+  display: block;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: #fff;
+  color: black;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdowncontent {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+/* Links inside the dropdown */
+.dropdowncontent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdowncontent a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdowncontent {
+  display: block;
+  right: 10px;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/* .dropdown:hover .dropbtn {
+ 
+} */
+
+/* MODAL */
+
+/* .modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 4.3rem;
+  padding: 3rem 4rem;
+  margin: 0;
+  border-bottom: 1px solid #9f9f9f;
+} */
+
+/* .close {
+  width: 1.8rem;
+  height: 1.8rem;
+} */

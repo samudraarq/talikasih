@@ -1,5 +1,4 @@
 import React from "react";
-
 import styles from "./DiscoverCards.module.css";
 import CampaignCard from "../../../CampaignCard/CampaignCard";
 import SkeletonCard from "../../../Skeleton/SkeletonCard";

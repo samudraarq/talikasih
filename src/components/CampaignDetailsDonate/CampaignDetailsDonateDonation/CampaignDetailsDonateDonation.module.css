@@ -1,0 +1,99 @@
+.container {
+    max-width: 120rem;
+    margin: 10rem auto;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    flex-direction: column;
+  }
+
+  .wrapper {
+    /* background-color: crimson */
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+
+  
+
+  .card{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* border: darkblue solid 1px; */
+  }
+
+  .cardheader {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem 2rem 0 1rem;
+  }
+
+  .cardheader h3 {
+    color: #1D94A8;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .cardheader h5 {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    
+    /* identical to box height */
+    
+    color: #000000;
+  }
+
+  .cardheader p {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+
+/* identical to box height */
+
+/* Grey */
+color: #9F9F9F;
+  }
+
+  .cardbody {
+
+    padding: 0rem 2rem 2rem 1rem;
+  }
+
+  .info {
+
+    padding: 0.3rem 2rem 2rem 2rem;
+  }
+
+  .foto img {
+      background-size: cover;
+      width: 7.4rem;
+      height: 7.4rem;
+  }
+
+.btnwrap {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+  .btnLoadmore{
+      padding: 1.1rem 3.4rem 1.1rem 3.4rem;
+      background: #FFFFFF;
+/* Tosca */
+    border: 1px solid #1D94A8;
+    box-sizing: border-box;
+    border-radius: 3px;
+    color: #1D94A8 ;
+  }

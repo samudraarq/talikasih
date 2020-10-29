@@ -5,11 +5,12 @@ import trendingCampaignReducer from "./trendingCampaignReducers";
 import urgentCampaignReducer from "./urgentCampaignReducers";
 import categoryCampaignReducer from "./categoryCampaignReducers";
 import searchCampaignReducers from "./searchCampaignReducers";
-// import postReducer from "./postReducers";
 import authReducer from "./authReducers";
 import layoutReducer from "./layoutReducers";
 
+import donorReducers from './donorReducers'
 export default combineReducers({
+  dataDonorAll : donorReducers,
   auth: authReducer,
   layout: layoutReducer,
   newCampaign: newCampaignReducer,
@@ -19,3 +20,4 @@ export default combineReducers({
   categoryCampaign: categoryCampaignReducer,
   searchCampaign: searchCampaignReducers,
 });
+

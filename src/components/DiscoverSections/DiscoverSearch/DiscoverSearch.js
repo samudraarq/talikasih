@@ -20,7 +20,6 @@ const DiscoverSearch = ({
   getSearchPopular,
   getSearchUrgent,
   getSearchLessdonate,
-}) => {
   const [searchText, setSearchText] = useState("");
   const [page, setPage] = useState(1);
 
@@ -74,6 +73,7 @@ const DiscoverSearch = ({
     </div>
   );
 };
+
 
 const mapStateToProps = (state) => {
   return {

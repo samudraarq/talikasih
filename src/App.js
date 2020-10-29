@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { setUserPersistanceLogin } from "./redux/actions/authActions";
 import "./App.css";
 import Discover from "./pages/Discover";
+import CampingCreatePage from "./pages/CampaingCreatePage";
+import ChampingDetailsDonatePage from "./pages/ChampingDetailsDonatePage";
 import DiscoverCategoryPage from "./pages/DiscoverCategory/DiscoverCategoryPage";
 import DiscoverSearchPage from "./pages/DiscoverSearchPage";
 import EditProfilePage from "./pages/EditProfilePage";
@@ -20,6 +22,12 @@ function App({ setUserPersistanceLogin }) {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/campaign/create">
+          <CampingCreatePage/>
+        </Route>
+        <Route path="/campaign/details/donate/:idDonate">
+          <ChampingDetailsDonatePage/>
+        </Route>
         <Route path="/donate">
           <Donate />
         </Route>

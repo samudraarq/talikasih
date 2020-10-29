@@ -8,6 +8,7 @@ import { Link, useLocation } from "react-router-dom";
 const SortButton = ({ urlLink, setPage }) => {
   const [openMenu, setOpenMenu] = useState(false);
 
+
   const location = useLocation();
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const SortButton = ({ urlLink, setPage }) => {
 
     document.removeEventListener("click", handleClose);
   };
+
 
   const handleChoose = () => {
     handleClose();
