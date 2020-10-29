@@ -61,6 +61,8 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
     };
     getuserdata();
   }, []);
+
+  
   let idUserFromChamping = dataDonorAll.dataDonate.UserId;
   let progress =
     (dataDonorAll.dataDonate.raised / dataDonorAll.dataDonate.goal) * 100;
@@ -69,7 +71,7 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
   let donationCountData = 0;
   let shareCountData = 0;
   // variabel show camping sendiri
-  let userSama = false;
+  let userSama = true;
   //Variabel end
   if (idUser === idUserFromChamping) {
     let userSama = true;
@@ -156,13 +158,6 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
               className={styles.progressDone}
               style={{ width: `${progress}%`, opacity: "1" }}
             ></div>
-            extra :
-            <NumberFormat
-              value={progress2}
-              displayType={"text"}
-              thousandSeparator={true}
-              prefix={"  IDR."}
-            />
           </div>
           {lebih >= 0 ? (
             ""
@@ -174,7 +169,7 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
               prefix={"  IDR."}
             />
           )}
-        </div>
+      
         <div className={styles.profilContainer}>
           <img src={dataDonorAll.dataDonate?.User?.photo}></img>
           <div className={styles.profilName}>
@@ -200,6 +195,7 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
               <p>Share</p>
             </div>
           </div>
+
           <button
             onClick={() => postShare(idDonate)}
             className={styles.btnShare}
@@ -207,9 +203,9 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
             Share
           </button>
           {userSama ? (
-            <button className={styles.btnDonate}>NEW PROGRESS</button>
+            <button className={styles.btnDonate} onClick={openModal}>NEW PROGRESS</button>
           ) : (
-            <button className={styles.btnDonate} onClick={openModal}>
+            <button className={styles.btnDonate} >
               Donate
             </button>
           )}
@@ -231,6 +227,7 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
             <CampaignUpdate setOpen={setOpen} />
           </Modal>
         </div>
+       </div>
       </div>
     </>
   );

@@ -73,7 +73,7 @@
 }
 
 .profilContainer {
-  display: flex;
+  /* display: flex; */
   justify-content: right;
   flex-direction: row;
 }
@@ -287,7 +287,7 @@ img.roda {
 
 /* MODAL */
 
-.modal {
+/* .modal {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -297,9 +297,9 @@ img.roda {
   padding: 3rem 4rem;
   margin: 0;
   border-bottom: 1px solid #9f9f9f;
-}
+} */
 
-.close {
+/* .close {
   width: 1.8rem;
   height: 1.8rem;
-}
+} */
