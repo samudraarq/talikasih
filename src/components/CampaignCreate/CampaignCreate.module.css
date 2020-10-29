@@ -1,35 +1,14 @@
 .container {
-    max-width: 120rem;
-    margin: 10rem auto;
-    height: 100%;
-    display: flex;
-    justify-content: right;
-    align-items: right;
-   flex-direction: column;
-  }
-  
-  .cardAtas{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-width: 964px;
-    min-height: 494px;
-      background-color: #E1E0E0;
-  }
+  max-width: 96rem;
+  margin: 10rem auto;
+  height: 100%;
+}
 
-  .titel{
-    display: flex;
-    max-width: 120rem;
-    height: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: right;
-   flex-direction: column;
-    margin-bottom: 2rem;
-  }
-
-  .input{
-
-    display: none;
-  }
+.title {
+  padding: 2rem 0;
+  margin: 2rem 0;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 4rem;
+  border-bottom: 1px solid #9f9f9f;
+}
