@@ -8,6 +8,7 @@ import DiscoverCategoryPage from "./pages/DiscoverCategory/DiscoverCategoryPage"
 import DiscoverSearchPage from "./pages/DiscoverSearchPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import Home from "./pages/Home";
+import Donate from "./pages/Donate/Donate";
 import { useEffect } from "react";
 import UserProfilePage from "./pages/UserProfilePage";
 
@@ -19,6 +20,9 @@ function App({ setUserPersistanceLogin }) {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/donate">
+          <Donate />
+        </Route>
         <Route path="/discover/search">
           <DiscoverSearchPage />
         </Route>

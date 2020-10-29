@@ -1,0 +1,254 @@
+.container {
+  padding: 5rem 20rem;
+}
+
+.title {
+  /* border: 1px solid black; */
+  font-size: 3rem;
+  font-weight: 700;
+  border-bottom: 1px solid #9f9f9f;
+  padding: 2.5rem 0;
+  margin: 0 0 2rem 0;
+}
+
+.donateform {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  width: 50%;
+}
+
+.mandatory {
+  color: red;
+}
+
+.desc {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 2rem 0;
+}
+
+.amount {
+  border: none;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #9f9f9f;
+  height: 4rem;
+  font-size: 1.4rem;
+}
+.name {
+  border: none;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #1d94a8;
+  height: 4rem;
+  font-size: 1.4rem;
+}
+.message {
+  border: none;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #1d94a8;
+  height: 23rem;
+  font-size: 1.4rem;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.alert {
+  color: red;
+  font-weight: 500;
+}
+
+.anonym {
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+.checkbox {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  border: 1px solid #9f9f9f;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.optional {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.4rem;
+}
+
+.check {
+  margin: 1rem 0;
+  display: flex;
+}
+
+.paymentBtn {
+  margin: 4rem 0;
+}
+
+.desc {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.select {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.select input[type="radio"] {
+  display: none;
+}
+
+.label {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 15rem;
+  height: 8rem;
+  background-color: transparent;
+  border: 1px solid #9f9f9f;
+  border-radius: 4px;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.select input[type="radio"]:checked + label {
+  background-color: #d7ebee;
+}
+
+.option {
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+.input1 {
+  border: none;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #9f9f9f;
+  height: 4rem;
+  width: 45rem;
+  font-size: 1.4rem;
+}
+
+.input2 {
+  border: none;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #9f9f9f;
+  height: 4rem;
+  width: 20rem;
+  font-size: 1.4rem;
+}
+
+.input3 {
+  border: none;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #9f9f9f;
+  height: 4rem;
+  width: 15rem;
+  font-size: 1.4rem;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.date {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cvv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.transferbox {
+  width: 50rem;
+  height: 26rem;
+  background-color: #f4f4f4;
+  padding: 1.5rem 2.5rem;
+}
+
+.transfer {
+  color: #1d94a8;
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.detailname {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #9f9f9f;
+}
+
+.detail {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #2d2d2d;
+}
+
+.detailnum {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #2d2d2d;
+  border: none;
+  background-color: #f4f4f4;
+}
+
+.copy {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #2d2d2d;
+  border: none;
+  background-color: #f4f4f4;
+  text-transform: uppercase;
+}
+
+.copy:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.info {
+  margin: 1.5rem 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.donate {
+  background-color: #a43f3c;
+  width: 20rem;
+  height: 4rem;
+  position: relative;
+  right: 0;
+  font-weight: bold;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 5rem 0;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
