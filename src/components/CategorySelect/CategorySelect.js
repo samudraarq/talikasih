@@ -16,7 +16,7 @@ const CategorySelect = () => {
     <div className={styles.container}>
       <h2 className={styles.headerText}>Find causes you truly care about</h2>
       <div className={styles.categoriesContainer}>
-        <Link to="/discover/disability" className={styles.categoryBtn}>
+        <Link to="/discover/category/1" className={styles.categoryBtn}>
           <img
             src={disabilityIcon}
             alt="disability"
@@ -24,62 +24,62 @@ const CategorySelect = () => {
           />
           <p className={styles.categoryText}>Disability</p>
         </Link>
-        <div className={styles.categoryBtn}>
+        <Link to="/discover/category/2" className={styles.categoryBtn}>
           <img
             src={medicalIcon}
             alt="medical"
             className={styles.categoryIcon}
           />
           <p className={styles.categoryText}>Medical</p>
-        </div>
-        <div className={styles.categoryBtn}>
+        </Link>
+        <Link to="/discover/category/3" className={styles.categoryBtn}>
           <img
             src={educationIcon}
             alt="education"
             className={styles.categoryIcon}
           />
           <p className={styles.categoryText}>Education</p>
-        </div>
-        <div className={styles.categoryBtn}>
+        </Link>
+        <Link to="/discover/category/4" className={styles.categoryBtn}>
           <img
             src={religiousIcon}
             alt="religious"
             className={styles.categoryIcon}
           />
           <p className={styles.categoryText}>Religious</p>
-        </div>
-        <div className={styles.categoryBtn}>
+        </Link>
+        <Link to="/discover/category/5" className={styles.categoryBtn}>
           <img
             src={humanityIcon}
             alt="humanity"
             className={styles.categoryIcon}
           />
           <p className={styles.categoryText}>Humanity</p>
-        </div>
-        <div className={styles.categoryBtn}>
+        </Link>
+        <Link to="/discover/category/6" className={styles.categoryBtn}>
           <img
             src={environmentIcon}
             alt="environment"
             className={styles.categoryIcon}
           />
           <p className={styles.categoryText}>Environment</p>
-        </div>
-        <div className={styles.categoryBtn}>
+        </Link>
+        <Link to="/discover/category/7" className={styles.categoryBtn}>
           <img
             src={disasterIcon}
             alt="disaster"
             className={styles.categoryIcon}
           />
           <p className={styles.categoryText}>Disaster</p>
-        </div>
-        <div className={styles.categoryBtn}>
+        </Link>
+        <Link to="/discover/category/8" className={styles.categoryBtn}>
           <img
             src={sociopreneurIcon}
             alt="sociopreneur"
             className={styles.categoryIcon}
           />
           <p className={styles.categoryText}>Sociopreneur</p>
-        </div>
+        </Link>
       </div>
     </div>
   );

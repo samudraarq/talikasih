@@ -1,0 +1,36 @@
+.donationContainer {
+  border: 1px solid #e1e0e0;
+  border-radius: 4px;
+  padding: 3rem;
+  max-width: 97rem;
+  margin: 0 auto;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.donations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.8rem;
+  row-gap: 2.4rem;
+  margin: 2rem 8.6rem;
+}
+
+.loadBtn {
+  height: 4.4rem;
+  width: 17rem;
+  border: 1px solid #1d94a8;
+  border-radius: 3px;
+  color: #1d94a8;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  background: #ffffff;
+  cursor: pointer;
+  margin: 2.7rem auto 1.2rem;
+  display: block;
+  outline: none;
+}

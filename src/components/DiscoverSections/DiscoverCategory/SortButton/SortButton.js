@@ -3,12 +3,11 @@ import queryString from "query-string";
 import styles from "./SortButton.module.css";
 
 import sort from "../../../../assets/discover/sort.svg";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const SortButton = () => {
+const SortButton = ({ urlLink, setPage }) => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  const { category } = useParams();
   const location = useLocation();
 
   useEffect(() => {
@@ -28,6 +27,11 @@ const SortButton = () => {
     document.removeEventListener("click", handleClose);
   };
 
+  const handleChoose = () => {
+    handleClose();
+    setPage(1);
+  };
+
   return (
     <>
       <div className={styles.sortContainer}>
@@ -39,30 +43,30 @@ const SortButton = () => {
         {openMenu && (
           <div className={styles.menuContainer}>
             <Link
-              to={`/discover/${category}?sort=newest`}
+              to={`/discover/${urlLink}sort=newest`}
               className={styles.menuItem}
-              onClick={handleClose}
+              onClick={handleChoose}
             >
               Newest
             </Link>
             <Link
-              to={`/discover/${category}?sort=mosturgent`}
+              to={`/discover/${urlLink}sort=mosturgent`}
               className={styles.menuItem}
-              onClick={handleClose}
+              onClick={handleChoose}
             >
               Most Urgent
             </Link>
             <Link
-              to={`/discover/${category}?sort=popular`}
+              to={`/discover/${urlLink}sort=popular`}
               className={styles.menuItem}
-              onClick={handleClose}
+              onClick={handleChoose}
             >
               Popular
             </Link>
             <Link
-              to={`/discover/${category}?sort=lessdonation`}
+              to={`/discover/${urlLink}sort=lessdonation`}
               className={styles.menuItem}
-              onClick={handleClose}
+              onClick={handleChoose}
             >
               Less Donation
             </Link>

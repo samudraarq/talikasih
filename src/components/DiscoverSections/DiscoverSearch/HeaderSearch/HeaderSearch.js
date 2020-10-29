@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from "react";
-import queryString from "query-string";
-import { Link, useLocation } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./HeaderSearch.module.css";
 
 import leftArrow from "../../../../assets/discover/left-arrow.svg";
 
-const HeaderSearch = () => {
-  const [searchText, setSearchText] = useState("");
-
-  const location = useLocation();
-
-  useEffect(() => {
-    const parsed = queryString.parse(location.search);
-    setSearchText(parsed.search);
-  }, [location]);
-
+const HeaderSearch = ({ searchText }) => {
   return (
     <>
       <div className={styles.headerContainer}>

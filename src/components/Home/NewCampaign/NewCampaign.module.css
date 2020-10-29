@@ -17,7 +17,9 @@
 }
 
 .cardsContainer {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  column-gap: 5.6rem;
   margin-top: 2.4rem;
 }
