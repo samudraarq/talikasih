@@ -237,6 +237,7 @@ export const editUserProfile = (dataQs) => {
         };
         axios(config)
           .then((response) => {
+            console.log(config);
             console.log(response.data);
             dispatch({
               type: SET_USER_FROM_TOKEN,
@@ -274,7 +275,7 @@ export const editUserImage = (dataQs) => {
           token: response.data.token,
         });
 
-        const config = {
+        const configUser = {
           method: "get",
           url: "https://warm-tundra-23736.herokuapp.com/formuser",
           headers: {
@@ -282,7 +283,7 @@ export const editUserImage = (dataQs) => {
           },
         };
 
-        axios(config)
+        axios(configUser)
           .then(function (response) {
             console.log(response.data);
             dispatch({
