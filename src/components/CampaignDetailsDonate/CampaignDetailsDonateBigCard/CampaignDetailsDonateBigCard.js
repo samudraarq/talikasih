@@ -41,7 +41,7 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
     (dataDonorAll.dataDonate.raised / dataDonorAll.dataDonate.goal) * 100;
     let progress2 =
     (dataDonorAll.dataDonate.raised - dataDonorAll.dataDonate.goal);
-  let lebih = '';
+  let lebih = 0;
   let donationCountData = 0;
   let shareCountData = 0;
   // variabel show camping sendiri
@@ -141,14 +141,14 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
           >
             
           </div>
-
-           extra : 
+              {lebih>=0? '':   
            <NumberFormat
-            value={progress2}
+            value={lebih}
             displayType={"text"}
             thousandSeparator={true}
             prefix={"  IDR."}
-          />
+          />}
+         
           
         </div>
         <div className={styles.profilContainer}>
