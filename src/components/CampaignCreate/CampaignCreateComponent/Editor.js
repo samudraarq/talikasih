@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./Editor.module.css";
 import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
-import Quill from "quill";
 
 function Editor() {
   const theme = "snow";

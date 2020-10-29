@@ -1,19 +1,44 @@
 // import { Form } from 'formik'
 import React, { useState, useEffect } from "react";
-import styles from "./CampaignDetailsDonateBigCard.module.css";
 import { connect } from "react-redux";
 import NumberFormat from "react-number-format";
-import { postShare } from "../../../redux/actions/donorActions";
 import { Link, useParams } from "react-router-dom";
+import Modal from "react-modal";
 import axios from "axios";
+import moment from "moment";
+import { postShare } from "../../../redux/actions/donorActions";
 import setImage from "../../../assets/CampingDetails/Vector.png";
 import setImage2 from "../../../assets/CampingDetails/Vector-1.png";
-import moment from "moment";
+import CampaignUpdate from "../CampaignUpdate/CampaignUpdate";
+import styles from "./CampaignDetailsDonateBigCard.module.css";
+import close from "../../../assets/CampingCreate/close.png";
 
 const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
   // variabel
   const [idUser, setidUser] = useState(0);
+  const [open, setOpen] = useState(false);
 
+  // MODAL //
+  const requestClose = () => setOpen(false);
+  const openModal = () => setOpen(true);
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      padding: "0",
+      transform: "translate(-50%, -50%)",
+      overlay: {
+        background: "black",
+      },
+    },
+  };
+
+  Modal.setAppElement("#root");
+
+  // useEffect //
   useEffect(() => {
     const getuserdata = (dataDonorAll) => {
       let token =
@@ -174,8 +199,27 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
           {userSama ? (
             <button className={styles.btnDonate}>NEW PROGRESS</button>
           ) : (
-            <button className={styles.btnDonate}>Donate</button>
+            <button className={styles.btnDonate} onClick={openModal}>
+              Donate
+            </button>
           )}
+          <Modal
+            isOpen={open}
+            shouldCloseOnOverlayClick={false}
+            onRequestClose={requestClose}
+            style={customStyles}
+          >
+            <div className={styles.modal}>
+              <div>Campaign Update</div>
+              <img
+                src={close}
+                alt="close"
+                className={styles.close}
+                onClick={requestClose}
+              />
+            </div>
+            <CampaignUpdate setOpen={setOpen} />
+          </Modal>
         </div>
       </div>
     </>

@@ -1,0 +1,64 @@
+.form {
+  padding: 3rem;
+}
+
+.type {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.1rem;
+  max-width: 40rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.9rem;
+  margin: 2rem 0 0.8rem 0;
+}
+
+.purpose {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.7rem;
+  margin: 2rem 0;
+}
+
+.mandatory,
+.alert {
+  color: red;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.insert {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #1d94a8;
+  background-color: #fcfcfc;
+  height: 4rem;
+  max-width: 40rem;
+}
+
+.sumbitBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sumbit {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.1rem;
+  text-align: center;
+  padding: 1.2rem 1.8rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #a43f3c;
+  border: none;
+  width: 20rem;
+  height: 4.6rem;
+}

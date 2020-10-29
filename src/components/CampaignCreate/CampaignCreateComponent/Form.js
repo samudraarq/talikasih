@@ -2,11 +2,13 @@ import React from "react";
 import { useForm, useFormContext, FormProvider } from "react-hook-form";
 import styles from "./Form.module.css";
 import HeaderImage from "./HeaderImage";
-import Editor from "./Editor";
+import { useQuill } from "react-quilljs";
+import "quill/dist/quill.snow.css";
 import axios from "axios";
 import ConnectForm from "./ConnectForm";
 
 function Form() {
+  // FORM //
   const { register, errors, handleSubmit } = useForm({ mode: "onBlur" });
   const onSubmit = (data) => {
     console.log(data);
@@ -44,6 +46,28 @@ function Form() {
     // }
   };
 
+  // EDITOR //
+  const theme = "snow";
+  const modules = {
+    toolbar: [
+      "bold",
+      "italic",
+      "underline",
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+      "image",
+      "link",
+    ],
+  };
+  const placeholder = "Tell your story...";
+
+  const { quillRef } = useQuill({
+    theme,
+    modules,
+    placeholder,
+  });
+
   const handleImage = (e) => {
     const file = e.target.file[0];
     console.log(file);
@@ -53,11 +77,13 @@ function Form() {
 
   return (
     <>
-      <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <ConnectForm />
-          <div className={styles.container}>
-            <div className={styles.form}>
+      {/* <FormProvider {...methods}> */}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <HeaderImage />
+        {/* <ConnectForm /> */}
+        <div className={styles.container}>
+          <div className={styles.form}>
+            <div className={styles.col}>
               <label htmlFor="title" className={styles.subtitle}>
                 Title<span className={styles.mandatory}>*</span>
               </label>
@@ -72,6 +98,8 @@ function Form() {
               {errors.title && errors.title.type === "required" && (
                 <div className={styles.alert}>Required</div>
               )}
+            </div>
+            <div className={styles.col}>
               <label htmlFor="goal" className={styles.subtitle}>
                 Goal<span className={styles.mandatory}>*</span>
               </label>
@@ -87,7 +115,9 @@ function Form() {
                 <div className={styles.alert}>Required</div>
               )}
             </div>
-            <div className={styles.form}>
+          </div>
+          <div className={styles.form}>
+            <div className={styles.col}>
               <label htmlFor="CategoryId" className={styles.subtitle}>
                 Category<span className={styles.mandatory}>*</span>
               </label>
@@ -102,6 +132,8 @@ function Form() {
               {errors.CategoryId && errors.CategoryId.type === "required" && (
                 <div className={styles.alert}>Required</div>
               )}
+            </div>
+            <div className={styles.col}>
               <label htmlFor="due_date" className={styles.subtitle}>
                 Due date <span className={styles.optional}>(Optional)</span>
               </label>
@@ -118,16 +150,23 @@ function Form() {
               )}
             </div>
           </div>
-          <Editor />
-          <div className={styles.submitBtn}>
-            <input
-              type="submit"
-              value="create campaign"
-              className={styles.submit}
-            />
-          </div>
-        </form>
-      </FormProvider>
+        </div>
+        <div>
+          <div className={styles.story}>Story</div>
+          <div
+            ref={quillRef}
+            style={{ height: 500, border: "none", backgroundColor: "#FCFCFC" }}
+          />
+        </div>
+        <div className={styles.submitBtn}>
+          <input
+            type="submit"
+            value="create campaign"
+            className={styles.submit}
+          />
+        </div>
+      </form>
+      {/* </FormProvider> */}
     </>
   );
 }

@@ -6,12 +6,10 @@ import moment from 'moment'
 import {useState} from 'react'
 
 const CampaignDetailsDonateAllComent = (dataDonorAll) => {
-  const [limit, setLimit ] = useState(1);
+  const [limit, setLimit ] = useState(2);
   const [loadMoreBol, setloadMoreBol ] = useState(true);
-
-
   const loadLess = ()=>{
-    setLimit(1);
+    setLimit(2);
     setloadMoreBol(true);
   }
   const loadMore = () =>{

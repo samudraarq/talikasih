@@ -16,24 +16,23 @@ const HeaderImage = () => {
   };
   // console.log(image);
 
-  // const handleUpload = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append("image", image.raw);
+  const handleUpload = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("image", image.raw);
 
-  //   await fetch("YOUR_URL", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "multipart/form-data",
-  //     },
-  //     body: formData,
-  //   });
-  // };
+    await fetch("YOUR_URL", {
+      method: "POST",
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      body: formData,
+    });
+  };
 
   return (
     <div>
-      {/* <ConnectForm> */}
-      <label htmlFor="upload-button" className={styles.image}>
+      <label htmlFor="upload-button">
         {image.preview ? (
           <img
             src={image.preview}
@@ -50,20 +49,26 @@ const HeaderImage = () => {
           </>
         )}
       </label>
-      {({ register }) => (
-        <input
-          type="file"
-          id="upload-button"
-          style={{ display: "none" }}
-          onChange={handleChange}
-          ref={register}
-          name="header_img"
-        />
-      )}
+      {/* {({ register }) => ( */}
+      <input
+        type="file"
+        id="upload-button"
+        style={{ display: "none" }}
+        onChange={handleChange}
+        // ref={register}
+        name="header_img"
+      />
+      {/* )} */}
       <br />
-      {/* </ConnectForm> */}
     </div>
   );
 };
 
 export default HeaderImage;
+
+{
+  /* <ConnectForm> */
+}
+{
+  /* </ConnectForm> */
+}

@@ -8,7 +8,7 @@ import {useState} from 'react'
 const CampaignDetailsDonateDonation = (dataDonorAll) => {
 
 
-    const [limit, setLimit ] = useState(3);
+    const [limit, setLimit ] = useState(4);
     const [loadMoreBol, setloadMoreBol ] = useState(true);
 
     const loadMore = () =>{
@@ -18,7 +18,7 @@ const CampaignDetailsDonateDonation = (dataDonorAll) => {
 
     const loadLess = () =>{
       setloadMoreBol(true);
-        setLimit(3);
+        setLimit(4);
       }
 
     const UserAllDonate = dataDonorAll?.dataDonorAll?.dataDonateDonor?.slice(0, limit).map(
