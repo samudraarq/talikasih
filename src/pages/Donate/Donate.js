@@ -20,23 +20,24 @@ function Donate() {
   const onSubmit = async (values) => {
     console.log(values);
     try {
-      const { amount, comment, share } = values;
+      const { amount, comment } = values;
       const donateInfo = qs.stringify({
         amount,
         comment,
         share: true,
       });
       console.log(donateInfo);
-      const submit = await axios({
+      const response = await axios({
         method: "post",
         url: "https://warm-tundra-23736.herokuapp.com/donate/campaign/2",
         data: donateInfo,
         headers: {
           token:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
-          "Content-Type": "application/x-www-form-urlencoded",
         },
-      }).then(() => console.log("success"));
+      });
+      const data = response.data;
+      console.log(data);
     } catch (error) {
       console.log(error.message);
     }
