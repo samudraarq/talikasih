@@ -148,7 +148,13 @@ const EditProfileForm = ({ auth, onSubmit }) => {
           <span className={styles.errorText}>This field is required</span>
         )}
       </div>
-      <button className={styles.submitBtn}>Save changes</button>
+      <button className={styles.submitBtn}>
+        {auth.isEditLoading ? (
+          <span>Loading...</span>
+        ) : (
+          <span>Save changes</span>
+        )}
+      </button>
     </form>
   );
 };
