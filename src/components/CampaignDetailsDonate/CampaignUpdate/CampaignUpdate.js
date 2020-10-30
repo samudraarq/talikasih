@@ -52,11 +52,19 @@ function CampaignUpdate({ auth }) {
     ],
   };
   const placeholder = "Tell your story...";
+  const contents = {
+    ops: [
+      {
+        insert: "gandalf",
+      },
+    ],
+  };
 
   const { quillRef } = useQuill({
     theme,
     modules,
     placeholder,
+    contents,
   });
 
   return (

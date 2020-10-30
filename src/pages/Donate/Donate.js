@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { connect } from "react-redux";
 import bank from "../../assets/Donate/bank.png";
 import credit from "../../assets/Donate/credit.png";
 import styles from "./Donate.module.css";
@@ -8,15 +9,14 @@ import axios from "axios";
 
 // -------------------- //
 
-function Donate() {
+function Donate({ auth }) {
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur",
   });
   const [creditInfo, setCreditInfo] = useState(false);
   const [bankInfo, setBankInfo] = useState(false);
 
-  // -------------------- //
-
+  // FORM //
   const onSubmit = async (values) => {
     console.log(values);
     try {
@@ -32,8 +32,7 @@ function Donate() {
         url: "https://warm-tundra-23736.herokuapp.com/donate/campaign/2",
         data: donateInfo,
         headers: {
-          token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
+          token: auth.token,
         },
       });
       const data = response.data;
@@ -43,6 +42,7 @@ function Donate() {
     }
   };
 
+  // MODAL //
   const creditOption = () => {
     setBankInfo(false);
     setCreditInfo(true);
@@ -53,6 +53,7 @@ function Donate() {
     setBankInfo(true);
   };
 
+  // COPY TEXT //
   const account = (e) => {
     e.preventDefault();
     const detailnum = document.getElementById("account");
@@ -290,4 +291,10 @@ function Donate() {
   );
 }
 
-export default Donate;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps)(Donate);
