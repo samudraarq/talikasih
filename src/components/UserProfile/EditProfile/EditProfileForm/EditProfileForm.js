@@ -67,14 +67,14 @@ const EditProfileForm = ({ auth, onSubmit }) => {
             </label>
             <input
               type="password"
-              name="pass"
+              name="password"
               // defaultValue="*******"
               ref={register({ required: true, minLength: 6 })}
             />
-            {errors.pass?.type === "required" && (
+            {errors.password?.type === "required" && (
               <span className={styles.errorText}>This field is required</span>
             )}
-            {errors.pass?.type === "minLength" && (
+            {errors.password?.type === "minLength" && (
               <span className={styles.errorText}>
                 Minimal length is 6 chacters
               </span>
@@ -95,7 +95,7 @@ const EditProfileForm = ({ auth, onSubmit }) => {
               ref={register({
                 required: true,
                 validate: (value) => {
-                  return value === watch("pass");
+                  return value === watch("password");
                 },
               })}
             />
