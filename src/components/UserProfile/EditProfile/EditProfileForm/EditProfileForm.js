@@ -150,7 +150,10 @@ const EditProfileForm = ({ auth, onSubmit }) => {
       </div>
       <button className={styles.submitBtn}>
         {auth.isEditLoading ? (
-          <span>Loading...</span>
+          <div className={styles.progress}>
+            {/* <CircularProgress /> */}
+            <span>Processing</span>
+          </div>
         ) : (
           <span>Save changes</span>
         )}

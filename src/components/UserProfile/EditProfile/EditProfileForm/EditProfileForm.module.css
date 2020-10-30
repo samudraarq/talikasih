@@ -91,3 +91,13 @@
   justify-self: end;
   margin-top: 5rem;
 }
+
+.progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress span {
+  margin-left: 1rem;
+}
