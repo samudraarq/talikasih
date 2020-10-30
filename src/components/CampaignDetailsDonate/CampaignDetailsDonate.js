@@ -35,7 +35,7 @@ const CampaignDetailsDonate = ({
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [idDonate]);
 
   return (
     <div>
