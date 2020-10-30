@@ -45,7 +45,7 @@ const CampaignDetailsDonate = ({
       <CampaignDetailsDonateDonation />
       <CampaignDetailsDonateComentFrom />
       <CampaignDetailsDonateAllComent />
-      {/* <CampaignDetailsDonateRelatedCampaing/> */}
+      <CampaignDetailsDonateRelatedCampaing />
     </div>
   );
 };

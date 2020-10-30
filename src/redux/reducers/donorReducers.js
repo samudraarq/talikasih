@@ -12,7 +12,10 @@ import {
   GET_DONATION_DATA,
   GET_DONATION_STORY,
   GET_DONATION_STORY_LOAD_MORE,
+  GET_RELATED_CAMPAIGNS,
+  RELATED_CAMPAIGNS_LOAD,
 } from "../actions/actionTypes";
+import { postShare } from "../actions/donorActions";
 
 const initialState = {
   dataDonate: [],
@@ -21,6 +24,8 @@ const initialState = {
   dataDonateStory: [],
   dataDonateStoryLoadMore: [],
   dataShare: [],
+  relatedCampaigns: [],
+  relatedCampaignsLoading: false,
 };
 
 const donorReducers = (state = initialState, action) => {
@@ -45,6 +50,14 @@ const donorReducers = (state = initialState, action) => {
 
     case POST_SHARE:
       return { ...state, dataShare: action.data };
+
+    case GET_RELATED_CAMPAIGNS:
+      return { ...state, relatedCampaigns: action.posts };
+    case RELATED_CAMPAIGNS_LOAD:
+      return {
+        ...state,
+        relatedCampaignsLoading: !state.relatedCampaignsLoading,
+      };
 
     default:
       return state;
