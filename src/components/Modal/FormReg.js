@@ -98,7 +98,7 @@ function FormReg(props) {
         {props.auth.isLoading ? "PLEASE WAIT..." : "REGISTER"}
         </button>
 
-        {props.auth.isError && <p>{props.auth.errorMsg}</p>}
+        {props.auth.isError && <p className={styles.errorMessageAuth}>{props.auth.errorMsg}</p>}
       </form>
       <button className={styles.btnGoogle}>
         <img src={google} alt="google" className={styles.google} />
