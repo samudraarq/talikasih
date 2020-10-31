@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import styles from "./EditProfileForm.module.css";
 
+import spinner from "../../../../assets/general/spinner.svg";
+
 const EditProfileForm = ({ auth, onSubmit }) => {
   const [resetPass, setResetPass] = useState(false);
 
@@ -148,10 +150,14 @@ const EditProfileForm = ({ auth, onSubmit }) => {
           <span className={styles.errorText}>This field is required</span>
         )}
       </div>
-      <button className={styles.submitBtn}>
+      <button
+        className={`${styles.submitBtn} ${
+          auth.isEditLoading && styles.loading
+        }`}
+      >
         {auth.isEditLoading ? (
           <div className={styles.progress}>
-            {/* <CircularProgress /> */}
+            <img src={spinner} alt="spinner" />
             <span>Processing</span>
           </div>
         ) : (
