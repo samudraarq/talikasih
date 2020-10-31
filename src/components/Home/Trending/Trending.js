@@ -6,6 +6,7 @@ import { getTrendingCampaign } from "../../../redux/actions/campaignActions";
 import openQuote from "../../../assets/homepage/Home/openQuote.svg";
 import closeQuote from "../../../assets/homepage/Home/closeQuote.svg";
 import SkeletonTrending from "../../Skeleton/SkeletonTrending";
+import { Link } from "react-router-dom";
 
 // import trendingImage from "../../../assets/homepage/Home/Rectangle 33.png";
 // import fundraiser from "../../../assets/homepage/Home/Rectangle 37.png";
@@ -26,11 +27,16 @@ const Trending = ({ trendingCampaign, getTrendingCampaign }) => {
           <h3 className={styles.segmentTitle}>Trending Topic</h3>
           <h2 className={styles.topicTitle}>{trending?.title}</h2>
           <div className={styles.content}>
-            <img
-              src={trending?.header_img}
-              alt="Trending"
-              className={styles.trendingImage}
-            />
+            <Link
+              to={`/campaign/details/donate/${trendingCampaign.documents.id}`}
+              className={styles.trendingLink}
+            >
+              <img
+                src={trending?.header_img}
+                alt="Trending"
+                className={styles.trendingImage}
+              />
+            </Link>
 
             <div className={styles.quote}>
               <div>

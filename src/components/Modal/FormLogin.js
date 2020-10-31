@@ -65,7 +65,7 @@ function FormLogin(props) {
         <button className={styles.btnLogin} type="submit">
           {props.auth.isLoading ? "LOGGING IN..." : "LOGIN"}
         </button>
-        {props.auth.isError && <p>{props.auth.errorMsg}</p>}
+        {props.auth.isError && <p className={styles.errorMessageAuth}>{props.auth.errorMsg}</p>}
       </form>
       <button className={styles.btnGoogle}>
         <img src={google} alt="google" className={styles.google} />
