@@ -6,27 +6,34 @@ import { connect } from "react-redux";
 import qs from "qs";
 import "quill/dist/quill.snow.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import close from "../../../assets/CampingCreate/close.png";
 
-function CampaignUpdate({ auth }) {
+function CampaignUpdate({ auth, requestClose }) {
   // FORM //
   const [openAmount, setOpenAmount] = useState(false);
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // const inputText = quill.getContents();
+    const inputText = quill.getText();
+    // console.log(quill.getContents());
+    // console.log(data);
+    // console.log(inputText);
     try {
-      const { ammount, content } = data;
+      const { ammount } = data;
       const updateInfo = qs.stringify({
         ammount,
-        content,
-        date: new Date(),
+        content: inputText,
       });
-      console.log(updateInfo);
+      // console.log(updateInfo);
       const response = await axios({
         method: "post",
         url: "https://warm-tundra-23736.herokuapp.com/campaignLog/1",
         data: updateInfo,
         headers: {
+          // token:
+          //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
           token: auth.token,
         },
       });
@@ -34,7 +41,6 @@ function CampaignUpdate({ auth }) {
     } catch (error) {
       console.log(error, "error");
     }
-    // setOpen(false);
   };
 
   // Editor //
@@ -52,8 +58,7 @@ function CampaignUpdate({ auth }) {
     ],
   };
   const placeholder = "Tell your story...";
-
-  const { quillRef } = useQuill({
+  const { quill, quillRef } = useQuill({
     theme,
     modules,
     placeholder,
@@ -61,6 +66,15 @@ function CampaignUpdate({ auth }) {
 
   return (
     <>
+      <div className={styles.modal}>
+        <div>Campaign Update</div>
+        <img
+          src={close}
+          alt="close"
+          className={styles.close}
+          onClick={requestClose}
+        />
+      </div>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.type}>
           <div onClick={() => setOpenAmount(false)}>
@@ -71,6 +85,7 @@ function CampaignUpdate({ auth }) {
             <input type="radio" name="type" id="withdraw" />
             <label htmlFor="withdraw"> Fund withdrawal</label>
           </div>
+          <div></div>
         </div>
         {openAmount ? (
           <div className={styles.col}>
@@ -88,19 +103,20 @@ function CampaignUpdate({ auth }) {
             {errors.ammount && errors.ammount.type === "required" && (
               <div className={styles.alert}>Required</div>
             )}
+            <label htmlFor="content" className={styles.purpose}>
+              Withdrawal purpose<span className={styles.mandatory}>*</span>
+            </label>
           </div>
         ) : (
-          ""
+          <div className={styles.update}>
+            <label htmlFor="content">
+              Update<span className={styles.mandatory}>*</span>
+            </label>
+          </div>
         )}
-        <div className={styles.col}>
-          <label htmlFor="purpose" className={styles.purpose}>
-            Withdrawal purpose<span className={styles.mandatory}>*</span>
-          </label>
+        <div>
           <div
             ref={quillRef}
-            // ref={register({ required: true })}
-            name="purpose"
-            id="purpose"
             style={{
               height: 300,
               width: 850,
@@ -108,11 +124,10 @@ function CampaignUpdate({ auth }) {
               backgroundColor: "#FCFCFC",
             }}
           />
-          {errors.purpose && errors.purpose.type === "required" && (
-            <div className={styles.alert}>Required</div>
-          )}
           <div className={styles.sumbitBtn}>
-            <input type="submit" value="submit" className={styles.sumbit} />
+            <Link to="/user/profile">
+              <input type="submit" value="submit" className={styles.sumbit} />
+            </Link>
           </div>
         </div>
       </form>
