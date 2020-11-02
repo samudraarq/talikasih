@@ -69,7 +69,7 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
   let donationCountData = 0;
   let shareCountData = 0;
   // variabel show camping sendiri
-  let userSama = true;
+  let userSama = false;
   //Variabel end
   if (idUser === idUserFromChamping) {
     let userSama = true;
@@ -205,7 +205,9 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
                 NEW PROGRESS
               </button>
             ) : (
-              <button className={styles.btnDonate}>Donate</button>
+              <Link to="/donate">
+                <button className={styles.btnDonate}>Donate</button>
+              </Link>
             )}
             <Modal
               isOpen={open}
