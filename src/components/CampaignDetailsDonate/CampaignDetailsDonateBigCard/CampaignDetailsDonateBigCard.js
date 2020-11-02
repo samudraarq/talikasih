@@ -11,7 +11,6 @@ import setImage from "../../../assets/CampingDetails/Vector.png";
 import setImage2 from "../../../assets/CampingDetails/Vector-1.png";
 import CampaignUpdate from "../CampaignUpdate/CampaignUpdate";
 import styles from "./CampaignDetailsDonateBigCard.module.css";
-import close from "../../../assets/CampingCreate/close.png";
 
 const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
   // variabel
@@ -214,16 +213,7 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
               onRequestClose={requestClose}
               style={customStyles}
             >
-              <div className={styles.modal}>
-                <div>Campaign Update</div>
-                <img
-                  src={close}
-                  alt="close"
-                  className={styles.close}
-                  onClick={requestClose}
-                />
-              </div>
-              <CampaignUpdate setOpen={setOpen} />
+              <CampaignUpdate setOpen={setOpen} requestClose={requestClose} />
             </Modal>
           </div>
         </div>
