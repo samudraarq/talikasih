@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { useQuill } from "react-quilljs";
@@ -18,6 +19,7 @@ function Form({ auth }) {
     // const inputText = quill.getText();
     const inputText = quill.getContents();
     console.log(inputText);
+
     try {
       const {
         title,
@@ -25,7 +27,9 @@ function Form({ auth }) {
         story,
         due_date,
         header_img,
+
         // image,
+        develop
         CategoryId,
         bankAccount,
       } = data;
@@ -40,6 +44,7 @@ function Form({ auth }) {
       formData.append("bankAccount", bankAccount);
 
       const submit = axios({
+
         method: "post",
         url: "https://warm-tundra-23736.herokuapp.com/campaign/add",
         data: formData,
@@ -49,11 +54,14 @@ function Form({ auth }) {
           // token: auth.token,
           "Content-type": "multipart/form-data",
         },
-      }).then(console.log("success", formData));
+      })
+      const response = respond.data;
+      console.log(response);
     } catch (error) {
       console.log("error");
     }
     history.push("/user/profile");
+
   };
 
   // EDITOR //
@@ -82,8 +90,6 @@ function Form({ auth }) {
   //   const file = e.target.file[0];
   //   console.log(file);
   // };
-
-  const methods = useForm();
 
   return (
     <>
