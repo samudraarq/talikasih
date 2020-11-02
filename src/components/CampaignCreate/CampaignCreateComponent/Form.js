@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useForm, FormProvider } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useQuill } from "react-quilljs";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -10,48 +10,45 @@ import HeaderImage from "./HeaderImage";
 
 function Form({ auth }) {
   // FORM //
-  let history = useHistory();
   const { register, errors, handleSubmit } = useForm({ mode: "onBlur" });
+
   const [image, setImage] = useState({ preview: "", raw: "" });
-  const onSubmit = (data) => {
+  const [loading, setLoading] = useState(false);
+
+  let history = useHistory();
+
+  const bankAccount = "1234567";
+
+  const onSubmit = async (data) => {
     console.log(data);
-    // const inputText = quill.getText();
-    const inputText = quill.getContents();
-    console.log(inputText);
+    const html = quill.root.innerHTML;
+    console.log(html);
 
     try {
-      const {
-        title,
-        goal,
-        story,
-        due_date,
-        header_img,
-        CategoryId,
-        bankAccount,
-      } = data;
+      const { title, goal, due_date, CategoryId } = data;
       const formData = new FormData();
       formData.append("title", title);
       formData.append("goal", goal);
-      formData.append("story", story);
+      formData.append("story", html);
       formData.append("due_date", due_date);
-      formData.append("header_img", header_img);
-      // formData.append("header_img", image);
+      formData.append("header_img", image.raw);
       formData.append("CategoryId", CategoryId);
       formData.append("bankAccount", bankAccount);
 
-      const respond = axios({
+      setLoading(true);
+
+      const respond = await axios({
         method: "post",
         url: "https://warm-tundra-23736.herokuapp.com/campaign/add",
-        data: formData,
         headers: {
-          token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
-          // token: auth.token,
-          "Content-type": "multipart/form-data",
+          token: auth.token,
+          // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
         },
+        data: formData,
       });
       const response = respond.data;
       console.log(response);
+      setLoading(false);
     } catch (error) {
       console.log("error");
     }
@@ -80,109 +77,108 @@ function Form({ auth }) {
     placeholder,
   });
 
-  // const handleImage = (e) => {
-  //   const file = e.target.file[0];
-  //   console.log(file);
-  // };
-
-  const methods = useForm();
-
   return (
-    <>
-      <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <HeaderImage id="header_img" image={image} setImage={setImage} />
-          <div className={styles.container}>
-            <div className={styles.form}>
-              <div className={styles.col}>
-                <label htmlFor="title" className={styles.subtitle}>
-                  Title<span className={styles.mandatory}>*</span>
-                </label>
-                <input
-                  type="text"
-                  name="title"
-                  id="title"
-                  placeholder="e.g. Help we get clean water"
-                  className={styles.input}
-                  ref={register({ required: true })}
-                />
-                {errors.title && errors.title.type === "required" && (
-                  <div className={styles.alert}>Required</div>
-                )}
-              </div>
-              <div className={styles.col}>
-                <label htmlFor="goal" className={styles.subtitle}>
-                  Goal<span className={styles.mandatory}>*</span>
-                </label>
-                <input
-                  type="text"
-                  name="goal"
-                  id="goal"
-                  placeholder="e.g. 20000000"
-                  className={styles.input}
-                  ref={register({ required: true })}
-                />
-                {errors.goal && errors.goal.type === "required" && (
-                  <div className={styles.alert}>Required</div>
-                )}
-              </div>
-            </div>
-            <div className={styles.form}>
-              <div className={styles.col}>
-                <label htmlFor="CategoryId" className={styles.subtitle}>
-                  Category<span className={styles.mandatory}>*</span>
-                </label>
-                <input
-                  type="text"
-                  name="CategoryId"
-                  id="CategoryId"
-                  placeholder="Select campaign category"
-                  className={styles.input}
-                  ref={register({ required: true })}
-                />
-                {errors.CategoryId && errors.CategoryId.type === "required" && (
-                  <div className={styles.alert}>Required</div>
-                )}
-              </div>
-              <div className={styles.col}>
-                <label htmlFor="due_date" className={styles.subtitle}>
-                  Due date <span className={styles.optional}>(Optional)</span>
-                </label>
-                <input
-                  type="text"
-                  name="due_date"
-                  id="due_date"
-                  placeholder="Select due date"
-                  className={styles.input}
-                  ref={register({ required: true })}
-                />
-                {errors.due_date && errors.due_date.type === "required" && (
-                  <div className={styles.alert}>Required</div>
-                )}
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className={styles.story}>Story</div>
-            <div
-              ref={quillRef}
-              style={{
-                height: 500,
-                border: "none",
-                backgroundColor: "#FCFCFC",
-              }}
-            />
-          </div>
-          <div className={styles.submitBtn}>
-            <input
-              type="submit"
-              value="create campaign"
-              className={styles.submit}
-            />
-          </div>
-        </form>
-      </FormProvider>
-    </>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <HeaderImage
+        id="header_img"
+        image={image}
+        setImage={setImage}
+        register={register}
+        errors={errors}
+      />
+      <div className={styles.container}>
+        <div className={styles.col}>
+          <label htmlFor="title" className={styles.subtitle}>
+            Title<span className={styles.mandatory}>*</span>
+          </label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="e.g. Help we get clean water"
+            className={styles.input}
+            ref={register({ required: true })}
+          />
+          {errors.title && errors.title.type === "required" && (
+            <div className={styles.alert}>Required</div>
+          )}
+        </div>
+        <div className={styles.col}>
+          <label htmlFor="goal" className={styles.subtitle}>
+            Goal<span className={styles.mandatory}>*</span>
+          </label>
+          <input
+            type="text"
+            name="goal"
+            id="goal"
+            placeholder="e.g. 20000000"
+            className={styles.input}
+            ref={register({ required: true })}
+          />
+          {errors.goal && errors.goal.type === "required" && (
+            <div className={styles.alert}>Required</div>
+          )}
+        </div>
+        <div className={styles.col}>
+          <label htmlFor="CategoryId" className={styles.subtitle}>
+            Category<span className={styles.mandatory}>*</span>
+          </label>
+          <select
+            name="CategoryId"
+            id="CategoryId"
+            placeholder="Select campaign category"
+            className={styles.input}
+            ref={register({ required: true })}
+          >
+            <option value="" disabled selected>
+              Select campaign category
+            </option>
+            <option value="1">Disability</option>
+            <option value="2">Medical</option>
+            <option value="3">Education</option>
+            <option value="4">Religious</option>
+            <option value="5">Humanity</option>
+            <option value="6">Environment</option>
+            <option value="7">Disaster</option>
+            <option value="8">Sociopreneur</option>
+          </select>
+          {errors.CategoryId && errors.CategoryId.type === "required" && (
+            <div className={styles.alert}>Required</div>
+          )}
+        </div>
+        <div className={styles.col}>
+          <label htmlFor="due_date" className={styles.subtitle}>
+            Due date <span className={styles.optional}>(Optional)</span>
+          </label>
+          <input
+            type="date"
+            name="due_date"
+            id="due_date"
+            placeholder="Select due date"
+            className={styles.input}
+            ref={register({ required: true })}
+          />
+          {errors.due_date && errors.due_date.type === "required" && (
+            <div className={styles.alert}>Required</div>
+          )}
+        </div>
+      </div>
+      <div>
+        <div className={styles.story}>Story</div>
+        <div
+          ref={quillRef}
+          style={{
+            height: 500,
+            border: "none",
+            backgroundColor: "#FCFCFC",
+          }}
+        />
+      </div>
+
+      <button className={`${styles.submit} ${loading && styles.loading}`}>
+        {loading ? "processing" : "create campaign"}
+      </button>
+    </form>
   );
 }
 
