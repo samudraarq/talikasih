@@ -1,10 +1,9 @@
 import styles from "./HeaderImage.module.css";
-import React, { useState } from "react";
+import React from "react";
 import { useFormContext } from "react-hook-form";
 import iconplus from "../../../assets/CampingCreate/Vector.png";
+const HeaderImage = ({ image, setImage }) => {
 
-const HeaderImage = () => {
-  const [image, setImage] = useState({ preview: "", raw: "" });
   const methods = useFormContext();
 
   const handleChange = (e) => {

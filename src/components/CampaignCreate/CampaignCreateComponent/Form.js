@@ -1,18 +1,25 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
+import { useQuill } from "react-quilljs";
+import axios from "axios";
+import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
+import "quill/dist/quill.snow.css";
 import styles from "./Form.module.css";
 import HeaderImage from "./HeaderImage";
-import { useQuill } from "react-quilljs";
-import "quill/dist/quill.snow.css";
-import { connect } from "react-redux";
-import axios from "axios";
 
 function Form({ auth }) {
   // FORM //
-  const methods = useForm({ mode: "onBlur" });
-  const { register, errors, handleSubmit } = methods;
+  let history = useHistory();
+  const { register, errors, handleSubmit } = useForm({ mode: "onBlur" });
+  const [image, setImage] = useState({ preview: "", raw: "" });
   const onSubmit = (data) => {
     console.log(data);
+    // const inputText = quill.getText();
+    const inputText = quill.getContents();
+    console.log(inputText);
+
     try {
       const {
         title,
@@ -20,6 +27,9 @@ function Form({ auth }) {
         story,
         due_date,
         header_img,
+
+        // image,
+        develop
         CategoryId,
         bankAccount,
       } = data;
@@ -28,26 +38,30 @@ function Form({ auth }) {
       formData.append("goal", goal);
       formData.append("story", story);
       formData.append("due_date", due_date);
-      formData.append("header_img", header_img.raw);
+      formData.append("header_img", header_img);
+      // formData.append("header_img", image);
       formData.append("CategoryId", CategoryId);
       formData.append("bankAccount", bankAccount);
 
-      const respond = axios({
+      const submit = axios({
+
         method: "post",
         url: "https://warm-tundra-23736.herokuapp.com/campaign/add",
         data: formData,
         headers: {
-          // token: auth.token,
           token:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
+          // token: auth.token,
           "Content-type": "multipart/form-data",
         },
-      });
+      })
       const response = respond.data;
       console.log(response);
     } catch (error) {
       console.log("error");
     }
+    history.push("/user/profile");
+
   };
 
   // EDITOR //
@@ -66,22 +80,22 @@ function Form({ auth }) {
   };
   const placeholder = "Tell your story...";
 
-  const { quillRef } = useQuill({
+  const { quill, quillRef } = useQuill({
     theme,
     modules,
     placeholder,
   });
 
-  const handleImage = (e) => {
-    const file = e.target.file[0];
-    console.log(file);
-  };
+  // const handleImage = (e) => {
+  //   const file = e.target.file[0];
+  //   console.log(file);
+  // };
 
   return (
     <>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <HeaderImage />
+          <HeaderImage id="header_img" image={image} setImage={setImage} />
           <div className={styles.container}>
             <div className={styles.form}>
               <div className={styles.col}>
