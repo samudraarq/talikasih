@@ -128,12 +128,13 @@
   font-size: 1.4rem;
 }
 
+/* CREDIT */
 .input1 {
   border: none;
   background-color: #fcfcfc;
   border-bottom: 1px solid #9f9f9f;
   height: 4rem;
-  width: 45rem;
+  width: 100%;
   font-size: 1.4rem;
 }
 
@@ -142,7 +143,7 @@
   background-color: #fcfcfc;
   border-bottom: 1px solid #9f9f9f;
   height: 4rem;
-  width: 20rem;
+  width: 100%;
   font-size: 1.4rem;
 }
 
@@ -151,7 +152,7 @@
   background-color: #fcfcfc;
   border-bottom: 1px solid #9f9f9f;
   height: 4rem;
-  width: 15rem;
+  width: 100%;
   font-size: 1.4rem;
 }
 
@@ -164,22 +165,27 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 50%;
 }
 
 .date {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 25%;
 }
 
 .cvv {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 20%;
 }
 
+/* BANK */
 .transferbox {
-  width: 50rem;
+  max-width: 50rem;
+  min-width: 32rem;
   height: 26rem;
   background-color: #f4f4f4;
   padding: 1.5rem 2.5rem;
@@ -251,4 +257,28 @@
   border-radius: 3px;
   border: none;
   cursor: pointer;
+}
+
+.submitBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 960px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .number {
+    width: 31rem;
+  }
+
+  .date {
+    width: 31rem;
+  }
+
+  .cvv {
+    width: 31rem;
+  }
 }

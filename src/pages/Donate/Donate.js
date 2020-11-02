@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import qs from "qs";
+import axios from "axios";
+// import { Link } from "react-router-dom";
 import bank from "../../assets/Donate/bank.png";
 import credit from "../../assets/Donate/credit.png";
 import styles from "./Donate.module.css";
-import qs from "qs";
-import axios from "axios";
 
 // -------------------- //
 
@@ -51,6 +52,10 @@ function Donate() {
   const BankOption = () => {
     setCreditInfo(false);
     setBankInfo(true);
+  };
+
+  const bankDetail = () => {
+    console.log("Copy");
   };
 
   const account = (e) => {
@@ -252,6 +257,7 @@ function Donate() {
                 <div action="" className={styles.form}>
                   <input
                     type="text"
+                    onChange={bankDetail}
                     value="1234 5678 90"
                     id="account"
                     className={styles.detailnum}
@@ -270,6 +276,7 @@ function Donate() {
                 <div action="" className={styles.form}>
                   <input
                     type="text"
+                    onChange={bankDetail}
                     value="Rp. 20,000,000"
                     id="total"
                     className={styles.detailnum}
@@ -283,7 +290,11 @@ function Donate() {
           ) : (
             ""
           )}
-          <input className={styles.donate} type="submit" value="donate" />
+          <div className={styles.submitBtn}>
+            {/* <Link to="/user/profile"> */}
+            <input className={styles.donate} type="submit" value="donate" />
+            {/* </Link> */}
+          </div>
         </form>
       </div>
     </>
