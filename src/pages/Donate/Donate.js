@@ -8,6 +8,8 @@ import CampaignCard from "../../components/CampaignCard/CampaignCard";
 import bank from "../../assets/Donate/bank.png";
 import credit from "../../assets/Donate/credit.png";
 import styles from "./Donate.module.css";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 // -------------------- //
 
@@ -35,9 +37,9 @@ function Donate({ auth, campaign }) {
         url: "https://warm-tundra-23736.herokuapp.com/donate/campaign/2",
         data: donateInfo,
         headers: {
-          // token: auth.token,
-          token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
+          token: auth.token,
+          // token:
+          //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
         },
       });
       const data = response.data;
@@ -87,6 +89,7 @@ function Donate({ auth, campaign }) {
 
   return (
     <>
+      <Navbar />
       <div className={styles.container}>
         <form action="" onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.title}>Donation</div>
@@ -305,6 +308,7 @@ function Donate({ auth, campaign }) {
           </div>
         </form>
       </div>
+      <Footer />
     </>
   );
 }
