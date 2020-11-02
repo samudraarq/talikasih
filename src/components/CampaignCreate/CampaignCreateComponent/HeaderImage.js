@@ -1,14 +1,9 @@
 import styles from "./HeaderImage.module.css";
-import React, { useState } from "react";
-import { useFormContext } from "react-hook-form";
+import React from "react";
 import iconplus from "../../../assets/CampingCreate/Vector.png";
 
-const HeaderImage = () => {
-  const [image, setImage] = useState({ preview: "", raw: "" });
-  const methods = useFormContext();
-
+const HeaderImage = ({ image, setImage, register, errors }) => {
   const handleChange = (e) => {
-    // console.log(e.target.files);
     if (e.target.files.length) {
       setImage({
         preview: URL.createObjectURL(e.target.files[0]),
@@ -16,24 +11,9 @@ const HeaderImage = () => {
       });
     }
   };
-  // console.log(image);
-
-  // const handleUpload = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append("image", image.raw);
-
-  //   await fetch("YOUR_URL", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "multipart/form-data",
-  //     },
-  //     body: formData,
-  //   });
-  // };
 
   return (
-    <div>
+    <div className={styles.headerImage}>
       <label htmlFor="upload-button">
         {image.preview ? (
           <img
@@ -41,14 +21,13 @@ const HeaderImage = () => {
             alt="dummy"
             min-width="300"
             min-height="300"
+            className={styles.image}
           />
         ) : (
-          <>
-            <span className={styles.cardAtas}>
-              <img className={styles.imageplus} src={iconplus}></img>
-              <div className={styles.textCenter}>Add Header Photo</div>
-            </span>
-          </>
+          <span className={styles.cardAtas}>
+            <img className={styles.imageplus} src={iconplus} alt="header" />
+            <div className={styles.textCenter}>Add Header Photo</div>
+          </span>
         )}
       </label>
       <input
@@ -56,19 +35,15 @@ const HeaderImage = () => {
         id="upload-button"
         style={{ display: "none" }}
         onChange={handleChange}
-        ref={methods.register({ required: true })}
         name="header_img"
+        ref={register({ required: true })}
       />
+      {errors.header_img && errors.header_img.type === "required" && (
+        <div className={styles.alert}>Required</div>
+      )}
       <br />
     </div>
   );
 };
 
 export default HeaderImage;
-
-{
-  /* <ConnectForm> */
-}
-{
-  /* </ConnectForm> */
-}

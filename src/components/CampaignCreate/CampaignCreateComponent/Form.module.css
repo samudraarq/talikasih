@@ -1,11 +1,7 @@
-/* .container {
-  display: flex;
-  justify-content: space-evenly;
-} */
-
-.form {
-  display: flex;
-  justify-content: space-between;
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1.6rem;
 }
 
 .col {
@@ -15,11 +11,13 @@
 }
 
 .input {
-  width: 95%;
+  width: 100%;
   background: #fcfcfc;
   height: 4rem;
   border: none;
   border-bottom: 1px solid #9f9f9f;
+  padding: 0 1.6rem;
+  font-family: inherit;
 }
 
 .mandatory {
@@ -55,11 +53,18 @@
   line-height: 2.2rem;
   padding: 1rem 1.8rem;
   border: none;
+  margin-top: 5.5rem;
+  margin-left: auto;
+  display: block;
+  cursor: pointer;
 }
 
-.submitBtn {
-  display: flex;
-  justify-content: flex-end;
+.submit:hover {
+  background: rgba(164, 63, 60, 0.8);
+}
+
+.loading {
+  background: rgba(164, 63, 60, 0.8);
 }
 
 .story {
