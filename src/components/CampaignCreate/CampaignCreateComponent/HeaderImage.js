@@ -1,9 +1,10 @@
 import styles from "./HeaderImage.module.css";
-import React, { useState } from "react";
+import React from "react";
+import { useFormContext } from "react-hook-form";
 import iconplus from "../../../assets/CampingCreate/Vector.png";
 
-const HeaderImage = () => {
-  const [image, setImage] = useState({ preview: "", raw: "" });
+const HeaderImage = ({ image, setImage }) => {
+  const methods = useFormContext();
 
   const handleChange = (e) => {
     // console.log(e.target.files);
@@ -16,19 +17,19 @@ const HeaderImage = () => {
   };
   // console.log(image);
 
-  const handleUpload = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("image", image.raw);
+  // const handleUpload = async (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("image", image.raw);
 
-    await fetch("YOUR_URL", {
-      method: "POST",
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      body: formData,
-    });
-  };
+  //   await fetch("YOUR_URL", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "multipart/form-data",
+  //     },
+  //     body: formData,
+  //   });
+  // };
 
   return (
     <div>
@@ -49,16 +50,14 @@ const HeaderImage = () => {
           </>
         )}
       </label>
-      {/* {({ register }) => ( */}
       <input
         type="file"
         id="upload-button"
         style={{ display: "none" }}
         onChange={handleChange}
-        // ref={register}
+        ref={methods.register({ required: true })}
         name="header_img"
       />
-      {/* )} */}
       <br />
     </div>
   );
