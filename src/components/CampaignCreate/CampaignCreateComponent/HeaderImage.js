@@ -2,7 +2,7 @@ import styles from "./HeaderImage.module.css";
 import React from "react";
 import iconplus from "../../../assets/CampingCreate/Vector.png";
 
-const HeaderImage = ({ image, setImage }) => {
+const HeaderImage = ({ image, setImage, register, errors }) => {
   const handleChange = (e) => {
     if (e.target.files.length) {
       setImage({
@@ -13,7 +13,7 @@ const HeaderImage = ({ image, setImage }) => {
   };
 
   return (
-    <div>
+    <div className={styles.headerImage}>
       <label htmlFor="upload-button">
         {image.preview ? (
           <img
@@ -21,6 +21,7 @@ const HeaderImage = ({ image, setImage }) => {
             alt="dummy"
             min-width="300"
             min-height="300"
+            className={styles.image}
           />
         ) : (
           <span className={styles.cardAtas}>
@@ -35,7 +36,11 @@ const HeaderImage = ({ image, setImage }) => {
         style={{ display: "none" }}
         onChange={handleChange}
         name="header_img"
+        ref={register({ required: true })}
       />
+      {errors.header_img && errors.header_img.type === "required" && (
+        <div className={styles.alert}>Required</div>
+      )}
       <br />
     </div>
   );
