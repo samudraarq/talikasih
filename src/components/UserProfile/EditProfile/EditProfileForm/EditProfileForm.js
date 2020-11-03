@@ -15,8 +15,8 @@ const EditProfileForm = ({ auth, onSubmit }) => {
 
   const userName = auth.user?.name;
   const userEmail = auth.user?.email;
-  const userBankName = "BCA";
-  const userBankAccount = 1234567;
+  const userBankName = auth.user?.bank_name;
+  const userBankAccount = auth.user?.bank_account;
 
   return (
     <form className={styles.inputsContainer} onSubmit={handleSubmit(onSubmit)}>
@@ -114,37 +114,37 @@ const EditProfileForm = ({ auth, onSubmit }) => {
       </p>
       <div
         className={`${styles.inputContainer} ${
-          errors.bankName && styles.error
+          errors.bank_name && styles.error
         }`}
       >
-        <label htmlFor="bankName">
+        <label htmlFor="bank_name">
           Bank Name<span className={styles.star}>*</span>
         </label>
         <input
           type="text"
-          name="bankName"
+          name="bank_name"
           defaultValue={userBankName}
           ref={register({ required: true })}
         />
-        {errors.bankName && (
+        {errors.bank_name && (
           <span className={styles.errorText}>This field is required</span>
         )}
       </div>
       <div
         className={`${styles.inputContainer} ${
-          errors.bankAccountNumber && styles.error
+          errors.bank_account && styles.error
         }`}
       >
-        <label htmlFor="bankAccountNumber">
+        <label htmlFor="bank_account">
           Bank Account Number<span className={styles.star}>*</span>
         </label>
         <input
           type="number"
-          name="bankAccountNumber"
+          name="bank_account"
           defaultValue={userBankAccount}
           ref={register({ required: true })}
         />
-        {errors.bankAccountNumber && (
+        {errors.bank_account && (
           <span className={styles.errorText}>This field is required</span>
         )}
       </div>

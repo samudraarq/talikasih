@@ -9,12 +9,15 @@ import { Link, useHistory } from "react-router-dom";
 const MyProfile = ({ auth, setLogout }) => {
   const userName = auth.user?.name;
   const userEmail = auth.user?.email;
-  const userBankName = auth.user?.creditcard;
-  const userBankAccount = 1234567;
-  const newBankAccount =
-    userBankName +
-    " - " +
-    userBankAccount.toString().replace(/\d(?=\d{3})/gm, "*");
+  const userBankName = auth.user?.bank_name;
+  const userBankAccount = auth.user?.bank_account;
+  let newBankAccount = "";
+  if (userBankName && userBankAccount) {
+    newBankAccount =
+      userBankName +
+      " - " +
+      userBankAccount.toString().replace(/\d(?=\d{3})/gm, "*");
+  }
 
   const history = useHistory();
 
