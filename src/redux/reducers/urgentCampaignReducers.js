@@ -15,7 +15,7 @@ export default function newCampaignReducer(state = initialState, action) {
     case GET_URGENT_CAMPAIGNS:
       return {
         ...state,
-        documents: action.posts,
+        documents: action.posts.campaign,
       };
     default:
       return state;
