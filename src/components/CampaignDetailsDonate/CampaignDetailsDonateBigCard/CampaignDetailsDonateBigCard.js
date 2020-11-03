@@ -1,5 +1,5 @@
 // import { Form } from 'formik'
-import React, { useState, } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import NumberFormat from "react-number-format";
 import { Link, useParams } from "react-router-dom";
@@ -20,7 +20,7 @@ const CampaignDetailsDonateBigCard = ({
   postShare,
   userdata,
   setModalOpen,
-  setFormLogin
+  setFormLogin,
 }) => {
   // variabel
 
@@ -174,7 +174,7 @@ const CampaignDetailsDonateBigCard = ({
             </div>
             <div className={styles.dataCount}>
               <div>
-                <h1>{!isNaN(dayleft)  && dayleft}</h1>
+                <h1>{!isNaN(dayleft) && dayleft}</h1>
                 <p>Days left</p>
               </div>
               <div>

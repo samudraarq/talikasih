@@ -9,7 +9,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import close from "../../../assets/CampingCreate/close.png";
 
-function CampaignUpdate({ auth, requestClose }) {
+function CampaignUpdate({ auth, requestClose, dataDonorAll }) {
   // FORM //
   const [openAmount, setOpenAmount] = useState(false);
   const { register, handleSubmit, errors } = useForm();
@@ -18,7 +18,7 @@ function CampaignUpdate({ auth, requestClose }) {
   const onSubmit = async (data) => {
     const inputText = quill.root.innerHTML;
     const dateToday = new Date();
-    const campaignId = 1;
+    const campaignId = dataDonorAll.dataDonate.id;
     try {
       const { ammount } = data;
       const updateInfo = qs.stringify({
@@ -30,19 +30,17 @@ function CampaignUpdate({ auth, requestClose }) {
       // console.log(updateInfo);
       const response = await axios({
         method: "post",
-        url: "https://warm-tundra-23736.herokuapp.com/campaignLog/1",
+        url: `https://warm-tundra-23736.herokuapp.com/campaignLog/${campaignId}`,
         data: updateInfo,
         headers: {
-          token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
-          // token: auth.token,
+          token: auth.token,
         },
       });
       console.log(response.data);
+      history.push("/user/profile");
     } catch (error) {
       console.log(error, "error");
     }
-    history.push("/user/profile");
   };
 
   // Editor //
@@ -95,7 +93,7 @@ function CampaignUpdate({ auth, requestClose }) {
               Amount<span className={styles.mandatory}>*</span>
             </label>
             <input
-              type="text"
+              type="number"
               name="ammount"
               id="ammount"
               placeholder="20.000.000"
@@ -138,6 +136,7 @@ function CampaignUpdate({ auth, requestClose }) {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    dataDonorAll: state.dataDonorAll,
   };
 };
 
