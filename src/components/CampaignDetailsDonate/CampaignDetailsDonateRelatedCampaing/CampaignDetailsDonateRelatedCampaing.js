@@ -9,11 +9,11 @@ const CampaignDetailsDonateRelatedCampaing = ({
   dataDonorAll,
   getRelatedCampaigns,
 }) => {
-  const categoryId = dataDonorAll.dataDonate.CategoryId;
+  const dataDonate = dataDonorAll.dataDonate;
 
   useEffect(() => {
-    getRelatedCampaigns(categoryId);
-  }, [getRelatedCampaigns, categoryId]);
+    getRelatedCampaigns(dataDonate.CategoryId, dataDonate.id);
+  }, [getRelatedCampaigns, dataDonate]);
 
   const renderCards = dataDonorAll.relatedCampaigns?.map((campaign) => (
     <CampaignCard campaign={campaign} key={campaign.id} />
@@ -39,8 +39,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getRelatedCampaigns: (categoryId) =>
-      dispatch(getRelatedCampaigns(categoryId)),
+    getRelatedCampaigns: (categoryId, campaignId) =>
+      dispatch(getRelatedCampaigns(categoryId, campaignId)),
   };
 };
 
