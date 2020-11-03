@@ -108,7 +108,7 @@ export const postShare = (idDonate) => {
   };
 };
 
-export const getRelatedCampaigns = (categoryId) => {
+export const getRelatedCampaigns = (categoryId, campaignId) => {
   return (dispatch) => {
     dispatch({
       type: RELATED_CAMPAIGNS_LOAD,
@@ -118,7 +118,7 @@ export const getRelatedCampaigns = (categoryId) => {
     // });
     axios
       .get(
-        `https://warm-tundra-23736.herokuapp.com/discover/category/${categoryId}/1`
+        `https://warm-tundra-23736.herokuapp.com/campaign/relate/${categoryId}/${campaignId}`
       )
       .then((response) => {
         if (response.data.success === false) {
@@ -129,7 +129,7 @@ export const getRelatedCampaigns = (categoryId) => {
         } else {
           dispatch({
             type: GET_RELATED_CAMPAIGNS,
-            posts: response.data.document.slice(0, 3),
+            posts: response.data.found.slice(0, 3),
             status: "Done",
           });
         }
