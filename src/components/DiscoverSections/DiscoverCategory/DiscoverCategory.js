@@ -49,7 +49,7 @@ const DiscoverCategory = ({
 
   const pageChange = (e) => {
     const selectedPage = e.selected + 1;
-    console.log(selectedPage);
+    // console.log(selectedPage);
     setPage(selectedPage);
   };
 

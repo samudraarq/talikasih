@@ -22,8 +22,9 @@
   line-height: 19px;
 }
 
-.alreadyHave a {
+.alreadyHave span {
   color: #1d94a8;
+  cursor: pointer;
 }
 
 .formContainer {
@@ -52,7 +53,6 @@
   margin-top: 3rem;
 }
 
-
 .forgotPass {
   font-family: Nunito;
   font-style: normal;
@@ -70,13 +70,14 @@
   margin-top: 2.4rem;
   font-weight: 700;
   font-size: 1.6rem;
+  cursor: pointer;
+  outline: none;
 }
 
 .google {
   width: 18px;
   height: 20px;
   margin-right: 10px;
-  align-items: center;
 }
 
 .btnGoogle {
@@ -87,10 +88,14 @@
   font-family: inherit;
   font-size: 1.6rem;
   font-weight: 400;
-  text-align: center;
   border: none;
   border-top: 1px solid #e1e0e0;
   border-bottom: 1px solid #e1e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
 }
 
 .errorMessage {
@@ -98,7 +103,7 @@
   color: red;
 }
 
-.errorMessageAuth{
+.errorMessageAuth {
   color: red;
   font-size: 16px;
 }

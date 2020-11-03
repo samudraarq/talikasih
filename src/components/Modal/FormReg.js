@@ -13,7 +13,6 @@ function FormReg(props) {
   const onSubmit = (data) => {
     const dataQs = qs.stringify(data);
     props.setRegister(dataQs);
-    
   };
 
   console.log(watch("example"));
@@ -22,10 +21,8 @@ function FormReg(props) {
     <div className={styles.container}>
       <h1 className={styles.headerForm}>REGISTER</h1>
       <h3 className={styles.alreadyHave}>
-        Already have an account{" "}
-        <a href="#" onClick={() => props.setFormLogin()}>
-          Sign in
-        </a>
+        Already have an account?{" "}
+        <span onClick={() => props.setFormLogin()}>Sign in</span>
       </h3>
 
       <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
@@ -95,10 +92,12 @@ function FormReg(props) {
         )}
 
         <button className={styles.btnLogin} type="submit">
-        {props.auth.isLoading ? "PLEASE WAIT..." : "REGISTER"}
+          {props.auth.isLoading ? "PLEASE WAIT..." : "REGISTER"}
         </button>
 
-        {props.auth.isError && <p className={styles.errorMessageAuth}>{props.auth.errorMsg}</p>}
+        {props.auth.isError && (
+          <p className={styles.errorMessageAuth}>{props.auth.errorMsg}</p>
+        )}
       </form>
       <button className={styles.btnGoogle}>
         <img src={google} alt="google" className={styles.google} />
@@ -119,7 +118,7 @@ const mapDispatchToProps = (dispatch) => {
     setRegister: (dataQs) => dispatch(setRegister(dataQs)),
     setFormLogin: () => {
       dispatch(setFormLogin());
-  },
+    },
   };
 };
 

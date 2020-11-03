@@ -20,9 +20,7 @@ function FormLogin(props) {
       <h1 className={styles.headerForm}>LOGIN</h1>
       <h3 className={styles.createAccount}>
         New user?{" "}
-        <a href="#" onClick={() => props.setFormRegister()}>
-          Create account
-        </a>
+        <span onClick={() => props.setFormRegister()}>Create account</span>
       </h3>
 
       <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
@@ -58,14 +56,14 @@ function FormLogin(props) {
           <span className={styles.errorMessage}>{errors.password.message}</span>
         )}
 
-        <a href="#" className={styles.forgotPass}>
-          forgot password?
-        </a>
+        <span className={styles.forgotPass}>forgot password?</span>
 
         <button className={styles.btnLogin} type="submit">
           {props.auth.isLoading ? "LOGGING IN..." : "LOGIN"}
         </button>
-        {props.auth.isError && <p className={styles.errorMessageAuth}>{props.auth.errorMsg}</p>}
+        {props.auth.isError && (
+          <p className={styles.errorMessageAuth}>{props.auth.errorMsg}</p>
+        )}
       </form>
       <button className={styles.btnGoogle}>
         <img src={google} alt="google" className={styles.google} />

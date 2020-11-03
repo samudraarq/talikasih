@@ -14,10 +14,3 @@ const CampaignCreate = () => {
 };
 
 export default CampaignCreate;
-
-// import HeaderImage from "./CampaignCreateComponent/HeaderImage";
-// import Editor from "./CampaignCreateComponent/Editor";
-// import ButtonCreate from "./CampaignCreateComponent/ButtonCreate";
-/* <HeaderImage /> */
-/* <Editor /> */
-/* <ButtonCreate /> */

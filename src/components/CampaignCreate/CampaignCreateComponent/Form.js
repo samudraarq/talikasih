@@ -21,9 +21,7 @@ function Form({ auth }) {
   const bankAccount = "1234567";
 
   const onSubmit = async (data) => {
-    console.log(data);
     const html = quill.root.innerHTML;
-    console.log(html);
 
     try {
       const { title, goal, due_date, CategoryId } = data;
@@ -49,10 +47,10 @@ function Form({ auth }) {
       const response = respond.data;
       console.log(response);
       setLoading(false);
+      history.push("/user/profile");
     } catch (error) {
       console.log("error");
     }
-    history.push("/user/profile");
   };
 
   // EDITOR //
