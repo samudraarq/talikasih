@@ -15,7 +15,7 @@ export default function popularCampaignReducer(state = initialState, action) {
     case GET_TRENDING_CAMPAIGN:
       return {
         ...state,
-        documents: action.posts,
+        documents: action.posts.trending,
       };
     default:
       return state;

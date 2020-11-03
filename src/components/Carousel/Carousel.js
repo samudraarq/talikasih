@@ -7,6 +7,7 @@ import imgSlide1 from "../../assets/homepage/Home/Carousel/slide1.svg";
 import ellipse from "../../assets/homepage/Home/Carousel/Ellipse.svg";
 import imgSlide2 from "../../assets/homepage/Home/Carousel/slide2.svg";
 import imgSlide3 from "../../assets/homepage/Home/Carousel/slide3.svg";
+import { Link } from "react-router-dom";
 
 SwiperCore.use([Pagination, EffectFade, Autoplay, A11y]);
 
@@ -42,8 +43,12 @@ function Carousel() {
                 </h3>
               </div>
               <div className={styles.button}>
-                <button className={styles.donate}>DONATE</button>
-                <button className={styles.createCamp}>CREATE CAMPAIGN</button>
+                <Link to="/discover" className={styles.donate}>
+                  DONATE
+                </Link>
+                <Link to="/campaign/create" className={styles.createCamp}>
+                  CREATE CAMPAIGN
+                </Link>
               </div>
             </div>
             <img src={ellipse} alt="ellipse" className={styles.ellipse} />
@@ -60,8 +65,12 @@ function Carousel() {
                 </h3>
               </div>
               <div className={styles.button}>
-                <button className={styles.donate}>DONATE</button>
-                <button className={styles.createCamp}>CREATE CAMPAIGN</button>
+                <Link to="/discover" className={styles.donate}>
+                  DONATE
+                </Link>
+                <Link to="/campaign/create" className={styles.createCamp}>
+                  CREATE CAMPAIGN
+                </Link>
               </div>
             </div>
             <img src={ellipse} alt="ellipse" className={styles.ellipse} />
@@ -74,21 +83,25 @@ function Carousel() {
               <div>
                 <h1 className={styles.h1}>#CleanAirForEveryone</h1>
                 <h3 className={styles.h3}>
-                Together to solve enviromental problem
+                  Together to solve enviromental problem
                 </h3>
               </div>
               <div className={styles.button}>
-                <button className={styles.donate}>DONATE</button>
-                <button className={styles.createCamp}>CREATE CAMPAIGN</button>
+                <Link to="/discover" className={styles.donate}>
+                  DONATE
+                </Link>
+                <Link to="/campaign/create" className={styles.createCamp}>
+                  CREATE CAMPAIGN
+                </Link>
               </div>
             </div>
             <img src={ellipse} alt="ellipse" className={styles.ellipse} />
           </div>
         </SwiperSlide>
         <div className={styles.container}>
-        <div
-          className={`swiper-pagination ${styles.paginationContainer}`}
-        ></div>
+          <div
+            className={`swiper-pagination ${styles.paginationContainer}`}
+          ></div>
         </div>
       </Swiper>
     </div>

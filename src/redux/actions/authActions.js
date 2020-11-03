@@ -9,6 +9,8 @@ import {
   SET_AUTH_LOADING,
   EDIT_USER_PROFILE,
   EDIT_USER_IMAGE,
+  SET_EDIT_LOADING,
+  SET_EDIT_SUCCESS,
   SET_LOGOUT,
   GET_USER_DONATION,
   GET_USER_CAMPAIGN,
@@ -207,8 +209,18 @@ export const setUserPersistanceLogin = () => {
   };
 };
 
+export const setEditSuccess = () => {
+  return {
+    type: SET_EDIT_SUCCESS,
+  };
+};
+
 export const editUserProfile = (dataQs) => {
   return (dispatch, getState) => {
+    dispatch({
+      type: SET_EDIT_LOADING,
+    });
+
     const { auth } = getState();
 
     const config = {
@@ -243,18 +255,28 @@ export const editUserProfile = (dataQs) => {
               type: SET_USER_FROM_TOKEN,
               user: response.data.user,
             });
+            dispatch({
+              type: SET_EDIT_LOADING,
+            });
+            dispatch(setEditSuccess());
           })
           .catch((err) => {
             console.log(err);
+            dispatch({
+              type: SET_EDIT_LOADING,
+            });
           });
       })
       .catch(function (error) {
         console.log(error);
+        dispatch({
+          type: SET_EDIT_LOADING,
+        });
       });
   };
 };
 
-export const editUserImage = (dataQs) => {
+export const editUserImage = (formData) => {
   return (dispatch, getState) => {
     const { auth } = getState();
 
@@ -264,7 +286,7 @@ export const editUserImage = (dataQs) => {
       headers: {
         token: auth.token,
       },
-      data: dataQs,
+      data: formData,
     };
 
     axios(config)

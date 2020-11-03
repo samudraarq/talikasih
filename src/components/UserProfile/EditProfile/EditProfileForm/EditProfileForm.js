@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import styles from "./EditProfileForm.module.css";
 
+import spinner from "../../../../assets/general/spinner.svg";
+
 const EditProfileForm = ({ auth, onSubmit }) => {
   const [resetPass, setResetPass] = useState(false);
 
@@ -67,14 +69,14 @@ const EditProfileForm = ({ auth, onSubmit }) => {
             </label>
             <input
               type="password"
-              name="pass"
+              name="password"
               // defaultValue="*******"
               ref={register({ required: true, minLength: 6 })}
             />
-            {errors.pass?.type === "required" && (
+            {errors.password?.type === "required" && (
               <span className={styles.errorText}>This field is required</span>
             )}
-            {errors.pass?.type === "minLength" && (
+            {errors.password?.type === "minLength" && (
               <span className={styles.errorText}>
                 Minimal length is 6 chacters
               </span>
@@ -95,7 +97,7 @@ const EditProfileForm = ({ auth, onSubmit }) => {
               ref={register({
                 required: true,
                 validate: (value) => {
-                  return value === watch("pass");
+                  return value === watch("password");
                 },
               })}
             />
@@ -148,7 +150,20 @@ const EditProfileForm = ({ auth, onSubmit }) => {
           <span className={styles.errorText}>This field is required</span>
         )}
       </div>
-      <button className={styles.submitBtn}>Save changes</button>
+      <button
+        className={`${styles.submitBtn} ${
+          auth.isEditLoading && styles.loading
+        }`}
+      >
+        {auth.isEditLoading ? (
+          <div className={styles.progress}>
+            <img src={spinner} alt="spinner" />
+            <span>Processing</span>
+          </div>
+        ) : (
+          <span>Save changes</span>
+        )}
+      </button>
     </form>
   );
 };

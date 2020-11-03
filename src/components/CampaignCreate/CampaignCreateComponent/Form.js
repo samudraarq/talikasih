@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import "quill/dist/quill.snow.css";
 import styles from "./Form.module.css";
 import HeaderImage from "./HeaderImage";
+import spinner from "../../../assets/general/spinner.svg";
 
 function Form({ auth }) {
   // FORM //
@@ -42,7 +43,6 @@ function Form({ auth }) {
         url: "https://warm-tundra-23736.herokuapp.com/campaign/add",
         headers: {
           token: auth.token,
-          // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
         },
         data: formData,
       });
@@ -176,7 +176,14 @@ function Form({ auth }) {
       </div>
 
       <button className={`${styles.submit} ${loading && styles.loading}`}>
-        {loading ? "processing" : "create campaign"}
+        {loading ? (
+          <div className={styles.progress}>
+            <img src={spinner} alt="spinner" />
+            <span>Processing</span>
+          </div>
+        ) : (
+          <span>Create Campaign</span>
+        )}
       </button>
     </form>
   );

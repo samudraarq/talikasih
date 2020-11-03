@@ -1,16 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import qs from "qs";
 import {
   editUserProfile,
   editUserImage,
+  setEditSuccess,
 } from "../../../redux/actions/authActions";
 import ChangeProfileImage from "./ChangeProfileImage/ChangeProfileImage";
 import styles from "./EditProfile.module.css";
 import EditProfileForm from "./EditProfileForm/EditProfileForm";
+import { useHistory } from "react-router-dom";
 
-const EditProfile = ({ editUserProfile, editUserImage }) => {
+const EditProfile = ({
+  auth,
+  editUserProfile,
+  editUserImage,
+  setEditSuccess,
+}) => {
   const [profPic, setProfPic] = useState(null);
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (auth.isEditSuccess) {
+      setTimeout(() => {
+        console.log("success");
+        setEditSuccess();
+        history.push("/user/profile");
+      }, 2000);
+    }
+  }, [auth.isEditSuccess, setEditSuccess, history]);
 
   const changeHandler = (e) => {
     setProfPic(e.target.files[0]);
@@ -39,11 +58,18 @@ const EditProfile = ({ editUserProfile, editUserImage }) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     editUserProfile: (dataQs) => dispatch(editUserProfile(dataQs)),
     editUserImage: (formData) => dispatch(editUserImage(formData)),
+    setEditSuccess: () => dispatch(setEditSuccess()),
   };
 };
 
-export default connect(null, mapDispatchToProps)(EditProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile);
