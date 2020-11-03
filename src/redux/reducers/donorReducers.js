@@ -15,7 +15,7 @@ import {
   GET_RELATED_CAMPAIGNS,
   RELATED_CAMPAIGNS_LOAD,
 } from "../actions/actionTypes";
-import { postShare } from "../actions/donorActions";
+// import { postShare } from "../actions/donorActions";
 
 const initialState = {
   dataDonate: [],

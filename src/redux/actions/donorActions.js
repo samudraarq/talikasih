@@ -9,19 +9,8 @@ import { POST_SHARE } from "./actionTypes";
 import { GET_DONATION_DATA } from "./actionTypes";
 import { GET_DONATION_STORY } from "./actionTypes";
 import { GET_DONATION_STORY_LOAD_MORE } from "./actionTypes";
-import { GET_USER_DATA } from "./actionTypes";
 
-export const getUserData = (idDonate) => {
-  return (dispatch) => {
-    axios(`https://warm-tundra-23736.herokuapp.com/campaign/${idDonate}`)
-      .then(function (response) {
-        dispatch({ type: GET_USER_DATA, data: response.data.found });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-};
+
 
 export const getDonorData = (idDonate) => {
   return (dispatch) => {
@@ -145,3 +134,5 @@ export const getRelatedCampaigns = (categoryId) => {
       });
   };
 };
+
+

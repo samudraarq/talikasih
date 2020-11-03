@@ -11,7 +11,6 @@ const CampaignDetailsDonateUpdates = ({
   dataDonorAll,
   getDonationStoryLoadMore,
 }) => {
-  //   console.log(dataDonorAll)
   let { idDonate } = useParams();
   const [page, setPage] = useState(2);
 
@@ -19,12 +18,9 @@ const CampaignDetailsDonateUpdates = ({
     setPage(page + 1);
     getDonationStoryLoadMore(idDonate, page);
   };
-
   const sortedActivities = dataDonorAll?.dataDonateStory;
   let pageLimit = dataDonorAll?.dataDonateStory?.total_page;
-  // console.log(sortedActivities.length);
-  // console.log(sortedActivities);
-  // console.log(sortedActivities.reverse());
+
 
   const UserAllStory = sortedActivities?.reverse().map((item, index) => {
     // count Day left
@@ -35,7 +31,7 @@ const CampaignDetailsDonateUpdates = ({
     let dayleft = Math.abs(parseInt(days));
     let hari = "";
     // count day left en
-    console.log(dayleft);
+    // console.log(dayleft);
     // hendel dia whitdraw atau coment
     if (item.StatusId === 1) {
       // hendel today yesterday
@@ -108,8 +104,8 @@ const CampaignDetailsDonateUpdates = ({
           <h1 className={styles.countdata}>
             Updates ({sortedActivities?.length})
           </h1>
-          {UserAllStory}
-          {console.log(UserAllStory)}
+          {sortedActivities?.length ===0? <h1 style={{textAlign:`center`}}>Tidak Ada Data</h1>: UserAllStory}
+         
         </ul>
       </div>
       <div className={styles.btnwrap}>

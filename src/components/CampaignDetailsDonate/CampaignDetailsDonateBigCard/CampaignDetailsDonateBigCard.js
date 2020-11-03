@@ -1,22 +1,32 @@
 // import { Form } from 'formik'
-import React, { useState, useEffect } from "react";
+import React, { useState, } from "react";
 import { connect } from "react-redux";
 import NumberFormat from "react-number-format";
 import { Link, useParams } from "react-router-dom";
 import Modal from "react-modal";
-import axios from "axios";
 import moment from "moment";
 import { postShare } from "../../../redux/actions/donorActions";
 import setImage from "../../../assets/CampingDetails/Vector.png";
 import setImage2 from "../../../assets/CampingDetails/Vector-1.png";
 import CampaignUpdate from "../CampaignUpdate/CampaignUpdate";
 import styles from "./CampaignDetailsDonateBigCard.module.css";
+import {
+  setModalOpen,
+  setFormLogin,
+} from "../../../redux/actions/layoutActions";
 
-const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
+const CampaignDetailsDonateBigCard = ({
+  dataDonorAll,
+  postShare,
+  userdata,
+  setModalOpen,
+  setFormLogin
+}) => {
   // variabel
-  const [idUser, setidUser] = useState(0);
-  const [open, setOpen] = useState(false);
 
+  const [open, setOpen] = useState(false);
+  let idUser = userdata?.user?.id;
+  let token = userdata?.token;
   // MODAL //
   const requestClose = () => setOpen(false);
   const openModal = () => setOpen(true);
@@ -34,32 +44,13 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
       },
     },
   };
-
+  const openModalLogin = () => {
+    setModalOpen();
+    setFormLogin();
+  };
   Modal.setAppElement("#root");
 
   // useEffect //
-  useEffect(() => {
-    const getuserdata = (dataDonorAll) => {
-      let token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsIm5hbWUiOiJhbmpheWxhaCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAzNDU4NjcyfQ.7ioPqnX60T1vi9gw8tUyX6J7VyGq5v3l7SPqRWyQgi0";
-      let config = {
-        method: "get",
-        url: `https://warm-tundra-23736.herokuapp.com/formuser`,
-        headers: {
-          token: token,
-        },
-      };
-
-      axios(config)
-        .then(function (response) {
-          setidUser(response.data.user.id);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    };
-    getuserdata();
-  }, []);
 
   let idUserFromChamping = dataDonorAll.dataDonate.UserId;
   let progress =
@@ -72,9 +63,9 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
   let userSama = false;
   //Variabel end
   if (idUser === idUserFromChamping) {
-    let userSama = true;
+    userSama = true;
   } else {
-    let userSama = false;
+    userSama = false;
   }
 
   // hendel progres bar
@@ -101,6 +92,7 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
   let duration = moment.duration(now.diff(end));
   let days = duration.asDays();
   let dayleft = Math.abs(parseInt(days));
+  // let dayleft = toString(dayleftint);
   // count day left end
   return (
     <>
@@ -111,13 +103,17 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
             <div className={styles.dropwarp}>
               <div className={styles.dropdown}>
                 <button className={styles.dropbtn}>
-                  <img className={styles.roda} src={setImage}></img>
-                  <img className={styles.arrow} src={setImage2}></img>
+                  <img className={styles.roda} src={setImage} alt="user"></img>
+                  <img
+                    className={styles.arrow}
+                    src={setImage2}
+                    alt="user2"
+                  ></img>
                 </button>
                 <div className={styles.dropdowncontent}>
-                  <Link>Edit</Link>
-                  <Link>Close Campaign</Link>
-                  <Link>Delete</Link>
+                  <span>Edit</span>
+                  <span>Close Campaign</span>
+                  <span>Delete</span>
                 </div>
               </div>
             </div>
@@ -129,11 +125,8 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
 
       <div className={styles.container}>
         <div className={styles.cardKiri}>
-          <img src={dataDonorAll.dataDonate.header_img}></img>
+          <img src={dataDonorAll.dataDonate.header_img} alt="user3"></img>
         </div>
-        {/* {  console.log({idUser}) }
-            {console.log(idUserFromChamping)} */}
-
         <div className={styles.cardKanan}>
           <h1>
             <NumberFormat
@@ -169,19 +162,19 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
           )}
 
           <div className={styles.profilContainer}>
-            <img src={dataDonorAll.dataDonate?.User?.photo}></img>
+            <img src={dataDonorAll.dataDonate?.User?.photo} alt="user4"></img>
             <div className={styles.profilName}>
               <h3>{dataDonorAll.dataDonate?.User?.name}</h3>
               <h4>Fundraiser</h4>
               {userSama ? (
-                <Link className={styles.cekStatus}>Check status</Link>
+                <span className={styles.cekStatus}>Check status</span>
               ) : (
                 ""
               )}
             </div>
             <div className={styles.dataCount}>
               <div>
-                <h1>{dayleft}</h1>
+                <h1>{!isNaN(dayleft)  && dayleft}</h1>
                 <p>Days left</p>
               </div>
               <div>
@@ -200,15 +193,21 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
             >
               Share
             </button>
+
             {userSama ? (
               <button className={styles.btnDonate} onClick={openModal}>
                 NEW PROGRESS
+              </button>
+            ) : token === "" ? (
+              <button onClick={openModalLogin} className={styles.btnDonate}>
+                Donate
               </button>
             ) : (
               <Link to="/donate">
                 <button className={styles.btnDonate}>Donate</button>
               </Link>
             )}
+
             <Modal
               isOpen={open}
               shouldCloseOnOverlayClick={false}
@@ -226,10 +225,13 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   postShare: (idDonate) => dispatch(postShare(idDonate)),
+  setModalOpen: () => dispatch(setModalOpen()),
+  setFormLogin: () => dispatch(setFormLogin()),
 });
 
 const mapStateToProps = (state) => ({
   dataDonorAll: state.dataDonorAll,
+  userdata: state.auth,
 });
 
 export default connect(
