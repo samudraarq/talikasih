@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { setModalOpen, setFormLogin } from "../../redux/actions/layoutActions";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, EffectFade, Autoplay, A11y } from "swiper";
 import "swiper/swiper-bundle.css";
@@ -11,7 +13,23 @@ import { Link } from "react-router-dom";
 
 SwiperCore.use([Pagination, EffectFade, Autoplay, A11y]);
 
-function Carousel() {
+function Carousel({ setModalOpen, setFormLogin, auth }) {
+  const openModal = () => {
+    setModalOpen();
+    setFormLogin();
+  };
+
+  const campaignCreate =
+    auth.token === "" ? (
+      <button className={styles.createCamp} onClick={openModal}>
+        CREATE CAMPAIGN
+      </button>
+    ) : (
+      <Link to="/campaign/create" className={styles.createCamp}>
+        CREATE CAMPAIGN
+      </Link>
+    );
+
   return (
     <div className={styles.carouselContainer}>
       <Swiper
@@ -42,9 +60,7 @@ function Carousel() {
                 <Link to="/discover" className={styles.donate}>
                   DONATE
                 </Link>
-                <Link to="/campaign/create" className={styles.createCamp}>
-                  CREATE CAMPAIGN
-                </Link>
+                {campaignCreate}
               </div>
             </div>
             <img src={ellipse} alt="ellipse" className={styles.ellipse} />
@@ -64,9 +80,7 @@ function Carousel() {
                 <Link to="/discover" className={styles.donate}>
                   DONATE
                 </Link>
-                <Link to="/campaign/create" className={styles.createCamp}>
-                  CREATE CAMPAIGN
-                </Link>
+                {campaignCreate}
               </div>
             </div>
             <img src={ellipse} alt="ellipse" className={styles.ellipse} />
@@ -86,9 +100,7 @@ function Carousel() {
                 <Link to="/discover" className={styles.donate}>
                   DONATE
                 </Link>
-                <Link to="/campaign/create" className={styles.createCamp}>
-                  CREATE CAMPAIGN
-                </Link>
+                {campaignCreate}
               </div>
             </div>
             <img src={ellipse} alt="ellipse" className={styles.ellipse} />
@@ -104,4 +116,17 @@ function Carousel() {
   );
 }
 
-export default Carousel;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setModalOpen: () => dispatch(setModalOpen()),
+    setFormLogin: () => dispatch(setFormLogin()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carousel);

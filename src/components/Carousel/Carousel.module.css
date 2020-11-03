@@ -72,6 +72,8 @@
   background-color: #a43f3c;
   margin-right: 2rem;
   text-decoration: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .createCamp {
@@ -83,6 +85,8 @@
   border-radius: 20px;
   background-color: white;
   text-decoration: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .pagination {
