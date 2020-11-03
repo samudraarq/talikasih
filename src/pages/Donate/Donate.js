@@ -34,7 +34,7 @@ function Donate({ auth, campaign }) {
       console.log(donateInfo);
       const response = await axios({
         method: "post",
-        url: "https://warm-tundra-23736.herokuapp.com/donate/campaign/2",
+        url: `https://warm-tundra-23736.herokuapp.com/donate/campaign/${campaign.id}`,
         data: donateInfo,
         headers: {
           token: auth.token,

@@ -22,12 +22,12 @@ function CampaignUpdate({ auth, requestClose, dataDonorAll }) {
     try {
       const { ammount } = data;
       const updateInfo = qs.stringify({
-        ammount,
+        ammount: ammount || "",
         content: inputText,
         date: dateToday,
-        StatusId: campaignId,
+        StatusId: openAmount ? 1 : 2,
       });
-      // console.log(updateInfo);
+      console.log(updateInfo);
       const response = await axios({
         method: "post",
         url: `https://warm-tundra-23736.herokuapp.com/campaignLog/${campaignId}`,

@@ -225,6 +225,11 @@ img.roda {
   z-index: 1;
 }
 
+.dropdowncontent > span {
+  display: block;
+  margin: 1rem;
+}
+
 .dropdown:hover .dropdowncontent {
   display: block;
 }
