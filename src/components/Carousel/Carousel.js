@@ -23,14 +23,10 @@ function Carousel() {
           el: ".swiper-pagination",
           bulletClass: styles.paginationBullet,
           bulletActiveClass: styles.paginationBulletActive,
-          // renderBullet: (index, className) => {
-          //     console.log(index, className);
-          //     return '<span class="' + className + '">' + "</span>";
-          //   }
         }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide className={styles.carousel}>
           <div>

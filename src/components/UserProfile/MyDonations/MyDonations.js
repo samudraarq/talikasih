@@ -14,7 +14,7 @@ const MyDonations = ({ auth, getUserDonation }) => {
     getUserDonation(token);
   }, [getUserDonation, token]);
 
-  const donationNumber = auth.userDonation.campaign_donated;
+  const donationNumber = auth.userDonation.Result?.length;
   const donations = donationNumber;
 
   const loadMore = () => {
@@ -35,6 +35,7 @@ const MyDonations = ({ auth, getUserDonation }) => {
   return (
     <div className={styles.donationContainer}>
       <h3 className={styles.title}>My Donations ({donations})</h3>
+      {donationNumber === 0 && <p>You don't have any donation</p>}
       <div className={styles.donations}>{renderDonationCard}</div>
       {donationNumber > 4 && loadButton && (
         <button className={styles.loadBtn} onClick={loadMore}>

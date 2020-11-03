@@ -70,7 +70,6 @@ const EditProfileForm = ({ auth, onSubmit }) => {
             <input
               type="password"
               name="password"
-              // defaultValue="*******"
               ref={register({ required: true, minLength: 6 })}
             />
             {errors.password?.type === "required" && (
@@ -93,7 +92,6 @@ const EditProfileForm = ({ auth, onSubmit }) => {
             <input
               type="password"
               name="passConf"
-              // defaultValue="*******"
               ref={register({
                 required: true,
                 validate: (value) => {
