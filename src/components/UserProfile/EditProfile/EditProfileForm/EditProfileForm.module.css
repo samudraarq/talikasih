@@ -1,0 +1,126 @@
+.inputsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  margin: 3.5rem 6.1rem 2rem;
+}
+
+.inputContainer label {
+  display: block;
+  text-align: start;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.star {
+  color: #a43f3c;
+}
+
+.inputContainer input {
+  width: 100%;
+  height: 4.2rem;
+  padding: 0 1.6rem;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.4rem;
+  border: none;
+  background: #fcfcfc;
+  border-bottom: 1px solid #fcfcfc;
+  outline: none;
+}
+
+/* remove arrow on input number */
+/* Chrome, Safari, Edge, Opera */
+.inputContainer input::-webkit-outer-spin-button,
+.inputContainer input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.inputContainer input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.inputContainer input:focus {
+  border-bottom: 1px solid #1d94a8;
+}
+
+.error input {
+  border-bottom: 1px solid #a43f3c;
+}
+
+.errorText {
+  display: block;
+  text-align: start;
+  font-size: 1.4rem;
+  color: #a43f3c;
+}
+
+.resetPass {
+  grid-column: 2 / 3;
+  justify-self: end;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.bankPurpose {
+  grid-column: 1 / 3;
+  text-align: start;
+  margin-top: 5rem;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #a87b14;
+}
+
+.submitBtn {
+  width: 20.8rem;
+  height: 4.6rem;
+  border: none;
+  border-radius: 3px;
+  background-color: #a43f3c;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  grid-column: 2/3;
+  justify-self: end;
+  margin-top: 5rem;
+  outline: none;
+}
+
+.submitBtn:hover,
+.submitBtn:active,
+.loading {
+  background-color: rgba(164, 63, 60, 0.8);
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress img {
+  animation: rotate 1s linear infinite;
+  transform-origin: 50% 50%;
+  display: inline-block;
+}
+
+.progress span {
+  margin-left: 1rem;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

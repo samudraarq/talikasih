@@ -1,0 +1,36 @@
+.container {
+  max-width: 120rem;
+  margin: 10rem auto;
+  height: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  flex-direction: column;
+}
+
+.sectionsTitle {
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  column-gap: 5.6rem;
+  margin-top: 2.4rem;
+}
+
+.cardWrap {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  flex-direction: row;
+}
+
+.cardStyle {
+  margin: 2rem;
+  width: 33.33%;
+}

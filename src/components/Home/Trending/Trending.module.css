@@ -21,12 +21,13 @@
   margin-top: 2.4rem;
 }
 
+.trendingLink,
 .trendingImage {
   height: 40rem;
   width: 64rem;
   object-fit: cover;
   border-radius: 4px;
-  box-shadow: 0px 4px 4px 0px #000000 10%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   margin-right: 5.5rem;
 }
 
@@ -70,4 +71,21 @@
   font-size: 1.6rem;
   font-weight: 400;
   color: #9f9f9f;
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    max-width: 95%;
+    margin: auto;
+  }
+  .quote {
+    margin-top: 2rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
 }

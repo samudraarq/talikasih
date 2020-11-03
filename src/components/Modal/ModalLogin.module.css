@@ -1,0 +1,47 @@
+.ReactModalPortal {
+  z-index: 9999;
+  position: relative;
+}
+
+.modal_wrapper {
+  background-color: #f1ede4;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 57rem;
+  height: 75rem;
+  border-style: none;
+  position: relative;
+  outline: none;
+}
+
+.Overlay {
+  background-color: rgba(60, 60, 60, 0.75);
+  position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  
+}
+
+.img1 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 4;
+}
+
+.img2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.img3 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
