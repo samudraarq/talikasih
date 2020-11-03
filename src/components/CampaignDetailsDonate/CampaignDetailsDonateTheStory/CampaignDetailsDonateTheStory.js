@@ -7,7 +7,7 @@ const CampaignDetailsDonateTheStory = ({ dataDonorAll }) => {
     <div className={styles.container}>
       <div className={styles.panelWrapper}>
         <a href="#show" className={styles.show} id="show">
-          Reed More
+          Read More
         </a>
         <a href="#hide" className={styles.hide} id="hide">
           Hide Full Article
