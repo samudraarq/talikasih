@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import qs from "qs";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import CampaignCard from "../../components/CampaignCard/CampaignCard";
 import bank from "../../assets/Donate/bank.png";
 import credit from "../../assets/Donate/credit.png";
 import styles from "./Donate.module.css";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 // -------------------- //
 
-function Donate({ auth }) {
+function Donate({ auth, campaign }) {
   const { register, handleSubmit, errors } = useForm({
     mode: "onBlur",
   });
   const [creditInfo, setCreditInfo] = useState(false);
   const [bankInfo, setBankInfo] = useState(false);
+  let history = useHistory();
 
   // FORM //
   const onSubmit = async (values) => {
@@ -34,6 +38,8 @@ function Donate({ auth }) {
         data: donateInfo,
         headers: {
           token: auth.token,
+          // token:
+          //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
         },
       });
       const data = response.data;
@@ -41,6 +47,7 @@ function Donate({ auth }) {
     } catch (error) {
       console.log(error.message);
     }
+    history.push("/user/profile");
   };
 
   // MODAL //
@@ -82,6 +89,7 @@ function Donate({ auth }) {
 
   return (
     <>
+      <Navbar />
       <div className={styles.container}>
         <form action="" onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.title}>Donation</div>
@@ -136,7 +144,9 @@ function Donate({ auth }) {
                 ref={register}
               />
             </div>
-            <div>{/* Card */}</div>
+            <div className={styles.card}>
+              {campaign && <CampaignCard campaign={campaign} />}
+            </div>
           </div>
           <div className={styles.title}>Payment</div>
           <div className={styles.paymentBtn}>
@@ -298,6 +308,7 @@ function Donate({ auth }) {
           </div>
         </form>
       </div>
+      <Footer />
     </>
   );
 }
@@ -305,6 +316,7 @@ function Donate({ auth }) {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    campaign: state.dataDonorAll.dataDonate,
   };
 };
 
