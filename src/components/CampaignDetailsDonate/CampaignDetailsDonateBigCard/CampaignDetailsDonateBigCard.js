@@ -203,7 +203,7 @@ const CampaignDetailsDonateBigCard = ({
                 Donate
               </button>
             ) : (
-              <Link to="/donate">
+              <Link to={`/donate/${dataDonorAll.dataDonate.id}`}>
                 <button className={styles.btnDonate}>Donate</button>
               </Link>
             )}
