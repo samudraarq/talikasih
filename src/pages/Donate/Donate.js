@@ -16,7 +16,7 @@ import { getDonorData } from "../../redux/actions/donorActions";
 
 function Donate({ auth, campaign, getDonorData }) {
   const { register, handleSubmit, errors } = useForm({
-    mode: "onBlur",
+    mode: "onTouched",
   });
   const [creditInfo, setCreditInfo] = useState(false);
   const [bankInfo, setBankInfo] = useState(false);
@@ -33,11 +33,11 @@ function Donate({ auth, campaign, getDonorData }) {
   const onSubmit = async (values) => {
     console.log(values);
     try {
-      const { amount, comment } = values;
+      const { amount, comment, anonym } = values;
       const donateInfo = qs.stringify({
         amount,
         comment,
-        share: true,
+        share: !anonym,
       });
       console.log(donateInfo);
       const response = await axios({
@@ -122,15 +122,18 @@ function Donate({ auth, campaign, getDonorData }) {
                 Name
                 <span className={styles.mandatory}>*</span>
               </label>
-              <input
+              <div className={styles.name}>{auth.user.name}</div>
+              {/* <input
                 type="text"
                 id="name"
                 name="name"
                 className={styles.name}
                 placeholder="Your Name Here"
                 ref={register({ required: true })}
+                // value={auth.user.name}
+                // disabled
               />
-              {errors.name && <div className={styles.alert}>Required</div>}
+              {errors.name && <div className={styles.alert}>Required</div>} */}
               <div className={styles.check}>
                 <input
                   type="checkbox"
@@ -160,12 +163,16 @@ function Donate({ auth, campaign, getDonorData }) {
             <div className={styles.desc}>
               Select Payment<span className={styles.mandatory}>*</span>
             </div>
+            {errors.payment && errors.payment.type === "required" && (
+              <div className={styles.alert}>Required</div>
+            )}
             <div className={styles.select}>
               <div>
                 <input
                   type="radio"
                   name="payment"
                   id="credit"
+                  ref={register({ required: true })}
                   onClick={creditOption}
                 />
                 <label className={styles.label} htmlFor="credit">
@@ -179,6 +186,7 @@ function Donate({ auth, campaign, getDonorData }) {
                   name="payment"
                   id="bank"
                   onClick={BankOption}
+                  ref={register({ required: true })}
                 />
                 <label className={styles.label} htmlFor="bank">
                   <img src={bank} alt="Bank Transfer" />

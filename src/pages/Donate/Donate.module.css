@@ -49,6 +49,12 @@
   margin-top: 0.8rem;
   width: 100%;
 }
+
+.name {
+  display: flex;
+  align-items: center;
+}
+
 .message {
   border: none;
   background-color: #fcfcfc;
