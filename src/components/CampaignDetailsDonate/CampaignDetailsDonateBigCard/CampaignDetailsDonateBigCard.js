@@ -30,20 +30,20 @@ const CampaignDetailsDonateBigCard = ({
   // MODAL //
   const requestClose = () => setOpen(false);
   const openModal = () => setOpen(true);
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      padding: "0",
-      transform: "translate(-50%, -50%)",
-      overlay: {
-        background: "black",
-      },
-    },
-  };
+  // const customStyles = {
+  //   content: {
+  //     top: "50%",
+  //     left: "50%",
+  //     right: "auto",
+  //     bottom: "auto",
+  //     marginRight: "-50%",
+  //     padding: "0",
+  //     transform: "translate(-50%, -50%)",
+  //     overlay: {
+  //       background: "black",
+  //     },
+  //   },
+  // };
   const openModalLogin = () => {
     setModalOpen();
     setFormLogin();
@@ -203,7 +203,7 @@ const CampaignDetailsDonateBigCard = ({
                 Donate
               </button>
             ) : (
-              <Link to="/donate">
+              <Link to={`/donate/${dataDonorAll.dataDonate.id}`}>
                 <button className={styles.btnDonate}>Donate</button>
               </Link>
             )}
@@ -212,7 +212,11 @@ const CampaignDetailsDonateBigCard = ({
               isOpen={open}
               shouldCloseOnOverlayClick={false}
               onRequestClose={requestClose}
-              style={customStyles}
+              overlayClassName={styles.overlay}
+              bodyOpenClassName={styles.body}
+              portalClassName={styles.portal}
+              // style={customStyles}
+              className={styles.modalStyle}
             >
               <CampaignUpdate setOpen={setOpen} requestClose={requestClose} />
             </Modal>

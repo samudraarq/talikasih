@@ -20,6 +20,7 @@ function ModalLogin(props) {
         portalClassName={styles.ReactModalPortal}
         className={styles.modal_wrapper}
         overlayClassName={styles.Overlay}
+        bodyOpenClassName={styles.body}
       >
         {props.layout.isLogin ? <FormLogin /> : <FormReg />}
         <img src={img1} alt="styleModal" className={styles.img1} />

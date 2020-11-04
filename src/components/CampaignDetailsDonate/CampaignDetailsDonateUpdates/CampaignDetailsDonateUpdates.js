@@ -62,7 +62,7 @@ const CampaignDetailsDonateUpdates = ({
                   prefix={"IDR."}
                 />
               </h2>
-              <p>{item.content}</p>
+              <p dangerouslySetInnerHTML={{ __html: item.content }}></p>
             </div>
           </div>
         </li>

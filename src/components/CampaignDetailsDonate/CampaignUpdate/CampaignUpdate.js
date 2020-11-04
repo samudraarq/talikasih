@@ -14,32 +14,39 @@ function CampaignUpdate({ auth, requestClose, dataDonorAll }) {
   const [openAmount, setOpenAmount] = useState(false);
   const { register, handleSubmit, errors } = useForm();
   let history = useHistory();
+  const [quillError, setQuillError] = useState(false);
 
   const onSubmit = async (data) => {
     const inputText = quill.root.innerHTML;
     const dateToday = new Date();
     const campaignId = dataDonorAll.dataDonate.id;
-    try {
-      const { ammount } = data;
-      const updateInfo = qs.stringify({
-        ammount: ammount || "",
-        content: inputText,
-        date: dateToday,
-        StatusId: openAmount ? 1 : 2,
-      });
-      console.log(updateInfo);
-      const response = await axios({
-        method: "post",
-        url: `https://warm-tundra-23736.herokuapp.com/campaignLog/${campaignId}`,
-        data: updateInfo,
-        headers: {
-          token: auth.token,
-        },
-      });
-      console.log(response.data);
-      history.push("/user/profile");
-    } catch (error) {
-      console.log(error, "error");
+
+    if (quill.getText().trim().length === 0) {
+      setQuillError(true);
+    } else {
+      setQuillError(false);
+      try {
+        const { ammount } = data;
+        const updateInfo = qs.stringify({
+          ammount: ammount || "",
+          content: inputText,
+          date: dateToday,
+          StatusId: openAmount ? 1 : 2,
+        });
+        console.log(updateInfo);
+        const response = await axios({
+          method: "post",
+          url: `https://warm-tundra-23736.herokuapp.com/campaignLog/${campaignId}`,
+          data: updateInfo,
+          headers: {
+            token: auth.token,
+          },
+        });
+        console.log(response.data);
+        history.push("/user/profile");
+      } catch (error) {
+        console.log(error, "error");
+      }
     }
   };
 
@@ -53,7 +60,7 @@ function CampaignUpdate({ auth, requestClose, dataDonorAll }) {
       { list: "bullet" },
       { indent: "-1" },
       { indent: "+1" },
-      "image",
+      // "image",
       "link",
     ],
   };
@@ -124,6 +131,7 @@ function CampaignUpdate({ auth, requestClose, dataDonorAll }) {
               backgroundColor: "#FCFCFC",
             }}
           />
+          {quillError && <div className={styles.alert}>Required</div>}
           <div className={styles.sumbitBtn}>
             <input type="submit" value="submit" className={styles.sumbit} />
           </div>
