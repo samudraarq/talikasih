@@ -43,7 +43,8 @@ function CampaignUpdate({ auth, requestClose, dataDonorAll }) {
           },
         });
         console.log(response.data);
-        history.push("/user/profile");
+        history.push(`/campaign/details/donate/${dataDonorAll.dataDonate.id}`);
+        requestClose();
       } catch (error) {
         console.log(error, "error");
       }
@@ -126,7 +127,7 @@ function CampaignUpdate({ auth, requestClose, dataDonorAll }) {
             ref={quillRef}
             style={{
               height: 300,
-              width: 850,
+              width: "100%",
               border: "none",
               backgroundColor: "#FCFCFC",
             }}

@@ -47,7 +47,7 @@ function Donate({ auth, campaign }) {
     } catch (error) {
       console.log(error.message);
     }
-    history.push("/user/profile");
+    history.push(`/campaign/details/donate/${campaign.id}`);
   };
 
   // MODAL //
@@ -302,9 +302,7 @@ function Donate({ auth, campaign }) {
             ""
           )}
           <div className={styles.submitBtn}>
-            {/* <Link to="/user/profile"> */}
             <input className={styles.donate} type="submit" value="donate" />
-            {/* </Link> */}
           </div>
         </form>
       </div>
