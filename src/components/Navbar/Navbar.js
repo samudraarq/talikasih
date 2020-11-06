@@ -13,6 +13,7 @@ import search from "../../assets/general/search-icon.svg";
 import ModalLogin from "../Modal/ModalLogin";
 import { Link, useHistory } from "react-router-dom";
 import useWindowSize from "../Hooks/useWindowResize";
+import BottomNavbar from "./BottomNavbar/BottomNavbar";
 
 const Navbar = (props) => {
   const [openSearch, setOpenSearch] = useState(false);
@@ -129,6 +130,7 @@ const Navbar = (props) => {
           </div>
         </div>
       </div>
+      {width <= 600 && <BottomNavbar />}
     </>
   );
 };
