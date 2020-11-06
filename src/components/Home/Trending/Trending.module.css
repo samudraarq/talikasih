@@ -89,3 +89,13 @@
     flex-direction: column;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .trendingLink {
+    width: 90%;
+  }
+
+  .trendingImage {
+    width: 100%;
+  }
+}
