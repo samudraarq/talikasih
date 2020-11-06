@@ -253,3 +253,57 @@
     width: 31rem;
   }
 }
+
+@media only screen and (max-width: 920px) {
+  .container {
+    padding: 5rem 15rem;
+  }
+  .donateform {
+    margin-right: 1rem;
+  }
+}
+
+@media only screen and (max-width: 875px) {
+  .container {
+    padding: 5rem 10rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .container {
+    padding: 5rem 8rem;
+  }
+  .option {
+    margin-top: 0rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .container {
+    padding: 5rem 5rem;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .container {
+    padding: 5rem 2rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .row {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .donateform,
+  .card {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .label {
+    height: 12rem;
+  }
+}
