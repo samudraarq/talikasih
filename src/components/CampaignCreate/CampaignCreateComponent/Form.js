@@ -161,12 +161,13 @@ function Form({ auth }) {
           )}
         </div>
       </div>
-      <div>
+      <div className={styles.editor}>
         <div className={styles.story}>Story</div>
         <div
           ref={quillRef}
           style={{
             height: 500,
+            width: "100%",
             border: "none",
             backgroundColor: "#FCFCFC",
           }}
