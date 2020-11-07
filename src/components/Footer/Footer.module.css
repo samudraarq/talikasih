@@ -91,9 +91,6 @@
   }
 }
 
-@media only screen and (max-width: 450px) {
-}
-
 @media only screen and (max-width: 320px) {
   .footerLinkContainer {
     flex-direction: column;
