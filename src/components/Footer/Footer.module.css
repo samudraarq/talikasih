@@ -48,3 +48,59 @@
   font-size: 1.2rem;
   color: #2d2d2d;
 }
+
+@media only screen and (max-width: 1100px) {
+  .container {
+    padding: 0 10rem;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    padding: 0 9rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    padding: 0 7rem;
+  }
+
+  .footerContainer {
+    flex-direction: column;
+  }
+
+  .footerLinkContainer {
+    margin-top: 2rem;
+  }
+
+  .logo {
+    width: 20rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .container {
+    padding: 0 5rem;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+}
+
+@media only screen and (max-width: 320px) {
+  .footerLinkContainer {
+    flex-direction: column;
+  }
+
+  .footerLink {
+    border-bottom: 1px solid #e1e0e0;
+    margin-top: 1rem;
+  }
+}
