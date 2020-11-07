@@ -111,6 +111,7 @@ const CampaignDetailsDonateBigCard = ({
   // count day left end
   return (
     <>
+    <div className={styles.container}>
       <div className={styles.cardHead}>
         <h1>{dataDonorAll.dataDonate.title}</h1>
         {userSama ? (
@@ -136,6 +137,8 @@ const CampaignDetailsDonateBigCard = ({
         ) : (
           <div></div>
         )}
+        
+      </div>
       </div>
 
       <div className={styles.container}>
@@ -148,15 +151,15 @@ const CampaignDetailsDonateBigCard = ({
               value={dataDonorAll.dataDonate.raised}
               displayType={"text"}
               thousandSeparator={true}
-              prefix={"IDR."}
+              prefix={"IDR "}
             />
           </h1>
           <h4>
-            <NumberFormat
+            <NumberFormat className={styles.goal}
               value={dataDonorAll.dataDonate.goal}
               displayType={"text"}
               thousandSeparator={true}
-              prefix={"IDR."}
+              prefix={"IDR "}
             />
           </h4>
           <div className={styles.progress}>
@@ -168,15 +171,24 @@ const CampaignDetailsDonateBigCard = ({
           {lebih >= 0 ? (
             ""
           ) : (
+            <>
+            <h3>
+            
             <NumberFormat
               value={lebih}
               displayType={"text"}
               thousandSeparator={true}
-              prefix={"  IDR."}
+              prefix={"  IDR "}
+              decimalScale={0}
             />
+            </h3>
+            <br/>
+            <br/>
+            </>
           )}
 
           <div className={styles.profilContainer}>
+            <div className={styles.profilWraper}>
             <img src={dataDonorAll.dataDonate?.User?.photo} alt="user4"></img>
             <div className={styles.profilName}>
               <h3>{dataDonorAll.dataDonate?.User?.name}</h3>
@@ -186,6 +198,7 @@ const CampaignDetailsDonateBigCard = ({
               ) : (
                 ""
               )}
+            </div>
             </div>
             <div className={styles.dataCount}>
               <div>
