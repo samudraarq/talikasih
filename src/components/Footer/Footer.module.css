@@ -85,6 +85,15 @@
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .footerContainer {
+    margin-bottom: 2rem;
+  }
+  .footer {
+    padding-bottom: 10rem;
+  }
+}
+
 @media only screen and (max-width: 530px) {
   .container {
     padding: 0 2rem;
@@ -96,7 +105,7 @@
     flex-direction: column;
   }
 
-  .footerLink {
+  .footerLink:not(:last-of-type) {
     border-bottom: 1px solid #e1e0e0;
     margin-top: 1rem;
   }
