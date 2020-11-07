@@ -284,3 +284,54 @@ img.roda {
 /* .dropdown:hover .dropbtn {
  
 } */
+
+.modalShare {
+
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modalShareHead{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #9F9F9F;
+  padding: 2rem;
+}
+.modalShareBody{
+  /* background-color: blue; */
+  min-height: 100%;
+  border: 2px solid #9F9F9F;
+  padding: 2rem 8rem 2rem 5rem;
+}
+.inputShareClick{
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  margin: 2rem;
+  width:  40rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #9F9F9F;
+}
+.btnShareClick{
+  padding: 1.5rem 8rem;
+  color: #fff;
+  background-color: #A43F3C;
+  border-radius: 3px;
+
+  
+}
+
+.btnShareClick h1{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+}
+.btnColseShare{
+
+  background-color: transparent;
+  border: none;
+}

@@ -25,11 +25,14 @@ const CampaignDetailsDonateBigCard = ({
   // variabel
 
   const [open, setOpen] = useState(false);
+  const [openShare, setOpenShare] = useState(false);
   let idUser = userdata?.user?.id;
   let token = userdata?.token;
   // MODAL //
   const requestClose = () => setOpen(false);
   const openModal = () => setOpen(true);
+  const requestShareClose = () => setOpenShare(false);
+  const setShareOpen = () => setOpenShare(true);
   const customStyles = {
     content: {
       top: "50%",
@@ -48,6 +51,18 @@ const CampaignDetailsDonateBigCard = ({
     setModalOpen();
     setFormLogin();
   };
+
+  const openModalShare =()=>{
+    postShare(idDonate); 
+    setShareOpen();
+  }
+
+  const copyToClipboard=()=> {
+    postShare(idDonate); 
+    let textBox = document.getElementById("myvalue");
+    textBox.select();
+    document.execCommand("copy");
+}
   Modal.setAppElement("#root");
 
   // useEffect //
@@ -188,7 +203,7 @@ const CampaignDetailsDonateBigCard = ({
             </div>
 
             <button
-              onClick={() => postShare(idDonate)}
+              onClick={openModalShare }
               className={styles.btnShare}
             >
               Share
@@ -216,6 +231,28 @@ const CampaignDetailsDonateBigCard = ({
             >
               <CampaignUpdate setOpen={setOpen} requestClose={requestClose} />
             </Modal>
+
+            <Modal
+              isOpen={openShare}
+              shouldCloseOnOverlayClick={false}
+              onRequestClose={requestShareClose}
+              style={customStyles}
+            >
+
+
+              <div className={styles.modalShare}>
+                <div className={styles.modalShareHead}>
+                  <h1>Help by Sharing</h1> <button className={styles.btnColseShare} onClick={requestShareClose}><b>X</b></button>
+                </div>
+                <div className={styles.modalShareBody}>
+                    <input className={styles.inputShareClick} name="myvalue"  id="myvalue" type="text" value={window.location}/>
+                    <button className={styles.btnShareClick}  onClick={copyToClipboard}>Copy Link</button>
+                </div>
+              </div>
+
+              
+            </Modal>
+
           </div>
         </div>
       </div>
