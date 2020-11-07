@@ -106,23 +106,23 @@ const Navbar = (props) => {
               />
             </div>
             {props.auth.isLogin && width > 600 && (
-              <Link to="/user/profile" className={styles.profileBtn}>
+              <Link to="/user/profile" className={styles.blueBtn}>
                 My Profile
               </Link>
             )}
             {!props.auth.isLogin && width > 900 && (
               <>
-                <span className={styles.loginBtn} onClick={handleLogin}>
+                <span className={styles.blueBtn} onClick={handleLogin}>
                   Login
                 </span>
-                <span className={styles.registerBtn} onClick={handleReg}>
+                <span className={styles.blueBtn} onClick={handleReg}>
                   Register
                 </span>
               </>
             )}
             {!props.auth.isLogin && width > 600 && width <= 900 && (
               <>
-                <span className={styles.loginBtn} onClick={handleLogin}>
+                <span className={styles.blueBtn} onClick={handleLogin}>
                   Login/Register
                 </span>
               </>
