@@ -73,29 +73,49 @@
   color: #9f9f9f;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1100px) {
   .container {
-    max-width: 95%;
-    margin: auto;
+    padding: 0 10rem;
   }
+
   .quote {
     margin-top: 2rem;
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 950px) {
+  .container {
+    padding: 0 9rem;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
+  .container {
+    padding: 0 7rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .container {
+    padding: 0 5rem;
+  }
+
   .trendingLink {
     width: 90%;
   }
 
   .trendingImage {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .container {
+    padding: 0 2rem;
   }
 }
