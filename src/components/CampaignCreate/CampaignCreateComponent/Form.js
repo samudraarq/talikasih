@@ -18,7 +18,7 @@ function Form({ auth }) {
 
   let history = useHistory();
 
-  const bankAccount = "1234567";
+  const bankAccount = auth.user.bank_account;
 
   const onSubmit = async (data) => {
     const html = quill.root.innerHTML;
@@ -63,7 +63,7 @@ function Form({ auth }) {
       { list: "bullet" },
       { indent: "-1" },
       { indent: "+1" },
-      "image",
+      // "image",
       "link",
     ],
   };

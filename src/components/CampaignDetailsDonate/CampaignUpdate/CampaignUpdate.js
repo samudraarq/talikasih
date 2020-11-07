@@ -9,40 +9,46 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import close from "../../../assets/CampingCreate/close.png";
 
-function CampaignUpdate({ auth, requestClose }) {
+function CampaignUpdate({ auth, requestClose, dataDonorAll }) {
   // FORM //
   const [openAmount, setOpenAmount] = useState(false);
   const { register, handleSubmit, errors } = useForm();
   let history = useHistory();
+  const [quillError, setQuillError] = useState(false);
 
   const onSubmit = async (data) => {
     const inputText = quill.root.innerHTML;
     const dateToday = new Date();
-    const campaignId = 1;
-    try {
-      const { ammount } = data;
-      const updateInfo = qs.stringify({
-        ammount,
-        content: inputText,
-        date: dateToday,
-        StatusId: campaignId,
-      });
-      // console.log(updateInfo);
-      const response = await axios({
-        method: "post",
-        url: "https://warm-tundra-23736.herokuapp.com/campaignLog/1",
-        data: updateInfo,
-        headers: {
-          token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6ImpvaG4iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwMzE5MzI5OX0.DqCMxWap7-rM7AdgRVo2yZnqDapQNjqG0aTo9s7v7d4",
-          // token: auth.token,
-        },
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.log(error, "error");
+    const campaignId = dataDonorAll.dataDonate.id;
+
+    if (quill.getText().trim().length === 0) {
+      setQuillError(true);
+    } else {
+      setQuillError(false);
+      try {
+        const { ammount } = data;
+        const updateInfo = qs.stringify({
+          ammount: ammount || "",
+          content: inputText,
+          date: dateToday,
+          StatusId: openAmount ? 1 : 2,
+        });
+        console.log(updateInfo);
+        const response = await axios({
+          method: "post",
+          url: `https://warm-tundra-23736.herokuapp.com/campaignLog/${campaignId}`,
+          data: updateInfo,
+          headers: {
+            token: auth.token,
+          },
+        });
+        console.log(response.data);
+        history.push(`/campaign/details/donate/${dataDonorAll.dataDonate.id}`);
+        requestClose();
+      } catch (error) {
+        console.log(error, "error");
+      }
     }
-    history.push("/user/profile");
   };
 
   // Editor //
@@ -55,7 +61,7 @@ function CampaignUpdate({ auth, requestClose }) {
       { list: "bullet" },
       { indent: "-1" },
       { indent: "+1" },
-      "image",
+      // "image",
       "link",
     ],
   };
@@ -95,7 +101,7 @@ function CampaignUpdate({ auth, requestClose }) {
               Amount<span className={styles.mandatory}>*</span>
             </label>
             <input
-              type="text"
+              type="number"
               name="ammount"
               id="ammount"
               placeholder="20.000.000"
@@ -121,11 +127,12 @@ function CampaignUpdate({ auth, requestClose }) {
             ref={quillRef}
             style={{
               height: 300,
-              width: 850,
+              width: "100%",
               border: "none",
               backgroundColor: "#FCFCFC",
             }}
           />
+          {quillError && <div className={styles.alert}>Required</div>}
           <div className={styles.sumbitBtn}>
             <input type="submit" value="submit" className={styles.sumbit} />
           </div>
@@ -138,6 +145,7 @@ function CampaignUpdate({ auth, requestClose }) {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    dataDonorAll: state.dataDonorAll,
   };
 };
 

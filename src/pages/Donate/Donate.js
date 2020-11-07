@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import qs from "qs";
 import axios from "axios";
 import CampaignCard from "../../components/CampaignCard/CampaignCard";
@@ -10,31 +10,39 @@ import credit from "../../assets/Donate/credit.png";
 import styles from "./Donate.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import { getDonorData } from "../../redux/actions/donorActions";
 
 // -------------------- //
 
-function Donate({ auth, campaign }) {
+function Donate({ auth, campaign, getDonorData }) {
   const { register, handleSubmit, errors } = useForm({
-    mode: "onBlur",
+    mode: "onTouched",
   });
   const [creditInfo, setCreditInfo] = useState(false);
   const [bankInfo, setBankInfo] = useState(false);
   let history = useHistory();
+  const { campaignId } = useParams();
 
+  //USEEFFECT //
+  useEffect(() => {
+    if (campaign.length === 0) {
+      getDonorData(campaignId);
+    }
+  }, [campaign.length, getDonorData, campaignId]);
   // FORM //
   const onSubmit = async (values) => {
     console.log(values);
     try {
-      const { amount, comment } = values;
+      const { amount, comment, anonym } = values;
       const donateInfo = qs.stringify({
         amount,
         comment,
-        share: true,
+        share: !anonym,
       });
       console.log(donateInfo);
       const response = await axios({
         method: "post",
-        url: "https://warm-tundra-23736.herokuapp.com/donate/campaign/2",
+        url: `https://warm-tundra-23736.herokuapp.com/donate/campaign/${campaign.id}`,
         data: donateInfo,
         headers: {
           token: auth.token,
@@ -47,7 +55,7 @@ function Donate({ auth, campaign }) {
     } catch (error) {
       console.log(error.message);
     }
-    history.push("/user/profile");
+    history.push(`/campaign/details/donate/${campaign.id}`);
   };
 
   // MODAL //
@@ -114,15 +122,18 @@ function Donate({ auth, campaign }) {
                 Name
                 <span className={styles.mandatory}>*</span>
               </label>
-              <input
+              <div className={styles.name}>{auth.user.name}</div>
+              {/* <input
                 type="text"
                 id="name"
                 name="name"
                 className={styles.name}
                 placeholder="Your Name Here"
                 ref={register({ required: true })}
+                // value={auth.user.name}
+                // disabled
               />
-              {errors.name && <div className={styles.alert}>Required</div>}
+              {errors.name && <div className={styles.alert}>Required</div>} */}
               <div className={styles.check}>
                 <input
                   type="checkbox"
@@ -136,13 +147,12 @@ function Donate({ auth, campaign }) {
                 Message <span className={styles.optional}>(Optional)</span>
               </label>
               <textarea
-                type="text"
                 id="comment"
                 name="comment"
                 placeholder="Give them support!"
                 className={styles.message}
                 ref={register}
-              />
+              ></textarea>
             </div>
             <div className={styles.card}>
               {campaign && <CampaignCard campaign={campaign} />}
@@ -153,16 +163,20 @@ function Donate({ auth, campaign }) {
             <div className={styles.desc}>
               Select Payment<span className={styles.mandatory}>*</span>
             </div>
+            {errors.payment && errors.payment.type === "required" && (
+              <div className={styles.alert}>Required</div>
+            )}
             <div className={styles.select}>
               <div>
                 <input
                   type="radio"
                   name="payment"
                   id="credit"
+                  ref={register({ required: true })}
                   onClick={creditOption}
                 />
                 <label className={styles.label} htmlFor="credit">
-                  <img src={bank} alt="Credit/Debit Card" />
+                  <img src={credit} alt="Credit/Debit Card" />
                   <div className={styles.option}>Credit/Debit Card</div>
                 </label>
               </div>
@@ -172,9 +186,10 @@ function Donate({ auth, campaign }) {
                   name="payment"
                   id="bank"
                   onClick={BankOption}
+                  ref={register({ required: true })}
                 />
                 <label className={styles.label} htmlFor="bank">
-                  <img src={credit} alt="Bank Transfer" />
+                  <img src={bank} alt="Bank Transfer" />
                   <div className={styles.option}>Bank Transfer</div>
                 </label>
               </div>
@@ -182,7 +197,7 @@ function Donate({ auth, campaign }) {
           </div>
           {creditInfo ? (
             <div action="" className={styles.form}>
-              <div className={styles.number}>
+              <div className={styles.paymentWrapper}>
                 <label className={styles.desc} htmlFor="number">
                   Card Number<span className={styles.mandatory}>*</span>
                 </label>
@@ -190,7 +205,7 @@ function Donate({ auth, campaign }) {
                   type="text"
                   id="number"
                   name="number"
-                  className={styles.input1}
+                  className={styles.inputPayment}
                   placeholder="e.g. 1234 5678 9012 3456"
                   ref={register({
                     required: true,
@@ -208,7 +223,7 @@ function Donate({ auth, campaign }) {
                   <div className={styles.alert}>Credit Card Number Invalid</div>
                 )}
               </div>
-              <div className={styles.date}>
+              <div className={styles.paymentWrapper}>
                 <label className={styles.desc} htmlFor="date">
                   Expiry Date<span className={styles.mandatory}>*</span>
                 </label>
@@ -216,7 +231,7 @@ function Donate({ auth, campaign }) {
                   type="text"
                   id="date"
                   name="date"
-                  className={styles.input2}
+                  className={styles.inputPayment}
                   placeholder="MM/YY"
                   ref={register({
                     required: true,
@@ -230,7 +245,7 @@ function Donate({ auth, campaign }) {
                   <div className={styles.alert}>Expiry Date Invalid</div>
                 )}
               </div>
-              <div className={styles.cvv}>
+              <div className={styles.paymentWrapper}>
                 <label className={styles.desc} htmlFor="cvv">
                   CVV<span className={styles.mandatory}>*</span>
                 </label>
@@ -238,7 +253,7 @@ function Donate({ auth, campaign }) {
                   type="text"
                   id="cvv"
                   name="cvv"
-                  className={styles.input3}
+                  className={styles.inputPayment}
                   placeholder="123"
                   ref={register({
                     required: true,
@@ -265,7 +280,7 @@ function Donate({ auth, campaign }) {
               <div className={styles.transfer}>Transfer to</div>
               <div className={styles.info}>
                 <div className={styles.detailname}>Account Number</div>
-                <div action="" className={styles.form}>
+                <div action="" className={styles.transferTo}>
                   <input
                     type="text"
                     onChange={bankDetail}
@@ -284,7 +299,7 @@ function Donate({ auth, campaign }) {
               </div>
               <div className={styles.info}>
                 <div className={styles.detailname}>Total Amount</div>
-                <div action="" className={styles.form}>
+                <div action="" className={styles.transferTo}>
                   <input
                     type="text"
                     onChange={bankDetail}
@@ -302,9 +317,7 @@ function Donate({ auth, campaign }) {
             ""
           )}
           <div className={styles.submitBtn}>
-            {/* <Link to="/user/profile"> */}
             <input className={styles.donate} type="submit" value="donate" />
-            {/* </Link> */}
           </div>
         </form>
       </div>
@@ -320,4 +333,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Donate);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getDonorData: (idDonate) => dispatch(getDonorData(idDonate)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Donate);

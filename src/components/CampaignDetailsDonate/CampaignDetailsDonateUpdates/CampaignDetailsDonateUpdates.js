@@ -21,7 +21,6 @@ const CampaignDetailsDonateUpdates = ({
   const sortedActivities = dataDonorAll?.dataDonateStory;
   let pageLimit = dataDonorAll?.dataDonateStory?.total_page;
 
-
   const UserAllStory = sortedActivities?.reverse().map((item, index) => {
     // count Day left
     let now = moment(new Date()); //todays date
@@ -63,7 +62,7 @@ const CampaignDetailsDonateUpdates = ({
                   prefix={"IDR."}
                 />
               </h2>
-              <p>{item.content}</p>
+              <p dangerouslySetInnerHTML={{ __html: item.content }}></p>
             </div>
           </div>
         </li>
@@ -89,7 +88,7 @@ const CampaignDetailsDonateUpdates = ({
               <p>Recepient update</p>
             </div>
             <div className={styles.liBody}>
-              <p>{item.content}</p>
+              <p dangerouslySetInnerHTML={{ __html: item.content }}></p>
             </div>
           </div>
         </li>
@@ -104,8 +103,11 @@ const CampaignDetailsDonateUpdates = ({
           <h1 className={styles.countdata}>
             Updates ({sortedActivities?.length})
           </h1>
-          {sortedActivities?.length ===0? <h1 style={{textAlign:`center`}}>Tidak Ada Data</h1>: UserAllStory}
-         
+          {sortedActivities?.length === 0 ? (
+            <h1 style={{ textAlign: `center` }}>Tidak Ada Data</h1>
+          ) : (
+            UserAllStory
+          )}
         </ul>
       </div>
       <div className={styles.btnwrap}>

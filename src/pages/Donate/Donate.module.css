@@ -7,8 +7,7 @@
   font-size: 3rem;
   font-weight: 700;
   border-bottom: 1px solid #9f9f9f;
-  padding: 2.5rem 0;
-  margin: 0 0 2rem 0;
+  padding: 5.2rem 0 2.4rem;
 }
 
 .donateform {
@@ -19,8 +18,7 @@
 }
 
 .card {
-  width: 50%;
-  padding-left: 8rem;
+  width: 36.3rem;
 }
 
 .mandatory {
@@ -30,32 +28,43 @@
 .desc {
   font-size: 1.4rem;
   font-weight: bold;
-  margin: 2rem 0;
+  margin-top: 2.2rem;
 }
 
-.amount {
+.desc:first-of-type {
+  margin-top: 4rem;
+}
+
+.amount,
+.name,
+.inputPayment {
   border: none;
   background-color: #fcfcfc;
   border-bottom: 1px solid #9f9f9f;
   height: 4rem;
   font-size: 1.4rem;
+  padding: 0 1rem;
+  font-family: inherit;
+  outline: none;
+  margin-top: 0.8rem;
+  width: 100%;
 }
+
 .name {
-  border: none;
-  background-color: #fcfcfc;
-  border-bottom: 1px solid #1d94a8;
-  height: 4rem;
-  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
 }
+
 .message {
   border: none;
   background-color: #fcfcfc;
   border-bottom: 1px solid #1d94a8;
   height: 23rem;
   font-size: 1.4rem;
-  position: relative;
-  left: 0;
-  top: 0;
+  font-family: inherit;
+  outline: none;
+  border-radius: 0;
+  margin-top: 1rem;
 }
 
 .alert {
@@ -74,6 +83,7 @@
   border: 1px solid #9f9f9f;
   width: 1.6rem;
   height: 1.6rem;
+  margin-right: 0.7rem;
 }
 
 .optional {
@@ -114,7 +124,7 @@
   align-items: center;
   flex-direction: column;
   width: 15rem;
-  height: 8rem;
+  height: 8.7rem;
   background-color: transparent;
   border: 1px solid #9f9f9f;
   border-radius: 4px;
@@ -128,62 +138,17 @@
 }
 
 .option {
+  margin-top: 1.7rem;
   font-weight: 400;
   font-size: 1.4rem;
 }
 
 /* CREDIT */
-.input1 {
-  border: none;
-  background-color: #fcfcfc;
-  border-bottom: 1px solid #9f9f9f;
-  height: 4rem;
-  width: 100%;
-  font-size: 1.4rem;
-}
-
-.input2 {
-  border: none;
-  background-color: #fcfcfc;
-  border-bottom: 1px solid #9f9f9f;
-  height: 4rem;
-  width: 100%;
-  font-size: 1.4rem;
-}
-
-.input3 {
-  border: none;
-  background-color: #fcfcfc;
-  border-bottom: 1px solid #9f9f9f;
-  height: 4rem;
-  width: 100%;
-  font-size: 1.4rem;
-}
 
 .form {
-  display: flex;
-  justify-content: space-between;
-}
-
-.number {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 50%;
-}
-
-.date {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 25%;
-}
-
-.cvv {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 20%;
+  display: grid;
+  grid-template-columns: 50% 25% 1fr;
+  gap: 3.2rem;
 }
 
 /* BANK */
@@ -213,12 +178,18 @@
   color: #2d2d2d;
 }
 
+.transferTo {
+  display: flex;
+  justify-content: space-between;
+}
+
 .detailnum {
   font-weight: 700;
   font-size: 1.6rem;
   color: #2d2d2d;
   border: none;
   background-color: #f4f4f4;
+  outline: none;
 }
 
 .copy {
@@ -228,11 +199,8 @@
   border: none;
   background-color: #f4f4f4;
   text-transform: uppercase;
-}
-
-.copy:hover {
+  outline: none;
   cursor: pointer;
-  text-decoration: underline;
 }
 
 .info {
@@ -243,7 +211,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
 }
 
 .donate {

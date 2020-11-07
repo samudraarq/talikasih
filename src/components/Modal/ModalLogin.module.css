@@ -13,16 +13,21 @@
   border-style: none;
   position: relative;
   outline: none;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
 .Overlay {
   background-color: rgba(60, 60, 60, 0.75);
   position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-  
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.body {
+  overflow: hidden;
 }
 
 .img1 {

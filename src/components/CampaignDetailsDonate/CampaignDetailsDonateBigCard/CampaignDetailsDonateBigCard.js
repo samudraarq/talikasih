@@ -1,5 +1,5 @@
 // import { Form } from 'formik'
-import React, { useState, } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import NumberFormat from "react-number-format";
 import { Link, useParams } from "react-router-dom";
@@ -20,7 +20,7 @@ const CampaignDetailsDonateBigCard = ({
   postShare,
   userdata,
   setModalOpen,
-  setFormLogin
+  setFormLogin,
 }) => {
   // variabel
 
@@ -47,6 +47,7 @@ const CampaignDetailsDonateBigCard = ({
       },
     },
   };
+
   const openModalLogin = () => {
     setModalOpen();
     setFormLogin();
@@ -202,7 +203,7 @@ const CampaignDetailsDonateBigCard = ({
             </div>
             <div className={styles.dataCount}>
               <div>
-                <h1>{!isNaN(dayleft)  && dayleft}</h1>
+                <h1>{!isNaN(dayleft) && dayleft}</h1>
                 <p>Days left</p>
               </div>
               <div>
@@ -231,7 +232,7 @@ const CampaignDetailsDonateBigCard = ({
                 Donate
               </button>
             ) : (
-              <Link to="/donate">
+              <Link to={`/donate/${dataDonorAll.dataDonate.id}`}>
                 <button className={styles.btnDonate}>Donate</button>
               </Link>
             )}
@@ -240,7 +241,11 @@ const CampaignDetailsDonateBigCard = ({
               isOpen={open}
               shouldCloseOnOverlayClick={false}
               onRequestClose={requestClose}
-              style={customStyles}
+              overlayClassName={styles.overlay}
+              bodyOpenClassName={styles.body}
+              portalClassName={styles.portal}
+              // style={customStyles}
+              className={styles.modalStyle}
             >
               <CampaignUpdate setOpen={setOpen} requestClose={requestClose} />
             </Modal>

@@ -23,12 +23,12 @@ function App({ setUserPersistanceLogin }) {
     <BrowserRouter>
       <Switch>
         <Route path="/campaign/create">
-          <CampingCreatePage/>
+          <CampingCreatePage />
         </Route>
         <Route path="/campaign/details/donate/:idDonate">
-          <ChampingDetailsDonatePage/>
+          <ChampingDetailsDonatePage />
         </Route>
-        <Route path="/donate">
+        <Route path="/donate/:campaignId">
           <Donate />
         </Route>
         <Route path="/discover/search">
