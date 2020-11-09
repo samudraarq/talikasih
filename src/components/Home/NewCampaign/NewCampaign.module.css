@@ -29,4 +29,8 @@
   .cardsContainer > a {
     margin-top: 2.4rem;
   }
+
+  .cardsContainer > div {
+    margin-top: 2.4rem;
+  }
 }
