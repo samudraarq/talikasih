@@ -1,13 +1,15 @@
 import React from "react";
 import styles from "./Footer.module.css";
 
+import Container from "../UI/Container";
+
 import logo from "../../assets/general/logo.svg";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.borderBottom}>
-        <div className={styles.container}>
+        <Container>
           <div className={styles.footerContainer}>
             <img src={logo} alt="logo" className={styles.logo} />
             <div className={styles.footerLinkContainer}>
@@ -38,14 +40,14 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
 
-      <div className={styles.container}>
+      <Container>
         <p className={styles.copyright}>
           TaliKasih &#169; 2020. All rights reserved
         </p>
-      </div>
+      </Container>
     </footer>
   );
 };

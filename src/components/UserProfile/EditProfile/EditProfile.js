@@ -10,6 +10,7 @@ import ChangeProfileImage from "./ChangeProfileImage/ChangeProfileImage";
 import styles from "./EditProfile.module.css";
 import EditProfileForm from "./EditProfileForm/EditProfileForm";
 import { useHistory } from "react-router-dom";
+import Container from "../../UI/Container";
 
 const EditProfile = ({
   auth,
@@ -48,13 +49,15 @@ const EditProfile = ({
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.profileContainer}>
-        <h3 className={styles.title}>Edit Profile</h3>
-        <ChangeProfileImage changeHandler={changeHandler} profPic={profPic} />
-        <EditProfileForm onSubmit={onSubmit} />
+    <Container>
+      <div className={styles.container}>
+        <div className={styles.profileContainer}>
+          <h3 className={styles.title}>Edit Profile</h3>
+          <ChangeProfileImage changeHandler={changeHandler} profPic={profPic} />
+          <EditProfileForm onSubmit={onSubmit} />
+        </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
