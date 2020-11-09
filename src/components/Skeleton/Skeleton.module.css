@@ -64,11 +64,6 @@
 
 /* skeleton trending css */
 
-.container {
-  max-width: 120rem;
-  margin: auto;
-}
-
 .segmentTitle {
   margin-top: 7.2rem;
   font-weight: 400;
@@ -93,6 +88,29 @@
   grid-template-columns: auto 20rem;
   justify-content: start;
   gap: 2.6rem;
+}
+
+@media only screen and (max-width: 1100px) {
+  .quote {
+    margin-top: 2rem;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .trendingLink {
+    width: 90%;
+  }
+
+  .trendingImage {
+    width: 100%;
+  }
 }
 
 /* animation */

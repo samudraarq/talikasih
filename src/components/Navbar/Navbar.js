@@ -7,9 +7,13 @@ import {
 } from "../../redux/actions/layoutActions";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/general/logo.svg";
+import logomobile from "../../assets/general/logomobile.svg";
+
 import search from "../../assets/general/search-icon.svg";
 import ModalLogin from "../Modal/ModalLogin";
 import { Link, useHistory } from "react-router-dom";
+import useWindowSize from "../Hooks/useWindowResize";
+import BottomNavbar from "./BottomNavbar/BottomNavbar";
 
 const Navbar = (props) => {
   const [openSearch, setOpenSearch] = useState(false);
@@ -51,16 +55,22 @@ const Navbar = (props) => {
     props.setFormRegister();
   };
 
+  const [width] = useWindowSize();
+
   return (
     <>
       <ModalLogin />
       <div className={styles.navContainer}>
         <div className={styles.container}>
           <Link to="/">
-            <img src={logo} alt="logo" className={styles.logo} />
+            <img
+              src={width > 900 ? logo : logomobile}
+              alt="logo"
+              className={styles.logo}
+            />
           </Link>
           <div className={styles.navLink}>
-            {createBtn && props.auth.isLogin && (
+            {createBtn && props.auth.isLogin && width > 600 && (
               <>
                 <Link
                   to="/campaign/create"
@@ -95,24 +105,32 @@ const Navbar = (props) => {
                 onKeyUp={handleSubmit}
               />
             </div>
-            {props.auth.isLogin && (
-              <Link to="/user/profile" className={styles.profileBtn}>
+            {props.auth.isLogin && width > 600 && (
+              <Link to="/user/profile" className={styles.blueBtn}>
                 My Profile
               </Link>
             )}
-            {!props.auth.isLogin && (
+            {!props.auth.isLogin && width > 900 && (
               <>
-                <span className={styles.loginBtn} onClick={handleLogin}>
+                <span className={styles.blueBtn} onClick={handleLogin}>
                   Login
                 </span>
-                <span className={styles.registerBtn} onClick={handleReg}>
+                <span className={styles.blueBtn} onClick={handleReg}>
                   Register
+                </span>
+              </>
+            )}
+            {!props.auth.isLogin && width > 600 && width <= 900 && (
+              <>
+                <span className={styles.blueBtn} onClick={handleLogin}>
+                  Login/Register
                 </span>
               </>
             )}
           </div>
         </div>
       </div>
+      {width <= 600 && <BottomNavbar />}
     </>
   );
 };
