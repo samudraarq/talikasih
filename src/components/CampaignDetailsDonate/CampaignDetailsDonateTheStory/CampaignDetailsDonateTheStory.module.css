@@ -3,15 +3,17 @@
 }
 @media only screen and (max-width: 1100px) {
     .container {
-      padding: 0 10rem;
-      margin: 10rem auto;
+      padding:  0 10rem ;
+      margin: 9rem auto ;
+      background: radial-gradient(46.5% 347.45% at 50% 50.11%, rgba(215, 235, 238, 0) 0%, rgba(215, 235, 238, 0.3) 100%);
+      
     }
   }
   
   @media only screen and (max-width: 950px) {
     .container {
       padding: 0 9rem;
-      margin: 9rem auto;
+      margin: 9rem auto -5rem auto;
     }
   }
   
@@ -48,12 +50,13 @@
 
 .container {
     max-width: 120rem;
-    margin: 10rem auto;
+    margin: 10rem auto 5rem auto;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    background: radial-gradient(46.5% 347.45% at 50% 50.11%, rgba(215, 235, 238, 0) 0%, rgba(215, 235, 238, 0.3) 100%);
 }
 
 header {

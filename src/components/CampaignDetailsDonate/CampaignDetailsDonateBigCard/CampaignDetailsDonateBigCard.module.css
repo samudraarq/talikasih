@@ -2,6 +2,12 @@
   .container {
     padding: 0 10rem;
   }
+  .btnShare{
+    width: 100% !important;
+  }
+  .btnDonate {
+    width: 100% !important;
+  }
 }
 
 @media only screen and (max-width: 950px) {
@@ -9,17 +15,47 @@
     padding: 0 9rem;
   }
 }
+@media only screen and (max-width: 860px) {
+  .container {
+    padding: 0 7rem;
+  }
+  .btnShare {
+    width: 50% !important;
+  
+  }
+  .btnDonate{
 
+    width: 50% !important;
+  }
+
+}
 @media only screen and (max-width: 800px) {
   .container {
     padding: 0 7rem;
   }
+  .btnShare {
+    width: 50% !important;
+  
+  }
+  .btnDonate{
+
+    width: 50% !important;
+  }
 
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 600px) {
   .container {
     padding: 0 5rem;
+  }
+
+  .btnShare {
+    width: 50% !important;
+    bottom: 60px !;
+  }
+  .btnDonate{
+    bottom: 60px;
+    width: 50% !important;
   }
 }
 
@@ -46,6 +82,7 @@
 
 .cardKiri {
   width: 62%;
+  margin-right: 3%;
   /* background-color: brown; */
 }
 
@@ -71,7 +108,7 @@
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
-  padding: 5rem;
+  padding: 3rem;
   margin-top: 2rem;
 }
 
@@ -128,7 +165,7 @@
 .dataCount {
   display: flex;
   justify-content: space-around;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .dataCount div {
@@ -172,7 +209,7 @@
   height: 4rem;
   width: 37rem;
   background: #ffffff;
-  margin-top: 8rem;
+  margin-top: 4rem;
 
   /* Tosca */
   border: 1px solid #1d94a8;
@@ -376,6 +413,10 @@ img.roda {
   background-color: transparent;
   border: none;
 }
+.profilWraper {
+  display: flex;flex-direction: row;
+  margin-bottom: 3rem;
+ }
 
 
 
@@ -408,7 +449,6 @@ img.roda {
   bottom: 0px;
   left: 0px; 
   z-index: 20;
-
   background: #ffffff;
   /* Tosca */
   border:none;
@@ -430,7 +470,7 @@ text-transform: uppercase;
   height: 6rem;
   width: 60%;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   right: 0px; 
   border-radius: 0px;
   z-index: 20;
@@ -476,10 +516,7 @@ font-weight: normal;
 font-size: 14px;
 line-height: 19px;
 }
-.profilWraper {
- display: flex;flex-direction: row;
- margin-bottom: 5rem;
-}
+
 }
 
   

@@ -1,10 +1,61 @@
+@media only screen and (max-width: 1100px) {
+  .container {
+    padding: 0 10rem;
+  }
+  }
+  
+
+@media only screen and (max-width: 950px) {
+  .container {
+    padding: 0 9rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    padding: 0 7rem;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 0 5rem;
+  }
+  .btnShare {
+    bottom: 60px;
+  }
+  .btnShare{
+    bottom: 60px;
+  }
+}
+
+
+@media only screen and (max-width: 530px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+
+}
+
 .container {
     max-width: 120rem;
-    margin: 10rem auto;
+    margin: 5rem auto;
     height: 100%;
     display: flex;
     justify-content: right;
     flex-direction: row;
+    background: #FFFFFF;
+
+/* Pearl */
+  border: 1px solid #E1E0E0;
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  padding: 4rem 4rem;
 }
 
 .bar {
@@ -62,6 +113,18 @@
     margin-bottom: 3rem;
   }
 
+  .liBodydrow{  /* background-color: lawngreen; */
+    
+    padding: 2rem;
+    background: #F1EDE4;
+
+    /* Pearl */
+    border: 1px solid #E1E0E0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    /* Pearl */
+  }
+
   .liHead{
       display: flex;
         flex-direction: row;
@@ -92,7 +155,10 @@
   }
 
   .liBody{
-      padding: 2rem;
+      padding: 1rem;
+      border: 1px solid #E1E0E0;
+      box-sizing: border-box;
+      border-radius: 4px;
   }
   .liBody h2 {
 
@@ -126,8 +192,8 @@ color: #000000;
     line-height: 16px;
     
     /* Copper */
-    color: #A87B14;
-    
+    color: hsl(42, 79%, 37%);
+    background-color: #fff;
     /* Inside Auto Layout */
     flex: none;
     border: 1px solid #A87B14;
@@ -154,4 +220,8 @@ color: #000000;
     box-sizing: border-box;
     border-radius: 3px;
     color: #1D94A8 ;
+  }
+  .body{
+    padding-top: 0.6rem;
+    background: linear-gradient(180deg, #FAF8F3 0%, rgba(250, 248, 243, 0) 100%);
   }

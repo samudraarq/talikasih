@@ -52,7 +52,7 @@ const CampaignDetailsDonateUpdates = ({
               <h1>{hari}</h1>
               <button className={styles.btnWithdrawal}>Withdrawal</button>
             </div>
-            <div className={styles.liBody}>
+            <div className={styles.liBodydrow}>
               <h2>
                 {" "}
                 <NumberFormat
@@ -97,7 +97,7 @@ const CampaignDetailsDonateUpdates = ({
   });
 
   return (
-    <>
+    <div className={styles.body}>
       <div className={styles.container}>
         <ul className={styles.bar}>
           <h1 className={styles.countdata}>
@@ -119,7 +119,7 @@ const CampaignDetailsDonateUpdates = ({
           </button>
         ) : null}
       </div>
-    </>
+    </div>
   );
 };
 
