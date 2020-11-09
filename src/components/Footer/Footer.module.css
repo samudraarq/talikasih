@@ -105,8 +105,11 @@
     flex-direction: column;
   }
 
+  .footerLink {
+    margin-top: 1rem;
+  }
+
   .footerLink:not(:last-of-type) {
     border-bottom: 1px solid #e1e0e0;
-    margin-top: 1rem;
   }
 }
