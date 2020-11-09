@@ -7,6 +7,7 @@ import openQuote from "../../../assets/homepage/Home/openQuote.svg";
 import closeQuote from "../../../assets/homepage/Home/closeQuote.svg";
 import SkeletonTrending from "../../Skeleton/SkeletonTrending";
 import { Link } from "react-router-dom";
+import Container from "../../UI/Container";
 
 // import trendingImage from "../../../assets/homepage/Home/Rectangle 33.png";
 // import fundraiser from "../../../assets/homepage/Home/Rectangle 37.png";
@@ -23,7 +24,7 @@ const Trending = ({ trendingCampaign, getTrendingCampaign }) => {
       {trendingCampaign.loading ? (
         <SkeletonTrending />
       ) : (
-        <div className={styles.container}>
+        <Container>
           <h3 className={styles.segmentTitle}>Trending Topic</h3>
           <h2 className={styles.topicTitle}>{trending?.title}</h2>
           <div className={styles.content}>
@@ -70,7 +71,7 @@ const Trending = ({ trendingCampaign, getTrendingCampaign }) => {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       )}
     </>
   );
