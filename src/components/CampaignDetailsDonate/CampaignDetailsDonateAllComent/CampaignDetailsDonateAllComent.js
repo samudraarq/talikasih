@@ -43,6 +43,7 @@ const CampaignDetailsDonateAllComent = (dataDonorAll) => {
     }
   );
   return (
+    <div className={styles.body}>
     <div className={styles.container}>
       <div className={styles.wrapper}>
     
@@ -56,6 +57,7 @@ const CampaignDetailsDonateAllComent = (dataDonorAll) => {
             
 
       </div>
+    </div>
     </div>
   );
 };

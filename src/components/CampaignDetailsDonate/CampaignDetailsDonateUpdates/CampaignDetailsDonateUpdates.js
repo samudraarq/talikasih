@@ -17,10 +17,11 @@ const CampaignDetailsDonateUpdates = ({
   const handleClick = () => {
     setPage(page + 1);
     getDonationStoryLoadMore(idDonate, page);
-  };
-  const sortedActivities = dataDonorAll?.dataDonateStory;
-  let pageLimit = dataDonorAll?.dataDonateStory?.total_page;
 
+  };
+  let pageLimit = dataDonorAll?.dataDonateStory?.total_page;
+  const sortedActivities = dataDonorAll?.dataDonateStory?.Campaign_Logs;
+  
   const UserAllStory = sortedActivities?.reverse().map((item, index) => {
     // count Day left
     let now = moment(new Date()); //todays date
@@ -59,7 +60,7 @@ const CampaignDetailsDonateUpdates = ({
                   value={item.ammount}
                   displayType={"text"}
                   thousandSeparator={true}
-                  prefix={"IDR."}
+                  prefix={"Rp."}
                 />
               </h2>
               <p dangerouslySetInnerHTML={{ __html: item.content }}></p>
@@ -109,16 +110,18 @@ const CampaignDetailsDonateUpdates = ({
             UserAllStory
           )}
         </ul>
-      </div>
-      <div className={styles.btnwrap}>
+        <div className={styles.btnwrap}>
         {/* button di taruh fungsi untuk menganti max slice */}
-
-        {page > pageLimit ? (
+{/* {console.log(pageLimit)}
+{console.log(page)} */}
+        {page < pageLimit ? (
           <button onClick={handleClick} className={styles.btnLoadmore}>
-            More
+          Load  More
           </button>
         ) : null}
       </div>
+      </div>
+      
     </div>
   );
 };

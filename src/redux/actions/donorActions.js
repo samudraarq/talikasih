@@ -56,7 +56,8 @@ export const getDonationStory = (idDonate) => {
       .then(function (response) {
         dispatch({
           type: GET_DONATION_STORY,
-          data: response.data.Campaign_Logs,
+          data: response.data,
+          
         });
       })
       .catch(function (error) {

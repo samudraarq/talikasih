@@ -37,7 +37,7 @@ const CampaignDetailsDonateDonation = (dataDonorAll) => {
                         value={item.amount}
                         displayType={"text"}
                         thousandSeparator={true}
-                        prefix={"IDR."}
+                        prefix={"Rp."}
                     />
                      
                      </h3>
@@ -59,9 +59,9 @@ const CampaignDetailsDonateDonation = (dataDonorAll) => {
     
 
     return (
-
+      <div className={styles.body}>
         <div className={styles.container}>          
-        <h1>Donation ({UserAllDonate.length})</h1>
+        <h1>Donation ({isiDonate})</h1>
         <div className={styles.wrapper}>
             {/* looping bagian ini */}
             {UserAllDonate}
@@ -79,6 +79,7 @@ const CampaignDetailsDonateDonation = (dataDonorAll) => {
              
 
             </div>
+        </div>
         </div>
     )
 }

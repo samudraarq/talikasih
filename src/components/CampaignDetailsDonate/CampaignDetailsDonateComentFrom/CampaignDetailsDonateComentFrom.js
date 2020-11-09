@@ -41,6 +41,7 @@ import { useParams } from "react-router-dom";
     
 
   return (
+    <div className={styles.body}>
     <div className={styles.container}>
       <h1>Comments ({jumlahkomen.length})</h1>
        <form onSubmit={handleSubmit(onSubmit)}>
@@ -50,6 +51,7 @@ import { useParams } from "react-router-dom";
           <button className={styles.btnpost}>POST</button>
         </div>
       </form>
+    </div>
     </div>
   );
 };
