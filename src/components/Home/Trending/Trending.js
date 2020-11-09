@@ -45,7 +45,10 @@ const Trending = ({ trendingCampaign, getTrendingCampaign }) => {
                   alt="openQuote"
                   className={styles.openQuote}
                 />
-                <p className={styles.quoteText}>{trending?.story}</p>
+                <p
+                  className={styles.quoteText}
+                  dangerouslySetInnerHTML={{ __html: trending?.story }}
+                ></p>
                 <img
                   src={closeQuote}
                   alt="closeQuote"
