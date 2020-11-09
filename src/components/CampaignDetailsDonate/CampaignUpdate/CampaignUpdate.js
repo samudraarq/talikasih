@@ -85,11 +85,11 @@ function CampaignUpdate({ auth, requestClose, dataDonorAll }) {
       </div>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.type}>
-          <div onClick={() => setOpenAmount(false)}>
+          <div onClick={() => setOpenAmount(false)} className={styles.options}>
             <input type="radio" name="type" id="update" />
             <label htmlFor="update"> Recipient update</label>
           </div>
-          <div onClick={() => setOpenAmount(true)}>
+          <div onClick={() => setOpenAmount(true)} className={styles.options}>
             <input type="radio" name="type" id="withdraw" />
             <label htmlFor="withdraw"> Fund withdrawal</label>
           </div>
