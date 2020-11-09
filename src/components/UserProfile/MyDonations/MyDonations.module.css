@@ -35,6 +35,10 @@
   outline: none;
 }
 
+.loadBtn:hover {
+  background: #d7ebee;
+}
+
 @media only screen and (max-width: 530px) {
   .donations {
     grid-template-columns: 1fr;
