@@ -377,3 +377,40 @@ export const getUserCampaign = (token) => {
       });
   };
 };
+
+export const googleSignin = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios(
+        "https://warm-tundra-23736.herokuapp.com/google"
+      );
+      console.log(response.data);
+      dispatch({
+        type: SET_LOGIN,
+        token: response.data.token,
+      });
+
+      localStorage.setItem("token", response.data.token);
+      const config = {
+        method: "get",
+        url: "https://warm-tundra-23736.herokuapp.com/formuser",
+        headers: {
+          token: response.data.token,
+        },
+      };
+
+      const tokenResponse = await axios(config);
+      console.log(tokenResponse.data);
+      dispatch({
+        type: SET_USER_FROM_TOKEN,
+        user: tokenResponse.data.user,
+      });
+
+      dispatch({
+        type: SET_MODAL_CLOSE,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
