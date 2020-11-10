@@ -11,13 +11,18 @@ import environmentIcon from "../../../assets/discover/environment.svg";
 import disasterIcon from "../../../assets/discover/disaster.svg";
 import sociopreneurIcon from "../../../assets/discover/sociopreneur.svg";
 
-const AdminCategorySelect = () => {
+const AdminCategorySelect = ({ setCategoryId, categoryId }) => {
   return (
     <>
       <h2 className={styles.headerText}>Filter by Categories</h2>
       <div>
         <div className={styles.categoriesContainer}>
-          <button to="/discover/category/1" className={styles.categoryBtn}>
+          <button
+            className={`${styles.categoryBtn} ${
+              categoryId === 1 && styles.activeBtn
+            }`}
+            onClick={() => setCategoryId(1)}
+          >
             <img
               src={disabilityIcon}
               alt="disability"
@@ -25,7 +30,12 @@ const AdminCategorySelect = () => {
             />
             <p className={styles.categoryText}>Disability</p>
           </button>
-          <button to="/discover/category/2" className={styles.categoryBtn}>
+          <button
+            className={`${styles.categoryBtn} ${
+              categoryId === 2 && styles.activeBtn
+            }`}
+            onClick={() => setCategoryId(2)}
+          >
             <img
               src={medicalIcon}
               alt="medical"
@@ -33,7 +43,12 @@ const AdminCategorySelect = () => {
             />
             <p className={styles.categoryText}>Medical</p>
           </button>
-          <button to="/discover/category/3" className={styles.categoryBtn}>
+          <button
+            className={`${styles.categoryBtn} ${
+              categoryId === 3 && styles.activeBtn
+            }`}
+            onClick={() => setCategoryId(3)}
+          >
             <img
               src={educationIcon}
               alt="education"
@@ -41,7 +56,12 @@ const AdminCategorySelect = () => {
             />
             <p className={styles.categoryText}>Education</p>
           </button>
-          <button to="/discover/category/4" className={styles.categoryBtn}>
+          <button
+            className={`${styles.categoryBtn} ${
+              categoryId === 4 && styles.activeBtn
+            }`}
+            onClick={() => setCategoryId(4)}
+          >
             <img
               src={religiousIcon}
               alt="religious"
@@ -49,7 +69,12 @@ const AdminCategorySelect = () => {
             />
             <p className={styles.categoryText}>Religious</p>
           </button>
-          <button to="/discover/category/5" className={styles.categoryBtn}>
+          <button
+            className={`${styles.categoryBtn} ${
+              categoryId === 5 && styles.activeBtn
+            }`}
+            onClick={() => setCategoryId(5)}
+          >
             <img
               src={humanityIcon}
               alt="humanity"
@@ -57,7 +82,12 @@ const AdminCategorySelect = () => {
             />
             <p className={styles.categoryText}>Humanity</p>
           </button>
-          <button to="/discover/category/6" className={styles.categoryBtn}>
+          <button
+            className={`${styles.categoryBtn} ${
+              categoryId === 6 && styles.activeBtn
+            }`}
+            onClick={() => setCategoryId(6)}
+          >
             <img
               src={environmentIcon}
               alt="environment"
@@ -65,7 +95,12 @@ const AdminCategorySelect = () => {
             />
             <p className={styles.categoryText}>Environment</p>
           </button>
-          <button to="/discover/category/7" className={styles.categoryBtn}>
+          <button
+            className={`${styles.categoryBtn} ${
+              categoryId === 7 && styles.activeBtn
+            }`}
+            onClick={() => setCategoryId(7)}
+          >
             <img
               src={disasterIcon}
               alt="disaster"
@@ -73,7 +108,12 @@ const AdminCategorySelect = () => {
             />
             <p className={styles.categoryText}>Disaster</p>
           </button>
-          <button to="/discover/category/8" className={styles.categoryBtn}>
+          <button
+            className={`${styles.categoryBtn} ${
+              categoryId === 8 && styles.activeBtn
+            }`}
+            onClick={() => setCategoryId(8)}
+          >
             <img
               src={sociopreneurIcon}
               alt="sociopreneur"
