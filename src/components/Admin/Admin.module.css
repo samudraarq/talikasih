@@ -1,0 +1,37 @@
+.container {
+  margin-top: 8.6rem;
+  margin-bottom: 30rem;
+}
+
+.campaignsContainer {
+  border: 1px solid #e1e0e0;
+  border-radius: 4px;
+  padding: 3rem 2.4rem 7.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h3 {
+  color: #1d94a8;
+  font-size: 1.8rem;
+}
+
+.table {
+  margin-top: 8rem;
+}
+
+.pagination {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination p {
+  font-size: 1.4rem;
+  color: #80848d;
+}
