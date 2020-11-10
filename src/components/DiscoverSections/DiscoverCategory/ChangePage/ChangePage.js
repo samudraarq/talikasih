@@ -5,8 +5,7 @@ import styles from "./ChangePage.module.css";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
-
-const ChangePage = ({ maxPage, pageChange }) => {
+const ChangePage = ({ maxPage, pageChange, page }) => {
   return (
     <div className={styles.pageContainer}>
       <ReactPaginate
@@ -18,6 +17,7 @@ const ChangePage = ({ maxPage, pageChange }) => {
         onPageChange={pageChange}
         containerClassName={styles.pagination}
         activeClassName={styles.active}
+        forcePage={page - 1}
       />
     </div>
   );
