@@ -48,6 +48,10 @@ const DiscoverCategory = ({
     page,
   ]);
 
+  useEffect(() => {
+    setPage(1);
+  }, [location]);
+
   const pageChange = (e) => {
     const selectedPage = e.selected + 1;
     // console.log(selectedPage);
@@ -67,6 +71,7 @@ const DiscoverCategory = ({
             <ChangePage
               maxPage={categoryCampaign.totalPages}
               pageChange={pageChange}
+              page={page}
             />
           </>
         )}
