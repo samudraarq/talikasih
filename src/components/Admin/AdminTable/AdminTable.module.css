@@ -1,0 +1,17 @@
+.thContainer {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr) 10rem;
+}
+
+.thContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  font-size: 1.4rem;
+  color: #80848d;
+}
+
+.thContent img {
+  cursor: pointer;
+}

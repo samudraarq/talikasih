@@ -5,6 +5,7 @@ import styles from "./Admin.module.css";
 import Container from "../UI/Container";
 import AdminCategorySelect from "./AdminCategorySelect/AdminCategorySelect";
 import AdminSearch from "./AdminSearch/AdminSearch";
+import AdminTable from "./AdminTable/AdminTable";
 
 const Admin = () => {
   const [categoryId, setCategoryId] = useState("");
@@ -24,7 +25,9 @@ const Admin = () => {
             <h3>All Campaigns</h3>
             <AdminSearch setSearch={setSearch} />
           </div>
-          <div className={styles.table}></div>
+          <div className={styles.table}>
+            <AdminTable />
+          </div>
         </div>
       </div>
     </Container>
