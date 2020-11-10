@@ -72,3 +72,13 @@
   text-align: right;
   cursor: pointer;
 }
+
+/* status icon */
+.finished {
+  color: #1d94a8;
+}
+
+.rejected,
+.deleted {
+  color: #a43f3c;
+}

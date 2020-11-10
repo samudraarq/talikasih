@@ -18,10 +18,6 @@ const Admin = ({ auth }) => {
   const [totalData, setTotalData] = useState(0);
   const [campaigns, setCampaigns] = useState([]);
 
-  // console.log("category", categoryId);
-  // console.log("search", search);
-  // console.log("sort", sort);
-
   useEffect(() => {
     if (categoryId === "" && search === "" && sort === "") {
       axios

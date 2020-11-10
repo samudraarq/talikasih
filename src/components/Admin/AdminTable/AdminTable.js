@@ -21,10 +21,32 @@ const AdminTable = ({ setSort, campaigns, setSearch }) => {
           <p className={styles.subtitle}>by Aksi Cepat Tanggap</p>
         </div>
         <div className={styles.tdContent}>
-          <div className={styles.status}>
-            <img src={openIcon} alt="open" />
-            <p className={styles.statusName}>Open</p>
-          </div>
+          {campaign.StatId === 1 ? (
+            <div className={`${styles.status} ${styles.pending}`}>
+              <img src={pendingIcon} alt="pending" />
+              <p className={styles.statusName}>Pending</p>
+            </div>
+          ) : campaign.StatId === 2 ? (
+            <div className={`${styles.status} ${styles.open}`}>
+              <img src={openIcon} alt="open" />
+              <p className={styles.statusName}>Open</p>
+            </div>
+          ) : campaign.StatId === 3 ? (
+            <div className={`${styles.status} ${styles.finished}`}>
+              <img src={finishedIcon} alt="finished" />
+              <p className={styles.statusName}>Finished</p>
+            </div>
+          ) : campaign.StatId === 4 ? (
+            <div className={`${styles.status} ${styles.rejected}`}>
+              <img src={rejectedIcon} alt="rejected" />
+              <p className={styles.statusName}>Rejected</p>
+            </div>
+          ) : (
+            <div className={`${styles.status} ${styles.deleted}`}>
+              <img src={rejectedIcon} alt="deleted" />
+              <p className={styles.statusName}>Deleted</p>
+            </div>
+          )}
         </div>
         <div className={styles.tdContent}>
           <p className={styles.amount}>
