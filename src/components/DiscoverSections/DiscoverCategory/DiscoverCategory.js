@@ -48,6 +48,10 @@ const DiscoverCategory = ({
     page,
   ]);
 
+  useEffect(() => {
+    setPage(1);
+  }, [location]);
+
   const pageChange = (e) => {
     const selectedPage = e.selected + 1;
     // console.log(selectedPage);
