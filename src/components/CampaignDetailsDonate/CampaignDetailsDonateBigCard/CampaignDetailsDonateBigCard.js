@@ -147,7 +147,8 @@ const CampaignDetailsDonateBigCard = ({
           <img src={dataDonorAll.dataDonate.header_img} alt="user3"></img>
         </div>
         <div className={styles.cardKanan}>
-          <h1>
+          <h1 >
+
             <NumberFormat
               value={dataDonorAll.dataDonate.raised}
               displayType={"text"}
@@ -155,16 +156,14 @@ const CampaignDetailsDonateBigCard = ({
               prefix={"IDR "}
             />
           </h1>
-          <h4>
+          <h4 className={styles.goal}>
             from 
             <NumberFormat className={styles.goal}
               value={dataDonorAll.dataDonate.goal}
               displayType={"text"}
               thousandSeparator={true}
               prefix={" IDR "}
-              
             />   
-              goal
           </h4>
           <div className={styles.progress}>
             <div
@@ -182,7 +181,7 @@ const CampaignDetailsDonateBigCard = ({
               value={lebih}
               displayType={"text"}
               thousandSeparator={true}
-              prefix={"  IDR "}
+              prefix={"additional donation amount :  IDR "}
               decimalScale={0}
             />
             </h3>
@@ -197,11 +196,6 @@ const CampaignDetailsDonateBigCard = ({
             <div className={styles.profilName}>
               <h3>{dataDonorAll.dataDonate?.User?.name}</h3>
               <h4>Fundraiser</h4>
-              {userSama ? (
-                <span className={styles.cekStatus}>Check status</span>
-              ) : (
-                ""
-              )}
             </div>
             </div>
             <div className={styles.dataCount}>

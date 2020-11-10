@@ -52,7 +52,7 @@ const CampaignDetailsDonateAllComent = (dataDonorAll) => {
       </div>
       <div className={styles.btnwrap}>
         {/* button di taruh fungsi untuk menganti max slice */}
-            {cekisi ===0  ? <h1>Tidak ada Coment</h1> : 
+            {cekisi ===0  ? <h1>No Comment</h1> : 
             loadMoreBol  ? <button onClick={loadMore}  className={styles.btnLoadmore}>LOAD MORE</button>  : <button onClick={loadLess}  className={styles.btnLoadmore}>SHOW LESS</button> } 
             
 
