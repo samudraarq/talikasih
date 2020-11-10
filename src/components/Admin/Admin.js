@@ -18,6 +18,7 @@ const Admin = ({ auth }) => {
   const [maxPage, setMaxPage] = useState(1);
   const [totalData, setTotalData] = useState(0);
   const [campaigns, setCampaigns] = useState([]);
+  const [updateCounter, setUpdateCounter] = useState(1);
 
   useEffect(() => {
     if (categoryId !== "" && search === "" && sort === "") {
@@ -84,7 +85,7 @@ const Admin = ({ auth }) => {
         })
         .catch((err) => console.log(err));
     }
-  }, [categoryId, search, sort, page, auth]);
+  }, [categoryId, search, sort, page, auth, updateCounter]);
 
   return (
     <Container>
@@ -111,6 +112,8 @@ const Admin = ({ auth }) => {
               campaigns={campaigns}
               setSearch={setSearch}
               setPage={setPage}
+              setUpdateCounter={setUpdateCounter}
+              updateCounter={updateCounter}
             />
           </div>
           <div className={styles.pagination}>

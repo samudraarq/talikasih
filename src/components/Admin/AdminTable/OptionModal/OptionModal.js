@@ -7,7 +7,7 @@ import styles from "./OptionModal.module.css";
 import optionIcon from "../../../../assets/admin/options.svg";
 import downIcon from "../../../../assets/admin/downarrow.svg";
 
-const OptionModal = ({ campaign, auth }) => {
+const OptionModal = ({ campaign, auth, setUpdateCounter, updateCounter }) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const handleClick = () => {
@@ -32,7 +32,10 @@ const OptionModal = ({ campaign, auth }) => {
         },
       };
       axios(config)
-        .then((res) => console.log(res.data))
+        .then((res) => {
+          console.log(res.data);
+          setUpdateCounter(updateCounter + 1);
+        })
         .catch((err) => console.log(err));
     } else if (e.target.id === "reject") {
       const config = {
@@ -43,7 +46,10 @@ const OptionModal = ({ campaign, auth }) => {
         },
       };
       axios(config)
-        .then((res) => console.log(res.data))
+        .then((res) => {
+          console.log(res.data);
+          setUpdateCounter(updateCounter + 1);
+        })
         .catch((err) => console.log(err));
     } else if (e.target.id === "delete") {
       const config = {
@@ -54,7 +60,10 @@ const OptionModal = ({ campaign, auth }) => {
         },
       };
       axios(config)
-        .then((res) => console.log(res.data))
+        .then((res) => {
+          console.log(res.data);
+          setUpdateCounter(updateCounter + 1);
+        })
         .catch((err) => console.log(err));
     }
     handleClose();

@@ -10,7 +10,14 @@ import rejectedIcon from "../../../assets/admin/rejected.svg";
 import trashIcon from "../../../assets/admin/trash.svg";
 import OptionModal from "./OptionModal/OptionModal";
 
-const AdminTable = ({ setSort, campaigns, setSearch, setPage }) => {
+const AdminTable = ({
+  setSort,
+  campaigns,
+  setSearch,
+  setPage,
+  setUpdateCounter,
+  updateCounter,
+}) => {
   let renderTableData;
 
   if (campaigns && campaigns.length > 0) {
@@ -62,7 +69,11 @@ const AdminTable = ({ setSort, campaigns, setSearch, setPage }) => {
           <p className={styles.updateName}>Recipient Updates</p>
         </div>
         <div className={styles.tdContent}>
-          <OptionModal campaign={campaign} />
+          <OptionModal
+            campaign={campaign}
+            setUpdateCounter={setUpdateCounter}
+            updateCounter={updateCounter}
+          />
         </div>
       </div>
     ));
