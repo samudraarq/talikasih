@@ -45,6 +45,17 @@ const OptionModal = ({ campaign, auth }) => {
       axios(config)
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err));
+    } else if (e.target.id === "delete") {
+      const config = {
+        method: "delete",
+        url: `https://warm-tundra-23736.herokuapp.com/campaign/delete/${campaign.id}`,
+        headers: {
+          token: auth.token,
+        },
+      };
+      axios(config)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
     }
     handleClose();
   };

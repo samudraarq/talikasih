@@ -7,6 +7,7 @@ import openIcon from "../../../assets/admin/open.svg";
 import pendingIcon from "../../../assets/admin/pending.svg";
 import finishedIcon from "../../../assets/admin/finished.svg";
 import rejectedIcon from "../../../assets/admin/rejected.svg";
+import trashIcon from "../../../assets/admin/trash.svg";
 import OptionModal from "./OptionModal/OptionModal";
 
 const AdminTable = ({ setSort, campaigns, setSearch, setPage }) => {
@@ -42,7 +43,7 @@ const AdminTable = ({ setSort, campaigns, setSearch, setPage }) => {
             </div>
           ) : (
             <div className={`${styles.status} ${styles.deleted}`}>
-              <img src={rejectedIcon} alt="deleted" />
+              <img src={trashIcon} alt="deleted" />
               <p className={styles.statusName}>Deleted</p>
             </div>
           )}
