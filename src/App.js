@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import Donate from "./pages/Donate/Donate";
 import { useEffect } from "react";
 import UserProfilePage from "./pages/UserProfilePage";
+import AdminPage from "./pages/AdminPage";
 
 function App({ setUserPersistanceLogin }) {
   useEffect(() => {
@@ -22,6 +23,9 @@ function App({ setUserPersistanceLogin }) {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/admin">
+          <AdminPage />
+        </Route>
         <Route path="/campaign/create">
           <CampingCreatePage />
         </Route>
