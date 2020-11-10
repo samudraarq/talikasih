@@ -67,6 +67,7 @@ const DiscoverCategory = ({
             <ChangePage
               maxPage={categoryCampaign.totalPages}
               pageChange={pageChange}
+              page={page}
             />
           </>
         )}

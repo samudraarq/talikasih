@@ -70,6 +70,7 @@ const DiscoverSearch = ({
             <ChangePage
               maxPage={searchCampaign.totalPages}
               pageChange={pageChange}
+              page={page}
             />
           </>
         )}
