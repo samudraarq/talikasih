@@ -61,9 +61,7 @@ const AdminTable = ({ setSort, campaigns, setSearch }) => {
           <p className={styles.updateName}>Recipient Updates</p>
         </div>
         <div className={styles.tdContent}>
-          <div className={styles.options}>
-            <OptionModal campaign={campaign} />
-          </div>
+          <OptionModal campaign={campaign} />
         </div>
       </div>
     ));
