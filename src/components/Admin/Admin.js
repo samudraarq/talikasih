@@ -4,9 +4,13 @@ import styles from "./Admin.module.css";
 
 import Container from "../UI/Container";
 import AdminCategorySelect from "./AdminCategorySelect/AdminCategorySelect";
+import AdminSearch from "./AdminSearch/AdminSearch";
 
 const Admin = () => {
   const [categoryId, setCategoryId] = useState("");
+  const [search, setSearch] = useState("");
+
+  console.log(search);
 
   return (
     <Container>
@@ -15,6 +19,13 @@ const Admin = () => {
           setCategoryId={setCategoryId}
           categoryId={categoryId}
         />
+        <div className={styles.campaignsContainer}>
+          <div className={styles.header}>
+            <h3>All Campaigns</h3>
+            <AdminSearch setSearch={setSearch} />
+          </div>
+          <div className={styles.table}></div>
+        </div>
       </div>
     </Container>
   );
