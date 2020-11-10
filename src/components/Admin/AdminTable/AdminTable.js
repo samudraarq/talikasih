@@ -39,20 +39,22 @@ const AdminTable = () => {
           <p className={styles.subtitle}>by Aksi Cepat Tanggap</p>
         </div>
         <div className={styles.tdContent}>
-          <img src={openIcon} alt="open" className={styles.statusIcon} />
-          <p className={styles.statusName}>Open</p>
+          <div className={styles.status}>
+            <img src={openIcon} alt="open" />
+            <p className={styles.statusName}>Open</p>
+          </div>
         </div>
         <div className={styles.tdContent}>
-          <p className={styles.donationAmount}>
+          <p className={styles.amount}>
             IDR {new Intl.NumberFormat("id-ID").format(30000000)}
           </p>
         </div>
         <div className={styles.tdContent}>
-          <p className={styles.updateAmount}>
+          <p className={styles.amount}>
             IDR {new Intl.NumberFormat("id-ID").format(20000000)}
           </p>
           <p className={styles.updateName}>Withdrawal</p>
-          <p className={styles.updateAmount}>4</p>
+          <p className={styles.amount}>4</p>
           <p className={styles.updateName}>Recipient Updates</p>
         </div>
         <div className={styles.tdContent}>
