@@ -28,12 +28,14 @@ const Admin = ({ auth }) => {
           token: auth.token,
         },
       };
-      axios(config).then((res) => {
-        console.log(res.data);
-        setMaxPage(res.data.total_pages);
-        setTotalData(res.data.total_data);
-        setCampaigns(res.data.document);
-      });
+      axios(config)
+        .then((res) => {
+          console.log(res.data);
+          setMaxPage(res.data.total_pages);
+          setTotalData(res.data.total_data);
+          setCampaigns(res.data.document);
+        })
+        .catch((err) => console.log(err));
     } else if (categoryId !== "" && search !== "") {
       setSort("search");
       const config = {
@@ -43,12 +45,14 @@ const Admin = ({ auth }) => {
           token: auth.token,
         },
       };
-      axios(config).then((res) => {
-        console.log(res.data);
-        setMaxPage(res.data.total_pages);
-        setTotalData(res.data.total_data);
-        setCampaigns(res.data.document);
-      });
+      axios(config)
+        .then((res) => {
+          console.log(res.data);
+          setMaxPage(res.data.total_pages);
+          setTotalData(res.data.total_data);
+          setCampaigns(res.data.document);
+        })
+        .catch((err) => console.log(err));
     } else if (categoryId !== "" && sort !== "" && sort !== "search") {
       const config = {
         method: "get",
@@ -57,12 +61,14 @@ const Admin = ({ auth }) => {
           token: auth.token,
         },
       };
-      axios(config).then((res) => {
-        console.log(res.data);
-        setMaxPage(res.data.total_pages);
-        setTotalData(res.data.total_data);
-        setCampaigns(res.data.document);
-      });
+      axios(config)
+        .then((res) => {
+          console.log(res.data);
+          setMaxPage(res.data.total_pages);
+          setTotalData(res.data.total_data);
+          setCampaigns(res.data.document);
+        })
+        .catch((err) => console.log(err));
     } else {
       setSearch("");
       setSort("");
@@ -75,7 +81,8 @@ const Admin = ({ auth }) => {
           setMaxPage(res.data.total_pages);
           setTotalData(res.data.total_data);
           setCampaigns(res.data.document);
-        });
+        })
+        .catch((err) => console.log(err));
     }
   }, [categoryId, search, sort, page, auth]);
 
