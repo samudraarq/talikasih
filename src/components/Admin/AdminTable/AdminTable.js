@@ -10,32 +10,14 @@ import rejectedIcon from "../../../assets/admin/rejected.svg";
 import optionIcon from "../../../assets/admin/options.svg";
 import downIcon from "../../../assets/admin/downarrow.svg";
 
-const AdminTable = () => {
-  return (
-    <>
-      <div className={styles.thContainer}>
-        <div className={styles.thContent}>
-          <p>Title</p>
-          <img src={sortBtn} alt="sort" />
-        </div>
-        <div className={styles.thContent}>
-          <p>Status</p>
-          <img src={sortBtn} alt="sort" />
-        </div>
-        <div className={styles.thContent}>
-          <p>Donation</p>
-          <img src={sortBtn} alt="sort" />
-        </div>
-        <div className={styles.thContent}>
-          <p>Updates</p>
-          <img src={sortBtn} alt="sort" />
-        </div>
-      </div>
-      <div className={styles.tdRow}>
+const AdminTable = ({ setSort, campaigns, setSearch }) => {
+  let renderTableData;
+
+  if (campaigns && campaigns.length > 0) {
+    renderTableData = campaigns.map((campaign) => (
+      <div className={styles.tdRow} key={campaign.id}>
         <div className={styles.tdContent}>
-          <p className={styles.title}>
-            Aid for necessary items to help our country
-          </p>
+          <p className={styles.title}>{campaign.title}</p>
           <p className={styles.subtitle}>by Aksi Cepat Tanggap</p>
         </div>
         <div className={styles.tdContent}>
@@ -46,15 +28,15 @@ const AdminTable = () => {
         </div>
         <div className={styles.tdContent}>
           <p className={styles.amount}>
-            IDR {new Intl.NumberFormat("id-ID").format(30000000)}
+            IDR {new Intl.NumberFormat("id-ID").format(campaign.goal)}
           </p>
         </div>
         <div className={styles.tdContent}>
           <p className={styles.amount}>
-            IDR {new Intl.NumberFormat("id-ID").format(20000000)}
+            IDR {new Intl.NumberFormat("id-ID").format(campaign.raised)}
           </p>
           <p className={styles.updateName}>Withdrawal</p>
-          <p className={styles.amount}>4</p>
+          <p className={styles.amount}>{campaign.donationCount}</p>
           <p className={styles.updateName}>Recipient Updates</p>
         </div>
         <div className={styles.tdContent}>
@@ -64,6 +46,58 @@ const AdminTable = () => {
           </div>
         </div>
       </div>
+    ));
+  }
+
+  return (
+    <>
+      <div className={styles.thContainer}>
+        <div className={styles.thContent}>
+          <p>Title</p>
+          <img
+            src={sortBtn}
+            alt="sort"
+            onClick={() => {
+              setSort("title");
+              setSearch("");
+            }}
+          />
+        </div>
+        <div className={styles.thContent}>
+          <p>Status</p>
+          <img
+            src={sortBtn}
+            alt="sort"
+            onClick={() => {
+              setSort("status");
+              setSearch("");
+            }}
+          />
+        </div>
+        <div className={styles.thContent}>
+          <p>Donation</p>
+          <img
+            src={sortBtn}
+            alt="sort"
+            onClick={() => {
+              setSort("donations");
+              setSearch("");
+            }}
+          />
+        </div>
+        <div className={styles.thContent}>
+          <p>Updates</p>
+          <img
+            src={sortBtn}
+            alt="sort"
+            onClick={() => {
+              setSort("updates");
+              setSearch("");
+            }}
+          />
+        </div>
+      </div>
+      {renderTableData}
     </>
   );
 };

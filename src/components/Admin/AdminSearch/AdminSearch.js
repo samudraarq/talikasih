@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./AdminSearch.module.css";
 
-const AdminSearch = ({ setSearch }) => {
+const AdminSearch = ({ setSearch, search }) => {
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
@@ -13,6 +13,7 @@ const AdminSearch = ({ setSearch }) => {
       className={styles.input}
       placeholder="Search"
       onChange={handleChange}
+      value={search}
     />
   );
 };
