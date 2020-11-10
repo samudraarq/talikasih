@@ -68,11 +68,6 @@
   margin-bottom: 1.2rem;
 }
 
-.options {
-  text-align: right;
-  cursor: pointer;
-}
-
 /* status icon */
 .finished {
   color: #1d94a8;

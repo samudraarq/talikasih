@@ -7,8 +7,7 @@ import openIcon from "../../../assets/admin/open.svg";
 import pendingIcon from "../../../assets/admin/pending.svg";
 import finishedIcon from "../../../assets/admin/finished.svg";
 import rejectedIcon from "../../../assets/admin/rejected.svg";
-import optionIcon from "../../../assets/admin/options.svg";
-import downIcon from "../../../assets/admin/downarrow.svg";
+import OptionModal from "./OptionModal/OptionModal";
 
 const AdminTable = ({ setSort, campaigns, setSearch }) => {
   let renderTableData;
@@ -63,8 +62,7 @@ const AdminTable = ({ setSort, campaigns, setSearch }) => {
         </div>
         <div className={styles.tdContent}>
           <div className={styles.options}>
-            <img src={optionIcon} alt="option" />
-            <img src={downIcon} alt="down" />
+            <OptionModal campaign={campaign} />
           </div>
         </div>
       </div>
