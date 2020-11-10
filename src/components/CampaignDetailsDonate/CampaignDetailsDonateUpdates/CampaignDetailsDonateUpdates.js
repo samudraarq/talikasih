@@ -30,8 +30,6 @@ const CampaignDetailsDonateUpdates = ({
     let days = duration.asDays();
     let dayleft = Math.abs(parseInt(days));
     let hari = "";
-    // count day left en
-    // console.log(dayleft);
     // hendel dia whitdraw atau coment
     if (item.StatusId === 1) {
       // hendel today yesterday
@@ -111,9 +109,6 @@ const CampaignDetailsDonateUpdates = ({
           )}
         </ul>
         <div className={styles.btnwrap}>
-          {/* button di taruh fungsi untuk menganti max slice */}
-          {/* {console.log(pageLimit)}
-{console.log(page)} */}
           {page < pageLimit ? (
             <button onClick={handleClick} className={styles.btnLoadmore}>
               Load More
