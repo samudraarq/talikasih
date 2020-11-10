@@ -97,6 +97,9 @@ const Admin = ({ auth }) => {
               setSearch={setSearch}
             />
           </div>
+          <div className={styles.pagination}>
+            <p>Showing {totalData} entries </p>
+          </div>
         </div>
       </div>
     </Container>

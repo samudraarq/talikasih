@@ -23,3 +23,15 @@
 .table {
   margin-top: 8rem;
 }
+
+.pagination {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination p {
+  font-size: 1.4rem;
+  color: #80848d;
+}
