@@ -2,12 +2,13 @@ import React from "react";
 import Shimmer from "./Shimmer";
 import styles from "./Skeleton.module.css";
 import SkeletonElements from "./SkeletonElements";
+import Container from "../UI/Container";
 
 const SkeletonTrending = () => {
   return (
     <div className={styles.skeletonWrapper}>
       <div className={styles.skeletonCard}>
-        <div className={styles.container}>
+        <Container>
           <h3 className={styles.segmentTitle}>Trending Topic</h3>
           <SkeletonElements type="title" />
           <div className={styles.content}>
@@ -27,7 +28,7 @@ const SkeletonTrending = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
       <Shimmer />
     </div>

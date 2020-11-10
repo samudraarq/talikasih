@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  line-height: 2.4rem;
 }
 
 .category {
@@ -38,6 +39,13 @@
   margin-top: 2rem;
   font-weight: 700;
   font-size: 1.8rem;
+
+  /* line-clamping */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 7rem;
+  overflow: hidden;
 }
 
 .subtitle {
