@@ -42,7 +42,7 @@ const CampaignDetailsDonateDonation = (dataDonorAll) => {
                      
                      </h3>
                     <br></br>
-                     <h5>{item?.User?.Name}</h5>
+                     <h5>{item?.User?.name}</h5>
                     <p>{moment(item.createdAt).fromNow()}</p>
                     </div>
                 </div>

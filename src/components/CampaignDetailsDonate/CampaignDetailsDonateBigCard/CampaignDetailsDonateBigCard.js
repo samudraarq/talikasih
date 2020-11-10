@@ -156,12 +156,15 @@ const CampaignDetailsDonateBigCard = ({
             />
           </h1>
           <h4>
+            from 
             <NumberFormat className={styles.goal}
               value={dataDonorAll.dataDonate.goal}
               displayType={"text"}
               thousandSeparator={true}
-              prefix={"IDR "}
-            />
+              prefix={" IDR "}
+              
+            />   
+              goal
           </h4>
           <div className={styles.progress}>
             <div
@@ -220,7 +223,7 @@ const CampaignDetailsDonateBigCard = ({
               onClick={openModalShare }
               className={styles.btnShare}
             >
-              Share
+              SHARE
             </button>
 
             {userSama ? (
@@ -229,11 +232,11 @@ const CampaignDetailsDonateBigCard = ({
               </button>
             ) : token === "" ? (
               <button onClick={openModalLogin} className={styles.btnDonate}>
-                Donate
+                DONATE
               </button>
             ) : (
               <Link to={`/donate/${dataDonorAll.dataDonate.id}`}>
-                <button className={styles.btnDonate}>Donate</button>
+                <button className={styles.btnDonate}>DONATE</button>
               </Link>
             )}
 

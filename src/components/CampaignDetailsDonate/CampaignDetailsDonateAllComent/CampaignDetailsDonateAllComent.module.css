@@ -48,27 +48,47 @@
     max-width: 120rem;
     margin: 0rem auto 10rem auto;
     height: 100%;
+    padding: 3rem;
     display: flex;
     justify-content: right;
     align-items: right;
     flex-direction: column;
+    border: 1px solid #E1E0E0;
+    border-top: none;
+    box-sizing: border-box;
+    border-radius: 4px;
   }
 
   .wrapper {
     /* background-color: crimson */
-    margin-top: 4rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 4rem;
   }
 
+  .card:nth-child(even) {
+    /* background-color: crimson */
+    background: rgba(241, 237, 228, 0.2);
+    border: 1px solid #E1E0E0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .card:first-child{
+
+    border-top: 1px solid #E1E0E0;
+  }
   
 
   .card{
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: 1rem;
+
+  background: #FFFFFF;
     /* border: darkblue solid 1px; */
   }
 
