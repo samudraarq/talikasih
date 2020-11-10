@@ -35,7 +35,6 @@ const Admin = ({ auth }) => {
         setCampaigns(res.data.document);
       });
     } else if (categoryId !== "" && search !== "") {
-      console.log("searching");
       setSort("search");
       const config = {
         method: "get",
@@ -51,7 +50,6 @@ const Admin = ({ auth }) => {
         setCampaigns(res.data.document);
       });
     } else if (categoryId !== "" && sort !== "" && sort !== "search") {
-      console.log("sorting");
       const config = {
         method: "get",
         url: `https://warm-tundra-23736.herokuapp.com/discover/admin?page=${page}&CategoryId=${categoryId}&filter=${sort}`,
@@ -88,6 +86,8 @@ const Admin = ({ auth }) => {
           setCategoryId={setCategoryId}
           categoryId={categoryId}
           setPage={setPage}
+          setSearch={setSearch}
+          setSort={setSort}
         />
         <div className={styles.campaignsContainer}>
           <div className={styles.header}>

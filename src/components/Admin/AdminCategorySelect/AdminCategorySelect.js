@@ -11,7 +11,13 @@ import environmentIcon from "../../../assets/discover/environment.svg";
 import disasterIcon from "../../../assets/discover/disaster.svg";
 import sociopreneurIcon from "../../../assets/discover/sociopreneur.svg";
 
-const AdminCategorySelect = ({ setCategoryId, categoryId, setPage }) => {
+const AdminCategorySelect = ({
+  setCategoryId,
+  categoryId,
+  setPage,
+  setSearch,
+  setSort,
+}) => {
   return (
     <>
       <h2 className={styles.headerText}>Filter by Categories</h2>
@@ -24,6 +30,8 @@ const AdminCategorySelect = ({ setCategoryId, categoryId, setPage }) => {
             onClick={() => {
               setCategoryId(1);
               setPage(1);
+              setSearch("");
+              setSort("");
             }}
           >
             <img
@@ -40,6 +48,8 @@ const AdminCategorySelect = ({ setCategoryId, categoryId, setPage }) => {
             onClick={() => {
               setCategoryId(2);
               setPage(1);
+              setSearch("");
+              setSort("");
             }}
           >
             <img
@@ -56,6 +66,8 @@ const AdminCategorySelect = ({ setCategoryId, categoryId, setPage }) => {
             onClick={() => {
               setCategoryId(3);
               setPage(1);
+              setSearch("");
+              setSort("");
             }}
           >
             <img
@@ -72,6 +84,8 @@ const AdminCategorySelect = ({ setCategoryId, categoryId, setPage }) => {
             onClick={() => {
               setCategoryId(4);
               setPage(1);
+              setSearch("");
+              setSort("");
             }}
           >
             <img
@@ -88,6 +102,8 @@ const AdminCategorySelect = ({ setCategoryId, categoryId, setPage }) => {
             onClick={() => {
               setCategoryId(5);
               setPage(1);
+              setSearch("");
+              setSort("");
             }}
           >
             <img
@@ -104,6 +120,8 @@ const AdminCategorySelect = ({ setCategoryId, categoryId, setPage }) => {
             onClick={() => {
               setCategoryId(6);
               setPage(1);
+              setSearch("");
+              setSort("");
             }}
           >
             <img
@@ -120,6 +138,8 @@ const AdminCategorySelect = ({ setCategoryId, categoryId, setPage }) => {
             onClick={() => {
               setCategoryId(7);
               setPage(1);
+              setSearch("");
+              setSort("");
             }}
           >
             <img
@@ -136,6 +156,8 @@ const AdminCategorySelect = ({ setCategoryId, categoryId, setPage }) => {
             onClick={() => {
               setCategoryId(8);
               setPage(1);
+              setSearch("");
+              setSort("");
             }}
           >
             <img
