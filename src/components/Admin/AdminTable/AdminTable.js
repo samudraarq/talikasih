@@ -9,7 +9,7 @@ import finishedIcon from "../../../assets/admin/finished.svg";
 import rejectedIcon from "../../../assets/admin/rejected.svg";
 import OptionModal from "./OptionModal/OptionModal";
 
-const AdminTable = ({ setSort, campaigns, setSearch }) => {
+const AdminTable = ({ setSort, campaigns, setSearch, setPage }) => {
   let renderTableData;
 
   if (campaigns && campaigns.length > 0) {
@@ -78,6 +78,7 @@ const AdminTable = ({ setSort, campaigns, setSearch }) => {
             onClick={() => {
               setSort("title");
               setSearch("");
+              setPage(1);
             }}
           />
         </div>
@@ -89,6 +90,7 @@ const AdminTable = ({ setSort, campaigns, setSearch }) => {
             onClick={() => {
               setSort("status");
               setSearch("");
+              setPage(1);
             }}
           />
         </div>
@@ -100,6 +102,7 @@ const AdminTable = ({ setSort, campaigns, setSearch }) => {
             onClick={() => {
               setSort("donations");
               setSearch("");
+              setPage(1);
             }}
           />
         </div>
@@ -111,6 +114,7 @@ const AdminTable = ({ setSort, campaigns, setSearch }) => {
             onClick={() => {
               setSort("updates");
               setSearch("");
+              setPage(1);
             }}
           />
         </div>

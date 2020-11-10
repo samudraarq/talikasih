@@ -8,6 +8,7 @@ import Container from "../UI/Container";
 import AdminCategorySelect from "./AdminCategorySelect/AdminCategorySelect";
 import AdminSearch from "./AdminSearch/AdminSearch";
 import AdminTable from "./AdminTable/AdminTable";
+import ChangePage from "../DiscoverSections/DiscoverCategory/ChangePage/ChangePage";
 
 const Admin = ({ auth }) => {
   const [categoryId, setCategoryId] = useState("");
@@ -19,18 +20,7 @@ const Admin = ({ auth }) => {
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
-    if (categoryId === "" && search === "" && sort === "") {
-      axios
-        .get(
-          `https://warm-tundra-23736.herokuapp.com/discover/allcampaign/${page}`
-        )
-        .then((res) => {
-          console.log(res.data);
-          setMaxPage(res.data.total_pages);
-          setTotalData(res.data.total_data);
-          setCampaigns(res.data.document);
-        });
-    } else if (categoryId !== "" && search === "" && sort === "") {
+    if (categoryId !== "" && search === "" && sort === "") {
       const config = {
         method: "get",
         url: `https://warm-tundra-23736.herokuapp.com/discover/admin?page=${page}&CategoryId=${categoryId}`,
@@ -75,6 +65,19 @@ const Admin = ({ auth }) => {
         setTotalData(res.data.total_data);
         setCampaigns(res.data.document);
       });
+    } else {
+      setSearch("");
+      setSort("");
+      axios
+        .get(
+          `https://warm-tundra-23736.herokuapp.com/discover/allcampaign/${page}`
+        )
+        .then((res) => {
+          console.log(res.data);
+          setMaxPage(res.data.total_pages);
+          setTotalData(res.data.total_data);
+          setCampaigns(res.data.document);
+        });
     }
   }, [categoryId, search, sort, page, auth]);
 
@@ -84,21 +87,32 @@ const Admin = ({ auth }) => {
         <AdminCategorySelect
           setCategoryId={setCategoryId}
           categoryId={categoryId}
+          setPage={setPage}
         />
         <div className={styles.campaignsContainer}>
           <div className={styles.header}>
             <h3>All Campaigns</h3>
-            <AdminSearch setSearch={setSearch} search={search} />
+            <AdminSearch
+              setSearch={setSearch}
+              search={search}
+              setPage={setPage}
+            />
           </div>
           <div className={styles.table}>
             <AdminTable
               setSort={setSort}
               campaigns={campaigns}
               setSearch={setSearch}
+              setPage={setPage}
             />
           </div>
           <div className={styles.pagination}>
             <p>Showing {totalData} entries </p>
+            <ChangePage
+              maxPage={maxPage}
+              pageChange={(e) => setPage(e.selected + 1)}
+              page={page}
+            />
           </div>
         </div>
       </div>

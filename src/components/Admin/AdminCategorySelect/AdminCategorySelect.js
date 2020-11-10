@@ -11,7 +11,7 @@ import environmentIcon from "../../../assets/discover/environment.svg";
 import disasterIcon from "../../../assets/discover/disaster.svg";
 import sociopreneurIcon from "../../../assets/discover/sociopreneur.svg";
 
-const AdminCategorySelect = ({ setCategoryId, categoryId }) => {
+const AdminCategorySelect = ({ setCategoryId, categoryId, setPage }) => {
   return (
     <>
       <h2 className={styles.headerText}>Filter by Categories</h2>
@@ -21,7 +21,10 @@ const AdminCategorySelect = ({ setCategoryId, categoryId }) => {
             className={`${styles.categoryBtn} ${
               categoryId === 1 && styles.activeBtn
             }`}
-            onClick={() => setCategoryId(1)}
+            onClick={() => {
+              setCategoryId(1);
+              setPage(1);
+            }}
           >
             <img
               src={disabilityIcon}
@@ -34,7 +37,10 @@ const AdminCategorySelect = ({ setCategoryId, categoryId }) => {
             className={`${styles.categoryBtn} ${
               categoryId === 2 && styles.activeBtn
             }`}
-            onClick={() => setCategoryId(2)}
+            onClick={() => {
+              setCategoryId(2);
+              setPage(1);
+            }}
           >
             <img
               src={medicalIcon}
@@ -47,7 +53,10 @@ const AdminCategorySelect = ({ setCategoryId, categoryId }) => {
             className={`${styles.categoryBtn} ${
               categoryId === 3 && styles.activeBtn
             }`}
-            onClick={() => setCategoryId(3)}
+            onClick={() => {
+              setCategoryId(3);
+              setPage(1);
+            }}
           >
             <img
               src={educationIcon}
@@ -60,7 +69,10 @@ const AdminCategorySelect = ({ setCategoryId, categoryId }) => {
             className={`${styles.categoryBtn} ${
               categoryId === 4 && styles.activeBtn
             }`}
-            onClick={() => setCategoryId(4)}
+            onClick={() => {
+              setCategoryId(4);
+              setPage(1);
+            }}
           >
             <img
               src={religiousIcon}
@@ -73,7 +85,10 @@ const AdminCategorySelect = ({ setCategoryId, categoryId }) => {
             className={`${styles.categoryBtn} ${
               categoryId === 5 && styles.activeBtn
             }`}
-            onClick={() => setCategoryId(5)}
+            onClick={() => {
+              setCategoryId(5);
+              setPage(1);
+            }}
           >
             <img
               src={humanityIcon}
@@ -86,7 +101,10 @@ const AdminCategorySelect = ({ setCategoryId, categoryId }) => {
             className={`${styles.categoryBtn} ${
               categoryId === 6 && styles.activeBtn
             }`}
-            onClick={() => setCategoryId(6)}
+            onClick={() => {
+              setCategoryId(6);
+              setPage(1);
+            }}
           >
             <img
               src={environmentIcon}
@@ -99,7 +117,10 @@ const AdminCategorySelect = ({ setCategoryId, categoryId }) => {
             className={`${styles.categoryBtn} ${
               categoryId === 7 && styles.activeBtn
             }`}
-            onClick={() => setCategoryId(7)}
+            onClick={() => {
+              setCategoryId(7);
+              setPage(1);
+            }}
           >
             <img
               src={disasterIcon}
@@ -112,7 +133,10 @@ const AdminCategorySelect = ({ setCategoryId, categoryId }) => {
             className={`${styles.categoryBtn} ${
               categoryId === 8 && styles.activeBtn
             }`}
-            onClick={() => setCategoryId(8)}
+            onClick={() => {
+              setCategoryId(8);
+              setPage(1);
+            }}
           >
             <img
               src={sociopreneurIcon}

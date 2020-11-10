@@ -2,9 +2,10 @@ import React from "react";
 
 import styles from "./AdminSearch.module.css";
 
-const AdminSearch = ({ setSearch, search }) => {
+const AdminSearch = ({ setSearch, search, setPage }) => {
   const handleChange = (e) => {
     setSearch(e.target.value);
+    setPage(1);
   };
 
   return (
