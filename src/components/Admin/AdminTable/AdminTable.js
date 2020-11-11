@@ -112,7 +112,7 @@ const AdminTable = ({
             src={sortBtn}
             alt="sort"
             onClick={() => {
-              setSort("donations");
+              setSort("donation");
               setSearch("");
               setPage(1);
             }}
