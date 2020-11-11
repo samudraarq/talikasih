@@ -24,11 +24,8 @@ const EditProfile = ({
 
   useEffect(() => {
     if (auth.isEditSuccess) {
-      setTimeout(() => {
-        console.log("success");
-        setEditSuccess();
-        history.push("/user/profile");
-      }, 2000);
+      setEditSuccess();
+      history.push("/user/profile");
     }
   }, [auth.isEditSuccess, setEditSuccess, history]);
 
@@ -37,7 +34,6 @@ const EditProfile = ({
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     const dataQs = qs.stringify(data);
     editUserProfile(dataQs);
 
