@@ -14,6 +14,8 @@ import Donate from "./pages/Donate/Donate";
 import { useEffect } from "react";
 import UserProfilePage from "./pages/UserProfilePage";
 
+
+
 function App({ setUserPersistanceLogin }) {
   useEffect(() => {
     setUserPersistanceLogin();
@@ -61,3 +63,10 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(App);
+
+
+
+
+
+
+

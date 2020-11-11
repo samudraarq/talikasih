@@ -123,3 +123,265 @@
   max-width: 144rem;
   margin: auto;
 }
+
+.logo{
+  visibility: hidden;
+  
+
+}
+
+@media only screen and (max-width: 1250px) {
+  .donate {
+    visibility: hidden;
+    
+  }
+  
+  .createCamp {
+    visibility: hidden;
+  }
+
+  .textSlide {
+    position: absolute;
+    bottom: 4rem;
+    right: -17rem;
+    z-index: 3;
+    background:rgba(255,255,255, 0.9);
+    height: 7rem;
+    width: 55rem;
+    
+  }
+
+  .h1 {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 49px;
+    letter-spacing: 0em;
+    text-align: center;
+    padding: 1rem;
+    color: #1d94a8;
+  }
+  
+  .h3{
+    visibility: hidden;
+  }
+
+  .logo {
+    visibility: visible;
+  position: absolute;
+  image-resolution: 100%;
+  width: 9rem;
+  top: 4rem;
+  left: 8rem;
+
+  
+
+  }
+  
+ 
+}
+
+@media only screen and (max-width: 1068px) {
+  .donate {
+    visibility: hidden;
+    
+  }
+  
+  .createCamp {
+    visibility: hidden;
+  }
+
+  .textSlide {
+    position: absolute;
+    bottom: 4rem;
+    right: -18rem;
+    z-index: 3;
+    background:rgba(255,255,255, 0.9);
+    height: 7rem;
+    width: 55rem;
+    
+  }
+
+  .h1 {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 49px;
+    letter-spacing: 0em;
+    text-align: center;
+    padding: 1rem;
+    color: #1d94a8;
+  }
+  
+  .h3{
+    visibility: hidden;
+  }
+
+  .logo {
+    visibility: visible;
+  position: absolute;
+  image-resolution: 100%;
+  width: 9rem;
+  top: 4rem;
+  left: 8rem;
+
+  
+
+  }
+  
+ 
+}
+
+@media only screen and (max-width: 1024px) {
+  .donate {
+    visibility: hidden;
+    
+  }
+  
+  .createCamp {
+    visibility: hidden;
+  }
+
+  .textSlide {
+    position: absolute;
+    bottom: 4rem;
+    right: -18rem;
+    z-index: 3;
+    background:rgba(255,255,255, 0.9);
+    height: 7rem;
+    width: 55rem;
+    
+  }
+
+  .h1 {
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 49px;
+    letter-spacing: 0em;
+    text-align: center;
+    padding: 0.5rem;
+    color: #1d94a8;
+  }
+  
+  .h3{
+    visibility: hidden;
+  }
+
+  .logo {
+    visibility: visible;
+  position: absolute;
+  image-resolution: 100%;
+  width: 9rem;
+  top: 4rem;
+  left: 8rem;
+
+  
+
+  }
+  
+ 
+}
+
+@media only screen and (max-width: 950px) {
+  .donate {
+    visibility: hidden;
+    
+  }
+  
+  .createCamp {
+    visibility: hidden;
+  }
+
+  .textSlide {
+    position: absolute;
+    bottom: 4rem;
+    right: -20rem;
+    z-index: 3;
+    background:rgba(255,255,255, 0.9);
+    height: 6rem;
+    width: 50rem;
+    
+  }
+
+  .h1 {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 49px;
+    letter-spacing: 0em;
+    text-align: center;
+    padding: 0.5rem;
+    color: #1d94a8;
+  }
+  
+  .h3{
+    visibility: hidden;
+  }
+
+  .logo {
+    visibility: visible;
+  position: absolute;
+  image-resolution: 100%;
+  width: 9rem;
+  top: 4rem;
+  left: 8rem;
+
+  
+
+  }
+  
+ 
+}
+
+@media only screen and (max-width: 872px) {
+  .donate {
+    visibility: hidden;
+    
+  }
+  
+  .createCamp {
+    visibility: hidden;
+  }
+
+  .textSlide {
+    position: absolute;
+    bottom: 4rem;
+    right: -25rem;
+    z-index: 3;
+    background:rgba(255,255,255, 0.9);
+    height: 6rem;
+    width: 50rem;
+    
+  }
+
+  .h1 {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 49px;
+    letter-spacing: 0em;
+    text-align: center;
+    padding: 0.5rem;
+    color: #1d94a8;
+  }
+  
+  .h3{
+    visibility: hidden;
+  }
+
+  .logo {
+    visibility: visible;
+  position: absolute;
+  image-resolution: 100%;
+  width: 9rem;
+  top: 4rem;
+  left: 8rem;
+
+  
+
+  }
+  
+ 
+}
+

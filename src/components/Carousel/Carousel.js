@@ -3,10 +3,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, EffectFade, Autoplay, A11y } from "swiper";
 import "swiper/swiper-bundle.css";
 import styles from "./Carousel.module.css";
-import imgSlide1 from "../../assets/homepage/Home/Carousel/slide1.svg";
+import imgSlide1 from "../../assets/homepage/Home/Carousel/image 1.png";
 import ellipse from "../../assets/homepage/Home/Carousel/Ellipse.svg";
-import imgSlide2 from "../../assets/homepage/Home/Carousel/slide2.svg";
-import imgSlide3 from "../../assets/homepage/Home/Carousel/slide3.svg";
+import imgSlide2 from "../../assets/homepage/Home/Carousel/image 2.png";
+import imgSlide3 from "../../assets/homepage/Home/Carousel/image 3.png";
+import logo from "../../assets/homepage/Home/Carousel/logo.png";
 
 SwiperCore.use([Pagination, EffectFade, Autoplay, A11y]);
 
@@ -34,6 +35,7 @@ function Carousel() {
         <SwiperSlide className={styles.carousel}>
           <div>
             <img src={imgSlide1} alt="slide1" className={styles.imgSlide} />
+            <img src={logo} alt="logo" className={styles.logo} />
             <div className={styles.textSlide}>
               <div>
                 <h1 className={styles.h1}>#EducationForEveryone</h1>
@@ -52,6 +54,7 @@ function Carousel() {
         <SwiperSlide className={styles.carousel}>
           <div>
             <img src={imgSlide2} alt="slide2" className={styles.imgSlide} />
+            <img src={logo} alt="logo" className={styles.logo} />
             <div className={styles.textSlide}>
               <div>
                 <h1 className={styles.h1}>#HealthCareForEveryone</h1>
@@ -70,6 +73,7 @@ function Carousel() {
         <SwiperSlide className={styles.carousel}>
           <div>
             <img src={imgSlide3} alt="slide3" className={styles.imgSlide} />
+            <img src={logo} alt="logo" className={styles.logo} />
             <div className={styles.textSlide}>
               <div>
                 <h1 className={styles.h1}>#CleanAirForEveryone</h1>
