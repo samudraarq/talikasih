@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import qs from "qs";
 import { useForm } from "react-hook-form";
 import styles from "../Modal/FormLogin.module.css";
-import { setLogin } from "../../redux/actions/authActions";
+import { setLogin, googleSignin } from "../../redux/actions/authActions";
 import { setFormRegister } from "../../redux/actions/layoutActions";
 import google from "../../assets/homepage/Home/google.png";
 
@@ -20,9 +20,7 @@ function FormLogin(props) {
       <h1 className={styles.headerForm}>LOGIN</h1>
       <h3 className={styles.createAccount}>
         New user?{" "}
-        <a href="#" onClick={() => props.setFormRegister()}>
-          Create account
-        </a>
+        <span onClick={() => props.setFormRegister()}>Create account</span>
       </h3>
 
       <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
@@ -58,16 +56,16 @@ function FormLogin(props) {
           <span className={styles.errorMessage}>{errors.password.message}</span>
         )}
 
-        <a href="#" className={styles.forgotPass}>
-          forgot password?
-        </a>
+        <span className={styles.forgotPass}>forgot password?</span>
 
         <button className={styles.btnLogin} type="submit">
           {props.auth.isLoading ? "LOGGING IN..." : "LOGIN"}
         </button>
-        {props.auth.isError && <p>{props.auth.errorMsg}</p>}
+        {props.auth.isError && (
+          <p className={styles.errorMessageAuth}>{props.auth.errorMsg}</p>
+        )}
       </form>
-      <button className={styles.btnGoogle}>
+      <button className={styles.btnGoogle} onClick={props.googleSignin}>
         <img src={google} alt="google" className={styles.google} />
         Continue with Google
       </button>
@@ -84,6 +82,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setLogin: (dataQs) => dispatch(setLogin(dataQs)),
+    googleSignin: () => dispatch(googleSignin()),
     setFormRegister: () => {
       dispatch(setFormRegister());
     },

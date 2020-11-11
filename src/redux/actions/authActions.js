@@ -9,6 +9,8 @@ import {
   SET_AUTH_LOADING,
   EDIT_USER_PROFILE,
   EDIT_USER_IMAGE,
+  SET_EDIT_LOADING,
+  SET_EDIT_SUCCESS,
   SET_LOGOUT,
   GET_USER_DONATION,
   GET_USER_CAMPAIGN,
@@ -27,8 +29,6 @@ export const setLogin = (dataQs) => {
     axios
       .post("https://warm-tundra-23736.herokuapp.com/login", dataQs)
       .then(function (response) {
-        console.log(response.data);
-
         if (response.data.success === false) {
           dispatch({
             type: SET_AUTH_LOADING,
@@ -55,7 +55,6 @@ export const setLogin = (dataQs) => {
 
           axios(config)
             .then(function (response) {
-              console.log(response.data);
               dispatch({
                 type: SET_USER_FROM_TOKEN,
                 user: response.data.user,
@@ -91,8 +90,6 @@ export const setRegister = (dataQs) => {
     axios
       .post("https://warm-tundra-23736.herokuapp.com/", dataQs)
       .then(function (response) {
-        console.log(response.data);
-
         if (response.data.success === false) {
           dispatch({
             type: SET_AUTH_LOADING,
@@ -120,7 +117,6 @@ export const setRegister = (dataQs) => {
 
           axios(config)
             .then(function (response) {
-              console.log(response.data);
               dispatch({
                 type: SET_USER_FROM_TOKEN,
                 user: response.data.user,
@@ -161,7 +157,7 @@ export const setUserPersistanceRegister = () => {
           },
         };
         const response = await axios(config);
-        console.log(response.data);
+
         dispatch({
           type: SET_USER_FROM_TOKEN,
           user: response.data.user,
@@ -193,7 +189,7 @@ export const setUserPersistanceLogin = () => {
           },
         };
         const response = await axios(config);
-        console.log(response.data);
+
         dispatch({
           type: SET_USER_FROM_TOKEN,
           user: response.data.user,
@@ -207,8 +203,18 @@ export const setUserPersistanceLogin = () => {
   };
 };
 
+export const setEditSuccess = () => {
+  return {
+    type: SET_EDIT_SUCCESS,
+  };
+};
+
 export const editUserProfile = (dataQs) => {
   return (dispatch, getState) => {
+    dispatch({
+      type: SET_EDIT_LOADING,
+    });
+
     const { auth } = getState();
 
     const config = {
@@ -222,7 +228,6 @@ export const editUserProfile = (dataQs) => {
 
     axios(config)
       .then(function (response) {
-        console.log(response.data);
         dispatch({
           type: EDIT_USER_PROFILE,
           token: response.data.token,
@@ -237,24 +242,32 @@ export const editUserProfile = (dataQs) => {
         };
         axios(config)
           .then((response) => {
-            console.log(config);
-            console.log(response.data);
             dispatch({
               type: SET_USER_FROM_TOKEN,
               user: response.data.user,
             });
+            dispatch({
+              type: SET_EDIT_LOADING,
+            });
+            dispatch(setEditSuccess());
           })
           .catch((err) => {
             console.log(err);
+            dispatch({
+              type: SET_EDIT_LOADING,
+            });
           });
       })
       .catch(function (error) {
         console.log(error);
+        dispatch({
+          type: SET_EDIT_LOADING,
+        });
       });
   };
 };
 
-export const editUserImage = (dataQs) => {
+export const editUserImage = (formData) => {
   return (dispatch, getState) => {
     const { auth } = getState();
 
@@ -264,12 +277,11 @@ export const editUserImage = (dataQs) => {
       headers: {
         token: auth.token,
       },
-      data: dataQs,
+      data: formData,
     };
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
         dispatch({
           type: EDIT_USER_IMAGE,
           token: response.data.token,
@@ -285,7 +297,6 @@ export const editUserImage = (dataQs) => {
 
         axios(configUser)
           .then(function (response) {
-            console.log(response.data);
             dispatch({
               type: SET_USER_FROM_TOKEN,
               user: response.data.user,
@@ -353,5 +364,42 @@ export const getUserCampaign = (token) => {
       .catch(function (error) {
         console.log(error);
       });
+  };
+};
+
+export const googleSignin = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios(
+        "https://warm-tundra-23736.herokuapp.com/google"
+      );
+
+      dispatch({
+        type: SET_LOGIN,
+        token: response.data.token,
+      });
+
+      localStorage.setItem("token", response.data.token);
+      const config = {
+        method: "get",
+        url: "https://warm-tundra-23736.herokuapp.com/formuser",
+        headers: {
+          token: response.data.token,
+        },
+      };
+
+      const tokenResponse = await axios(config);
+
+      dispatch({
+        type: SET_USER_FROM_TOKEN,
+        user: tokenResponse.data.user,
+      });
+
+      dispatch({
+        type: SET_MODAL_CLOSE,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 };

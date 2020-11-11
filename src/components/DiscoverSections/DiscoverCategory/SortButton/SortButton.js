@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from "react";
-import queryString from "query-string";
+import React, { useState } from "react";
+
 import styles from "./SortButton.module.css";
 
 import sort from "../../../../assets/discover/sort.svg";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SortButton = ({ urlLink, setPage }) => {
   const [openMenu, setOpenMenu] = useState(false);
-
-
-  const location = useLocation();
-
-  useEffect(() => {
-    const parsed = queryString.parse(location.search);
-    console.log(parsed);
-  }, [location]);
 
   const handleClick = () => {
     setOpenMenu(true);
@@ -27,7 +19,6 @@ const SortButton = ({ urlLink, setPage }) => {
 
     document.removeEventListener("click", handleClose);
   };
-
 
   const handleChoose = () => {
     handleClose();

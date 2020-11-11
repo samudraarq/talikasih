@@ -1,28 +1,94 @@
+@media only screen and (max-width: 1100px) {
+  .container {
+    padding: 0 10rem;
+  }
+  .body {padding: 0 7rem;
+  }
+  }
+  
+
+@media only screen and (max-width: 950px) {
+  .container {
+    padding: 0 9rem;
+  }
+  .body {padding: 0 6rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    padding: 0 7rem;
+  }
+  .body {padding: 0 4rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 0 5rem;
+  }
+  .body {padding: 0 2rem;
+  }
+}
+
+
+@media only screen and (max-width: 530px) {
+  .container {
+    padding: 0 1rem;
+  }
+ 
+}
+
+@media only screen and (max-width: 320px) {
+
+}
+
+
 .container {
     max-width: 120rem;
     margin: 0rem auto 10rem auto;
     height: 100%;
+    padding: 3rem;
     display: flex;
     justify-content: right;
     align-items: right;
     flex-direction: column;
+    border: 1px solid #E1E0E0;
+    border-top: none;
+    box-sizing: border-box;
+    border-radius: 4px;
   }
 
   .wrapper {
     /* background-color: crimson */
-    margin-top: 4rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 4rem;
   }
 
+  .card:nth-child(even) {
+    /* background-color: crimson */
+    background: rgba(241, 237, 228, 0.2);
+    border: 1px solid #E1E0E0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .card:first-child{
+
+    border-top: 1px solid #E1E0E0;
+  }
   
 
   .card{
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: 1rem;
+
+  background: #FFFFFF;
     /* border: darkblue solid 1px; */
   }
 
@@ -96,4 +162,15 @@ color: #9F9F9F;
     box-sizing: border-box;
     border-radius: 3px;
     color: #1D94A8 ;
+  }
+
+  .btnLoadmore:hover{
+
+    /* Dust */
+background: #D7EBEE;
+
+/* Tosca */
+border: 1px solid #1D94A8;
+box-sizing: border-box;
+border-radius: 3px;
   }

@@ -35,6 +35,7 @@ const MyCampaign = ({ auth, getUserCampaign }) => {
   return (
     <div className={styles.campaignContainer}>
       <h3 className={styles.title}>My Campaigns ({campaigns})</h3>
+      {campaignNumber === 0 && <p>You don't have any campaign</p>}
       <div className={styles.campaigns}>{renderCampaignCard}</div>
       {campaignNumber > 4 && loadButton && (
         <button className={styles.loadBtn} onClick={loadMore}>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./CampaignCard.module.css";
 
 const CampaignCard = ({ campaign }) => {
-  const category = campaign.Category.name;
+  const category = campaign.Category?.name;
   const title = campaign.title;
   const raised = campaign.raised;
   const goal = campaign.goal;

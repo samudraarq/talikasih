@@ -13,6 +13,7 @@ import {
 import { useLocation, useParams } from "react-router-dom";
 import HeaderCategory from "./HeaderCategory/HeaderCategory";
 import SortButton from "./SortButton/SortButton";
+import Container from "../../UI/Container";
 
 const DiscoverCategory = ({
   categoryCampaign,
@@ -47,28 +48,34 @@ const DiscoverCategory = ({
     page,
   ]);
 
+  useEffect(() => {
+    setPage(1);
+  }, [location]);
+
   const pageChange = (e) => {
     const selectedPage = e.selected + 1;
-    console.log(selectedPage);
     setPage(selectedPage);
   };
 
   return (
-    <div className={styles.container}>
-      <HeaderCategory />
-      {categoryCampaign.isError ? (
-        <p className={styles.errorMsg}>{categoryCampaign.errorMsg}</p>
-      ) : (
-        <>
-          <SortButton urlLink={`category/${categoryId}?`} setPage={setPage} />
-          <DiscoverCards campaigns={categoryCampaign} />
-          <ChangePage
-            maxPage={categoryCampaign.totalPages}
-            pageChange={pageChange}
-          />
-        </>
-      )}
-    </div>
+    <Container>
+      <div className={styles.container}>
+        <HeaderCategory />
+        {categoryCampaign.isError ? (
+          <p className={styles.errorMsg}>{categoryCampaign.errorMsg}</p>
+        ) : (
+          <>
+            <SortButton urlLink={`category/${categoryId}?`} setPage={setPage} />
+            <DiscoverCards campaigns={categoryCampaign} />
+            <ChangePage
+              maxPage={categoryCampaign.totalPages}
+              pageChange={pageChange}
+              page={page}
+            />
+          </>
+        )}
+      </div>
+    </Container>
   );
 };
 

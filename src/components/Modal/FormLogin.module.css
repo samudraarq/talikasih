@@ -22,8 +22,9 @@
   line-height: 19px;
 }
 
-.createAccount a {
+.createAccount span {
   color: #1d94a8;
+  cursor: pointer;
 }
 
 .formContainer {
@@ -37,7 +38,7 @@
   border: none;
   border-bottom: 1px solid #9f9f9f;
   padding: 0 1.9rem;
-  color: #9f9f9f;
+  color: #000;
   font-family: inherit;
   font-weight: 400;
   font-size: 1.6rem;
@@ -52,12 +53,30 @@
   margin-top: 3rem;
 }
 
+.inputForm::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #9f9f9f;
+  opacity: 1; /* Firefox */
+}
+
+.inputForm:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #9f9f9f;
+}
+
+.inputForm::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #9f9f9f;
+}
+
 .forgotPass {
   font-family: inherit;
   font-weight: 400;
   font-size: 1.4rem;
   color: #000000;
   margin-top: 0.6rem;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .btnLogin {
@@ -70,13 +89,14 @@
   margin-top: 2.4rem;
   font-weight: 700;
   font-size: 1.6rem;
+  cursor: pointer;
+  outline: none;
 }
 
 .google {
   width: 18px;
   height: 20px;
   margin-right: 10px;
-  align-items: center;
 }
 
 .btnGoogle {
@@ -87,13 +107,22 @@
   font-family: inherit;
   font-size: 1.6rem;
   font-weight: 400;
-  text-align: center;
   border: none;
   border-top: 1px solid #e1e0e0;
   border-bottom: 1px solid #e1e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
 }
 
 .errorMessage {
   display: block;
   color: red;
+}
+
+.errorMessageAuth {
+  color: red;
+  font-size: 16px;
 }

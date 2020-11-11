@@ -9,10 +9,25 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 57rem;
-  height: 70rem;
+  height: 75rem;
   border-style: none;
   position: relative;
   outline: none;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.Overlay {
+  background-color: rgba(60, 60, 60, 0.75);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.body {
+  overflow: hidden;
 }
 
 .img1 {

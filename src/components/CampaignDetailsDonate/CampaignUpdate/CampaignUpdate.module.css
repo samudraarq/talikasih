@@ -1,3 +1,20 @@
+.modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 4.3rem;
+  padding: 3rem 4rem;
+  margin: 0;
+  border-bottom: 1px solid #9f9f9f;
+}
+
+.close {
+  max-width: 1.8rem;
+  max-height: 1.8rem;
+}
+
 .form {
   padding: 3rem;
 }
@@ -6,7 +23,7 @@
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 2.1rem;
-  max-width: 40rem;
+  width: 50%;
   display: flex;
   justify-content: space-between;
 }
@@ -23,6 +40,13 @@
   font-weight: 700;
   line-height: 1.7rem;
   margin: 2rem 0;
+}
+
+.update {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.7rem;
+  margin: 4rem 0 1.6rem 0;
 }
 
 .mandatory,
@@ -61,4 +85,17 @@
   border: none;
   width: 20rem;
   height: 4.6rem;
+}
+
+@media only screen and (max-width: 425px) {
+  .type {
+    display: flex;
+    flex-direction: column;
+  }
+  .options {
+    margin: 1.2rem 0;
+  }
+  .form {
+    margin-top: 0;
+  }
 }

@@ -7,6 +7,8 @@ import {
   SET_AUTH_LOADING,
   EDIT_USER_PROFILE,
   EDIT_USER_IMAGE,
+  SET_EDIT_LOADING,
+  SET_EDIT_SUCCESS,
   SET_LOGOUT,
   GET_USER_DONATION,
   GET_USER_CAMPAIGN,
@@ -19,6 +21,8 @@ const initialState = {
   errorMsg: "",
   isError: false,
   isLoading: false,
+  isEditLoading: false,
+  isEditSuccess: false,
   userDonation: [],
   userCampaign: [],
 };
@@ -48,6 +52,12 @@ const authReducer = (state = initialState, action) => {
 
     case EDIT_USER_IMAGE:
       return { ...state, token: action.token };
+
+    case SET_EDIT_LOADING:
+      return { ...state, isEditLoading: !state.isEditLoading };
+
+    case SET_EDIT_SUCCESS:
+      return { ...state, isEditSuccess: !state.isEditSuccess };
 
     case SET_LOGOUT:
       return {

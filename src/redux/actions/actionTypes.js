@@ -1,7 +1,6 @@
 // export const FETCH_POSTS = "FETCH_POSTS";
 // export const SET_LOADING = "SET_LOADING";
 export const GET_DONOR_DATA = "GET_DONOR_DATA";
-export const GET_USER_DATA = "GET_USER_DATA";
 export const GET_DONOR_COMENT = "GET_DONOR_COMENT";
 export const POST_SHARE = "POST_SHARE";
 export const GET_DONATION_DATA = "GET_DONATION_DATA";
@@ -22,6 +21,8 @@ export const SET_REGISTER = "SET_REGISTER";
 
 export const EDIT_USER_PROFILE = "EDIT_USER_PROFILE";
 export const EDIT_USER_IMAGE = "EDIT_USER_IMAGE";
+export const SET_EDIT_LOADING = "SET_EDIT_LOADING";
+export const SET_EDIT_SUCCESS = "SET_EDIT_SUCCESS";
 
 export const SET_AUTH_LOADING = "SET_AUTH_LOADING";
 

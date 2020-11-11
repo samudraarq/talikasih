@@ -1,17 +1,41 @@
 import React from "react";
+import { connect } from "react-redux";
+import { setModalOpen, setFormLogin } from "../../redux/actions/layoutActions";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, EffectFade, Autoplay, A11y } from "swiper";
 import "swiper/swiper-bundle.css";
 import styles from "./Carousel.module.css";
 import imgSlide1 from "../../assets/homepage/Home/Carousel/image 1.png";
 import ellipse from "../../assets/homepage/Home/Carousel/Ellipse.svg";
+<<<<<<< HEAD
 import imgSlide2 from "../../assets/homepage/Home/Carousel/image 2.png";
 import imgSlide3 from "../../assets/homepage/Home/Carousel/image 3.png";
 import logo from "../../assets/homepage/Home/Carousel/logo.png";
+=======
+import imgSlide2 from "../../assets/homepage/Home/Carousel/slide2.svg";
+import imgSlide3 from "../../assets/homepage/Home/Carousel/slide3.svg";
+import { Link } from "react-router-dom";
+>>>>>>> 37d9dc976e675d16bd24637e80cbe2772790eaab
 
 SwiperCore.use([Pagination, EffectFade, Autoplay, A11y]);
 
-function Carousel() {
+function Carousel({ setModalOpen, setFormLogin, auth }) {
+  const openModal = () => {
+    setModalOpen();
+    setFormLogin();
+  };
+
+  const campaignCreate =
+    auth.token === "" ? (
+      <button className={styles.createCamp} onClick={openModal}>
+        CREATE CAMPAIGN
+      </button>
+    ) : (
+      <Link to="/campaign/create" className={styles.createCamp}>
+        CREATE CAMPAIGN
+      </Link>
+    );
+
   return (
     <div className={styles.carouselContainer}>
       <Swiper
@@ -23,14 +47,10 @@ function Carousel() {
           el: ".swiper-pagination",
           bulletClass: styles.paginationBullet,
           bulletActiveClass: styles.paginationBulletActive,
-          // renderBullet: (index, className) => {
-          //     console.log(index, className);
-          //     return '<span class="' + className + '">' + "</span>";
-          //   }
         }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide className={styles.carousel}>
           <div>
@@ -44,8 +64,10 @@ function Carousel() {
                 </h3>
               </div>
               <div className={styles.button}>
-                <button className={styles.donate}>DONATE</button>
-                <button className={styles.createCamp}>CREATE CAMPAIGN</button>
+                <Link to="/discover" className={styles.donate}>
+                  DONATE
+                </Link>
+                {campaignCreate}
               </div>
             </div>
             <img src={ellipse} alt="ellipse" className={styles.ellipse} />
@@ -63,8 +85,10 @@ function Carousel() {
                 </h3>
               </div>
               <div className={styles.button}>
-                <button className={styles.donate}>DONATE</button>
-                <button className={styles.createCamp}>CREATE CAMPAIGN</button>
+                <Link to="/discover" className={styles.donate}>
+                  DONATE
+                </Link>
+                {campaignCreate}
               </div>
             </div>
             <img src={ellipse} alt="ellipse" className={styles.ellipse} />
@@ -78,25 +102,40 @@ function Carousel() {
               <div>
                 <h1 className={styles.h1}>#CleanAirForEveryone</h1>
                 <h3 className={styles.h3}>
-                Together to solve enviromental problem
+                  Together to solve enviromental problem
                 </h3>
               </div>
               <div className={styles.button}>
-                <button className={styles.donate}>DONATE</button>
-                <button className={styles.createCamp}>CREATE CAMPAIGN</button>
+                <Link to="/discover" className={styles.donate}>
+                  DONATE
+                </Link>
+                {campaignCreate}
               </div>
             </div>
             <img src={ellipse} alt="ellipse" className={styles.ellipse} />
           </div>
         </SwiperSlide>
         <div className={styles.container}>
-        <div
-          className={`swiper-pagination ${styles.paginationContainer}`}
-        ></div>
+          <div
+            className={`swiper-pagination ${styles.paginationContainer}`}
+          ></div>
         </div>
       </Swiper>
     </div>
   );
 }
 
-export default Carousel;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setModalOpen: () => dispatch(setModalOpen()),
+    setFormLogin: () => dispatch(setFormLogin()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carousel);

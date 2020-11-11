@@ -13,6 +13,7 @@ import DiscoverCards from "../DiscoverCategory/DiscoverCards/DiscoverCards";
 import SortButton from "../DiscoverCategory/SortButton/SortButton";
 import styles from "./DiscoverSearch.module.css";
 import HeaderSearch from "./HeaderSearch/HeaderSearch";
+import Container from "../../UI/Container";
 
 const DiscoverSearch = ({
   searchCampaign,
@@ -47,31 +48,38 @@ const DiscoverSearch = ({
     getSearchLessdonate,
   ]);
 
+  useEffect(() => {
+    setPage(1);
+  }, [location]);
+
   const pageChange = (e) => {
     const selectedPage = e.selected + 1;
-    console.log(selectedPage);
+    // console.log(selectedPage);
     setPage(selectedPage);
   };
 
   return (
-    <div className={styles.container}>
-      <HeaderSearch searchText={searchText} />
-      {searchCampaign.isError ? (
-        <p className={styles.errorMsg}>{searchCampaign.errorMsg}</p>
-      ) : (
-        <>
-          <SortButton
-            urlLink={`search?search=${searchText}&`}
-            setPage={setPage}
-          />
-          <DiscoverCards campaigns={searchCampaign} />
-          <ChangePage
-            maxPage={searchCampaign.totalPages}
-            pageChange={pageChange}
-          />
-        </>
-      )}
-    </div>
+    <Container>
+      <div className={styles.container}>
+        <HeaderSearch searchText={searchText} />
+        {searchCampaign.isError ? (
+          <p className={styles.errorMsg}>{searchCampaign.errorMsg}</p>
+        ) : (
+          <>
+            <SortButton
+              urlLink={`search?search=${searchText}&`}
+              setPage={setPage}
+            />
+            <DiscoverCards campaigns={searchCampaign} />
+            <ChangePage
+              maxPage={searchCampaign.totalPages}
+              pageChange={pageChange}
+              page={page}
+            />
+          </>
+        )}
+      </div>
+    </Container>
   );
 };
 

@@ -9,19 +9,8 @@ import { POST_SHARE } from "./actionTypes";
 import { GET_DONATION_DATA } from "./actionTypes";
 import { GET_DONATION_STORY } from "./actionTypes";
 import { GET_DONATION_STORY_LOAD_MORE } from "./actionTypes";
-import { GET_USER_DATA } from "./actionTypes";
 
-export const getUserData = (idDonate) => {
-  return (dispatch) => {
-    axios(`https://warm-tundra-23736.herokuapp.com/campaign/${idDonate}`)
-      .then(function (response) {
-        dispatch({ type: GET_USER_DATA, data: response.data.found });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-};
+
 
 export const getDonorData = (idDonate) => {
   return (dispatch) => {
@@ -67,7 +56,8 @@ export const getDonationStory = (idDonate) => {
       .then(function (response) {
         dispatch({
           type: GET_DONATION_STORY,
-          data: response.data.Campaign_Logs,
+          data: response.data,
+          
         });
       })
       .catch(function (error) {
@@ -108,7 +98,7 @@ export const postShare = (idDonate) => {
   };
 };
 
-export const getRelatedCampaigns = (categoryId) => {
+export const getRelatedCampaigns = (categoryId, campaignId) => {
   return (dispatch) => {
     dispatch({
       type: RELATED_CAMPAIGNS_LOAD,
@@ -118,7 +108,7 @@ export const getRelatedCampaigns = (categoryId) => {
     // });
     axios
       .get(
-        `https://warm-tundra-23736.herokuapp.com/discover/category/${categoryId}/1`
+        `https://warm-tundra-23736.herokuapp.com/campaign/relate/${categoryId}/${campaignId}`
       )
       .then((response) => {
         if (response.data.success === false) {
@@ -129,7 +119,7 @@ export const getRelatedCampaigns = (categoryId) => {
         } else {
           dispatch({
             type: GET_RELATED_CAMPAIGNS,
-            posts: response.data.document.slice(0, 3),
+            posts: response.data.found.slice(0, 3),
             status: "Done",
           });
         }
@@ -145,3 +135,5 @@ export const getRelatedCampaigns = (categoryId) => {
       });
   };
 };
+
+

@@ -1,6 +1,4 @@
 .container {
-  max-width: 120rem;
-  margin: 0 auto;
   padding-bottom: 16rem;
 }
 
@@ -21,4 +19,20 @@
   justify-items: center;
   column-gap: 5.6rem;
   margin-top: 2.4rem;
+}
+
+@media only screen and (max-width: 1100px) {
+  .cardsContainer {
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 36rem));
+    justify-content: center;
+    column-gap: 2.6rem;
+  }
+
+  .cardsContainer > a {
+    margin-top: 2.4rem;
+  }
+
+  .cardsContainer > div {
+    margin-top: 2.4rem;
+  }
 }

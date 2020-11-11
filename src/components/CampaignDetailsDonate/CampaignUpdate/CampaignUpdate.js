@@ -6,35 +6,49 @@ import { connect } from "react-redux";
 import qs from "qs";
 import "quill/dist/quill.snow.css";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+import close from "../../../assets/CampingCreate/close.png";
 
-function CampaignUpdate({ auth }) {
+function CampaignUpdate({ auth, requestClose, dataDonorAll }) {
   // FORM //
   const [openAmount, setOpenAmount] = useState(false);
   const { register, handleSubmit, errors } = useForm();
+  let history = useHistory();
+  const [quillError, setQuillError] = useState(false);
 
   const onSubmit = async (data) => {
-    console.log(data);
-    try {
-      const { ammount, content } = data;
-      const updateInfo = qs.stringify({
-        ammount,
-        content,
-        date: new Date(),
-      });
-      console.log(updateInfo);
-      const response = await axios({
-        method: "post",
-        url: "https://warm-tundra-23736.herokuapp.com/campaignLog/1",
-        data: updateInfo,
-        headers: {
-          token: auth.token,
-        },
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.log(error, "error");
+    const inputText = quill.root.innerHTML;
+    const dateToday = new Date();
+    const campaignId = dataDonorAll.dataDonate.id;
+
+    if (quill.getText().trim().length === 0) {
+      setQuillError(true);
+    } else {
+      setQuillError(false);
+      try {
+        const { ammount } = data;
+        const updateInfo = qs.stringify({
+          ammount: ammount || "",
+          content: inputText,
+          date: dateToday,
+          StatusId: openAmount ? 1 : 2,
+        });
+        console.log(updateInfo);
+        const response = await axios({
+          method: "post",
+          url: `https://warm-tundra-23736.herokuapp.com/campaignLog/${campaignId}`,
+          data: updateInfo,
+          headers: {
+            token: auth.token,
+          },
+        });
+        console.log(response.data);
+        history.push(`/campaign/details/donate/${dataDonorAll.dataDonate.id}`);
+        requestClose();
+      } catch (error) {
+        console.log(error, "error");
+      }
     }
-    // setOpen(false);
   };
 
   // Editor //
@@ -47,13 +61,12 @@ function CampaignUpdate({ auth }) {
       { list: "bullet" },
       { indent: "-1" },
       { indent: "+1" },
-      "image",
+      // "image",
       "link",
     ],
   };
   const placeholder = "Tell your story...";
-
-  const { quillRef } = useQuill({
+  const { quill, quillRef } = useQuill({
     theme,
     modules,
     placeholder,
@@ -61,16 +74,26 @@ function CampaignUpdate({ auth }) {
 
   return (
     <>
+      <div className={styles.modal}>
+        <div>Campaign Update</div>
+        <img
+          src={close}
+          alt="close"
+          className={styles.close}
+          onClick={requestClose}
+        />
+      </div>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.type}>
-          <div onClick={() => setOpenAmount(false)}>
+          <div onClick={() => setOpenAmount(false)} className={styles.options}>
             <input type="radio" name="type" id="update" />
             <label htmlFor="update"> Recipient update</label>
           </div>
-          <div onClick={() => setOpenAmount(true)}>
+          <div onClick={() => setOpenAmount(true)} className={styles.options}>
             <input type="radio" name="type" id="withdraw" />
             <label htmlFor="withdraw"> Fund withdrawal</label>
           </div>
+          <div></div>
         </div>
         {openAmount ? (
           <div className={styles.col}>
@@ -78,7 +101,7 @@ function CampaignUpdate({ auth }) {
               Amount<span className={styles.mandatory}>*</span>
             </label>
             <input
-              type="text"
+              type="number"
               name="ammount"
               id="ammount"
               placeholder="20.000.000"
@@ -88,29 +111,28 @@ function CampaignUpdate({ auth }) {
             {errors.ammount && errors.ammount.type === "required" && (
               <div className={styles.alert}>Required</div>
             )}
+            <label htmlFor="content" className={styles.purpose}>
+              Withdrawal purpose<span className={styles.mandatory}>*</span>
+            </label>
           </div>
         ) : (
-          ""
+          <div className={styles.update}>
+            <label htmlFor="content">
+              Update<span className={styles.mandatory}>*</span>
+            </label>
+          </div>
         )}
-        <div className={styles.col}>
-          <label htmlFor="purpose" className={styles.purpose}>
-            Withdrawal purpose<span className={styles.mandatory}>*</span>
-          </label>
+        <div>
           <div
             ref={quillRef}
-            // ref={register({ required: true })}
-            name="purpose"
-            id="purpose"
             style={{
               height: 300,
-              width: 850,
+              width: "100%",
               border: "none",
               backgroundColor: "#FCFCFC",
             }}
           />
-          {errors.purpose && errors.purpose.type === "required" && (
-            <div className={styles.alert}>Required</div>
-          )}
+          {quillError && <div className={styles.alert}>Required</div>}
           <div className={styles.sumbitBtn}>
             <input type="submit" value="submit" className={styles.sumbit} />
           </div>
@@ -123,6 +145,7 @@ function CampaignUpdate({ auth }) {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    dataDonorAll: state.dataDonorAll,
   };
 };
 

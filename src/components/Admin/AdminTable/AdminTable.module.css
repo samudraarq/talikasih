@@ -1,0 +1,83 @@
+/* table head */
+.thContainer {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr) 10rem;
+}
+
+.thContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  font-size: 1.4rem;
+  color: #80848d;
+}
+
+.thContent img {
+  cursor: pointer;
+}
+
+/* table data */
+.tdRow {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr) 10rem;
+}
+
+.tdRow:nth-of-type(even) {
+  background: rgba(241, 237, 228, 0.5);
+}
+
+.tdContent {
+  padding: 1.2rem 1rem;
+}
+
+.tdContent:last-of-type {
+  justify-self: end;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #2f243a;
+  text-decoration: underline;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #9f9f9f;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+}
+
+.statusName {
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  margin-left: 1.2rem;
+}
+
+.amount {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #2d2d2d;
+}
+
+.updateName {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #9f9f9f;
+  margin-bottom: 1.2rem;
+}
+
+/* status icon */
+.finished {
+  color: #1d94a8;
+}
+
+.rejected,
+.deleted {
+  color: #a43f3c;
+}

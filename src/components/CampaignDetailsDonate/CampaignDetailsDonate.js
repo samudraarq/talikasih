@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import CampaignDetailsDonateAllComent from "./CampaignDetailsDonateAllComent/CampaignDetailsDonateAllComent";
 import CampaignDetailsDonateBigCard from "./CampaignDetailsDonateBigCard/CampaignDetailsDonateBigCard";
-import { CampaignDetailsDonateComentFrom } from "./CampaignDetailsDonateComentFrom/CampaignDetailsDonateComentFrom";
+import CampaignDetailsDonateComentFrom  from "./CampaignDetailsDonateComentFrom/CampaignDetailsDonateComentFrom";
 import CampaignDetailsDonateDonation from "./CampaignDetailsDonateDonation/CampaignDetailsDonateDonation";
 import CampaignDetailsDonateRelatedCampaing from "./CampaignDetailsDonateRelatedCampaing/CampaignDetailsDonateRelatedCampaing";
 import CampaignDetailsDonateTheStory from "./CampaignDetailsDonateTheStory/CampaignDetailsDonateTheStory";

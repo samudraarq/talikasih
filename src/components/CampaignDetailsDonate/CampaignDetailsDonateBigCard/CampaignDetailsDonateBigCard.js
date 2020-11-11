@@ -1,26 +1,38 @@
 // import { Form } from 'formik'
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import NumberFormat from "react-number-format";
 import { Link, useParams } from "react-router-dom";
 import Modal from "react-modal";
-import axios from "axios";
 import moment from "moment";
 import { postShare } from "../../../redux/actions/donorActions";
 import setImage from "../../../assets/CampingDetails/Vector.png";
 import setImage2 from "../../../assets/CampingDetails/Vector-1.png";
 import CampaignUpdate from "../CampaignUpdate/CampaignUpdate";
 import styles from "./CampaignDetailsDonateBigCard.module.css";
-import close from "../../../assets/CampingCreate/close.png";
+import {
+  setModalOpen,
+  setFormLogin,
+} from "../../../redux/actions/layoutActions";
 
-const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
+const CampaignDetailsDonateBigCard = ({
+  dataDonorAll,
+  postShare,
+  userdata,
+  setModalOpen,
+  setFormLogin,
+}) => {
   // variabel
-  const [idUser, setidUser] = useState(0);
-  const [open, setOpen] = useState(false);
 
+  const [open, setOpen] = useState(false);
+  const [openShare, setOpenShare] = useState(false);
+  let idUser = userdata?.user?.id;
+  let token = userdata?.token;
   // MODAL //
   const requestClose = () => setOpen(false);
   const openModal = () => setOpen(true);
+  const requestShareClose = () => setOpenShare(false);
+  const setShareOpen = () => setOpenShare(true);
   const customStyles = {
     content: {
       top: "50%",
@@ -36,31 +48,43 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
     },
   };
 
+  const openModalLogin = () => {
+    setModalOpen();
+    setFormLogin();
+  };
+
+  const openModalShare =()=>{
+    postShare(idDonate); 
+    setShareOpen();
+  }
+
+  const copyToClipboard=()=> {
+    postShare(idDonate); 
+    let textBox = document.getElementById("myvalue");
+    textBox.select();
+    document.execCommand("copy");
+}
   Modal.setAppElement("#root");
 
   // useEffect //
-  useEffect(() => {
-    const getuserdata = (dataDonorAll) => {
-      let token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsIm5hbWUiOiJhbmpheWxhaCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAzNDU4NjcyfQ.7ioPqnX60T1vi9gw8tUyX6J7VyGq5v3l7SPqRWyQgi0";
-      let config = {
-        method: "get",
-        url: `https://warm-tundra-23736.herokuapp.com/formuser`,
-        headers: {
-          token: token,
-        },
-      };
 
-      axios(config)
-        .then(function (response) {
-          setidUser(response.data.user.id);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    };
-    getuserdata();
-  }, []);
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const handleClick = () => {
+    setOpenMenu(true);
+
+    document.addEventListener("click", handleClose);
+  };
+
+  const handleClose = () => {
+    setOpenMenu(false);
+
+    document.removeEventListener("click", handleClose);
+  };
+
+  const handleChoose = () => {
+    handleClose();
+  };
 
   let idUserFromChamping = dataDonorAll.dataDonate.UserId;
   let progress =
@@ -70,12 +94,12 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
   let donationCountData = 0;
   let shareCountData = 0;
   // variabel show camping sendiri
-  let userSama = true;
+  let userSama = false;
   //Variabel end
   if (idUser === idUserFromChamping) {
-    let userSama = true;
+    userSama = true;
   } else {
-    let userSama = false;
+    userSama = false;
   }
 
   // hendel progres bar
@@ -102,9 +126,11 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
   let duration = moment.duration(now.diff(end));
   let days = duration.asDays();
   let dayleft = Math.abs(parseInt(days));
+  // let dayleft = toString(dayleftint);
   // count day left end
   return (
     <>
+    <div className={styles.container}>
       <div className={styles.cardHead}>
         <h1>{dataDonorAll.dataDonate.title}</h1>
         {userSama ? (
@@ -112,45 +138,75 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
             <div className={styles.dropwarp}>
               <div className={styles.dropdown}>
                 <button className={styles.dropbtn}>
-                  <img className={styles.roda} src={setImage}></img>
-                  <img className={styles.arrow} src={setImage2}></img>
+                  <img  onClick={handleClick}  className={styles.roda} src={setImage} alt="user"></img>
+                  <img
+                     onClick={handleClick}
+                    className={styles.arrow}
+                    src={setImage2}
+                    alt="user2"
+                  ></img>
                 </button>
-                <div className={styles.dropdowncontent}>
-                  <Link>Edit</Link>
-                  <Link>Close Campaign</Link>
-                  <Link>Delete</Link>
-                </div>
+                <div className={styles.sortContainer}>
+          
+            {openMenu && (
+          <div className={styles.menuContainer}>
+            <Link
+              to={`/discover/$sort=newest`}
+              className={styles.menuItem}
+              onClick={handleChoose}
+            >
+              Edit
+            </Link>
+            <Link
+              to={`/discover/$sort=mosturgent`}
+              className={styles.menuItem}
+              onClick={handleChoose}
+            >
+              Close
+            </Link>
+            <Link
+              to={`/discover/$sort=popular`}
+              className={styles.menuItem}
+              onClick={handleChoose}
+            >
+              Delete
+            </Link>
+          </div>
+        )}
+        
+      </div>
               </div>
             </div>
           </>
         ) : (
           <div></div>
         )}
+        
+      </div>
       </div>
 
       <div className={styles.container}>
         <div className={styles.cardKiri}>
-          <img src={dataDonorAll.dataDonate.header_img}></img>
+          <img src={dataDonorAll.dataDonate.header_img} alt="user3"></img>
         </div>
-        {/* {  console.log({idUser}) }
-            {console.log(idUserFromChamping)} */}
-
         <div className={styles.cardKanan}>
-          <h1>
+          <h1 >
+
             <NumberFormat
               value={dataDonorAll.dataDonate.raised}
               displayType={"text"}
               thousandSeparator={true}
-              prefix={"IDR."}
+              prefix={"IDR "}
             />
           </h1>
-          <h4>
-            <NumberFormat
+          <h4 className={styles.goal}>
+            from 
+            <NumberFormat className={styles.goal}
               value={dataDonorAll.dataDonate.goal}
               displayType={"text"}
               thousandSeparator={true}
-              prefix={"IDR."}
-            />
+              prefix={" IDR "}
+            />   
           </h4>
           <div className={styles.progress}>
             <div
@@ -161,28 +217,33 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
           {lebih >= 0 ? (
             ""
           ) : (
+            <>
+            <h3>
+            
             <NumberFormat
               value={lebih}
               displayType={"text"}
               thousandSeparator={true}
-              prefix={"  IDR."}
+              prefix={"additional donation amount :  IDR "}
+              decimalScale={0}
             />
+            </h3>
+            <br/>
+            <br/>
+            </>
           )}
 
           <div className={styles.profilContainer}>
-            <img src={dataDonorAll.dataDonate?.User?.photo}></img>
+            <div className={styles.profilWraper}>
+            <img src={dataDonorAll.dataDonate?.User?.photo} alt="user4"></img>
             <div className={styles.profilName}>
               <h3>{dataDonorAll.dataDonate?.User?.name}</h3>
               <h4>Fundraiser</h4>
-              {userSama ? (
-                <Link className={styles.cekStatus}>Check status</Link>
-              ) : (
-                ""
-              )}
+            </div>
             </div>
             <div className={styles.dataCount}>
               <div>
-                <h1>{dayleft}</h1>
+                <h1>{!isNaN(dayleft) && dayleft}</h1>
                 <p>Days left</p>
               </div>
               <div>
@@ -196,35 +257,60 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
             </div>
 
             <button
-              onClick={() => postShare(idDonate)}
+              onClick={openModalShare }
               className={styles.btnShare}
             >
-              Share
+              SHARE
             </button>
+
             {userSama ? (
               <button className={styles.btnDonate} onClick={openModal}>
                 NEW PROGRESS
               </button>
+            ) : token === "" ? (
+              <button onClick={openModalLogin} className={styles.btnDonate}>
+                DONATE
+              </button>
             ) : (
-              <button className={styles.btnDonate}>Donate</button>
+              <Link to={`/donate/${dataDonorAll.dataDonate.id}`}>
+                <button className={styles.btnDonate}>DONATE</button>
+              </Link>
             )}
+
             <Modal
               isOpen={open}
               shouldCloseOnOverlayClick={false}
               onRequestClose={requestClose}
+              overlayClassName={styles.overlay}
+              bodyOpenClassName={styles.body}
+              portalClassName={styles.portal}
+              // style={customStyles}
+              className={styles.modalStyle}
+            >
+              <CampaignUpdate setOpen={setOpen} requestClose={requestClose} />
+            </Modal>
+
+            <Modal
+              isOpen={openShare}
+              shouldCloseOnOverlayClick={false}
+              onRequestClose={requestShareClose}
               style={customStyles}
             >
-              <div className={styles.modal}>
-                <div>Campaign Update</div>
-                <img
-                  src={close}
-                  alt="close"
-                  className={styles.close}
-                  onClick={requestClose}
-                />
+
+
+              <div className={styles.modalShare}>
+                <div className={styles.modalShareHead}>
+                  <h1>Help by Sharing</h1> <button className={styles.btnColseShare} onClick={requestShareClose}><b>X</b></button>
+                </div>
+                <div className={styles.modalShareBody}>
+                    <input className={styles.inputShareClick} name="myvalue"  id="myvalue" type="text" value={window.location}/>
+                    <button className={styles.btnShareClick}  onClick={copyToClipboard}>Copy Link</button>
+                </div>
               </div>
-              <CampaignUpdate setOpen={setOpen} />
+
+              
             </Modal>
+
           </div>
         </div>
       </div>
@@ -234,10 +320,13 @@ const CampaignDetailsDonateBigCard = ({ dataDonorAll, postShare }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   postShare: (idDonate) => dispatch(postShare(idDonate)),
+  setModalOpen: () => dispatch(setModalOpen()),
+  setFormLogin: () => dispatch(setFormLogin()),
 });
 
 const mapStateToProps = (state) => ({
   dataDonorAll: state.dataDonorAll,
+  userdata: state.auth,
 });
 
 export default connect(
