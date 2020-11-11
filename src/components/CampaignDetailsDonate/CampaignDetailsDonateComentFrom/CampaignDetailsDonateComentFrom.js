@@ -28,8 +28,6 @@ import { useParams } from "react-router-dom";
 
         axios(config)
         .then(function (response) {
-          // console.log(data.comment)
-         alert('sukses')
 
         })
         .catch(function (error) {
@@ -41,15 +39,17 @@ import { useParams } from "react-router-dom";
     
 
   return (
+    <div className={styles.body}>
     <div className={styles.container}>
       <h1>Comments ({jumlahkomen.length})</h1>
        <form onSubmit={handleSubmit(onSubmit)}>
-        <textarea name="comment" ref={register({ required: true , minLength: 4 , maxLength: 240 })} placeholder="Comment Here"></textarea>
+        <textarea name="comment" ref={register({ required: true , minLength: 4 , maxLength: 240 })} placeholder="Give them support.."></textarea>
         {errors.comment && <span>This field has minimum of 4 and maximum of 240 characters</span>}
         <div className={styles.btnwraper}>
           <button className={styles.btnpost}>POST</button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

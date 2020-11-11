@@ -21,8 +21,8 @@ const initialState = {
   dataDonate: [],
   dataDonateComen: [],
   dataDonateDonor: [],
-  dataDonateStory: [],
-  dataDonateStoryLoadMore: [],
+  dataDonateStory: {},
+  dataDonateUpdates: [],
   dataShare: [],
   relatedCampaigns: [],
   relatedCampaignsLoading: false,
@@ -40,12 +40,16 @@ const donorReducers = (state = initialState, action) => {
       return { ...state, dataDonateComen: action.data };
 
     case GET_DONATION_STORY:
-      return { ...state, dataDonateStory: action.data };
+      return {
+        ...state,
+        dataDonateStory: action.data,
+        dataDonateUpdates: action.data.Campaign_Logs,
+      };
 
     case GET_DONATION_STORY_LOAD_MORE:
       return {
         ...state,
-        dataDonateStory: [...state.dataDonateStory, action.data],
+        dataDonateUpdates: [...state.dataDonateUpdates, ...action.data],
       };
 
     case POST_SHARE:
