@@ -163,3 +163,14 @@ color: #9F9F9F;
     border-radius: 3px;
     color: #1D94A8 ;
   }
+
+  .btnLoadmore:hover{
+
+    /* Dust */
+background: #D7EBEE;
+
+/* Tosca */
+border: 1px solid #1D94A8;
+box-sizing: border-box;
+border-radius: 3px;
+  }

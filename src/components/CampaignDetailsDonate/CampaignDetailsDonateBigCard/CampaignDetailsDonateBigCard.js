@@ -68,6 +68,24 @@ const CampaignDetailsDonateBigCard = ({
 
   // useEffect //
 
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const handleClick = () => {
+    setOpenMenu(true);
+
+    document.addEventListener("click", handleClose);
+  };
+
+  const handleClose = () => {
+    setOpenMenu(false);
+
+    document.removeEventListener("click", handleClose);
+  };
+
+  const handleChoose = () => {
+    handleClose();
+  };
+
   let idUserFromChamping = dataDonorAll.dataDonate.UserId;
   let progress =
     (dataDonorAll.dataDonate.raised / dataDonorAll.dataDonate.goal) * 100;
@@ -120,18 +138,43 @@ const CampaignDetailsDonateBigCard = ({
             <div className={styles.dropwarp}>
               <div className={styles.dropdown}>
                 <button className={styles.dropbtn}>
-                  <img className={styles.roda} src={setImage} alt="user"></img>
+                  <img  onClick={handleClick}  className={styles.roda} src={setImage} alt="user"></img>
                   <img
+                     onClick={handleClick}
                     className={styles.arrow}
                     src={setImage2}
                     alt="user2"
                   ></img>
                 </button>
-                <div className={styles.dropdowncontent}>
-                  <span>Edit</span>
-                  <span>Close Campaign</span>
-                  <span>Delete</span>
-                </div>
+                <div className={styles.sortContainer}>
+          
+            {openMenu && (
+          <div className={styles.menuContainer}>
+            <Link
+              to={`/discover/$sort=newest`}
+              className={styles.menuItem}
+              onClick={handleChoose}
+            >
+              Edit
+            </Link>
+            <Link
+              to={`/discover/$sort=mosturgent`}
+              className={styles.menuItem}
+              onClick={handleChoose}
+            >
+              Close
+            </Link>
+            <Link
+              to={`/discover/$sort=popular`}
+              className={styles.menuItem}
+              onClick={handleChoose}
+            >
+              Delete
+            </Link>
+          </div>
+        )}
+        
+      </div>
               </div>
             </div>
           </>

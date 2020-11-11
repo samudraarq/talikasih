@@ -257,6 +257,16 @@ color: #000000;
     border-radius: 3px;
     color: #1D94A8 ;
   }
+
+  .btnLoadmore:hover{
+
+    background: #D7EBEE;
+
+/* Tosca */
+border: 1px solid #1D94A8;
+box-sizing: border-box;
+border-radius: 3px;
+  }
   .body{
     padding-top: 0.6rem;
     background: linear-gradient(180deg, #FAF8F3 0%, rgba(250, 248, 243, 0) 100%);

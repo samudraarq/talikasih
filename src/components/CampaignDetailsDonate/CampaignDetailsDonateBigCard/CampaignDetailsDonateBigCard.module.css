@@ -34,6 +34,7 @@
     padding: 0 7rem;
   }
   .btnShare {
+    margin-bottom:0px !important;
     width: 50% !important;
   
   }
@@ -51,12 +52,12 @@
 
   .btnShare {
     width: 50% !important;
-    bottom: 60px !;
+    bottom: 60px !important;
   }
   .btnDonate{
-    bottom: 60px;
+    bottom: 60px !important;
     width: 50% !important;
-  }
+  } 
 }
 
 
@@ -67,6 +68,7 @@
 }
 
 @media only screen and (max-width: 320px) {
+
 
 }
 
@@ -80,10 +82,18 @@
   flex-direction: row;
 }
 
+.btnDonate:hover {
+ 
+  background: rgba(164, 63, 60, 0.8);
+  border-radius: 3px;
+} 
 .cardKiri {
   width: 62%;
   margin-right: 3%;
   /* background-color: brown; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
 }
 
 .cardHead h1 {
@@ -97,9 +107,13 @@
 
 .cardKiri img {
   width: 100%;
+  max-height: 50rem;
   padding: 2rem 2rem 2rem 0;
   border-radius: 2rem;
+  object-fit: cover;
+  background-size: cover;
 }
+
 
 .cardKanan {
   width: 37%;
@@ -132,6 +146,45 @@
   width: 100%;
   margin-bottom: 2rem;
 }
+
+.sortContainer {
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.sortIconContainer {
+  display: flex;
+}
+
+.sortText {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-right: 1.8rem;
+}
+
+.menuContainer {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 1rem;
+  left: -3rem;
+}
+
+.menuItem {
+  font-weight: 400;
+  font-size: 1.4rem;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  padding: 0.7rem 2.4rem;
+  display: block;
+}
+
+.menuItem:hover {
+  background-color: #f4f4f4;
+}
+
 
 .progressDone {
   background: #1d94a8;
@@ -402,6 +455,16 @@ img.roda {
   
 }
 
+.btnShare:hover{
+      /* Dust */
+background: #D7EBEE;
+
+/* Tosca */
+border: 1px solid #1D94A8;
+box-sizing: border-box;
+border-radius: 3px;
+}
+
 .btnShareClick h1{
   font-style: normal;
   font-weight: bold;
@@ -472,9 +535,10 @@ text-transform: uppercase;
   position: fixed;
   bottom: 0;
   right: 0px; 
-  border-radius: 0px;
+
   z-index: 20;
-  background: #a43f3c;
+  background: #A43F3C;
+  border-radius: 3px;
   color: #fff;
   text-transform: uppercase;
   font-weight: bold;
@@ -485,11 +549,7 @@ text-transform: uppercase;
   border: none;
 }
 
-.dataCount div{
-  margin-bottom: 4rem;
-  padding: 2rem 0;
-  width: 20%;
-}
+
 .cardHead {
   width: 100%;
   max-width: 100%;

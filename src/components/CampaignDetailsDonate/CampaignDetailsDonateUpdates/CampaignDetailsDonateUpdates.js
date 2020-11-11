@@ -103,7 +103,7 @@ const CampaignDetailsDonateUpdates = ({
             Updates ({sortedActivities?.length})
           </h1>
           {sortedActivities?.length === 0 ? (
-            <h1 style={{ textAlign: `center` }}>Tidak Ada Data</h1>
+            <h1 style={{ textAlign: `center` }}>No Update Data</h1>
           ) : (
             UserAllStory
           )}
@@ -111,7 +111,7 @@ const CampaignDetailsDonateUpdates = ({
         <div className={styles.btnwrap}>
           {page < pageLimit ? (
             <button onClick={handleClick} className={styles.btnLoadmore}>
-              Load More
+              LOAD MORE
             </button>
           ) : null}
         </div>

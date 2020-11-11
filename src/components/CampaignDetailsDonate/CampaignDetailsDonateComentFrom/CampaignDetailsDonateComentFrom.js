@@ -28,7 +28,6 @@ import { useParams } from "react-router-dom";
 
         axios(config)
         .then(function (response) {
-         alert('sukses')
 
         })
         .catch(function (error) {
