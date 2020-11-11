@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useQuill } from "react-quilljs";
 import axios from "axios";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
+import qs from "qs";
 import "quill/dist/quill.snow.css";
 import styles from "../../CampaignCreate/CampaignCreateComponent/Form.module.css";
 import EditHeaderImage from "./EditHeaderImage";
@@ -11,44 +12,39 @@ import spinner from "../../../assets/general/spinner.svg";
 
 const EditForm = ({ auth, campaign }) => {
   // FORM //
-  console.log(campaign);
+  console.log(campaign.due_date);
   const { register, errors, handleSubmit } = useForm({ mode: "onBlur" });
 
-  const [image, setImage] = useState({ preview: "", raw: "" });
   const [loading, setLoading] = useState(false);
 
   let history = useHistory();
-
-  const bankAccount = campaign.User.bank_account;
 
   const onSubmit = async (data) => {
     const html = quill.root.innerHTML;
 
     try {
       const { title, goal, due_date, CategoryId } = data;
-      const formData = new FormData();
-      formData.append("title", title);
-      formData.append("goal", goal);
-      formData.append("story", html);
-      formData.append("due_date", due_date);
-      formData.append("header_img", image.raw);
-      formData.append("CategoryId", CategoryId);
-      formData.append("bankAccount", bankAccount);
-
+      const qsData = qs.stringify({
+        title: title,
+        goal: goal,
+        story: html,
+        due_date: due_date,
+        CategoryId: CategoryId,
+      });
       setLoading(true);
 
       const respond = await axios({
-        method: "post",
-        url: "https://warm-tundra-23736.herokuapp.com/campaign/add",
+        method: "put",
+        url: `https://warm-tundra-23736.herokuapp.com/campaign/edit/${campaign.id}`,
         headers: {
           token: auth.token,
         },
-        data: formData,
+        data: qsData,
       });
       const response = respond.data;
       console.log(response);
       setLoading(false);
-      history.push("/user/profile");
+      history.push(`/campaign/details/donate/${campaign.id}`);
     } catch (error) {
       console.log("error");
     }
@@ -76,15 +72,15 @@ const EditForm = ({ auth, campaign }) => {
     placeholder,
   });
 
+  useEffect(() => {
+    if (quill) {
+      quill.clipboard.dangerouslyPasteHTML(campaign.story);
+    }
+  }, [quill, campaign]);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <EditHeaderImage
-        id="header_img"
-        image={image}
-        setImage={setImage}
-        register={register}
-        errors={errors}
-      />
+      <EditHeaderImage id="header_img" image={campaign.header_img} />
       <div className={styles.container}>
         <div className={styles.col}>
           <label htmlFor="title" className={styles.subtitle}>
@@ -97,6 +93,7 @@ const EditForm = ({ auth, campaign }) => {
             placeholder="e.g. Help we get clean water"
             className={styles.input}
             ref={register({ required: true })}
+            defaultValue={campaign.title}
           />
           {errors.title && errors.title.type === "required" && (
             <div className={styles.alert}>Required</div>
@@ -113,6 +110,7 @@ const EditForm = ({ auth, campaign }) => {
             placeholder="e.g. 20000000"
             className={styles.input}
             ref={register({ required: true })}
+            defaultValue={campaign.goal}
           />
           {errors.goal && errors.goal.type === "required" && (
             <div className={styles.alert}>Required</div>
@@ -128,10 +126,8 @@ const EditForm = ({ auth, campaign }) => {
             placeholder="Select campaign category"
             className={styles.input}
             ref={register({ required: true })}
+            defaultValue={campaign.CategoryId}
           >
-            <option value="" disabled selected>
-              Select campaign category
-            </option>
             <option value="1">Disability</option>
             <option value="2">Medical</option>
             <option value="3">Education</option>
@@ -156,6 +152,7 @@ const EditForm = ({ auth, campaign }) => {
             placeholder="Select due date"
             className={styles.input}
             ref={register({ required: true })}
+            defaultValue={campaign.due_date}
           />
           {errors.due_date && errors.due_date.type === "required" && (
             <div className={styles.alert}>Required</div>
@@ -182,7 +179,7 @@ const EditForm = ({ auth, campaign }) => {
             <span>Processing</span>
           </div>
         ) : (
-          <span>Create Campaign</span>
+          <span>Edit Campaign</span>
         )}
       </button>
     </form>

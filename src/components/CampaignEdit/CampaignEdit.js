@@ -21,7 +21,7 @@ const CampaignEdit = () => {
         <div className={styles.title}>
           <div>Edit Campaign</div>
         </div>
-        <EditForm campaign={campaign} />
+        {campaign && <EditForm campaign={campaign} />}
       </div>
     </div>
   );
