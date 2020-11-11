@@ -57,7 +57,7 @@ const AdminTable = ({
         </div>
         <div className={styles.tdContent}>
           <p className={styles.amount}>
-            IDR {new Intl.NumberFormat("id-ID").format(campaign.goal)}
+            IDR {new Intl.NumberFormat("id-ID").format(campaign.raised)}
           </p>
         </div>
         <div className={styles.tdContent}>
