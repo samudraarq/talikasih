@@ -14,6 +14,7 @@ import Donate from "./pages/Donate/Donate";
 import { useEffect } from "react";
 import UserProfilePage from "./pages/UserProfilePage";
 import AdminPage from "./pages/AdminPage";
+import EditCampaign from "./pages/EditCampaign";
 
 function App({ setUserPersistanceLogin, auth }) {
   useEffect(() => {
@@ -49,6 +50,9 @@ function App({ setUserPersistanceLogin, auth }) {
       <Switch>
         <Route path="/campaign/create">
           <CampingCreatePage />
+        </Route>
+        <Route path="/campaign/edit/:campaignId">
+          <EditCampaign />
         </Route>
         <Route path="/campaign/details/donate/:idDonate">
           <ChampingDetailsDonatePage />
@@ -87,6 +91,9 @@ function App({ setUserPersistanceLogin, auth }) {
         </Route>
         <Route path="/campaign/create">
           <CampingCreatePage />
+        </Route>
+        <Route path="/campaign/edit/:campaignId">
+          <EditCampaign />
         </Route>
         <Route path="/campaign/details/donate/:idDonate">
           <ChampingDetailsDonatePage />
