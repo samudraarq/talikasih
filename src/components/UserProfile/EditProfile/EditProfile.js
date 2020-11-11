@@ -24,11 +24,8 @@ const EditProfile = ({
 
   useEffect(() => {
     if (auth.isEditSuccess) {
-      setTimeout(() => {
-        console.log("success");
-        setEditSuccess();
-        history.push("/user/profile");
-      }, 2000);
+      setEditSuccess();
+      history.push("/user/profile");
     }
   }, [auth.isEditSuccess, setEditSuccess, history]);
 
