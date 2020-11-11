@@ -69,6 +69,10 @@
   background: rgba(164, 63, 60, 0.8);
 }
 
+.submit:disabled {
+  background: #9f9f9f;
+}
+
 .loading {
   background: rgba(164, 63, 60, 0.8);
 }
@@ -94,6 +98,19 @@
 
 .progress span {
   margin-left: 1rem;
+}
+
+.addBank {
+  background-color: #e0c78c;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  padding: 2rem;
+}
+.addBank a {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-family: inherit;
 }
 
 @keyframes rotate {
