@@ -31,7 +31,6 @@ const Admin = ({ auth }) => {
       };
       axios(config)
         .then((res) => {
-          console.log(res.data);
           setMaxPage(res.data.total_pages);
           setTotalData(res.data.total_data);
           setCampaigns(res.data.document);
@@ -48,7 +47,6 @@ const Admin = ({ auth }) => {
       };
       axios(config)
         .then((res) => {
-          console.log(res.data);
           setMaxPage(res.data.total_pages);
           setTotalData(res.data.total_data);
           setCampaigns(res.data.document);
@@ -64,7 +62,6 @@ const Admin = ({ auth }) => {
       };
       axios(config)
         .then((res) => {
-          console.log(res.data);
           setMaxPage(res.data.total_pages);
           setTotalData(res.data.total_data);
           setCampaigns(res.data.document);
@@ -78,7 +75,6 @@ const Admin = ({ auth }) => {
           `https://warm-tundra-23736.herokuapp.com/discover/allcampaign/${page}`
         )
         .then((res) => {
-          console.log(res.data);
           setMaxPage(res.data.total_pages);
           setTotalData(res.data.total_data);
           setCampaigns(res.data.document);

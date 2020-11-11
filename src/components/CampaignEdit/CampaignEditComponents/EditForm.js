@@ -13,7 +13,7 @@ import spinner from "../../../assets/general/spinner.svg";
 
 const EditForm = ({ auth, campaign }) => {
   // FORM //
-  console.log(campaign.due_date);
+
   const { register, errors, handleSubmit } = useForm({ mode: "onBlur" });
 
   const [loading, setLoading] = useState(false);
@@ -34,7 +34,7 @@ const EditForm = ({ auth, campaign }) => {
       });
       setLoading(true);
 
-      const respond = await axios({
+      await axios({
         method: "put",
         url: `https://warm-tundra-23736.herokuapp.com/campaign/edit/${campaign.id}`,
         headers: {
@@ -42,8 +42,7 @@ const EditForm = ({ auth, campaign }) => {
         },
         data: qsData,
       });
-      const response = respond.data;
-      console.log(response);
+
       setLoading(false);
       history.push(`/campaign/details/donate/${campaign.id}`);
     } catch (error) {

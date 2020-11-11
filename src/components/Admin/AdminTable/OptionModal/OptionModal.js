@@ -36,7 +36,6 @@ const OptionModal = ({ campaign, auth, setUpdateCounter, updateCounter }) => {
       };
       axios(config)
         .then((res) => {
-          console.log(res.data);
           setUpdateCounter(updateCounter + 1);
         })
         .catch((err) => console.log(err));
@@ -50,7 +49,6 @@ const OptionModal = ({ campaign, auth, setUpdateCounter, updateCounter }) => {
       };
       axios(config)
         .then((res) => {
-          console.log(res.data);
           setUpdateCounter(updateCounter + 1);
         })
         .catch((err) => console.log(err));
@@ -64,7 +62,6 @@ const OptionModal = ({ campaign, auth, setUpdateCounter, updateCounter }) => {
       };
       axios(config)
         .then((res) => {
-          console.log(res.data);
           setUpdateCounter(updateCounter + 1);
         })
         .catch((err) => console.log(err));
