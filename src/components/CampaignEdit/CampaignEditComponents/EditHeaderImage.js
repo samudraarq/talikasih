@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../CampaignCreate/HeaderImage.module.css";
+import styles from "../../CampaignCreate/CampaignCreateComponent/HeaderImage.module.css";
 
 import iconplus from "../../../assets/CampingCreate/Vector.png";
 

@@ -5,12 +5,13 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "quill/dist/quill.snow.css";
-import styles from "../../CampaignCreate/Form.module.css";
-import HeaderImage from "./HeaderImage";
+import styles from "../../CampaignCreate/CampaignCreateComponent/Form.module.css";
+import EditHeaderImage from "./EditHeaderImage";
 import spinner from "../../../assets/general/spinner.svg";
 
-const EditForm = ({ auth }) => {
+const EditForm = ({ auth, campaign }) => {
   // FORM //
+  console.log(campaign);
   const { register, errors, handleSubmit } = useForm({ mode: "onBlur" });
 
   const [image, setImage] = useState({ preview: "", raw: "" });
@@ -18,7 +19,7 @@ const EditForm = ({ auth }) => {
 
   let history = useHistory();
 
-  const bankAccount = auth.user.bank_account;
+  const bankAccount = campaign.User.bank_account;
 
   const onSubmit = async (data) => {
     const html = quill.root.innerHTML;
@@ -77,7 +78,7 @@ const EditForm = ({ auth }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <HeaderImage
+      <EditHeaderImage
         id="header_img"
         image={image}
         setImage={setImage}
