@@ -4,6 +4,7 @@ import { useQuill } from "react-quilljs";
 import axios from "axios";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
+import moment from "moment";
 import qs from "qs";
 import "quill/dist/quill.snow.css";
 import styles from "../../CampaignCreate/CampaignCreateComponent/Form.module.css";
@@ -152,7 +153,7 @@ const EditForm = ({ auth, campaign }) => {
             placeholder="Select due date"
             className={styles.input}
             ref={register({ required: true })}
-            defaultValue={campaign.due_date}
+            defaultValue={moment(campaign.due_date).format("YYYY-MM-DD")}
           />
           {errors.due_date && errors.due_date.type === "required" && (
             <div className={styles.alert}>Required</div>
