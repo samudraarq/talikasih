@@ -6,9 +6,12 @@ import styles from "./OptionModal.module.css";
 
 import optionIcon from "../../../../assets/admin/options.svg";
 import downIcon from "../../../../assets/admin/downarrow.svg";
+import { useHistory } from "react-router-dom";
 
 const OptionModal = ({ campaign, auth, setUpdateCounter, updateCounter }) => {
   const [openMenu, setOpenMenu] = useState(false);
+
+  const history = useHistory();
 
   const handleClick = () => {
     setOpenMenu(true);
@@ -33,7 +36,6 @@ const OptionModal = ({ campaign, auth, setUpdateCounter, updateCounter }) => {
       };
       axios(config)
         .then((res) => {
-          console.log(res.data);
           setUpdateCounter(updateCounter + 1);
         })
         .catch((err) => console.log(err));
@@ -47,7 +49,6 @@ const OptionModal = ({ campaign, auth, setUpdateCounter, updateCounter }) => {
       };
       axios(config)
         .then((res) => {
-          console.log(res.data);
           setUpdateCounter(updateCounter + 1);
         })
         .catch((err) => console.log(err));
@@ -61,10 +62,11 @@ const OptionModal = ({ campaign, auth, setUpdateCounter, updateCounter }) => {
       };
       axios(config)
         .then((res) => {
-          console.log(res.data);
           setUpdateCounter(updateCounter + 1);
         })
         .catch((err) => console.log(err));
+    } else if (e.target.id === "edit") {
+      history.push(`/campaign/edit/${campaign.id}`);
     }
     handleClose();
   };
