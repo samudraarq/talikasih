@@ -13,7 +13,8 @@
 
 .campaigns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(26rem, 36rem));
+  justify-content: center;
   column-gap: 5.6rem;
   row-gap: 2.4rem;
   margin: 2rem auto;
@@ -37,4 +38,14 @@
   margin: 2.7rem auto 1.2rem;
   display: block;
   outline: none;
+}
+
+.loadBtn:hover {
+  background: #d7ebee;
+}
+
+@media only screen and (max-width: 1100px) {
+  .campaigns {
+    column-gap: 2.6rem;
+  }
 }

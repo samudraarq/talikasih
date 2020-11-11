@@ -10,6 +10,7 @@ import ChangeProfileImage from "./ChangeProfileImage/ChangeProfileImage";
 import styles from "./EditProfile.module.css";
 import EditProfileForm from "./EditProfileForm/EditProfileForm";
 import { useHistory } from "react-router-dom";
+import Container from "../../UI/Container";
 
 const EditProfile = ({
   auth,
@@ -23,11 +24,8 @@ const EditProfile = ({
 
   useEffect(() => {
     if (auth.isEditSuccess) {
-      setTimeout(() => {
-        console.log("success");
-        setEditSuccess();
-        history.push("/user/profile");
-      }, 2000);
+      setEditSuccess();
+      history.push("/user/profile");
     }
   }, [auth.isEditSuccess, setEditSuccess, history]);
 
@@ -36,7 +34,6 @@ const EditProfile = ({
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     const dataQs = qs.stringify(data);
     editUserProfile(dataQs);
 
@@ -48,13 +45,15 @@ const EditProfile = ({
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.profileContainer}>
-        <h3 className={styles.title}>Edit Profile</h3>
-        <ChangeProfileImage changeHandler={changeHandler} profPic={profPic} />
-        <EditProfileForm onSubmit={onSubmit} />
+    <Container>
+      <div className={styles.container}>
+        <div className={styles.profileContainer}>
+          <h3 className={styles.title}>Edit Profile</h3>
+          <ChangeProfileImage changeHandler={changeHandler} profPic={profPic} />
+          <EditProfileForm onSubmit={onSubmit} />
+        </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

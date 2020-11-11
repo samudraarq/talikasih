@@ -6,11 +6,6 @@
   background-color: #f9f7f3;
 }
 
-.container {
-  max-width: 120rem;
-  margin: auto;
-}
-
 .footerContainer {
   display: flex;
   justify-content: space-between;
@@ -47,4 +42,41 @@
   font-weight: 400;
   font-size: 1.2rem;
   color: #2d2d2d;
+}
+
+@media only screen and (max-width: 800px) {
+  .footerContainer {
+    flex-direction: column;
+  }
+
+  .footerLinkContainer {
+    margin-top: 2rem;
+  }
+
+  .logo {
+    width: 20rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .footerContainer {
+    margin-bottom: 2rem;
+  }
+  .footer {
+    padding-bottom: 10rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .footerLinkContainer {
+    flex-direction: column;
+  }
+
+  .footerLink {
+    margin-top: 1rem;
+  }
+
+  .footerLink:not(:last-of-type) {
+    border-bottom: 1px solid #e1e0e0;
+  }
 }

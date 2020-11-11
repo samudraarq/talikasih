@@ -6,6 +6,7 @@ import CampaignCard from "../../CampaignCard/CampaignCard";
 import styles from "./NewCampaign.module.css";
 
 import SkeletonCard from "../../Skeleton/SkeletonCard";
+import Container from "../../UI/Container";
 
 const NewCampaign = ({ newCampaign, getNewCampaigns }) => {
   useEffect(() => {
@@ -19,7 +20,7 @@ const NewCampaign = ({ newCampaign, getNewCampaigns }) => {
   const renderSkeleton = [1, 2, 3].map((n) => <SkeletonCard key={n} />);
 
   return (
-    <div className={styles.container}>
+    <Container>
       <h3 className={styles.segmentTitle}>New</h3>
       <h2 className={styles.topicTitle}>
         The latest people who need your help
@@ -27,7 +28,7 @@ const NewCampaign = ({ newCampaign, getNewCampaigns }) => {
       <div className={styles.cardsContainer}>
         {newCampaign.loading ? renderSkeleton : renderCards}
       </div>
-    </div>
+    </Container>
   );
 };
 

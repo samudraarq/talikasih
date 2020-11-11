@@ -67,21 +67,19 @@ const HeaderCategory = () => {
   }, [categoryId]);
 
   return (
-    <>
-      <div className={styles.headerContainer}>
-        <div className={styles.textContainer}>
-          <span className={styles.categoryBadge}>{badge}</span>
-          <p className={styles.categoryText}>{text}</p>
-          <div className={styles.backlinkContainer}>
-            <Link to="/discover" className={styles.backlinkText}>
-              <img src={leftArrow} alt="left arrow" />
-              <p>See all categories</p>
-            </Link>
-          </div>
+    <div className={styles.headerContainer}>
+      <div className={styles.textContainer}>
+        <span className={styles.categoryBadge}>{badge}</span>
+        <p className={styles.categoryText}>{text}</p>
+        <div className={styles.backlinkContainer}>
+          <Link to="/discover" className={styles.backlinkText}>
+            <img src={leftArrow} alt="left arrow" />
+            <p>See all categories</p>
+          </Link>
         </div>
-        <img src={image} alt="category" className={styles.categoryImg} />
       </div>
-    </>
+      <img src={image} alt="category" className={styles.categoryImg} />
+    </div>
   );
 };
 

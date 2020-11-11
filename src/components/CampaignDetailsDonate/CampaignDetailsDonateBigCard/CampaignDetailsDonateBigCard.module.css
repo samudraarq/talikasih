@@ -416,6 +416,7 @@ img.roda {
  
 } */
 
+
 .modalShare {
 
   height: 20%;
@@ -451,8 +452,23 @@ img.roda {
   color: #fff;
   background-color: #A43F3C;
   border-radius: 3px;
-
+}
   
+
+/* MODAL */
+.modalStyle {
+  background-color: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width: 96.1rem; */
+  border-style: none;
+  position: relative;
+  outline: none;
+  max-height: 100vh;
+  overflow-y: auto;
+  max-width: 96.1rem;
+  margin-right: 4rem;
 }
 
 .btnShare:hover{
