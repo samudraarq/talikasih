@@ -9,6 +9,7 @@ import finishedIcon from "../../../assets/admin/finished.svg";
 import rejectedIcon from "../../../assets/admin/rejected.svg";
 import trashIcon from "../../../assets/admin/trash.svg";
 import OptionModal from "./OptionModal/OptionModal";
+import { Link } from "react-router-dom";
 
 const AdminTable = ({
   setSort,
@@ -24,7 +25,12 @@ const AdminTable = ({
     renderTableData = campaigns.map((campaign) => (
       <div className={styles.tdRow} key={campaign.id}>
         <div className={styles.tdContent}>
-          <p className={styles.title}>{campaign.title}</p>
+          <Link
+            to={`/campaign/details/donate/${campaign.id}`}
+            className={styles.title}
+          >
+            {campaign.title}
+          </Link>
           <p className={styles.subtitle}>by Aksi Cepat Tanggap</p>
         </div>
         <div className={styles.tdContent}>

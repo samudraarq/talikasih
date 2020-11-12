@@ -7,8 +7,12 @@ const ChampingDetailsDonatePage = () => {
   return (
     <>
       <Navbar />
-      <div> 
-        <CampaingDetailsDonate/>
+      <div
+        style={{
+          background: "linear-gradient(#ffffff 0%, #ffffff 50%, #f2f9fa 100%)",
+        }}
+      >
+        <CampaingDetailsDonate />
       </div>
       <Footer />
     </>

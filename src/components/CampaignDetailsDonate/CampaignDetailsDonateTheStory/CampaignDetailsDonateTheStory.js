@@ -13,7 +13,7 @@ const CampaignDetailsDonateTheStory = ({ dataDonorAll }) => {
           Hide Full Article
         </a>
         <div className={styles.panel}>
-          <h3> The Story</h3>
+          <h3 className={styles.storyTitel}> The Story</h3>
           <br></br>
           <div
             dangerouslySetInnerHTML={{ __html: dataDonorAll.dataDonate.story }}

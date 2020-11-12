@@ -18,8 +18,9 @@ const CampaignDetailsDonateUpdates = ({
     setPage(page + 1);
     getDonationStoryLoadMore(idDonate, page);
   };
-  const sortedActivities = dataDonorAll?.dataDonateStory;
+
   let pageLimit = dataDonorAll?.dataDonateStory?.total_page;
+  const sortedActivities = dataDonorAll?.dataDonateUpdates;
 
   const UserAllStory = sortedActivities?.reverse().map((item, index) => {
     // count Day left
@@ -29,8 +30,6 @@ const CampaignDetailsDonateUpdates = ({
     let days = duration.asDays();
     let dayleft = Math.abs(parseInt(days));
     let hari = "";
-    // count day left en
-    // console.log(dayleft);
     // hendel dia whitdraw atau coment
     if (item.StatusId === 1) {
       // hendel today yesterday
@@ -52,14 +51,14 @@ const CampaignDetailsDonateUpdates = ({
               <h1>{hari}</h1>
               <button className={styles.btnWithdrawal}>Withdrawal</button>
             </div>
-            <div className={styles.liBody}>
+            <div className={styles.liBodydrow}>
               <h2>
                 {" "}
                 <NumberFormat
                   value={item.ammount}
                   displayType={"text"}
                   thousandSeparator={true}
-                  prefix={"IDR."}
+                  prefix={"Rp."}
                 />
               </h2>
               <p dangerouslySetInnerHTML={{ __html: item.content }}></p>
@@ -97,29 +96,27 @@ const CampaignDetailsDonateUpdates = ({
   });
 
   return (
-    <>
+    <div className={styles.body}>
       <div className={styles.container}>
         <ul className={styles.bar}>
           <h1 className={styles.countdata}>
             Updates ({sortedActivities?.length})
           </h1>
           {sortedActivities?.length === 0 ? (
-            <h1 style={{ textAlign: `center` }}>Tidak Ada Data</h1>
+            <h1 style={{ textAlign: `center` }}>No Update Data</h1>
           ) : (
             UserAllStory
           )}
         </ul>
+        <div className={styles.btnwrap}>
+          {page < pageLimit ? (
+            <button onClick={handleClick} className={styles.btnLoadmore}>
+              LOAD MORE
+            </button>
+          ) : null}
+        </div>
       </div>
-      <div className={styles.btnwrap}>
-        {/* button di taruh fungsi untuk menganti max slice */}
-
-        {page > pageLimit ? (
-          <button onClick={handleClick} className={styles.btnLoadmore}>
-            More
-          </button>
-        ) : null}
-      </div>
-    </>
+    </div>
   );
 };
 

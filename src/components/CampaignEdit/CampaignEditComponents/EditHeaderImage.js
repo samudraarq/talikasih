@@ -3,7 +3,7 @@ import styles from "../../CampaignCreate/CampaignCreateComponent/HeaderImage.mod
 
 const EditHeaderImage = ({ image }) => {
   return (
-    <div className={styles.headerImage}>
+    <>
       <label htmlFor="upload-button">
         <img
           src={image}
@@ -14,7 +14,7 @@ const EditHeaderImage = ({ image }) => {
         />
       </label>
       <br />
-    </div>
+    </>
   );
 };
 

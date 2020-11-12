@@ -1,6 +1,77 @@
+@media only screen and (max-width: 1100px) {
+  .container {
+    padding: 0 10rem;
+  }
+  .btnShare {
+    width: 100% !important;
+  }
+  .btnDonate {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    padding: 0 9rem;
+  }
+}
+@media only screen and (max-width: 860px) {
+  .container {
+    padding: 0 7rem;
+  }
+  .btnShare {
+    width: 50% !important;
+  }
+  .btnDonate {
+    width: 50% !important;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .container {
+    padding: 0 7rem;
+  }
+  .btnShare {
+    margin-bottom: 0px !important;
+    width: 50% !important;
+  }
+  .btnDonate {
+    width: 50% !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 0 5rem;
+  }
+
+  .btnShare {
+    width: 50% !important;
+    bottom: 9.5rem !important;
+  }
+  .btnDonate {
+    bottom: 9.5rem !important;
+    width: 50% !important;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .btnShare {
+    bottom: 10rem !important;
+  }
+  .btnDonate {
+    bottom: 10rem !important;
+  }
+}
+
 .container {
   max-width: 120rem;
-  margin: 0rem auto 10rem auto;
+  margin: 0rem auto 5rem auto;
   height: 100%;
   display: flex;
   justify-content: right;
@@ -8,9 +79,17 @@
   flex-direction: row;
 }
 
+.btnDonate:hover {
+  background: rgba(164, 63, 60, 0.8);
+  border-radius: 3px;
+}
 .cardKiri {
   width: 62%;
+  margin-right: 3%;
   /* background-color: brown; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
 }
 
 .cardHead h1 {
@@ -24,8 +103,11 @@
 
 .cardKiri img {
   width: 100%;
+  max-height: 50rem;
   padding: 2rem 2rem 2rem 0;
   border-radius: 2rem;
+  object-fit: cover;
+  background-size: cover;
 }
 
 .cardKanan {
@@ -35,7 +117,7 @@
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
-  padding: 5rem;
+  padding: 3rem;
   margin-top: 2rem;
 }
 
@@ -58,6 +140,44 @@
   height: 8px;
   width: 100%;
   margin-bottom: 2rem;
+}
+
+.sortContainer {
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.sortIconContainer {
+  display: flex;
+}
+
+.sortText {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-right: 1.8rem;
+}
+
+.menuContainer {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 1rem;
+  left: -3rem;
+}
+
+.menuItem {
+  font-weight: 400;
+  font-size: 1.4rem;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  padding: 0.7rem 2.4rem;
+  display: block;
+}
+
+.menuItem:hover {
+  background-color: #f4f4f4;
 }
 
 .progressDone {
@@ -92,7 +212,7 @@
 .dataCount {
   display: flex;
   justify-content: space-around;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .dataCount div {
@@ -136,13 +256,13 @@
   height: 4rem;
   width: 37rem;
   background: #ffffff;
-  margin-top: 8rem;
+  margin-top: 4rem;
 
   /* Tosca */
   border: 1px solid #1d94a8;
   box-sizing: border-box;
   border-radius: 3px;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
   color: #1d94a8;
 
   font-size: 16px;
@@ -204,7 +324,7 @@ img.roda {
 }
 .cekStatus {
   justify-self: end;
-  margin-left: 60%;
+  margin-left: 80%;
   width: 100%;
   color: #1d94a8;
 }
@@ -290,6 +410,82 @@ img.roda {
  
 } */
 
+.modalShare {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: #ffffff;
+
+  /* Gray */
+  border: 1px solid #9f9f9f;
+  box-sizing: border-box;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.modalShareHead {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #9f9f9f;
+  padding: 3rem;
+  min-height: 12rem;
+}
+.modalShareBody {
+  /* background-color: blue; */
+  min-height: 100%;
+  padding: 2rem 8rem 5rem 5rem;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.helpshare {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 44px;
+
+  /* identical to box height */
+
+  color: #000000;
+}
+
+.linkwraper {
+  border-bottom: 1px solid #9f9f9f;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+.inputShareClick {
+  padding: 1.5rem 2rem 0rem 2rem;
+  margin: 2rem;
+  width: 40rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.linkicon {
+  margin: 2rem -2rem 0 3rem;
+}
+.btnShareClick {
+  height: 5rem;
+  margin-top: 3rem;
+  padding: 0 8rem;
+  color: #fff;
+  background-color: #a43f3c;
+  border-radius: 3px;
+  margin-left: 6rem;
+  border: none;
+}
+.btnShareClick:hover {
+  /* Rose 80% */
+  background: rgba(164, 63, 60, 0.8);
+  border-radius: 3;
+}
+
 /* MODAL */
 .modalStyle {
   background-color: #ffffff;
@@ -306,20 +502,131 @@ img.roda {
   margin-right: 4rem;
 }
 
-.overlay {
-  background-color: rgba(60, 60, 60, 0.75);
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+.btnShare:hover {
+  /* Dust */
+  background: #d7ebee;
+
+  /* Tosca */
+  border: 1px solid #1d94a8;
+  box-sizing: border-box;
+  border-radius: 3px;
 }
 
-.body {
-  overflow: hidden;
+.btnShareClick h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+
+  /* identical to box height */
+  text-align: center;
+  letter-spacing: 1px;
+}
+.btnColseShare {
+  background-color: transparent;
+  border: none;
+  margin-right: 1.5rem;
+  cursor: pointer;
+}
+.profilWraper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3rem;
 }
 
-.portal {
-  z-index: 9999;
-  position: relative;
+@media all and (max-width: 860px) {
+  .container {
+    max-width: 100%;
+    margin: 0rem auto 0rem auto;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    flex-direction: column;
+  }
+
+  .cardKiri {
+    width: 100%;
+    padding: 2rem;
+  }
+  .cardKanan {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .btnShare {
+    height: 6rem;
+    width: 40%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 20;
+    background: #ffffff;
+    margin-bottom: 0;
+    box-shadow: 0px -2px 4px 2px rgba(0, 0, 0, 0.05);
+    /* Tosca */
+    border: none;
+    box-sizing: border-box;
+    border-radius: 0;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+
+    /* identical to box height */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .btnDonate {
+    height: 6rem;
+    width: 60%;
+    position: fixed;
+    bottom: 0;
+    right: 0px;
+    box-shadow: 0px -2px 4px 2px rgba(0, 0, 0, 0.05);
+
+    z-index: 20;
+    background: #a43f3c;
+    border-radius: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 1px;
+    text-align: center;
+    border: none;
+  }
+
+  .cardHead {
+    width: 100%;
+    max-width: 100%;
+    padding: 2rem;
+    margin: 15rem auto 0rem auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    flex-direction: row;
+  }
+
+  .cardHead h1 {
+    font-size: 24px;
+    line-height: 22px;
+  }
+  .cekStatus {
+    margin-left: 70%;
+  }
+
+  .goal,
+  .cekStatus,
+  .profilName {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+  }
 }
