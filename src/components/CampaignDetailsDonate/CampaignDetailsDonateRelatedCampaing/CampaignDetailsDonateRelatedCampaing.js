@@ -24,9 +24,11 @@ const CampaignDetailsDonateRelatedCampaing = ({
 
   return (
     <Container>
-      <span className={styles.sectionsTitle}>Related campaign</span>
-      <div className={styles.cardsContainer}>
-        {dataDonorAll.relatedCampaignsLoading ? renderSkeleton : renderCards}
+      <div className={styles.container}>
+        <span className={styles.sectionsTitle}>Related campaign</span>
+        <div className={styles.cardsContainer}>
+          {dataDonorAll.relatedCampaignsLoading ? renderSkeleton : renderCards}
+        </div>
       </div>
     </Container>
   );
