@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./CampaignDetailsDonateComentFrom.module.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -13,12 +13,14 @@ const CampaignDetailsDonateComentFrom = ({
   getDonorDataComent,
   campaignId,
 }) => {
+  const [text, setText] = useState("");
+
   let { idDonate } = useParams();
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
     let dataqs = qs.stringify({
-      content: data.comment,
+      content: text,
     });
     console.log(data);
     let token = userdata.token;
@@ -34,31 +36,42 @@ const CampaignDetailsDonateComentFrom = ({
     axios(config)
       .then(function (response) {
         getDonorDataComent(campaignId);
+        setText("");
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+
   return (
     <div className={styles.body}>
       <div className={styles.container}>
         <h1>Comments ({jumlahkomen.length})</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <textarea
-            name="comment"
-            ref={register({ required: true, minLength: 4, maxLength: 240 })}
-            placeholder="Give them support.."
-          ></textarea>
-          {errors.comment && (
-            <span>
-              This field has minimum of 4 and maximum of 240 characters
-            </span>
-          )}
-          <div className={styles.btnwraper}>
-            <button className={styles.btnpost}>POST</button>
-          </div>
-        </form>
+        {userdata.isLogin ? (
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <textarea
+              name="comment"
+              ref={register({ required: true, minLength: 4, maxLength: 240 })}
+              placeholder="Give them support.."
+              onChange={handleChange}
+              value={text}
+            ></textarea>
+            {errors.comment && (
+              <span>
+                This field has minimum of 4 and maximum of 240 characters
+              </span>
+            )}
+            <div className={styles.btnwraper}>
+              <button className={styles.btnpost}>POST</button>
+            </div>
+          </form>
+        ) : (
+          <p className={styles.reminder}>Please login to add a comment</p>
+        )}
       </div>
     </div>
   );
