@@ -476,8 +476,12 @@ margin-top: 1rem;
   border-top: none;
   border-left: none;
   border-right: none;
+  border-bottom: none;
   
 }
+.inputShareClick:active{
+  outline: none;
+} 
 .linkicon{
   margin: 2rem -2rem 0 3rem;
 }
