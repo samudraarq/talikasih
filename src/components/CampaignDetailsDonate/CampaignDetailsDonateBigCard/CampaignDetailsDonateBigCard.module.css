@@ -2,7 +2,7 @@
   .container {
     padding: 0 10rem;
   }
-  .btnShare{
+  .btnShare {
     width: 100% !important;
   }
   .btnDonate {
@@ -21,28 +21,22 @@
   }
   .btnShare {
     width: 50% !important;
-  
   }
-  .btnDonate{
-
+  .btnDonate {
     width: 50% !important;
   }
-
 }
 @media only screen and (max-width: 800px) {
   .container {
     padding: 0 7rem;
   }
   .btnShare {
-    margin-bottom:0px !important;
-    width: 50% !important;
-  
-  }
-  .btnDonate{
-
+    margin-bottom: 0px !important;
     width: 50% !important;
   }
-
+  .btnDonate {
+    width: 50% !important;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -52,14 +46,13 @@
 
   .btnShare {
     width: 50% !important;
-    bottom: 60px !important;
+    bottom: 9.5rem !important;
   }
-  .btnDonate{
-    bottom: 60px !important;
+  .btnDonate {
+    bottom: 9.5rem !important;
     width: 50% !important;
-  } 
+  }
 }
-
 
 @media only screen and (max-width: 530px) {
   .container {
@@ -68,8 +61,12 @@
 }
 
 @media only screen and (max-width: 320px) {
-
-
+  .btnShare {
+    bottom: 10rem !important;
+  }
+  .btnDonate {
+    bottom: 10rem !important;
+  }
 }
 
 .container {
@@ -83,10 +80,9 @@
 }
 
 .btnDonate:hover {
- 
   background: rgba(164, 63, 60, 0.8);
   border-radius: 3px;
-} 
+}
 .cardKiri {
   width: 62%;
   margin-right: 3%;
@@ -113,7 +109,6 @@
   object-fit: cover;
   background-size: cover;
 }
-
 
 .cardKanan {
   width: 37%;
@@ -184,7 +179,6 @@
 .menuItem:hover {
   background-color: #f4f4f4;
 }
-
 
 .progressDone {
   background: #1d94a8;
@@ -416,31 +410,29 @@ img.roda {
  
 } */
 
-
 .modalShare {
-
   height: 30%;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background: #FFFFFF;
+  background: #ffffff;
 
   /* Gray */
-  border: 1px solid #9F9F9F;
+  border: 1px solid #9f9f9f;
   box-sizing: border-box;
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
 
-.modalShareHead{
+.modalShareHead {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #9F9F9F;
+  border-bottom: 1px solid #9f9f9f;
   padding: 3rem;
   min-height: 12rem;
 }
-.modalShareBody{
+.modalShareBody {
   /* background-color: blue; */
   min-height: 100%;
   padding: 2rem 8rem 5rem 5rem;
@@ -450,53 +442,49 @@ img.roda {
   justify-content: center;
 }
 
-.helpshare{
-
+.helpshare {
   font-family: Nunito;
   font-style: normal;
   font-weight: bold;
   font-size: 32px;
   line-height: 44px;
-  
+
   /* identical to box height */
-  
+
   color: #000000;
-
 }
 
-.linkwraper{
-border-bottom: 1px solid #9F9F9F;
-margin-bottom: 2rem;
-margin-top: 1rem;
+.linkwraper {
+  border-bottom: 1px solid #9f9f9f;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 }
-.inputShareClick{
+.inputShareClick {
   padding: 1.5rem 2rem 0rem 2rem;
   margin: 2rem;
-  width:  40rem;
+  width: 40rem;
   border-top: none;
   border-left: none;
   border-right: none;
-  
 }
-.linkicon{
+.linkicon {
   margin: 2rem -2rem 0 3rem;
 }
-.btnShareClick{
+.btnShareClick {
   height: 5rem;
   margin-top: 3rem;
   padding: 0 8rem;
   color: #fff;
-  background-color: #A43F3C;
+  background-color: #a43f3c;
   border-radius: 3px;
   margin-left: 6rem;
   border: none;
 }
-.btnShareClick:hover{
+.btnShareClick:hover {
   /* Rose 80% */
-background: rgba(164, 63, 60, 0.8);
-border-radius: 3
+  background: rgba(164, 63, 60, 0.8);
+  border-radius: 3;
 }
-  
 
 /* MODAL */
 .modalStyle {
@@ -514,136 +502,131 @@ border-radius: 3
   margin-right: 4rem;
 }
 
-.btnShare:hover{
-      /* Dust */
-background: #D7EBEE;
+.btnShare:hover {
+  /* Dust */
+  background: #d7ebee;
 
-/* Tosca */
-border: 1px solid #1D94A8;
-box-sizing: border-box;
-border-radius: 3px;
+  /* Tosca */
+  border: 1px solid #1d94a8;
+  box-sizing: border-box;
+  border-radius: 3px;
 }
 
-.btnShareClick h1{
+.btnShareClick h1 {
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 22px;
-  
+
   /* identical to box height */
   text-align: center;
   letter-spacing: 1px;
-  
 }
-.btnColseShare{
-
+.btnColseShare {
   background-color: transparent;
   border: none;
   margin-right: 1.5rem;
   cursor: pointer;
 }
 .profilWraper {
-  display: flex;flex-direction: row;
-  margin-bottom: 3rem;
- }
-
-
-
-@media all and (max-width: 860px) { 
-
-.container {
-  max-width: 100%;
-  margin: 0rem auto 0rem auto;
-  height: 100%;
   display: flex;
-  justify-content: right;
-  align-items: right;
-  flex-direction: column;
-}
-
-.cardKiri{
-  width: 100%;
-  padding: 2rem;
-}
-.cardKanan{
-  width: 100%;
-  padding: 2rem;
-}
-
-
-.btnShare {
-  height: 6rem;
-  width: 40%;
-  position: fixed;
-  bottom: 0px;
-  left: 0px; 
-  z-index: 20;
-  background: #ffffff;
-  /* Tosca */
-  border:none;
-  box-sizing: border-box;
-  border-radius: 0px;
-
-font-style: normal;
-font-weight: bold;
-font-size: 16px;
-line-height: 22px;
-
-/* identical to box height */
-letter-spacing: 1px;
-text-transform: uppercase;
-  text-align: center;
-}
-
-.btnDonate {
-  height: 6rem;
-  width: 60%;
-  position: fixed;
-  bottom: 0;
-  right: 0px; 
-
-  z-index: 20;
-  background: #A43F3C;
-  border-radius: 3px;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: 1px;
-  text-align: center;
-  border: none;
-}
-
-
-.cardHead {
-  width: 100%;
-  max-width: 100%;
-  padding: 2rem;
-  margin: 15rem auto 0rem auto;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: right;
   flex-direction: row;
-  
+  margin-bottom: 3rem;
 }
 
+@media all and (max-width: 860px) {
+  .container {
+    max-width: 100%;
+    margin: 0rem auto 0rem auto;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    flex-direction: column;
+  }
 
-.cardHead h1  {
-  font-size: 24px;
-line-height: 22px;
+  .cardKiri {
+    width: 100%;
+    padding: 2rem;
+  }
+  .cardKanan {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .btnShare {
+    height: 6rem;
+    width: 40%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 20;
+    background: #ffffff;
+    margin-bottom: 0;
+    box-shadow: 0px -2px 4px 2px rgba(0, 0, 0, 0.05);
+    /* Tosca */
+    border: none;
+    box-sizing: border-box;
+    border-radius: 0;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+
+    /* identical to box height */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .btnDonate {
+    height: 6rem;
+    width: 60%;
+    position: fixed;
+    bottom: 0;
+    right: 0px;
+    box-shadow: 0px -2px 4px 2px rgba(0, 0, 0, 0.05);
+
+    z-index: 20;
+    background: #a43f3c;
+    border-radius: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 1px;
+    text-align: center;
+    border: none;
+  }
+
+  .cardHead {
+    width: 100%;
+    max-width: 100%;
+    padding: 2rem;
+    margin: 15rem auto 0rem auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    flex-direction: row;
+  }
+
+  .cardHead h1 {
+    font-size: 24px;
+    line-height: 22px;
+  }
+  .cekStatus {
+    margin-left: 70%;
+  }
+
+  .goal,
+  .cekStatus,
+  .profilName {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+  }
 }
-.cekStatus {margin-left: 70%;}
-
-.goal ,.cekStatus  ,.profilName{
-  font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 19px;
-}
-
-}
-
-  
- 

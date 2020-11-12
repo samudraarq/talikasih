@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import NumberFormat from "react-number-format";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
+import axios from "axios";
 import Modal from "react-modal";
 import moment from "moment";
 import { postShare } from "../../../redux/actions/donorActions";
@@ -50,6 +51,8 @@ const CampaignDetailsDonateBigCard = ({
     },
   };
 
+  const history = useHistory();
+
   const openModalLogin = () => {
     setModalOpen();
     setFormLogin();
@@ -84,7 +87,24 @@ const CampaignDetailsDonateBigCard = ({
     document.removeEventListener("click", handleClose);
   };
 
-  const handleChoose = () => {
+  const handleChoose = (e) => {
+    if (e.target.id === "edit") {
+      history.push(`/campaign/edit/${dataDonorAll.dataDonate.id}`);
+    } else if (e.target.id === "delete") {
+      const config = {
+        method: "delete",
+        url: `https://warm-tundra-23736.herokuapp.com/campaign/delete/${dataDonorAll.dataDonate.id}`,
+        headers: {
+          token: userdata.token,
+        },
+      };
+      axios(config)
+        .then((res) => {
+          history.push("/user/profile");
+        })
+        .catch((err) => console.log(err));
+    }
+
     handleClose();
   };
 
@@ -156,27 +176,27 @@ const CampaignDetailsDonateBigCard = ({
                   <div className={styles.sortContainer}>
                     {openMenu && (
                       <div className={styles.menuContainer}>
-                        <Link
-                          to={`/discover/$sort=newest`}
+                        <span
                           className={styles.menuItem}
                           onClick={handleChoose}
+                          id="edit"
                         >
                           Edit
-                        </Link>
-                        <Link
-                          to={`/discover/$sort=mosturgent`}
+                        </span>
+                        {/* <span
                           className={styles.menuItem}
                           onClick={handleChoose}
+                          id="close"
                         >
                           Close Campaign
-                        </Link>
-                        <Link
-                          to={`/discover/$sort=popular`}
+                        </span> */}
+                        <span
                           className={styles.menuItem}
                           onClick={handleChoose}
+                          id="delete"
                         >
                           Delete
-                        </Link>
+                        </span>
                       </div>
                     )}
                   </div>
@@ -303,20 +323,24 @@ const CampaignDetailsDonateBigCard = ({
                     className={styles.btnColseShare}
                     onClick={requestShareClose}
                   >
-                    <img  src={setImage3} alt="user3"></img>
+                    <img src={setImage3} alt="user3"></img>
                   </button>
                 </div>
                 <div className={styles.modalShareBody}>
-                <div className={styles.linkwraper}>
-                  <img className={styles.linkicon} src={setImage4} alt="setlink" />
-                  <input
-                    className={styles.inputShareClick}
-                    name="myvalue"
-                    id="myvalue"
-                    type="text"
-                    value={window.location}
-                  />
-                   </div>
+                  <div className={styles.linkwraper}>
+                    <img
+                      className={styles.linkicon}
+                      src={setImage4}
+                      alt="setlink"
+                    />
+                    <input
+                      className={styles.inputShareClick}
+                      name="myvalue"
+                      id="myvalue"
+                      type="text"
+                      value={window.location}
+                    />
+                  </div>
                   <button
                     className={styles.btnShareClick}
                     onClick={copyToClipboard}
