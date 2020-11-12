@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./CampaignDetailsDonateComentFrom.module.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -13,12 +13,14 @@ const CampaignDetailsDonateComentFrom = ({
   getDonorDataComent,
   campaignId,
 }) => {
+  const [text, setText] = useState("");
+
   let { idDonate } = useParams();
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
     let dataqs = qs.stringify({
-      content: data.comment,
+      content: text,
     });
     console.log(data);
     let token = userdata.token;
@@ -34,10 +36,15 @@ const CampaignDetailsDonateComentFrom = ({
     axios(config)
       .then(function (response) {
         getDonorDataComent(campaignId);
+        setText("");
       })
       .catch(function (error) {
         console.log(error);
       });
+  };
+
+  const handleChange = (e) => {
+    setText(e.target.value);
   };
 
   return (
@@ -49,6 +56,8 @@ const CampaignDetailsDonateComentFrom = ({
             name="comment"
             ref={register({ required: true, minLength: 4, maxLength: 240 })}
             placeholder="Give them support.."
+            onChange={handleChange}
+            value={text}
           ></textarea>
           {errors.comment && (
             <span>
