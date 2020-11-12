@@ -51,23 +51,27 @@ const CampaignDetailsDonateComentFrom = ({
     <div className={styles.body}>
       <div className={styles.container}>
         <h1>Comments ({jumlahkomen.length})</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <textarea
-            name="comment"
-            ref={register({ required: true, minLength: 4, maxLength: 240 })}
-            placeholder="Give them support.."
-            onChange={handleChange}
-            value={text}
-          ></textarea>
-          {errors.comment && (
-            <span>
-              This field has minimum of 4 and maximum of 240 characters
-            </span>
-          )}
-          <div className={styles.btnwraper}>
-            <button className={styles.btnpost}>POST</button>
-          </div>
-        </form>
+        {userdata.isLogin ? (
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <textarea
+              name="comment"
+              ref={register({ required: true, minLength: 4, maxLength: 240 })}
+              placeholder="Give them support.."
+              onChange={handleChange}
+              value={text}
+            ></textarea>
+            {errors.comment && (
+              <span>
+                This field has minimum of 4 and maximum of 240 characters
+              </span>
+            )}
+            <div className={styles.btnwraper}>
+              <button className={styles.btnpost}>POST</button>
+            </div>
+          </form>
+        ) : (
+          <p className={styles.reminder}>Please login to add a comment</p>
+        )}
       </div>
     </div>
   );
