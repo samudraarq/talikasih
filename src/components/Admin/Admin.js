@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -136,4 +133,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(Admin);
->>>>>>> 37d9dc976e675d16bd24637e80cbe2772790eaab

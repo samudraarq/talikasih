@@ -7,15 +7,10 @@ import "swiper/swiper-bundle.css";
 import styles from "./Carousel.module.css";
 import imgSlide1 from "../../assets/homepage/Home/Carousel/image 1.png";
 import ellipse from "../../assets/homepage/Home/Carousel/Ellipse.svg";
-<<<<<<< HEAD
 import imgSlide2 from "../../assets/homepage/Home/Carousel/image 2.png";
 import imgSlide3 from "../../assets/homepage/Home/Carousel/image 3.png";
 import logo from "../../assets/homepage/Home/Carousel/logo.png";
-=======
-import imgSlide2 from "../../assets/homepage/Home/Carousel/slide2.svg";
-import imgSlide3 from "../../assets/homepage/Home/Carousel/slide3.svg";
 import { Link } from "react-router-dom";
->>>>>>> 37d9dc976e675d16bd24637e80cbe2772790eaab
 
 SwiperCore.use([Pagination, EffectFade, Autoplay, A11y]);
 

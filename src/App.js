@@ -16,13 +16,7 @@ import UserProfilePage from "./pages/UserProfilePage";
 import AdminPage from "./pages/AdminPage";
 import EditCampaign from "./pages/EditCampaign";
 
-<<<<<<< HEAD
-
-
-function App({ setUserPersistanceLogin }) {
-=======
 function App({ setUserPersistanceLogin, auth }) {
->>>>>>> 37d9dc976e675d16bd24637e80cbe2772790eaab
   useEffect(() => {
     setUserPersistanceLogin();
   }, [setUserPersistanceLogin]);
@@ -139,16 +133,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-<<<<<<< HEAD
-export default connect(null, mapDispatchToProps)(App);
-
-
-
-
-
-
-
-=======
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
@@ -156,4 +140,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
->>>>>>> 37d9dc976e675d16bd24637e80cbe2772790eaab
