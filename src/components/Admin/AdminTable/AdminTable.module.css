@@ -38,6 +38,8 @@
 .title {
   font-weight: 700;
   font-size: 1.4rem;
+  line-height: 1.4rem;
+  letter-spacing: 0;
   color: #2f243a;
   text-decoration: underline;
 }

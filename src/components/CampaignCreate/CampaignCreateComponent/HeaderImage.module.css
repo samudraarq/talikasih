@@ -1,6 +1,6 @@
 .image {
-  width: 96.4rem;
-  height: 49.4rem;
+  width: 100%;
+  max-height: 49rem;
   object-fit: cover;
 }
 
