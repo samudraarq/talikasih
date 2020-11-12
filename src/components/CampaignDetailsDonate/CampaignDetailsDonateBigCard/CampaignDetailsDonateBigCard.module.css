@@ -419,39 +419,82 @@ img.roda {
 
 .modalShare {
 
-  height: 20%;
+  height: 30%;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background: #FFFFFF;
+
+  /* Gray */
+  border: 1px solid #9F9F9F;
+  box-sizing: border-box;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 }
 
 .modalShareHead{
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #9F9F9F;
-  padding: 2rem;
+  padding: 3rem;
+  min-height: 12rem;
 }
 .modalShareBody{
   /* background-color: blue; */
   min-height: 100%;
-  border: 2px solid #9F9F9F;
-  padding: 2rem 8rem 2rem 5rem;
+  padding: 2rem 8rem 5rem 5rem;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.helpshare{
+
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 44px;
+  
+  /* identical to box height */
+  
+  color: #000000;
+
+}
+
+.linkwraper{
+border-bottom: 1px solid #9F9F9F;
+margin-bottom: 2rem;
+margin-top: 1rem;
 }
 .inputShareClick{
-  padding: 1.5rem 2rem 1.5rem 2rem;
+  padding: 1.5rem 2rem 0rem 2rem;
   margin: 2rem;
   width:  40rem;
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 1px solid #9F9F9F;
+  
+}
+.linkicon{
+  margin: 2rem -2rem 0 3rem;
 }
 .btnShareClick{
-  padding: 1.5rem 8rem;
+  height: 5rem;
+  margin-top: 3rem;
+  padding: 0 8rem;
   color: #fff;
   background-color: #A43F3C;
   border-radius: 3px;
+  margin-left: 6rem;
+  border: none;
+}
+.btnShareClick:hover{
+  /* Rose 80% */
+background: rgba(164, 63, 60, 0.8);
+border-radius: 3
 }
   
 
@@ -486,11 +529,18 @@ border-radius: 3px;
   font-weight: bold;
   font-size: 16px;
   line-height: 22px;
+  
+  /* identical to box height */
+  text-align: center;
+  letter-spacing: 1px;
+  
 }
 .btnColseShare{
 
   background-color: transparent;
   border: none;
+  margin-right: 1.5rem;
+  cursor: pointer;
 }
 .profilWraper {
   display: flex;flex-direction: row;
