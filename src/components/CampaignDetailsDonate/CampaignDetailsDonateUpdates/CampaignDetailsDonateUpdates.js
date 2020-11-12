@@ -22,7 +22,7 @@ const CampaignDetailsDonateUpdates = ({
   let pageLimit = dataDonorAll?.dataDonateStory?.total_page;
   const sortedActivities = dataDonorAll?.dataDonateUpdates;
 
-  const UserAllStory = sortedActivities?.reverse().map((item, index) => {
+  const UserAllStory = sortedActivities?.map((item, index) => {
     // count Day left
     let now = moment(new Date()); //todays date
     let end = moment(`${item.createdAt}`); // another date

@@ -2,16 +2,17 @@
   .container {
     padding: 0 10rem;
   }
-  .body {padding: 0 7rem;
+  .body {
+    padding: 0 7rem;
   }
-  }
-  
+}
 
 @media only screen and (max-width: 950px) {
   .container {
     padding: 0 9rem;
   }
-  .body {padding: 0 6rem;
+  .body {
+    padding: 0 6rem;
   }
 }
 
@@ -19,7 +20,8 @@
   .container {
     padding: 0 7rem;
   }
-  .body {padding: 0 4rem;
+  .body {
+    padding: 0 4rem;
   }
 }
 
@@ -27,150 +29,141 @@
   .container {
     padding: 0 5rem;
   }
-  .body {padding: 0 2rem;
+  .body {
+    padding: 0 2rem;
   }
 }
-
 
 @media only screen and (max-width: 530px) {
   .container {
     padding: 0 1rem;
   }
- 
 }
 
 @media only screen and (max-width: 320px) {
-
 }
-
 
 .container {
-    max-width: 120rem;
-    margin: 0rem auto 10rem auto;
-    height: 100%;
-    padding: 3rem;
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    flex-direction: column;
-    border: 1px solid #E1E0E0;
-    border-top: none;
-    box-sizing: border-box;
-    border-radius: 4px;
-  }
-
-  .wrapper {
-    /* background-color: crimson */
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 4rem;
-  }
-
-  .card:nth-child(even) {
-    /* background-color: crimson */
-    background: rgba(241, 237, 228, 0.2);
-    border: 1px solid #E1E0E0;
-    border-left: none;
-    border-right: none;
-  }
-  
-  .card:first-child{
-
-    border-top: 1px solid #E1E0E0;
-  }
-  
-
-  .card{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 1rem;
-
-  background: #FFFFFF;
-    /* border: darkblue solid 1px; */
-  }
-
-  .cardheader {
-    display: flex;
-    flex-direction: row;
-    padding: 2rem 2rem 0 1rem;
-  }
-
-  .cardheader h3 {
-    color: #1D94A8;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-  }
-  .cardheader h5 {
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 19px;
-    
-    /* identical to box height */
-    
-    color: #000000;
-  }
-
-  .cardheader p {
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 19px;
-
-/* identical to box height */
-
-/* Grey */
-color: #9F9F9F;
-  }
-
-  .cardbody {
-
-    padding: 0rem 2rem 2rem 1rem;
-  }
-
-  .info {
-
-    padding: 0.3rem 2rem 2rem 2rem;
-  }
-
-  .foto img {
-      background-size: cover;
-      width: 7.4rem;
-      height: 7.4rem;
-  }
-
-.btnwrap {
-
-    display: flex;
-    justify-content: center;
-
+  max-width: 120rem;
+  margin: 0rem auto 10rem auto;
+  height: 100%;
+  padding: 3rem;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  flex-direction: column;
+  border: 1px solid #e1e0e0;
+  border-top: none;
+  box-sizing: border-box;
+  border-radius: 4px;
 }
 
-  .btnLoadmore{
-      padding: 1.1rem 3.4rem 1.1rem 3.4rem;
-      background: #FFFFFF;
-/* Tosca */
-    border: 1px solid #1D94A8;
-    box-sizing: border-box;
-    border-radius: 3px;
-    color: #1D94A8 ;
-  }
+.wrapper {
+  /* background-color: crimson */
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
 
-  .btnLoadmore:hover{
+.card:nth-child(even) {
+  /* background-color: crimson */
+  background: rgba(241, 237, 228, 0.2);
+  border: 1px solid #e1e0e0;
+  border-left: none;
+  border-right: none;
+}
 
-    /* Dust */
-background: #D7EBEE;
+.card:first-child {
+  border-top: 1px solid #e1e0e0;
+}
 
-/* Tosca */
-border: 1px solid #1D94A8;
-box-sizing: border-box;
-border-radius: 3px;
-  }
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+
+  background: #ffffff;
+  /* border: darkblue solid 1px; */
+}
+
+.cardheader {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 2rem 0 1rem;
+}
+
+.cardheader h3 {
+  color: #1d94a8;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+}
+.cardheader h5 {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+
+  /* identical to box height */
+
+  color: #000000;
+}
+
+.cardheader p {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+
+  /* identical to box height */
+
+  /* Grey */
+  color: #9f9f9f;
+}
+
+.cardbody {
+  padding: 0rem 2rem 2rem 1rem;
+  font-size: 1.4rem;
+}
+
+.info {
+  padding: 0.3rem 2rem 2rem 2rem;
+}
+
+.foto img {
+  background-size: cover;
+  width: 7.4rem;
+  height: 7.4rem;
+}
+
+.btnwrap {
+  display: flex;
+  justify-content: center;
+}
+
+.btnLoadmore {
+  padding: 1.1rem 3.4rem 1.1rem 3.4rem;
+  background: #ffffff;
+  /* Tosca */
+  border: 1px solid #1d94a8;
+  box-sizing: border-box;
+  border-radius: 3px;
+  color: #1d94a8;
+}
+
+.btnLoadmore:hover {
+  /* Dust */
+  background: #d7ebee;
+
+  /* Tosca */
+  border: 1px solid #1d94a8;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
