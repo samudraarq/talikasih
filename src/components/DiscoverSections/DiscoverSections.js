@@ -9,6 +9,8 @@ import styles from "./DiscoverSections.module.css";
 import CampaignCard from "../CampaignCard/CampaignCard";
 import SkeletonCard from "../Skeleton/SkeletonCard";
 import Container from "../UI/Container";
+import useWindowSize from "../Hooks/useWindowResize";
+import SideScroll from "../UI/SideScroll";
 
 const DiscoverSections = ({
   newCampaign,
@@ -38,33 +40,70 @@ const DiscoverSections = ({
 
   const renderSkeletonCards = [1, 2, 3].map((n) => <SkeletonCard key={n} />);
 
+  const [width] = useWindowSize();
+
   return (
-    <Container>
-      <div className={styles.container}>
-        <div className={styles.sectionsContainer}>
-          <span className={styles.sectionsTitle}>Newest</span>
-          <div className={styles.cardsContainer}>
-            {newCampaign.loading ? renderSkeletonCards : renderNewCampaigns}
+    <>
+      {width > 800 ? (
+        <Container>
+          <div className={styles.container}>
+            <div className={styles.sectionsContainer}>
+              <span className={styles.sectionsTitle}>Newest</span>
+              <div className={styles.cardsContainer}>
+                {newCampaign.loading ? renderSkeletonCards : renderNewCampaigns}
+              </div>
+            </div>
+            <div className={styles.sectionsContainer}>
+              <span className={styles.sectionsTitle}>Most Urgent</span>
+              <div className={styles.cardsContainer}>
+                {urgentCampaign.loading
+                  ? renderSkeletonCards
+                  : renderUrgentCampaigns}
+              </div>
+            </div>
+            <div className={styles.sectionsContainer}>
+              <span className={styles.sectionsTitle}>Gained Momentum</span>
+              <div className={styles.cardsContainer}>
+                {popularCampaign.loading
+                  ? renderSkeletonCards
+                  : renderPopularCampaigns}
+              </div>
+            </div>
+          </div>
+        </Container>
+      ) : (
+        <div className={styles.container}>
+          <div className={styles.sectionsContainer}>
+            <Container>
+              <span className={styles.sectionsTitle}>Newest</span>
+            </Container>
+            <SideScroll>
+              {newCampaign.loading ? renderSkeletonCards : renderNewCampaigns}
+            </SideScroll>
+          </div>
+          <div className={styles.sectionsContainer}>
+            <Container>
+              <span className={styles.sectionsTitle}>Most Urgent</span>
+            </Container>
+            <SideScroll>
+              {urgentCampaign.loading
+                ? renderSkeletonCards
+                : renderUrgentCampaigns}
+            </SideScroll>
+          </div>
+          <div className={styles.sectionsContainer}>
+            <Container>
+              <span className={styles.sectionsTitle}>Gained Momentum</span>
+            </Container>
+            <SideScroll>
+              {popularCampaign.loading
+                ? renderSkeletonCards
+                : renderPopularCampaigns}
+            </SideScroll>
           </div>
         </div>
-        <div className={styles.sectionsContainer}>
-          <span className={styles.sectionsTitle}>Most Urgent</span>
-          <div className={styles.cardsContainer}>
-            {urgentCampaign.loading
-              ? renderSkeletonCards
-              : renderUrgentCampaigns}
-          </div>
-        </div>
-        <div className={styles.sectionsContainer}>
-          <span className={styles.sectionsTitle}>Gained Momentum</span>
-          <div className={styles.cardsContainer}>
-            {popularCampaign.loading
-              ? renderSkeletonCards
-              : renderPopularCampaigns}
-          </div>
-        </div>
-      </div>
-    </Container>
+      )}
+    </>
   );
 };
 

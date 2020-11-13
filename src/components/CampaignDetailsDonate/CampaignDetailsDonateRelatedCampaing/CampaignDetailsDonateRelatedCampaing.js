@@ -5,6 +5,8 @@ import styles from "./CampaignDetailsDonateRelatedCampaing.module.css";
 import CampaignCard from "../../CampaignCard/CampaignCard";
 import SkeletonCard from "../../Skeleton/SkeletonCard";
 import Container from "../../UI/Container";
+import useWindowSize from "../../Hooks/useWindowResize";
+import SideScroll from "../../UI/SideScroll";
 
 const CampaignDetailsDonateRelatedCampaing = ({
   dataDonorAll,
@@ -22,15 +24,34 @@ const CampaignDetailsDonateRelatedCampaing = ({
 
   const renderSkeleton = [1, 2, 3].map((n) => <SkeletonCard key={n} />);
 
+  const [width] = useWindowSize();
+
   return (
-    <Container>
-      <div className={styles.container}>
-        <span className={styles.sectionsTitle}>Related campaign</span>
-        <div className={styles.cardsContainer}>
-          {dataDonorAll.relatedCampaignsLoading ? renderSkeleton : renderCards}
+    <>
+      {width > 800 ? (
+        <Container>
+          <div className={styles.container}>
+            <span className={styles.sectionsTitle}>Related campaign</span>
+            <div className={styles.cardsContainer}>
+              {dataDonorAll.relatedCampaignsLoading
+                ? renderSkeleton
+                : renderCards}
+            </div>
+          </div>
+        </Container>
+      ) : (
+        <div className={styles.container}>
+          <Container>
+            <span className={styles.sectionsTitle}>Related campaign</span>
+          </Container>
+          <SideScroll>
+            {dataDonorAll.relatedCampaignsLoading
+              ? renderSkeleton
+              : renderCards}
+          </SideScroll>
         </div>
-      </div>
-    </Container>
+      )}
+    </>
   );
 };
 

@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ![logo](https://imgur.com/EjKyNo1) 
 
-## Available Scripts
+**Talikasih** is a place to donate and raise funds online. We believe that technological advances should be used to connect the spirit of kindness and mutual cooperation. In **Talikasih**, people can raise funds for various things they are fighting for or donate for things they want to help. **Talikasih** believes sharing is easy and fun. We make innovations to make it easier for fundraisers and donors to share kindness.
 
-In the project directory, you can run:
+![landingpage](https://imgur.com/zQFZgmt)
 
-### `npm start`
+> Continue to Innovate, Make Sharing Easy
+# Table of Contents
+- [Features](#Features)
+  - [Register and Login](#Register-and-Login)
+  - [Show latest donation campaign](#Show-latest-donation-campaign)
+  - [Request and Give Donation](#Request-and-Give-Donation)
+  - [Search and Filter](#Search-and-Filter)
+  - [Monitor](#Monitor)
+  - [Admin Panel](#Admin-Panel)
+- [Mobile support](#Mobile-support)
+- [Demo](#Demo)
+  
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# Features
 
-### `npm test`
+> **Journey to achieve product workflow**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Register and Login
 
-### `npm run build`
+> User can register and login
+![register](https://imgur.com/vA8UwIp)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![login](https://imgur.com/Ci1NFrO)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Show latest donation campaign
+> User can see the latest donation campaign
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![latest](https://imgur.com/1PBFXKI)
 
-### `npm run eject`
+## Request and Give Donation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> User can request donations with creating a new campaign and can give donation for the donation campaign
+![Donate](https://imgur.com/yAvDxuT)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![CreateCampaign](https://imgur.com/z0Gouia)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Search and Filter
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+> User can search donation campaign by keywords and can filter donation campaign by category
 
-## Learn More
+![search](https://imgur.com/TFIZATq)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![srch](https://imgur.com/LfAObzO)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![filter](https://imgur.com/iJbAx4D)
 
-### Code Splitting
+![fltr](https://imgur.com/lvNbpLv)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Monitor
 
-### Analyzing the Bundle Size
+> User can see the total donation collected and donation updates log of a donation campaign
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+![monitor](https://imgur.com/sGNij82)
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Admin Panel
 
-### Advanced Configuration
+![Adminpanel](https://imgur.com/9mtrZbw)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+# Demo
 
-### Deployment
+Here is a working live demo: 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+# Mobile support
 
-### `npm run build` fails to minify
+**Talikasih** is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
