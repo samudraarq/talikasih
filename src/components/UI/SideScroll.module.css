@@ -1,0 +1,96 @@
+.wrapper {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 12rem repeat(3, calc(30% - 4rem)) 12rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  margin-top: 2.4rem;
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+Hide scrollbar for Chrome,
+Safari and Opera .wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.wrapper a:not(:last-of-type) {
+  margin-right: 2.6rem;
+}
+
+.wrapper::before {
+  content: "";
+}
+
+.wrapper::after {
+  content: "";
+  width: 12rem;
+}
+
+@media only screen and (max-width: 1100px) {
+  .wrapper {
+    grid-template-columns: 10rem repeat(3, calc(35% - 4rem)) 10rem;
+  }
+
+  .wrapper::after {
+    width: 10rem;
+  }
+
+  .wrapper a:not(:last-of-type) {
+    margin-right: 2.6rem;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .wrapper {
+    grid-template-columns: 9rem repeat(3, calc(40% - 4rem)) 9rem;
+  }
+
+  .wrapper::after {
+    width: 9rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    grid-template-columns: 7rem repeat(3, calc(45% - 4rem)) 7rem;
+  }
+
+  .wrapper::after {
+    width: 7rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .wrapper {
+    grid-template-columns: 5rem repeat(3, calc(50% - 4rem)) 5rem;
+  }
+
+  .wrapper::after {
+    width: 5rem;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .wrapper {
+    grid-template-columns: 2rem repeat(3, calc(60% - 4rem)) 2rem;
+  }
+
+  .wrapper::after {
+    width: 2rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .wrapper {
+    grid-template-columns: 2rem repeat(3, calc(70% - 4rem)) 2rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .wrapper {
+    grid-template-columns: 2rem repeat(3, calc(80% - 4rem)) 2rem;
+  }
+}
