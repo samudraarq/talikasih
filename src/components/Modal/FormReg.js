@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import styles from "../Modal/FormReg.module.css";
 import { setRegister } from "../../redux/actions/authActions";
 import { setFormLogin } from "../../redux/actions/layoutActions";
-import google from "../../assets/homepage/Home/google.png";
+// import google from "../../assets/homepage/Home/google.png";
 
 function FormReg(props) {
   const { register, handleSubmit, watch, errors } = useForm();
@@ -99,10 +99,10 @@ function FormReg(props) {
           <p className={styles.errorMessageAuth}>{props.auth.errorMsg}</p>
         )}
       </form>
-      <button className={styles.btnGoogle}>
+      {/* <button className={styles.btnGoogle}>
         <img src={google} alt="google" className={styles.google} />
         Continue with Google
-      </button>
+      </button> */}
     </div>
   );
 }
