@@ -1,8 +1,8 @@
-# ![logo](https://imgur.com/EjKyNo1) 
+# ![logo](https://i.imgur.com/EjKyNo1.png) 
 
 **Talikasih** is a place to donate and raise funds online. We believe that technological advances should be used to connect the spirit of kindness and mutual cooperation. In **Talikasih**, people can raise funds for various things they are fighting for or donate for things they want to help. **Talikasih** believes sharing is easy and fun. We make innovations to make it easier for fundraisers and donors to share kindness.
 
-![landingpage](https://imgur.com/zQFZgmt)
+![landingpage](https://i.imgur.com/zQFZgmt.png)
 
 > Continue to Innovate, Make Sharing Easy
 # Table of Contents
@@ -25,44 +25,44 @@
 ## Register and Login
 
 > User can register and login
-![register](https://imgur.com/vA8UwIp)
+![register](https://i.imgur.com/vA8UwIp.png)
 
-![login](https://imgur.com/Ci1NFrO)
+![login](https://i.imgur.com/Ci1NFrO.png)
 
 ## Show latest donation campaign
 > User can see the latest donation campaign
 
-![latest](https://imgur.com/1PBFXKI)
+![latest](https://i.imgur.com/1PBFXKI.png)
 
 ## Request and Give Donation
 
 > User can request donations with creating a new campaign and can give donation for the donation campaign
-![Donate](https://imgur.com/yAvDxuT)
+![Donate](https://i.imgur.com/yAvDxuT.png)
 
-![CreateCampaign](https://imgur.com/z0Gouia)
+![CreateCampaign](https://i.imgur.com/z0Gouia.png)
 
 ## Search and Filter
 
 > User can search donation campaign by keywords and can filter donation campaign by category
 
-![search](https://imgur.com/TFIZATq)
+![search](https://i.imgur.com/TFIZATq.png)
 
-![srch](https://imgur.com/LfAObzO)
+![srch](https://i.imgur.com/LfAObzO.png)
 
-![filter](https://imgur.com/iJbAx4D)
+![filter](https://i.imgur.com/iJbAx4D.png)
 
-![fltr](https://imgur.com/lvNbpLv)
+![fltr](https://i.imgur.com/lvNbpLv.png)
 
 ## Monitor
 
 > User can see the total donation collected and donation updates log of a donation campaign
 
-![monitor](https://imgur.com/sGNij82)
+![monitor](https://i.imgur.com/sGNij82.png)
 
 
 ## Admin Panel
 
-![Adminpanel](https://imgur.com/9mtrZbw)
+![Adminpanel](https://i.imgur.com/9mtrZbw.png)
 
 # Demo
 
