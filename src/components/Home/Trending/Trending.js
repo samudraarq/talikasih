@@ -12,7 +12,7 @@ import Container from "../../UI/Container";
 // import trendingImage from "../../../assets/homepage/Home/Rectangle 33.png";
 // import fundraiser from "../../../assets/homepage/Home/Rectangle 37.png";
 
-const Trending = ({ trendingCampaign, getTrendingCampaign }) => {
+export const Trending = ({ trendingCampaign, getTrendingCampaign }) => {
   useEffect(() => {
     getTrendingCampaign();
   }, [getTrendingCampaign]);
