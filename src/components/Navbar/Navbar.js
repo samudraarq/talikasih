@@ -15,7 +15,7 @@ import { Link, useHistory } from "react-router-dom";
 import useWindowSize from "../Hooks/useWindowResize";
 import BottomNavbar from "./BottomNavbar/BottomNavbar";
 
-const Navbar = (props) => {
+export const Navbar = (props) => {
   const [openSearch, setOpenSearch] = useState(false);
   const [createBtn, setCreateBtn] = useState(true);
 
