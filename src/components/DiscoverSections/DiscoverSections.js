@@ -12,7 +12,7 @@ import Container from "../UI/Container";
 import useWindowSize from "../Hooks/useWindowResize";
 import SideScroll from "../UI/SideScroll";
 
-const DiscoverSections = ({
+export const DiscoverSections = ({
   newCampaign,
   popularCampaign,
   urgentCampaign,
