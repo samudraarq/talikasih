@@ -50,11 +50,11 @@ describe("<Trending />", () => {
     wrapper = shallow(<Trending {...props} />);
   });
 
-  it("should render and h3 with Trending Topic text", () => {
+  it("should render a h3 with Trending Topic text", () => {
     expect(wrapper.find("h3").text()).toEqual("Trending Topic");
   });
 
-  it("should render and h2 with Topic title", () => {
+  it("should render a h2 with Topic title", () => {
     expect(wrapper.find("h2").text()).toEqual(
       props.trendingCampaign.documents.title
     );
