@@ -27,24 +27,32 @@ const BottomNavbar = ({ auth, setModalOpen, setFormLogin }) => {
             <span>Donate</span>
           </div>
         </Link>
-        <Link to="/campaign/create" style={{ textDecoration: "none" }}>
-          <div className={styles.icon}>
-            <img src={plusSquare} alt="star" />
-            <span>Create Campaign</span>
-          </div>
-        </Link>
         {auth.isLogin ? (
-          <Link to="/user/profile" style={{ textDecoration: "none" }}>
-            <div className={styles.icon}>
-              <img src={user} alt="star" />
-              <span>My Account</span>
-            </div>
-          </Link>
+          <>
+            <Link to="/campaign/create" style={{ textDecoration: "none" }}>
+              <div className={styles.icon}>
+                <img src={plusSquare} alt="star" />
+                <span>Create Campaign</span>
+              </div>
+            </Link>
+            <Link to="/user/profile" style={{ textDecoration: "none" }}>
+              <div className={styles.icon}>
+                <img src={user} alt="star" />
+                <span>My Account</span>
+              </div>
+            </Link>
+          </>
         ) : (
-          <div className={styles.icon} onClick={openModal}>
-            <img src={user} alt="star" />
-            <span>Login/Register</span>
-          </div>
+          <>
+            <div className={styles.icon} onClick={openModal}>
+              <img src={plusSquare} alt="star" />
+              <span>Create Campaign</span>
+            </div>
+            <div className={styles.icon} onClick={openModal}>
+              <img src={user} alt="star" />
+              <span>Login/Register</span>
+            </div>
+          </>
         )}
       </div>
     </div>

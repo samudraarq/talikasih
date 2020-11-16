@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import qs from "qs";
 import { useForm } from "react-hook-form";
 import styles from "../Modal/FormLogin.module.css";
-import { setLogin, googleSignin } from "../../redux/actions/authActions";
+import { setLogin } from "../../redux/actions/authActions";
 import { setFormRegister } from "../../redux/actions/layoutActions";
-import google from "../../assets/homepage/Home/google.png";
+// import google from "../../assets/homepage/Home/google.png";
 
 function FormLogin(props) {
   const { register, handleSubmit, errors } = useForm();
@@ -56,7 +56,7 @@ function FormLogin(props) {
           <span className={styles.errorMessage}>{errors.password.message}</span>
         )}
 
-        <span className={styles.forgotPass}>forgot password?</span>
+        {/* <span className={styles.forgotPass}>forgot password?</span> */}
 
         <button className={styles.btnLogin} type="submit">
           {props.auth.isLoading ? "LOGGING IN..." : "LOGIN"}
@@ -65,10 +65,10 @@ function FormLogin(props) {
           <p className={styles.errorMessageAuth}>{props.auth.errorMsg}</p>
         )}
       </form>
-      <button className={styles.btnGoogle} onClick={props.googleSignin}>
+      {/* <button className={styles.btnGoogle} onClick={props.googleSignin}>
         <img src={google} alt="google" className={styles.google} />
         Continue with Google
-      </button>
+      </button> */}
     </div>
   );
 }
@@ -82,7 +82,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setLogin: (dataQs) => dispatch(setLogin(dataQs)),
-    googleSignin: () => dispatch(googleSignin()),
     setFormRegister: () => {
       dispatch(setFormRegister());
     },
