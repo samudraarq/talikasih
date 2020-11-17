@@ -10,7 +10,7 @@ import Container from "../../UI/Container";
 import useWindowSize from "../../Hooks/useWindowResize";
 import SideScroll from "../../UI/SideScroll";
 
-const NewCampaign = ({ newCampaign, getNewCampaigns }) => {
+export const NewCampaign = ({ newCampaign, getNewCampaigns }) => {
   useEffect(() => {
     getNewCampaigns(1);
   }, [getNewCampaigns]);

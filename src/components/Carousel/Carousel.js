@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 SwiperCore.use([Pagination, EffectFade, Autoplay, A11y]);
 
-function Carousel({ setModalOpen, setFormLogin, auth }) {
+export function Carousel({ setModalOpen, setFormLogin, auth }) {
   const openModal = () => {
     setModalOpen();
     setFormLogin();

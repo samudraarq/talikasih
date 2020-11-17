@@ -12,7 +12,7 @@ import environmentIcon from "../../assets/discover/environment.svg";
 import disasterIcon from "../../assets/discover/disaster.svg";
 import sociopreneurIcon from "../../assets/discover/sociopreneur.svg";
 
-const CategorySelect = () => {
+export const CategorySelect = () => {
   return (
     <Container>
       <div className={styles.container}>

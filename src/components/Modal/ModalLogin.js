@@ -9,7 +9,7 @@ import img1 from "../../assets/homepage/Home/Modal/Ellipse 2.svg";
 import img2 from "../../assets/homepage/Home/Modal/Ellipse 3.svg";
 import img3 from "../../assets/homepage/Home/Modal/Ellipse1.svg";
 
-Modal.setAppElement("#root");
+if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
 
 function ModalLogin(props) {
   return (
